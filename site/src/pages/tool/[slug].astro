@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import allTools from '../../../../data/all_tools.json';
 import categories from '../../../../data/categories.json';
+import { getToolIcon } from '../../utils/favicon';
 
 export function getStaticPaths() {
   return allTools.map((tool) => ({
@@ -12,19 +13,19 @@ export function getStaticPaths() {
 
 const { tool } = Astro.props;
 
-// Category info
 const categoryInfo = categories.find(c => c.id === tool.category) || {
   id: tool.category,
   name: tool.category,
   description: ""
 };
 
-// Alternatives (other tools in the same category)
 const alternatives = allTools
   .filter(t => t.category === tool.category && t.id !== tool.id)
   .slice(0, 4);
 
-// Schema.org JSON-LD for SoftwareApplication
+const iconUrl = getToolIcon(tool.url, tool.github_url);
+const initial = tool.name.charAt(0);
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -37,134 +38,211 @@ const jsonLd = {
     "price": "0",
     "priceCurrency": "USD"
   },
-  "aggregateRating": tool.stars > 0 ? {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": String(Math.max(tool.stars, 5))
-  } : undefined,
   "url": tool.url
 };
 ---
 
 <Layout 
   title={`${tool.name} - Features, Pricing & Alternatives`}
-  description={`${tool.name}: ${tool.tagline}. Read in-depth overview, pricing model, key features, and discover top open source alternatives.`}
-  canonicalUrl={`https://radar.yourdomain.com/tool/${tool.id}`}
+  description={`${tool.name}: ${tool.tagline}. Read in-depth overview, pricing model, key features, and discover top open source alternatives on ToolsRadar.`}
+  canonicalUrl={`https://tools.yourdomain.com/tool/${tool.id}`}
   jsonLd={jsonLd}
 >
   <!-- Breadcrumb -->
-  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-    <a href="/">Home</a>
+  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-muted);">Radar</a>
     <span>/</span>
-    <a href={`/category/${tool.category}`}>{categoryInfo.name}</a>
+    <a href={`/category/${tool.category}`} style="color: var(--text-muted);">{categoryInfo.name}</a>
     <span>/</span>
     <span style="color: var(--text-secondary);">{tool.name}</span>
   </nav>
 
-  <!-- Tool Main Header -->
-  <article style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 1rem; padding: 2rem; margin-bottom: 2rem;">
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
-      <span class="badge badge-category">{categoryInfo.name}</span>
-      <span class="badge badge-pricing">{tool.pricing_model}</span>
-      <span class="badge badge-source">Source: {tool.source.replace("_", " ")}</span>
-      {tool.stars > 0 && (
-        <span class="badge" style="background: #374151; color: #f3f4f6;">
-          ⭐ {tool.stars.toLocaleString()} Stars/Votes
-        </span>
-      )}
-    </div>
+  <!-- Main Hero Card -->
+  <article style="background: linear-gradient(180deg, rgba(24, 24, 27, 0.9) 0%, rgba(18, 18, 20, 0.95) 100%); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 2.25rem 2rem; margin-bottom: 2rem; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5); position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);"></div>
 
-    <h1 style="font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem;">
-      {tool.name}
-    </h1>
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <!-- Header row with Icon + Title -->
+      <div style="display: flex; align-items: flex-start; gap: 1.25rem;">
+        <div style="width: 64px; height: 64px; border-radius: 14px; background: #27272a; border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+          {iconUrl ? (
+            <img 
+              src={iconUrl} 
+              alt={`${tool.name} logo`} 
+              style="width: 100%; height: 100%; object-fit: cover;"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div style="display: none; font-size: 1.6rem; font-weight: 800; color: #f4f4f5;">
+              {initial}
+            </div>
+          ) : (
+            <div style="font-size: 1.6rem; font-weight: 800; color: #f4f4f5;">
+              {initial}
+            </div>
+          )}
+        </div>
 
-    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.5;">
-      {tool.tagline}
-    </p>
+        <div style="flex-grow: 1;">
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
+            <h1 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); margin: 0;">
+              {tool.name}
+            </h1>
+            <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+              {tool.pricing_model}
+            </span>
+          </div>
 
-    <!-- CTAs -->
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-      <a 
-        href={tool.url} 
-        target="_blank" 
-        rel="noopener noreferrer nofollow" 
-        class="btn btn-primary"
-      >
-        Visit Official Website ↗
-      </a>
-      {tool.github_url && (
-        <a 
-          href={tool.github_url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="btn btn-secondary"
-        >
-          View on GitHub ↗
-        </a>
-      )}
+          <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+            {tool.tagline}
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Buttons & Tags -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center;">
+          <a 
+            href={tool.url} 
+            target="_blank" 
+            rel="noopener noreferrer nofollow" 
+            class="btn btn-primary"
+          >
+            <span>Visit Official Website</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+
+          {tool.github_url && (
+            <a 
+              href={tool.github_url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn btn-secondary"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+              </svg>
+              <span>GitHub Repo</span>
+            </a>
+          )}
+        </div>
+
+        {tool.stars > 0 && (
+          <div class="stars-badge" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">
+            <span>★</span>
+            <span>{tool.stars.toLocaleString()} Stars / Upvotes</span>
+          </div>
+        )}
+      </div>
     </div>
   </article>
 
-  <!-- Overview & Description Section -->
-  <section style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.5rem;">
-    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 0.75rem; padding: 1.5rem;">
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;">
-        What is {tool.name}?
+  <!-- Detailed Specs & Overview -->
+  <section style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+    <!-- Overview Card -->
+    <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem;">
+        About {tool.name}
       </h2>
-      <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.25rem;">
+      <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">
         {tool.summary}
       </p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; background: #0f172a; padding: 1.25rem; border-radius: 0.5rem; border: 1px solid #334155;">
+      <!-- Specs Matrix -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; background: rgba(0, 0, 0, 0.3); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Category</span>
-          <a href={`/category/${tool.category}`} style="font-weight: 600;">{categoryInfo.name}</a>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Category</span>
+          <a href={`/category/${tool.category}`} style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">{categoryInfo.name}</a>
         </div>
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Pricing Model</span>
-          <span style="font-weight: 600; color: var(--success-text);">{tool.pricing_model}</span>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Pricing Tier</span>
+          <span style="font-weight: 600; color: var(--emerald); font-size: 0.95rem;">{tool.pricing_model}</span>
         </div>
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Added to Radar</span>
-          <span style="font-weight: 600;">{tool.date_added}</span>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Curation Source</span>
+          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem; text-transform: capitalize;">{tool.source.replace("_", " ")}</span>
+        </div>
+        <div>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Indexed Date</span>
+          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem;">{tool.date_added}</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Similar Alternatives Section -->
+  <!-- Similar Alternatives -->
   {alternatives.length > 0 && (
-    <section style="margin-top: 2.5rem;">
-      <div style="margin-bottom: 1rem;">
-        <h2 style="font-size: 1.5rem; font-weight: 700;">
-          Top Alternatives to {tool.name}
+    <section style="margin-top: 3rem;">
+      <div style="margin-bottom: 1.25rem;">
+        <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">
+          Top Alternatives in {categoryInfo.name}
         </h2>
         <p style="color: var(--text-muted); font-size: 0.9rem;">
-          Explore other tools in {categoryInfo.name}
+          Compare other freshly discovered tools and open-source alternatives.
         </p>
       </div>
 
       <div class="tools-grid">
-        {alternatives.map(alt => (
-          <article class="tool-card">
-            <div>
-              <div class="tool-header">
-                <span class="badge badge-pricing">{alt.pricing_model}</span>
-                {alt.stars > 0 && <span style="font-size: 0.8rem; color: var(--text-muted);">⭐ {alt.stars}</span>}
+        {alternatives.map(alt => {
+          const altIcon = getToolIcon(alt.url, alt.github_url);
+          const altInitial = alt.name.charAt(0);
+
+          return (
+            <article class="tool-card">
+              <div>
+                <div class="tool-card-top">
+                  <div class="tool-icon">
+                    {altIcon ? (
+                      <img 
+                        src={altIcon} 
+                        alt={`${alt.name} icon`} 
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                      />
+                      <div class="tool-icon-fallback" style="display: none;">
+                        {altInitial}
+                      </div>
+                    ) : (
+                      <div class="tool-icon-fallback">
+                        {altInitial}
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="tool-meta-header">
+                    <div class="tool-title-row">
+                      <h3 class="tool-title">
+                        <a href={`/tool/${alt.id}`} style="color: var(--text-primary); text-decoration: none;">
+                          {alt.name}
+                        </a>
+                      </h3>
+                      {alt.stars > 0 && (
+                        <span class="stars-badge">
+                          <span>★</span>
+                          <span>{alt.stars > 999 ? `${(alt.stars / 1000).toFixed(1)}k` : alt.stars}</span>
+                        </span>
+                      )}
+                    </div>
+                    <p class="tool-tagline">{alt.tagline}</p>
+                  </div>
+                </div>
               </div>
-              <h3 class="tool-title" style="margin-bottom: 0.4rem;">
-                <a href={`/tool/${alt.id}`}>{alt.name}</a>
-              </h3>
-              <p class="tool-tagline">{alt.tagline}</p>
-            </div>
-            <div class="tool-footer">
-              <span style="text-transform: capitalize;">via {alt.source.replace("_", " ")}</span>
-              <a href={`/tool/${alt.id}`} style="font-weight: 600; font-size: 0.85rem;">
-                View Alternative →
-              </a>
-            </div>
-          </article>
-        ))}
+
+              <div class="tool-footer">
+                <span class={alt.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+                  {alt.pricing_model}
+                </span>
+
+                <a href={`/tool/${alt.id}`} style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
+                  Compare <span style="font-size: 1rem; line-height: 1;">→</span>
+                </a>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   )}

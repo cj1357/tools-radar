@@ -2,91 +2,221 @@
 import Layout from '../layouts/Layout.astro';
 import allTools from '../../../data/all_tools.json';
 import categories from '../../../data/categories.json';
+import { getToolIcon } from '../utils/favicon';
 
-// Group by category counts
 const categoryCounts = categories.map(cat => ({
   ...cat,
   count: allTools.filter(t => t.category === cat.id).length
 }));
-
-const recentTools = allTools.slice(0, 20);
 ---
 
 <Layout 
-  title="DailyRadar - Discover Trending Developer Tools & AI Apps" 
-  description="Curated daily directory of newly launched developer tools, AI apps, open source projects, and productivity software."
-  canonicalUrl="https://radar.yourdomain.com/"
+  title="ToolsRadar - Curated Daily Directory of New Developer Tools & AI Apps" 
+  description="Discover the highest-signal new developer tools, open-source repositories, and AI apps launched today on GitHub Trending, Hacker News, and Product Hunt."
+  canonicalUrl="https://tools.yourdomain.com/"
 >
   <!-- Hero Section -->
-  <section style="text-align: center; padding: 2.5rem 0 2rem;">
-    <h1 style="font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
-      Discover Today's Best <span style="color: var(--accent);">Developer Tools</span> & AI Gems
+  <section style="text-align: center; padding: 3rem 0 2rem;">
+    <!-- Live Status Pill -->
+    <div style="display: inline-block; margin-bottom: 1.25rem;">
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span>Live Radar • {allTools.length} Fresh Releases Indexed</span>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 1rem;" class="gradient-title">
+      Discover Tomorrow's Best <br />
+      <span class="gradient-accent">Developer Tools & AI Gems</span>
     </h1>
-    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 1.5rem;">
-      Fresh releases curated daily from GitHub Trending, Hacker News Show, and Product Hunt.
+
+    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto; line-height: 1.6;">
+      Automated daily curation from GitHub Trending, Hacker News Show, and Product Hunt. Zero fluff, high signal.
     </p>
 
-    <!-- Category Pills -->
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;">
+    <!-- Raycast-style Instant Search Bar -->
+    <div class="search-box-wrapper">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input 
+        type="text" 
+        id="tool-search" 
+        class="search-input" 
+        placeholder="Type to search tools, tags, or topics (e.g. AI, CLI, Rust)..." 
+        autocomplete="off"
+      />
+      <div class="search-shortcut">/</div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 2rem;">
+      <a 
+        href="/" 
+        style="display: inline-flex; align-items: center; gap: 0.4rem; background: #27272a; border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.82rem; color: #ffffff; font-weight: 600; text-decoration: none; box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);"
+      >
+        <span>All Tools</span>
+        <span style="background: rgba(255, 255, 255, 0.15); font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{allTools.length}</span>
+      </a>
       {categoryCounts.map(cat => (
         <a 
           href={`/category/${cat.id}`} 
-          style="display: inline-flex; align-items: center; gap: 0.4rem; background: #1e293b; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none;"
+          style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(24, 24, 27, 0.7); border: 1px solid var(--border-subtle); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; transition: all 0.15s ease;"
+          onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='#f4f4f5';"
+          onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#a1a1aa';"
         >
           <span>{cat.name}</span>
-          <span style="background: #334155; color: #94a3b8; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{cat.count}</span>
+          <span style="background: rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{cat.count}</span>
         </a>
       ))}
     </div>
   </section>
 
-  <!-- Latest Drops Section -->
-  <section style="margin-top: 2rem;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
-      <div>
-        <h2 style="font-size: 1.5rem; font-weight: 700;">Latest Curated Drops</h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Updated automatically every 24 hours</p>
+  <!-- Feed Header -->
+  <section style="margin-top: 2.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">
+          Latest Tracked Drops
+        </h2>
+        <span id="results-count" style="font-size: 0.8rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">
+          Showing {allTools.length} tools
+        </span>
       </div>
-      <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">{allTools.length} Tools Indexed</span>
+
+      <div style="font-size: 0.8rem; color: var(--text-muted);">
+        Auto-refreshes daily via GitHub Actions
+      </div>
     </div>
 
-    <div class="tools-grid">
-      {recentTools.map(tool => (
-        <article class="tool-card">
-          <div>
-            <div class="tool-header">
-              <span class="badge badge-category">{tool.category.replace("-", " ")}</span>
-              <span class="badge badge-pricing">{tool.pricing_model}</span>
-            </div>
-            <h3 class="tool-title" style="margin-bottom: 0.4rem;">
-              <a href={`/tool/${tool.id}`}>{tool.name}</a>
-            </h3>
-            <p class="tool-tagline">{tool.tagline}</p>
-          </div>
+    <!-- Empty search state -->
+    <div id="no-results" style="display: none; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+      <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No tools found matching your search.</p>
+      <p style="font-size: 0.85rem;">Try searching for broad terms like "AI", "Go", "CLI", or "Data".</p>
+    </div>
 
-          <div>
-            {tool.tags && tool.tags.length > 0 && (
-              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem;">
-                {tool.tags.map((tag: string) => (
-                  <span style="background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
-                    #{tag}
-                  </span>
-                ))}
+    <!-- Tools Grid -->
+    <div class="tools-grid" id="tools-container">
+      {allTools.map(tool => {
+        const iconUrl = getToolIcon(tool.url, tool.github_url);
+        const initial = tool.name.charAt(0);
+        const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")}`.toLowerCase();
+
+        return (
+          <article class="tool-card" data-corpus={searchCorpus}>
+            <div>
+              <div class="tool-card-top">
+                <div class="tool-icon">
+                  {iconUrl ? (
+                    <img 
+                      src={iconUrl} 
+                      alt={`${tool.name} icon`} 
+                      loading="lazy"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <div class="tool-icon-fallback" style="display: none;">
+                      {initial}
+                    </div>
+                  ) : (
+                    <div class="tool-icon-fallback">
+                      {initial}
+                    </div>
+                  )}
+                </div>
+
+                <div class="tool-meta-header">
+                  <div class="tool-title-row">
+                    <h3 class="tool-title">
+                      <a href={`/tool/${tool.id}`} style="color: var(--text-primary); text-decoration: none;">
+                        {tool.name}
+                      </a>
+                    </h3>
+
+                    {tool.stars > 0 && (
+                      <span class="stars-badge">
+                        <span>★</span>
+                        <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
+                      </span>
+                    )}
+                  </div>
+
+                  <p class="tool-tagline">{tool.tagline}</p>
+                </div>
               </div>
-            )}
 
+              <!-- Tags -->
+              {tool.tags && tool.tags.length > 0 && (
+                <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
+                  {tool.tags.slice(0, 4).map((tag: string) => (
+                    <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Footer -->
             <div class="tool-footer">
-              <span style="display: flex; align-items: center; gap: 0.3rem;">
-                {tool.stars > 0 && <span>⭐ {tool.stars.toLocaleString()}</span>}
-                <span style="text-transform: capitalize;">• via {tool.source.replace("_", " ")}</span>
-              </span>
-              <a href={`/tool/${tool.id}`} style="font-weight: 600; font-size: 0.85rem;">
-                Details & Alternatives →
+              <div style="display: flex; align-items: center; gap: 0.4rem;">
+                <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+                  {tool.pricing_model}
+                </span>
+
+                <span class="badge badge-source">
+                  {tool.source === "github_trending" ? "GitHub" : tool.source === "producthunt" ? "PH" : "HN"}
+                </span>
+              </div>
+
+              <a href={`/tool/${tool.id}`} style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
+                Details <span style="font-size: 1rem; line-height: 1;">→</span>
               </a>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
   </section>
+
+  <!-- Client-side Instant Filter Script -->
+  <script is:inline>
+    const searchInput = document.getElementById('tool-search');
+    const cards = document.querySelectorAll('.tool-card');
+    const noResults = document.getElementById('no-results');
+    const resultsCount = document.getElementById('results-count');
+    const totalTools = cards.length;
+
+    // Keyboard shortcut '/'
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    searchInput?.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      let matchCount = 0;
+
+      cards.forEach(card => {
+        const corpus = card.getAttribute('data-corpus') || '';
+        if (!query || corpus.includes(query)) {
+          card.style.display = 'flex';
+          matchCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (resultsCount) {
+        resultsCount.textContent = query ? `Showing ${matchCount} of ${totalTools}` : `Showing ${totalTools} tools`;
+      }
+
+      if (noResults) {
+        noResults.style.display = matchCount === 0 ? 'block' : 'none';
+      }
+    });
+  </script>
 </Layout>

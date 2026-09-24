@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import allTools from '../../../../data/all_tools.json';
+import { getToolIcon } from '../../utils/favicon';
 
 export function getStaticPaths() {
   const dates = [...new Set(allTools.map(t => t.date_added).filter(Boolean))];
@@ -17,47 +18,100 @@ const { date, tools } = Astro.props;
 ---
 
 <Layout 
-  title={`New Tools & Products Launched on ${date} - DailyRadar`}
+  title={`New Tools & Products Launched on ${date} - ToolsRadar`}
   description={`Browse the daily batch of ${tools.length} newly released developer tools, AI apps, and open-source projects discovered on ${date}.`}
-  canonicalUrl={`https://radar.yourdomain.com/daily/${date}`}
+  canonicalUrl={`https://tools.yourdomain.com/daily/${date}`}
 >
-  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
-    <a href="/">Home</a>
+  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-muted);">Radar</a>
     <span>/</span>
     <span>Daily Archives</span>
     <span>/</span>
     <span style="color: var(--text-secondary);">{date}</span>
   </nav>
 
-  <header style="padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--card-border); margin-bottom: 2rem;">
-    <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
+  <header style="padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2rem;">
+    <div style="display: inline-block; margin-bottom: 0.75rem;">
+      <span class="badge badge-source" style="font-size: 0.8rem; padding: 0.25rem 0.65rem;">
+        Daily Batch Archive
+      </span>
+    </div>
+
+    <h1 style="font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.6rem;" class="gradient-title">
       Daily Drops: {date}
     </h1>
     <p style="color: var(--text-secondary); font-size: 1.1rem;">
-      {tools.length} new software releases, indie projects, and open source repositories indexed today.
+      {tools.length} new software releases and open-source repositories curated on this day.
     </p>
   </header>
 
   <div class="tools-grid">
-    {tools.map(tool => (
-      <article class="tool-card">
-        <div>
-          <div class="tool-header">
-            <span class="badge badge-category">{tool.category.replace("-", " ")}</span>
-            <span class="badge badge-pricing">{tool.pricing_model}</span>
+    {tools.map(tool => {
+      const iconUrl = getToolIcon(tool.url, tool.github_url);
+      const initial = tool.name.charAt(0);
+
+      return (
+        <article class="tool-card">
+          <div>
+            <div class="tool-card-top">
+              <div class="tool-icon">
+                {iconUrl ? (
+                  <img 
+                    src={iconUrl} 
+                    alt={`${tool.name} icon`} 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="tool-icon-fallback" style="display: none;">
+                    {initial}
+                  </div>
+                ) : (
+                  <div class="tool-icon-fallback">
+                    {initial}
+                  </div>
+                )}
+              </div>
+
+              <div class="tool-meta-header">
+                <div class="tool-title-row">
+                  <h2 class="tool-title">
+                    <a href={`/tool/${tool.id}`} style="color: var(--text-primary); text-decoration: none;">
+                      {tool.name}
+                    </a>
+                  </h2>
+                  {tool.stars > 0 && (
+                    <span class="stars-badge">
+                      <span>★</span>
+                      <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
+                    </span>
+                  )}
+                </div>
+                <p class="tool-tagline">{tool.tagline}</p>
+              </div>
+            </div>
+
+            {tool.tags && tool.tags.length > 0 && (
+              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
+                {tool.tags.slice(0, 4).map((tag: string) => (
+                  <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-          <h2 class="tool-title" style="margin-bottom: 0.4rem;">
-            <a href={`/tool/${tool.id}`}>{tool.name}</a>
-          </h2>
-          <p class="tool-tagline">{tool.tagline}</p>
-        </div>
-        <div class="tool-footer">
-          <span>via {tool.source.replace("_", " ")}</span>
-          <a href={`/tool/${tool.id}`} style="font-weight: 600; font-size: 0.85rem;">
-            Details & Alternatives →
-          </a>
-        </div>
-      </article>
-    ))}
+
+          <div class="tool-footer">
+            <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+              {tool.pricing_model}
+            </span>
+
+            <a href={`/tool/${tool.id}`} style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
+              Details & Alternatives →
+            </a>
+          </div>
+        </article>
+      );
+    })}
   </div>
 </Layout>
