@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import allTools from '../../../../data/all_tools.json';
+import categories from '../../../../data/categories.json';
+
+export function getStaticPaths() {
+  return categories.map((cat) => ({
+    params: { category: cat.id },
+    props: { category: cat },
+  }));
+}
+
+const { category } = Astro.props;
+const categoryTools = allTools.filter(t => t.category === category.id);
+---
+
+<Layout 
+  title={`Best ${category.name} in 2026: Curated Directory & Reviews`}
+  description={`Browse the top curated list of ${category.name}. Discover free, open source, and innovative tools updated daily on DailyRadar.`}
+  canonicalUrl={`https://radar.yourdomain.com/category/${category.id}`}
+>
+  <!-- Breadcrumb -->
+  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+    <a href="/">Home</a>
+    <span>/</span>
+    <span>Categories</span>
+    <span>/</span>
+    <span style="color: var(--text-secondary);">{category.name}</span>
+  </nav>
+
+  <!-- Category Header -->
+  <header style="padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--card-border); margin-bottom: 2rem;">
+    <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">
+      Top {category.name}
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 700px;">
+      {category.description}
+    </p>
+    <div style="margin-top: 1rem;">
+      <span class="badge badge-category">{categoryTools.length} Tools Listed</span>
+    </div>
+  </header>
+
+  <!-- Tools List -->
+  <section>
+    {categoryTools.length === 0 ? (
+      <div style="text-align: center; padding: 3rem 0; color: var(--text-muted);">
+        <p>No tools in this category yet. New additions arrive with our daily automated crawl.</p>
+      </div>
+    ) : (
+      <div class="tools-grid">
+        {categoryTools.map(tool => (
+          <article class="tool-card">
+            <div>
+              <div class="tool-header">
+                <span class="badge badge-pricing">{tool.pricing_model}</span>
+                {tool.stars > 0 && <span style="font-size: 0.8rem; color: var(--text-muted);">⭐ {tool.stars}</span>}
+              </div>
+              <h2 class="tool-title" style="margin-bottom: 0.4rem;">
+                <a href={`/tool/${tool.id}`}>{tool.name}</a>
+              </h2>
+              <p class="tool-tagline">{tool.tagline}</p>
+            </div>
+            <div class="tool-footer">
+              <span style="text-transform: capitalize;">Source: {tool.source.replace("_", " ")}</span>
+              <a href={`/tool/${tool.id}`} style="font-weight: 600; font-size: 0.85rem;">
+                Overview & Alternatives →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>

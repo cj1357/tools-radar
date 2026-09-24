@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import allTools from '../../../data/all_tools.json';
+import categories from '../../../data/categories.json';
+
+// Group by category counts
+const categoryCounts = categories.map(cat => ({
+  ...cat,
+  count: allTools.filter(t => t.category === cat.id).length
+}));
+
+const recentTools = allTools.slice(0, 20);
+---
+
+<Layout 
+  title="DailyRadar - Discover Trending Developer Tools & AI Apps" 
+  description="Curated daily directory of newly launched developer tools, AI apps, open source projects, and productivity software."
+  canonicalUrl="https://radar.yourdomain.com/"
+>
+  <!-- Hero Section -->
+  <section style="text-align: center; padding: 2.5rem 0 2rem;">
+    <h1 style="font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+      Discover Today's Best <span style="color: var(--accent);">Developer Tools</span> & AI Gems
+    </h1>
+    <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 1.5rem;">
+      Fresh releases curated daily from GitHub Trending, Hacker News Show, and Product Hunt.
+    </p>
+
+    <!-- Category Pills -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;">
+      {categoryCounts.map(cat => (
+        <a 
+          href={`/category/${cat.id}`} 
+          style="display: inline-flex; align-items: center; gap: 0.4rem; background: #1e293b; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none;"
+        >
+          <span>{cat.name}</span>
+          <span style="background: #334155; color: #94a3b8; font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{cat.count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Latest Drops Section -->
+  <section style="margin-top: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
+      <div>
+        <h2 style="font-size: 1.5rem; font-weight: 700;">Latest Curated Drops</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Updated automatically every 24 hours</p>
+      </div>
+      <span style="font-size: 0.85rem; color: var(--accent); font-weight: 600;">{allTools.length} Tools Indexed</span>
+    </div>
+
+    <div class="tools-grid">
+      {recentTools.map(tool => (
+        <article class="tool-card">
+          <div>
+            <div class="tool-header">
+              <span class="badge badge-category">{tool.category.replace("-", " ")}</span>
+              <span class="badge badge-pricing">{tool.pricing_model}</span>
+            </div>
+            <h3 class="tool-title" style="margin-bottom: 0.4rem;">
+              <a href={`/tool/${tool.id}`}>{tool.name}</a>
+            </h3>
+            <p class="tool-tagline">{tool.tagline}</p>
+          </div>
+
+          <div>
+            {tool.tags && tool.tags.length > 0 && (
+              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.75rem;">
+                {tool.tags.map((tag: string) => (
+                  <span style="background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div class="tool-footer">
+              <span style="display: flex; align-items: center; gap: 0.3rem;">
+                {tool.stars > 0 && <span>⭐ {tool.stars.toLocaleString()}</span>}
+                <span style="text-transform: capitalize;">• via {tool.source.replace("_", " ")}</span>
+              </span>
+              <a href={`/tool/${tool.id}`} style="font-weight: 600; font-size: 0.85rem;">
+                Details & Alternatives →
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

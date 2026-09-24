@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+site/node_modules/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+site/dist/
+.astro/
+site/.astro/
+
+# Environment variables
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="About DailyRadar - Curated Daily Directory of New Tools"
+  description="Learn about DailyRadar, our automated curation methodology, and our mission to highlight indie software and open source projects."
+  canonicalUrl="https://radar.yourdomain.com/about"
+>
+  <div style="max-width: 750px; margin: 2rem auto; line-height: 1.8;">
+    <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
+      About DailyRadar
+    </h1>
+
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
+        Our Mission
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Every single day, thousands of passionate independent creators, open source contributors, and innovative engineering teams launch incredible software tools across GitHub, Hacker News, and Product Hunt.
+      </p>
+      <p style="color: var(--text-secondary);">
+        However, the internet is loud, and genuine breakthrough tools often get drowned out by massive ad-funded incumbent software. <strong>DailyRadar</strong> was built to solve this problem: an automated, noise-free directory providing daily curation of brand-new developer utilities, AI apps, and open-source alternatives.
+      </p>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
+        How It Works
+      </h2>
+      <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+        <li><strong>Continuous Monitoring:</strong> Our automated crawlers scan GitHub Trending, Hacker News Show, and Product Hunt every 24 hours.</li>
+        <li><strong>Quality Filtering:</strong> We filter out low-effort spam, broken links, and duplicate marketing buzz to surface practical, usable software.</li>
+        <li><strong>Structured Organization:</strong> Each tool is cataloged by functional category, pricing tier, open-source status, and alternatives.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
+        Contact & Feedback
+      </h2>
+      <p style="color: var(--text-secondary);">
+        Have a question, feedback, or a tool you'd like to see featured? Feel free to reach out via GitHub or email. We are constantly improving our parsing and categorization engines.
+      </p>
+    </section>
+  </div>
+</Layout>

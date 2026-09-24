@@ -1,0 +1,38 @@
+[
+  {
+    "id": "developer-tools",
+    "name": "Developer Tools",
+    "description": "Compilers, CLI tools, SDKs, and libraries that empower software engineering.",
+    "icon": "code"
+  },
+  {
+    "id": "ai-tools",
+    "name": "AI & Machine Learning",
+    "description": "Cutting-edge AI agents, models, LLM wrappers, and intelligent automation.",
+    "icon": "cpu"
+  },
+  {
+    "id": "productivity",
+    "name": "Productivity & Workflow",
+    "description": "Tools that save time, automate repetitive tasks, and streamline daily work.",
+    "icon": "zap"
+  },
+  {
+    "id": "open-source",
+    "name": "Open Source Alternatives",
+    "description": "Free, self-hostable, and community-driven replacements for commercial SaaS.",
+    "icon": "git-branch"
+  },
+  {
+    "id": "security-devops",
+    "name": "DevOps & Cloud",
+    "description": "Infrastructure, monitoring, containerization, and edge deployment utilities.",
+    "icon": "cloud"
+  },
+  {
+    "id": "design-ui",
+    "name": "Design & Frontend",
+    "description": "UI kits, icons, CSS tools, and creative assets for modern web builders.",
+    "icon": "layout"
+  }
+]

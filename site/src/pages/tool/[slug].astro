@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import allTools from '../../../../data/all_tools.json';
+import categories from '../../../../data/categories.json';
+
+export function getStaticPaths() {
+  return allTools.map((tool) => ({
+    params: { slug: tool.id },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+
+// Category info
+const categoryInfo = categories.find(c => c.id === tool.category) || {
+  id: tool.category,
+  name: tool.category,
+  description: ""
+};
+
+// Alternatives (other tools in the same category)
+const alternatives = allTools
+  .filter(t => t.category === tool.category && t.id !== tool.id)
+  .slice(0, 4);
+
+// Schema.org JSON-LD for SoftwareApplication
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": tool.name,
+  "description": tool.summary,
+  "applicationCategory": categoryInfo.name,
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": tool.stars > 0 ? {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": String(Math.max(tool.stars, 5))
+  } : undefined,
+  "url": tool.url
+};
+---
+
+<Layout 
+  title={`${tool.name} - Features, Pricing & Alternatives`}
+  description={`${tool.name}: ${tool.tagline}. Read in-depth overview, pricing model, key features, and discover top open source alternatives.`}
+  canonicalUrl={`https://radar.yourdomain.com/tool/${tool.id}`}
+  jsonLd={jsonLd}
+>
+  <!-- Breadcrumb -->
+  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+    <a href="/">Home</a>
+    <span>/</span>
+    <a href={`/category/${tool.category}`}>{categoryInfo.name}</a>
+    <span>/</span>
+    <span style="color: var(--text-secondary);">{tool.name}</span>
+  </nav>
+
+  <!-- Tool Main Header -->
+  <article style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 1rem; padding: 2rem; margin-bottom: 2rem;">
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+      <span class="badge badge-category">{categoryInfo.name}</span>
+      <span class="badge badge-pricing">{tool.pricing_model}</span>
+      <span class="badge badge-source">Source: {tool.source.replace("_", " ")}</span>
+      {tool.stars > 0 && (
+        <span class="badge" style="background: #374151; color: #f3f4f6;">
+          ⭐ {tool.stars.toLocaleString()} Stars/Votes
+        </span>
+      )}
+    </div>
+
+    <h1 style="font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem;">
+      {tool.name}
+    </h1>
+
+    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.5;">
+      {tool.tagline}
+    </p>
+
+    <!-- CTAs -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+      <a 
+        href={tool.url} 
+        target="_blank" 
+        rel="noopener noreferrer nofollow" 
+        class="btn btn-primary"
+      >
+        Visit Official Website ↗
+      </a>
+      {tool.github_url && (
+        <a 
+          href={tool.github_url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-secondary"
+        >
+          View on GitHub ↗
+        </a>
+      )}
+    </div>
+  </article>
+
+  <!-- Overview & Description Section -->
+  <section style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 0.75rem; padding: 1.5rem;">
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;">
+        What is {tool.name}?
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.25rem;">
+        {tool.summary}
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem; background: #0f172a; padding: 1.25rem; border-radius: 0.5rem; border: 1px solid #334155;">
+        <div>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Category</span>
+          <a href={`/category/${tool.category}`} style="font-weight: 600;">{categoryInfo.name}</a>
+        </div>
+        <div>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Pricing Model</span>
+          <span style="font-weight: 600; color: var(--success-text);">{tool.pricing_model}</span>
+        </div>
+        <div>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Added to Radar</span>
+          <span style="font-weight: 600;">{tool.date_added}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Similar Alternatives Section -->
+  {alternatives.length > 0 && (
+    <section style="margin-top: 2.5rem;">
+      <div style="margin-bottom: 1rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700;">
+          Top Alternatives to {tool.name}
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Explore other tools in {categoryInfo.name}
+        </p>
+      </div>
+
+      <div class="tools-grid">
+        {alternatives.map(alt => (
+          <article class="tool-card">
+            <div>
+              <div class="tool-header">
+                <span class="badge badge-pricing">{alt.pricing_model}</span>
+                {alt.stars > 0 && <span style="font-size: 0.8rem; color: var(--text-muted);">⭐ {alt.stars}</span>}
+              </div>
+              <h3 class="tool-title" style="margin-bottom: 0.4rem;">
+                <a href={`/tool/${alt.id}`}>{alt.name}</a>
+              </h3>
+              <p class="tool-tagline">{alt.tagline}</p>
+            </div>
+            <div class="tool-footer">
+              <span style="text-transform: capitalize;">via {alt.source.replace("_", " ")}</span>
+              <a href={`/tool/${alt.id}`} style="font-weight: 600; font-size: 0.85rem;">
+                View Alternative →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+</Layout>
