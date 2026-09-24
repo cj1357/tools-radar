@@ -3,14 +3,18 @@
     "id": "an-open-source-manufacturing-erpmesqms",
     "name": "An open-source manufacturing ERP/MES/QMS",
     "tagline": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News w...",
-    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 33 community upvotes.",
+    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 37 community upvotes.",
     "url": "https://carbon.ms/self-hosted",
     "github_url": null,
     "source": "hackernews",
     "category": "productivity",
     "tags": [],
     "pricing_model": "Free",
-    "stars": 33,
+    "stars": 37,
+    "primary_alternative": "SAP / Odoo",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 76,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -28,6 +32,10 @@
     ],
     "pricing_model": "Free",
     "stars": 34,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 76,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -35,7 +43,7 @@
     "id": "an-atlas-of-system-designs-with-interactive-architecture-dia",
     "name": "An atlas of system designs with interactive architecture diagrams",
     "tagline": "An atlas of system designs with interactive architecture diagrams — newly launched project showcased by indie ...",
-    "summary": "An atlas of system designs with interactive architecture diagrams — newly launched project showcased by indie creators on Hacker News with 42 community upvotes.",
+    "summary": "An atlas of system designs with interactive architecture diagrams — newly launched project showcased by indie creators on Hacker News with 43 community upvotes.",
     "url": "https://atlas-sysdes.vercel.app/",
     "github_url": null,
     "source": "hackernews",
@@ -44,7 +52,11 @@
       "Design"
     ],
     "pricing_model": "Free",
-    "stars": 42,
+    "stars": 43,
+    "primary_alternative": "Figma / Excalidraw",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 76,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -73,12 +85,16 @@
     "url": "https://github.com/hsfzxjy/npunlock",
     "github_url": "https://github.com/hsfzxjy/npunlock",
     "source": "hackernews",
-    "category": "open-source",
+    "category": "developer-tools",
     "tags": [
-      "Open Source"
+      "DevTools"
     ],
     "pricing_model": "Open Source",
     "stars": 64,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -86,7 +102,7 @@
     "id": "jevbench-a-reproducible-benchmark-for-typed-decision-models",
     "name": "JevBench, a reproducible benchmark for typed decision models",
     "tagline": "JevBench, a reproducible benchmark for typed decision models — newly launched project showcased by indie creat...",
-    "summary": "JevBench, a reproducible benchmark for typed decision models — newly launched project showcased by indie creators on Hacker News with 141 community upvotes.",
+    "summary": "JevBench, a reproducible benchmark for typed decision models — newly launched project showcased by indie creators on Hacker News with 143 community upvotes.",
     "url": "https://benchmarkheaven.com/jev-models",
     "github_url": null,
     "source": "hackernews",
@@ -95,7 +111,11 @@
       "AI"
     ],
     "pricing_model": "Free",
-    "stars": 141,
+    "stars": 143,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 81,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -128,6 +148,10 @@
     ],
     "pricing_model": "Free",
     "stars": 186,
+    "primary_alternative": "Docker / Firecracker",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 81,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -175,11 +199,15 @@
     "source": "github_trending",
     "category": "open-source",
     "tags": [
-      "Python",
-      "Open Source"
+      "Open Source",
+      "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 37135,
+    "stars": 37174,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -193,11 +221,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Go",
-      "AI"
+      "AI",
+      "Go"
     ],
     "pricing_model": "Open Source",
-    "stars": 9541,
+    "stars": 9608,
+    "primary_alternative": "LangChain / CrewAI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -211,11 +243,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Python",
-      "AI"
+      "AI",
+      "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 31645,
+    "stars": 31668,
+    "primary_alternative": "Cursor / Copilot",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -229,11 +265,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "TypeScript",
-      "AI"
+      "AI",
+      "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 6707,
+    "stars": 6726,
+    "primary_alternative": "LangChain / CrewAI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -251,7 +291,11 @@
       "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 290908,
+    "stars": 290940,
+    "primary_alternative": "LangChain / CrewAI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -265,11 +309,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "TypeScript",
-      "AI"
+      "AI",
+      "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 16571,
+    "stars": 16639,
+    "primary_alternative": "Google Sheets / Airtable",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -283,11 +331,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "TypeScript",
-      "AI"
+      "AI",
+      "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 19032,
+    "stars": 19069,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -301,11 +353,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Go",
-      "AI"
+      "AI",
+      "Go"
     ],
     "pricing_model": "Open Source",
-    "stars": 3641,
+    "stars": 3661,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -319,11 +375,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Python",
-      "AI"
+      "AI",
+      "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 8007,
+    "stars": 8036,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 88,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -337,11 +397,15 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Python",
-      "AI"
+      "AI",
+      "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 50093,
+    "stars": 50116,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 95,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -349,7 +413,7 @@
     "id": "air-gapped-file-encryption-as-self-decrypting-html-page",
     "name": "Air-gapped file encryption as self-decrypting HTML page",
     "tagline": "Air-gapped file encryption as self-decrypting HTML page — newly launched project showcased by indie creators o...",
-    "summary": "Air-gapped file encryption as self-decrypting HTML page — newly launched project showcased by indie creators on Hacker News with 4 community upvotes.",
+    "summary": "Air-gapped file encryption as self-decrypting HTML page — newly launched project showcased by indie creators on Hacker News with 5 community upvotes.",
     "url": "https://cms-sfx-demo.apeleg.com/",
     "github_url": null,
     "source": "hackernews",
@@ -358,7 +422,11 @@
       "AI"
     ],
     "pricing_model": "Free",
-    "stars": 4,
+    "stars": 5,
+    "primary_alternative": "1Password / Bitwarden",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -393,6 +461,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -410,6 +482,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": "Cursor / Copilot",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -425,6 +501,10 @@
     "tags": [],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -442,6 +522,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -459,6 +543,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -525,6 +613,10 @@
     "tags": [],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -540,6 +632,10 @@
     "tags": [],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -557,6 +653,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -591,6 +691,10 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -608,6 +712,86 @@
     ],
     "pricing_model": "Free",
     "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "trader-news-hacker-news-for-finance",
+    "name": "Trader News – Hacker News for Finance",
+    "tagline": "Trader News – Hacker News for Finance — newly launched project showcased by indie creators on Hacker News with...",
+    "summary": "Trader News – Hacker News for Finance — newly launched project showcased by indie creators on Hacker News with 2 community upvotes.",
+    "url": "https://news.ycombinator.com/item?id=49828019",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "wl-pick-a-live-window-picker-for-sway",
+    "name": "Wl-pick – a live window picker for Sway",
+    "tagline": "Wl-pick – a live window picker for Sway — newly launched project showcased by indie creators on Hacker News wi...",
+    "summary": "Wl-pick – a live window picker for Sway — newly launched project showcased by indie creators on Hacker News with 2 community upvotes.",
+    "url": "https://mil.ad/blog/2026/wl-pick.html",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "cubelv-ai-that-designs-your-automation-before-building-it",
+    "name": "CubeLV – AI that designs your automation before building it",
+    "tagline": "CubeLV – AI that designs your automation before building it — newly launched project showcased by indie creato...",
+    "summary": "CubeLV – AI that designs your automation before building it — newly launched project showcased by indie creators on Hacker News with 3 community upvotes.",
+    "url": "https://app.cubelv.com",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 3,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "minimi-20",
+    "name": "minimi 2.0",
+    "tagline": "AI cat that closes your open loops",
+    "summary": "AI cat that closes your open loops",
+    "url": "https://www.producthunt.com/products/shram",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
     "date_added": "2026-09-24",
     "featured": false
   }

@@ -26,6 +26,10 @@ const alternatives = allTools
 const iconUrl = getToolIcon(tool.url, tool.github_url);
 const initial = tool.name.charAt(0);
 
+const pageTitle = tool.primary_alternative 
+  ? `${tool.name} - Alternative to ${tool.primary_alternative}`
+  : `${tool.name} - Features, Pricing & Alternatives`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -43,8 +47,8 @@ const jsonLd = {
 ---
 
 <Layout 
-  title={`${tool.name} - Features, Pricing & Alternatives`}
-  description={`${tool.name}: ${tool.tagline}. Read in-depth overview, pricing model, key features, and discover top open source alternatives on ToolsRadar.`}
+  title={pageTitle}
+  description={`${tool.name}: ${tool.tagline}. ${tool.primary_alternative ? `Discover this open-source alternative to ${tool.primary_alternative}.` : ''} Read in-depth overview, pricing model, key features, and compare alternatives on ToolsRadar.`}
   canonicalUrl={`https://tools.yourdomain.com/tool/${tool.id}`}
   jsonLd={jsonLd}
 >
@@ -90,11 +94,38 @@ const jsonLd = {
             <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
               {tool.pricing_model}
             </span>
+
+            {tool.primary_alternative && (
+              <span style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 6px;">
+                🔄 Alternative to {tool.primary_alternative}
+              </span>
+            )}
           </div>
 
           <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
             {tool.tagline}
           </p>
+
+          <!-- Feature badges -->
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;">
+            {tool.is_self_hostable && (
+              <span style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); color: #6ee7b7; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px;">
+                🐳 Self-Hostable
+              </span>
+            )}
+
+            {tool.no_signup_required && (
+              <span style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); color: #fcd34d; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px;">
+                🔓 No Sign-up Required
+              </span>
+            )}
+
+            {tool.signal_score && (
+              <span style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: #e4e4e7; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">
+                ⚡ Traction Signal: {tool.signal_score}/100
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
@@ -145,7 +176,7 @@ const jsonLd = {
     <!-- Overview Card -->
     <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
       <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem;">
-        About {tool.name}
+        What Problem Does {tool.name} Solve?
       </h2>
       <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">
         {tool.summary}
@@ -158,16 +189,16 @@ const jsonLd = {
           <a href={`/category/${tool.category}`} style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">{categoryInfo.name}</a>
         </div>
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Pricing Tier</span>
-          <span style="font-weight: 600; color: var(--emerald); font-size: 0.95rem;">{tool.pricing_model}</span>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Commercial Alt</span>
+          <span style="font-weight: 600; color: var(--accent); font-size: 0.95rem;">{tool.primary_alternative || "Standalone Utility"}</span>
         </div>
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Curation Source</span>
-          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem; text-transform: capitalize;">{tool.source.replace("_", " ")}</span>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Self-Hostable</span>
+          <span style="font-weight: 600; color: tool.is_self_hostable ? var(--emerald) : '#a1a1aa'; font-size: 0.95rem;">{tool.is_self_hostable ? "Yes (Docker/Local)" : "Cloud / Web"}</span>
         </div>
         <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Indexed Date</span>
-          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem;">{tool.date_added}</span>
+          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Sign-up Required</span>
+          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem;">{tool.no_signup_required ? "No (Instant Access)" : "Optional / Standard"}</span>
         </div>
       </div>
     </div>

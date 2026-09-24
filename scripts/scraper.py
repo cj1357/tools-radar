@@ -1,7 +1,7 @@
 """
-Daily Radar - Automated Trending Scraper & Structurer
+Tools Radar - Automated Trending Scraper & Structurer
 Fetches trending products and repositories from GitHub Trending, Hacker News Show, and Product Hunt.
-Uses robust requests Session with retries, Atom XML parsing, and heuristic/LLM structuring.
+Extracts alternatives, self-hostable badges, no-signup tags, and signal score.
 """
 
 import os
@@ -142,7 +142,6 @@ def fetch_producthunt_feed(limit=15):
         ns = {'atom': 'http://www.w3.org/2005/Atom'}
         entries = root.findall("atom:entry", ns)
         if not entries:
-            # Fallback without namespace
             entries = root.findall(".//entry")
             
         print(f"Product Hunt found {len(entries)} Atom entries.")
@@ -159,7 +158,6 @@ def fetch_producthunt_feed(limit=15):
             if content_elem is not None and content_elem.text:
                 soup = BeautifulSoup(content_elem.text, "html.parser")
                 raw_desc = soup.get_text(strip=True)
-                # Remove Discussion|Link suffix if present
                 raw_desc = re.sub(r"Discussion\|Link$", "", raw_desc).strip()
                 
             if title and link:
@@ -177,6 +175,67 @@ def fetch_producthunt_feed(limit=15):
         print(f"Error fetching Product Hunt: {e}")
     return items
 
+def infer_alternative_and_features(text: str, url: str, github_url: str | None, stars: int, source: str):
+    """Infers commercial alternatives, self-hostable status, and no-signup attributes."""
+    combined = text.lower() + " " + url.lower() + " " + (github_url or "").lower()
+    
+    # 1. Commercial Alternatives Detection
+    alt = None
+    if any(k in combined for k in ["sheet", "spreadsheet", "airtable", "univer", "excel"]):
+        alt = "Google Sheets / Airtable"
+    elif any(k in combined for k in ["agentic", "agent runtime", "orchestration", "langchain", "crewai", "autogen"]):
+        alt = "LangChain / CrewAI"
+    elif any(k in combined for k in ["claude code", "copilot", "cursor", "coding agent", "code assistant"]):
+        alt = "Cursor / Copilot"
+    elif any(k in combined for k in ["sandbox", "gvisor", "rootless", "container", "isolation"]):
+        alt = "Docker / Firecracker"
+    elif any(k in combined for k in ["posthog", "telemetry", "observability", "session"]):
+        alt = "PostHog / Datadog"
+    elif any(k in combined for k in ["manufacturing erp", "mes", "qms", "erp"]):
+        alt = "SAP / Odoo"
+    elif any(k in combined for k in ["architecture diagram", "diagram", "canvas", "system design"]):
+        alt = "Figma / Excalidraw"
+    elif any(k in combined for k in ["encryption", "air-gapped", "decrypting", "password", "vault"]):
+        alt = "1Password / Bitwarden"
+    elif any(k in combined for k in ["dbeaver", "datagrip", "sql client", "database gui", "postgres"]):
+        alt = "DBeaver / DataGrip"
+    elif any(k in combined for k in ["notion", "notes", "knowledge base"]):
+        alt = "Notion / Obsidian"
+    elif any(k in combined for k in ["zapier", "make.com", "workflow automation"]):
+        alt = "Zapier / Make"
+    elif any(k in combined for k in ["analytics", "google analytics"]):
+        alt = "Google Analytics"
+
+    # 2. Self-Hostable Check
+    is_self_host = any(k in combined for k in [
+        "self-hosted", "self-host", "docker", "kubernetes", "compose", "on-premise", "local", "rootless"
+    ]) or ("github.com" in combined and any(k in combined for k in ["server", "backend", "deploy"]))
+
+    # 3. No Sign-up Required Check
+    no_signup = any(k in combined for k in [
+        "no sign-up", "no signup", "no account", "client-side", "air-gapped", "html page", "offline", "wasm", "cli tool"
+    ]) or (github_url is not None and any(k in combined for k in ["cli", "library", "sdk", "kernel"]))
+
+    # 4. Signal Score (60 - 99)
+    base_score = 65
+    if stars > 10000:
+        base_score += 25
+    elif stars > 1000:
+        base_score += 18
+    elif stars > 100:
+        base_score += 10
+    elif stars > 20:
+        base_score += 5
+        
+    if source == "hackernews":
+        base_score += 6
+    elif source == "github_trending":
+        base_score += 5
+        
+    signal_score = min(base_score, 99)
+    
+    return alt, is_self_host, no_signup, signal_score
+
 def classify_and_structure_heuristic(raw_item: dict) -> dict:
     """Heuristic fallback for categorizing and structuring without requiring LLM API."""
     text = (raw_item["title"] + " " + raw_item["raw_description"]).lower()
@@ -185,7 +244,7 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
     tags = []
     
     ai_keywords = ["ai", "llm", "gpt", "agent", "deepseek", "claude", "gemini", "embedding", "model", "rag", "vision", "chat"]
-    dev_keywords = ["cli", "compiler", "library", "framework", "api", "sdk", "rust", "python", "typescript", "golang", "sql", "debugger"]
+    dev_keywords = ["cli", "compiler", "library", "framework", "api", "sdk", "rust", "python", "typescript", "golang", "sql", "debugger", "kernel"]
     devops_keywords = ["docker", "kubernetes", "cloud", "aws", "cloudflare", "monitoring", "server", "deploy", "ci/cd", "sandbox"]
     design_keywords = ["ui", "css", "icon", "figma", "tailwind", "design", "canvas", "font", "component", "diagram", "chart"]
     
@@ -210,12 +269,19 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
         
     pricing = "Open Source" if raw_item.get("github_url") else "Free"
     
-    # Clean tagline
     clean_desc = raw_item["raw_description"]
     clean_desc = re.sub(r"\s+", " ", clean_desc).strip()
     tagline = clean_desc[:110] + ("..." if len(clean_desc) > 110 else "")
     
     slug = slugify(raw_item["raw_name"])
+    
+    alt, is_self_host, no_signup, signal_score = infer_alternative_and_features(
+        raw_item["title"] + " " + clean_desc,
+        raw_item["url"],
+        raw_item.get("github_url"),
+        raw_item.get("stars", 0),
+        raw_item["source"]
+    )
     
     return {
         "id": slug,
@@ -229,13 +295,17 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
         "tags": list(set(tags))[:5],
         "pricing_model": pricing,
         "stars": raw_item.get("stars", 0),
+        "primary_alternative": alt,
+        "is_self_hostable": is_self_host,
+        "no_signup_required": no_signup,
+        "signal_score": signal_score,
         "date_added": datetime.date.today().isoformat(),
         "featured": False
     }
 
 def run_scraper():
     print("=" * 50)
-    print(f"Daily Radar Scraper - Starting at {datetime.datetime.now().isoformat()}")
+    print(f"Tools Radar Scraper - Starting at {datetime.datetime.now().isoformat()}")
     print("=" * 50)
     
     all_raw = []
@@ -253,7 +323,6 @@ def run_scraper():
         structured = classify_and_structure_heuristic(raw)
         if not structured["id"] or structured["id"] in seen_slugs:
             continue
-        # Knockout rule: exclude items with no meaningful description or name
         if len(structured["name"]) < 2 or len(structured["summary"]) < 10:
             continue
             

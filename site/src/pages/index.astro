@@ -8,6 +8,11 @@ const categoryCounts = categories.map(cat => ({
   ...cat,
   count: allTools.filter(t => t.category === cat.id).length
 }));
+
+const selfHostCount = allTools.filter(t => t.is_self_hostable).length;
+const noSignupCount = allTools.filter(t => t.no_signup_required).length;
+const altCount = allTools.filter(t => t.primary_alternative).length;
+const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length;
 ---
 
 <Layout 
@@ -31,8 +36,8 @@ const categoryCounts = categories.map(cat => ({
       <span class="gradient-accent">Developer Tools & AI Gems</span>
     </h1>
 
-    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto; line-height: 1.6;">
-      Automated daily curation from GitHub Trending, Hacker News Show, and Product Hunt. Zero fluff, high signal.
+    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto; line-height: 1.6;">
+      High-signal software curation filtered for open-source alternatives, self-hostable tech, and developer utilities.
     </p>
 
     <!-- Raycast-style Instant Search Bar -->
@@ -45,30 +50,66 @@ const categoryCounts = categories.map(cat => ({
         type="text" 
         id="tool-search" 
         class="search-input" 
-        placeholder="Type to search tools, tags, or topics (e.g. AI, CLI, Rust)..." 
+        placeholder="Search by tool name, tag, or topic (e.g. AI, CLI, Docker, Rust)..." 
         autocomplete="off"
       />
       <div class="search-shortcut">/</div>
     </div>
 
-    <!-- Category Filter Pills -->
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 2rem;">
-      <a 
-        href="/" 
-        style="display: inline-flex; align-items: center; gap: 0.4rem; background: #27272a; border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.82rem; color: #ffffff; font-weight: 600; text-decoration: none; box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);"
+    <!-- Hardcore Feature Filter Chips -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;" id="feature-filters">
+      <button 
+        class="filter-chip active" 
+        data-filter="all"
       >
-        <span>All Tools</span>
-        <span style="background: rgba(255, 255, 255, 0.15); font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{allTools.length}</span>
-      </a>
+        <span>⚡ All Tools</span>
+        <span class="chip-count">{allTools.length}</span>
+      </button>
+
+      <button 
+        class="filter-chip" 
+        data-filter="alternatives"
+      >
+        <span>🔄 Big-Tech Alternatives</span>
+        <span class="chip-count">{altCount}</span>
+      </button>
+
+      <button 
+        class="filter-chip" 
+        data-filter="self-host"
+      >
+        <span>🐳 Self-Hostable</span>
+        <span class="chip-count">{selfHostCount}</span>
+      </button>
+
+      <button 
+        class="filter-chip" 
+        data-filter="no-signup"
+      >
+        <span>🔓 No Sign-up</span>
+        <span class="chip-count">{noSignupCount}</span>
+      </button>
+
+      <button 
+        class="filter-chip" 
+        data-filter="high-signal"
+      >
+        <span>🔥 High Traction</span>
+        <span class="chip-count">{highSignalCount}</span>
+      </button>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-top: 1.25rem;">
       {categoryCounts.map(cat => (
         <a 
           href={`/category/${cat.id}`} 
-          style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(24, 24, 27, 0.7); border: 1px solid var(--border-subtle); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; transition: all 0.15s ease;"
+          style="display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(24, 24, 27, 0.6); border: 1px solid var(--border-subtle); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; transition: all 0.15s ease;"
           onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='#f4f4f5';"
           onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#a1a1aa';"
         >
           <span>{cat.name}</span>
-          <span style="background: rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 9999px;">{cat.count}</span>
+          <span style="background: rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.7rem; padding: 0.05rem 0.35rem; border-radius: 9999px;">{cat.count}</span>
         </a>
       ))}
     </div>
@@ -79,7 +120,7 @@ const categoryCounts = categories.map(cat => ({
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem;">
       <div style="display: flex; align-items: center; gap: 0.75rem;">
         <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">
-          Latest Tracked Drops
+          Curated Feed
         </h2>
         <span id="results-count" style="font-size: 0.8rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">
           Showing {allTools.length} tools
@@ -87,14 +128,14 @@ const categoryCounts = categories.map(cat => ({
       </div>
 
       <div style="font-size: 0.8rem; color: var(--text-muted);">
-        Auto-refreshes daily via GitHub Actions
+        Aggregated across GitHub, Product Hunt & Hacker News
       </div>
     </div>
 
     <!-- Empty search state -->
     <div id="no-results" style="display: none; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-      <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No tools found matching your search.</p>
-      <p style="font-size: 0.85rem;">Try searching for broad terms like "AI", "Go", "CLI", or "Data".</p>
+      <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No tools match your current filter.</p>
+      <p style="font-size: 0.85rem;">Try resetting your search query or selecting "All Tools".</p>
     </div>
 
     <!-- Tools Grid -->
@@ -102,10 +143,17 @@ const categoryCounts = categories.map(cat => ({
       {allTools.map(tool => {
         const iconUrl = getToolIcon(tool.url, tool.github_url);
         const initial = tool.name.charAt(0);
-        const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")}`.toLowerCase();
+        const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")} ${tool.primary_alternative || ""}`.toLowerCase();
 
         return (
-          <article class="tool-card" data-corpus={searchCorpus}>
+          <article 
+            class="tool-card" 
+            data-corpus={searchCorpus}
+            data-self-host={tool.is_self_hostable ? "true" : "false"}
+            data-no-signup={tool.no_signup_required ? "true" : "false"}
+            data-has-alt={tool.primary_alternative ? "true" : "false"}
+            data-signal={tool.signal_score || 0}
+          >
             <div>
               <div class="tool-card-top">
                 <div class="tool-icon">
@@ -134,28 +182,51 @@ const categoryCounts = categories.map(cat => ({
                       </a>
                     </h3>
 
-                    {tool.stars > 0 && (
-                      <span class="stars-badge">
-                        <span>★</span>
-                        <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
-                      </span>
-                    )}
+                    <div style="display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0;">
+                      {tool.stars > 0 && (
+                        <span class="stars-badge">
+                          <span>★</span>
+                          <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
+                        </span>
+                      )}
+                      {tool.signal_score && (
+                        <span style="font-size: 0.7rem; font-weight: 700; color: #a1a1aa; background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono);">
+                          ⚡{tool.signal_score}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   <p class="tool-tagline">{tool.tagline}</p>
                 </div>
               </div>
 
-              <!-- Tags -->
-              {tool.tags && tool.tags.length > 0 && (
-                <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
-                  {tool.tags.slice(0, 4).map((tag: string) => (
-                    <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.72rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
+              <!-- Alternatives Pill & Hardcore Badges -->
+              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
+                {tool.primary_alternative && (
+                  <span style="display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px;">
+                    🔄 Alt to {tool.primary_alternative}
+                  </span>
+                )}
+
+                {tool.is_self_hostable && (
+                  <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                    🐳 Self-Hostable
+                  </span>
+                )}
+
+                {tool.no_signup_required && (
+                  <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); color: #fcd34d; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                    🔓 No Sign-up
+                  </span>
+                )}
+
+                {tool.tags && tool.tags.slice(0, 3).map((tag: string) => (
+                  <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <!-- Footer -->
@@ -171,7 +242,7 @@ const categoryCounts = categories.map(cat => ({
               </div>
 
               <a href={`/tool/${tool.id}`} style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
-                Details <span style="font-size: 1rem; line-height: 1;">→</span>
+                Details & Alternatives <span style="font-size: 1rem; line-height: 1;">→</span>
               </a>
             </div>
           </article>
@@ -180,13 +251,61 @@ const categoryCounts = categories.map(cat => ({
     </div>
   </section>
 
-  <!-- Client-side Instant Filter Script -->
+  <!-- Filter & Chip Styles -->
+  <style>
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(24, 24, 27, 0.8);
+      border: 1px solid var(--border-subtle);
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .filter-chip:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+    }
+
+    .filter-chip.active {
+      background: #27272a;
+      border-color: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+    }
+
+    .chip-count {
+      background: rgba(255, 255, 255, 0.1);
+      color: #a1a1aa;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+    }
+
+    .filter-chip.active .chip-count {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+    }
+  </style>
+
+  <!-- Interactive Search and Chip Filtering Script -->
   <script is:inline>
     const searchInput = document.getElementById('tool-search');
+    const filterChips = document.querySelectorAll('.filter-chip');
     const cards = document.querySelectorAll('.tool-card');
     const noResults = document.getElementById('no-results');
     const resultsCount = document.getElementById('results-count');
     const totalTools = cards.length;
+
+    let currentFilter = 'all';
 
     // Keyboard shortcut '/'
     window.addEventListener('keydown', (e) => {
@@ -196,13 +315,28 @@ const categoryCounts = categories.map(cat => ({
       }
     });
 
-    searchInput?.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
+    function applyFilters() {
+      const query = (searchInput?.value || '').toLowerCase().trim();
       let matchCount = 0;
 
       cards.forEach(card => {
         const corpus = card.getAttribute('data-corpus') || '';
-        if (!query || corpus.includes(query)) {
+        const isSelfHost = card.getAttribute('data-self-host') === 'true';
+        const isNoSignup = card.getAttribute('data-no-signup') === 'true';
+        const hasAlt = card.getAttribute('data-has-alt') === 'true';
+        const signal = parseInt(card.getAttribute('data-signal') || '0', 10);
+
+        // Filter condition
+        let passesChip = true;
+        if (currentFilter === 'self-host') passesChip = isSelfHost;
+        else if (currentFilter === 'no-signup') passesChip = isNoSignup;
+        else if (currentFilter === 'alternatives') passesChip = hasAlt;
+        else if (currentFilter === 'high-signal') passesChip = signal >= 80;
+
+        // Search condition
+        const passesQuery = !query || corpus.includes(query);
+
+        if (passesChip && passesQuery) {
           card.style.display = 'flex';
           matchCount++;
         } else {
@@ -211,12 +345,23 @@ const categoryCounts = categories.map(cat => ({
       });
 
       if (resultsCount) {
-        resultsCount.textContent = query ? `Showing ${matchCount} of ${totalTools}` : `Showing ${totalTools} tools`;
+        resultsCount.textContent = `Showing ${matchCount} of ${totalTools} tools`;
       }
 
       if (noResults) {
         noResults.style.display = matchCount === 0 ? 'block' : 'none';
       }
+    }
+
+    searchInput?.addEventListener('input', applyFilters);
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentFilter = chip.getAttribute('data-filter') || 'all';
+        applyFilters();
+      });
     });
   </script>
 </Layout>
