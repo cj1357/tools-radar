@@ -13,7 +13,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 37123,
+    "stars": 37135,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -27,11 +27,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "Go"
+      "Go",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 9513,
+    "stars": 9541,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -49,7 +49,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 31636,
+    "stars": 31645,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -63,11 +63,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 6697,
+    "stars": 6707,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -81,11 +81,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Shell",
-      "AI"
+      "AI",
+      "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 290897,
+    "stars": 290908,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -99,11 +99,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 16564,
+    "stars": 16571,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -117,11 +117,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 19016,
+    "stars": 19032,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -135,11 +135,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "Go"
+      "Go",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 3630,
+    "stars": 3641,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -157,7 +157,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 8000,
+    "stars": 8007,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -175,7 +175,22 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 50086,
+    "stars": 50093,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "an-open-source-manufacturing-erpmesqms",
+    "name": "An open-source manufacturing ERP/MES/QMS",
+    "tagline": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News w...",
+    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 33 community upvotes.",
+    "url": "https://carbon.ms/self-hosted",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 33,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -197,25 +212,10 @@
     "featured": false
   },
   {
-    "id": "an-open-source-manufacturing-erpmesqms",
-    "name": "An open-source manufacturing ERP/MES/QMS",
-    "tagline": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News w...",
-    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 30 community upvotes.",
-    "url": "https://carbon.ms/self-hosted",
-    "github_url": null,
-    "source": "hackernews",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 30,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
     "id": "i-built-a-post-mortem-debugger-for-native-windows-x64x86-cra",
     "name": "I built a post-mortem debugger for native Windows x64/x86 crashes",
     "tagline": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie ...",
-    "summary": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie creators on Hacker News with 33 community upvotes.",
+    "summary": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie creators on Hacker News with 34 community upvotes.",
     "url": "https://www.forensicdbg.com",
     "github_url": null,
     "source": "hackernews",
@@ -224,7 +224,7 @@
       "DevTools"
     ],
     "pricing_model": "Free",
-    "stars": 33,
+    "stars": 34,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -314,6 +314,23 @@
     "featured": false
   },
   {
+    "id": "training-a-model-to-identify-ai-web-content-from-structure-a",
+    "name": "Training a model to identify AI web content from structure alone",
+    "tagline": "Training a model to identify AI web content from structure alone — newly launched project showcased by indie c...",
+    "summary": "Training a model to identify AI web content from structure alone — newly launched project showcased by indie creators on Hacker News with 66 community upvotes.",
+    "url": "https://arxiv.org/abs/2609.15369",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 66,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
     "id": "a-game-about-fake-news-and-memes",
     "name": "A game about fake news and memes",
     "tagline": "A game about fake news and memes — newly launched project showcased by indie creators on Hacker News with 3 co...",
@@ -329,19 +346,117 @@
     "featured": false
   },
   {
-    "id": "training-a-model-to-identify-ai-web-content-from-structure-a",
-    "name": "Training a model to identify AI web content from structure alone",
-    "tagline": "Training a model to identify AI web content from structure alone — newly launched project showcased by indie c...",
-    "summary": "Training a model to identify AI web content from structure alone — newly launched project showcased by indie creators on Hacker News with 66 community upvotes.",
-    "url": "https://arxiv.org/abs/2609.15369",
+    "id": "maximem-synap",
+    "name": "Maximem Synap",
+    "tagline": "The fastest, most accurate memory layer for AI agents",
+    "summary": "The fastest, most accurate memory layer for AI agents",
+    "url": "https://www.producthunt.com/products/maximem-synap",
     "github_url": null,
-    "source": "hackernews",
+    "source": "producthunt",
     "category": "ai-tools",
     "tags": [
       "AI"
     ],
     "pricing_model": "Free",
-    "stars": 66,
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "choredivider",
+    "name": "ChoreDivider",
+    "tagline": "Split chores by what each of you actually minds doing",
+    "summary": "Split chores by what each of you actually minds doing",
+    "url": "https://www.producthunt.com/products/choredivider",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "parall",
+    "name": "Parall",
+    "tagline": "Run multiple instances of the same app on your Mac",
+    "summary": "Run multiple instances of the same app on your Mac",
+    "url": "https://www.producthunt.com/products/parall",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "storytailor",
+    "name": "Storytailor®",
+    "tagline": "A personal world built around your child’s imagination",
+    "summary": "A personal world built around your child’s imagination",
+    "url": "https://www.producthunt.com/products/storytailor",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "scholé-learn-by-building",
+    "name": "Scholé Learn by Building",
+    "tagline": "Learning should be more than \"click next\"",
+    "summary": "Learning should be more than \"click next\"",
+    "url": "https://www.producthunt.com/products/schole-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "DevTools"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "ctrlops-10",
+    "name": "CtrlOps 1.0",
+    "tagline": "Your server. Audited, managed, and deployed with AI.",
+    "summary": "Your server. Audited, managed, and deployed with AI.",
+    "url": "https://www.producthunt.com/products/ctrlops",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "intellagentsio",
+    "name": "IntellAgents.io",
+    "tagline": "One AI agent for every call, chat, and DM",
+    "summary": "One AI agent for every call, chat, and DM",
+    "url": "https://www.producthunt.com/products/intellagents-io",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -380,130 +495,17 @@
     "featured": false
   },
   {
-    "id": "parall",
-    "name": "Parall",
-    "tagline": "Run multiple instances of the same app on your Mac",
-    "summary": "Run multiple instances of the same app on your Mac",
-    "url": "https://www.producthunt.com/products/parall",
+    "id": "subscrr",
+    "name": "Subscrr",
+    "tagline": "Build a financial plan and ask what to cancel",
+    "summary": "Build a financial plan and ask what to cancel",
+    "url": "https://www.producthunt.com/products/subscrrr",
     "github_url": null,
     "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "scholé-learn-by-building",
-    "name": "Scholé Learn by Building",
-    "tagline": "Learning should be more than \"click next\"",
-    "summary": "Learning should be more than \"click next\"",
-    "url": "https://www.producthunt.com/products/schole-2",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "developer-tools",
+    "category": "design-ui",
     "tags": [
-      "DevTools"
+      "Design"
     ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "harness-manager",
-    "name": "Harness Manager",
-    "tagline": "Your AI coding stack manager, all in one place",
-    "summary": "Your AI coding stack manager, all in one place",
-    "url": "https://www.producthunt.com/products/harness-manager",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "ai-tools",
-    "tags": [
-      "AI"
-    ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "ctrlops-10",
-    "name": "CtrlOps 1.0",
-    "tagline": "Your server. Audited, managed, and deployed with AI.",
-    "summary": "Your server. Audited, managed, and deployed with AI.",
-    "url": "https://www.producthunt.com/products/ctrlops",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "ai-tools",
-    "tags": [
-      "AI"
-    ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "opencontroller-by-lyzr",
-    "name": "Opencontroller by lyzr",
-    "tagline": "Govern All your agents with a unified control plane",
-    "summary": "Govern All your agents with a unified control plane",
-    "url": "https://www.producthunt.com/products/opencontroller-by-lyzr",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "ai-tools",
-    "tags": [
-      "AI"
-    ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "jev-seo",
-    "name": "jev-seo",
-    "tagline": "Free Rust CLI SEO/GEO auditor, no subscription needed",
-    "summary": "Free Rust CLI SEO/GEO auditor, no subscription needed",
-    "url": "https://www.producthunt.com/products/jev-seo",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "developer-tools",
-    "tags": [
-      "DevTools"
-    ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "choredivider",
-    "name": "ChoreDivider",
-    "tagline": "Split chores by what each of you actually minds doing",
-    "summary": "Split chores by what each of you actually minds doing",
-    "url": "https://www.producthunt.com/products/choredivider",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "date_added": "2026-09-24",
-    "featured": false
-  },
-  {
-    "id": "notchpop",
-    "name": "NotchPop",
-    "tagline": "The Dynamic Island your MacBook notch was missing",
-    "summary": "The Dynamic Island your MacBook notch was missing",
-    "url": "https://www.producthunt.com/products/notchpop",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
     "pricing_model": "Free",
     "stars": 0,
     "date_added": "2026-09-24",

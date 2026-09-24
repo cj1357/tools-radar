@@ -3,14 +3,14 @@
     "id": "an-open-source-manufacturing-erpmesqms",
     "name": "An open-source manufacturing ERP/MES/QMS",
     "tagline": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News w...",
-    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 30 community upvotes.",
+    "summary": "An open-source manufacturing ERP/MES/QMS — newly launched project showcased by indie creators on Hacker News with 33 community upvotes.",
     "url": "https://carbon.ms/self-hosted",
     "github_url": null,
     "source": "hackernews",
     "category": "productivity",
     "tags": [],
     "pricing_model": "Free",
-    "stars": 30,
+    "stars": 33,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -18,7 +18,7 @@
     "id": "i-built-a-post-mortem-debugger-for-native-windows-x64x86-cra",
     "name": "I built a post-mortem debugger for native Windows x64/x86 crashes",
     "tagline": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie ...",
-    "summary": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie creators on Hacker News with 33 community upvotes.",
+    "summary": "I built a post-mortem debugger for native Windows x64/x86 crashes — newly launched project showcased by indie creators on Hacker News with 34 community upvotes.",
     "url": "https://www.forensicdbg.com",
     "github_url": null,
     "source": "hackernews",
@@ -27,7 +27,7 @@
       "DevTools"
     ],
     "pricing_model": "Free",
-    "stars": 33,
+    "stars": 34,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -179,7 +179,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 37123,
+    "stars": 37135,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -193,11 +193,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "Go"
+      "Go",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 9513,
+    "stars": 9541,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -215,7 +215,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 31636,
+    "stars": 31645,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -229,11 +229,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 6697,
+    "stars": 6707,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -247,11 +247,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Shell",
-      "AI"
+      "AI",
+      "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 290897,
+    "stars": 290908,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -265,11 +265,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 16564,
+    "stars": 16571,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -283,11 +283,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "TypeScript"
+      "TypeScript",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 19016,
+    "stars": 19032,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -301,11 +301,11 @@
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI",
-      "Go"
+      "Go",
+      "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 3630,
+    "stars": 3641,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -323,7 +323,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 8000,
+    "stars": 8007,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -341,7 +341,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 50086,
+    "stars": 50093,
     "date_added": "2026-09-24",
     "featured": false
   },
@@ -538,6 +538,74 @@
     "source": "producthunt",
     "category": "productivity",
     "tags": [],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "maximem-synap",
+    "name": "Maximem Synap",
+    "tagline": "The fastest, most accurate memory layer for AI agents",
+    "summary": "The fastest, most accurate memory layer for AI agents",
+    "url": "https://www.producthunt.com/products/maximem-synap",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "storytailor",
+    "name": "Storytailor®",
+    "tagline": "A personal world built around your child’s imagination",
+    "summary": "A personal world built around your child’s imagination",
+    "url": "https://www.producthunt.com/products/storytailor",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "intellagentsio",
+    "name": "IntellAgents.io",
+    "tagline": "One AI agent for every call, chat, and DM",
+    "summary": "One AI agent for every call, chat, and DM",
+    "url": "https://www.producthunt.com/products/intellagents-io",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "date_added": "2026-09-24",
+    "featured": false
+  },
+  {
+    "id": "subscrr",
+    "name": "Subscrr",
+    "tagline": "Build a financial plan and ask what to cancel",
+    "summary": "Build a financial plan and ask what to cancel",
+    "url": "https://www.producthunt.com/products/subscrrr",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "design-ui",
+    "tags": [
+      "Design"
+    ],
     "pricing_model": "Free",
     "stars": 0,
     "date_added": "2026-09-24",
