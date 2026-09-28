@@ -13,6 +13,10 @@ const selfHostCount = allTools.filter(t => t.is_self_hostable).length;
 const noSignupCount = allTools.filter(t => t.no_signup_required).length;
 const altCount = allTools.filter(t => t.primary_alternative).length;
 const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length;
+
+// Scalability slice: render only top 24 on initial HTML to ensure sub-50ms load
+const PAGE_SIZE = 24;
+const initialTools = allTools.slice(0, PAGE_SIZE);
 ---
 
 <Layout 
@@ -50,7 +54,7 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
         type="text" 
         id="tool-search" 
         class="search-input" 
-        placeholder="Search by tool name, tag, or topic (e.g. AI, CLI, Docker, Rust)..." 
+        placeholder="Search entire catalog across all tools, alternatives, and tags..." 
         autocomplete="off"
       />
       <div class="search-shortcut">/</div>
@@ -123,7 +127,7 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
           Curated Feed
         </h2>
         <span id="results-count" style="font-size: 0.8rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">
-          Showing {allTools.length} tools
+          Showing {initialTools.length} of {allTools.length} tools
         </span>
       </div>
 
@@ -138,9 +142,9 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
       <p style="font-size: 0.85rem;">Try resetting your search query or selecting "All Tools".</p>
     </div>
 
-    <!-- Tools Grid -->
+    <!-- Tools Grid (Initial static batch) -->
     <div class="tools-grid" id="tools-container">
-      {allTools.map(tool => {
+      {initialTools.map(tool => {
         const iconUrl = getToolIcon(tool.url, tool.github_url);
         const initial = tool.name.charAt(0);
         const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")} ${tool.primary_alternative || ""}`.toLowerCase();
@@ -148,6 +152,7 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
         return (
           <article 
             class="tool-card" 
+            data-id={tool.id}
             data-corpus={searchCorpus}
             data-self-host={tool.is_self_hostable ? "true" : "false"}
             data-no-signup={tool.no_signup_required ? "true" : "false"}
@@ -249,6 +254,18 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
         );
       })}
     </div>
+
+    <!-- Scalable Load More Pagination Button -->
+    {allTools.length > PAGE_SIZE && (
+      <div id="load-more-wrapper" style="text-align: center; margin: 3rem 0 1.5rem;">
+        <button id="load-more-btn" class="btn btn-secondary" style="padding: 0.75rem 2.25rem; border-radius: 9999px; font-size: 0.95rem; gap: 0.6rem;">
+          <span>Load More Tools</span>
+          <span id="load-more-counter" style="opacity: 0.65; font-size: 0.8rem; font-family: var(--font-mono);">
+            ({initialTools.length} / {allTools.length})
+          </span>
+        </button>
+      </div>
+    )}
   </section>
 
   <!-- Filter & Chip Styles -->
@@ -296,72 +313,246 @@ const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length
     }
   </style>
 
-  <!-- Interactive Search and Chip Filtering Script -->
-  <script is:inline>
+  <!-- Infinite / Load More & Decoupled Search Engine Script -->
+  <script is:inline define:vars={{ PAGE_SIZE }}>
     const searchInput = document.getElementById('tool-search');
     const filterChips = document.querySelectorAll('.filter-chip');
-    const cards = document.querySelectorAll('.tool-card');
+    const container = document.getElementById('tools-container');
     const noResults = document.getElementById('no-results');
     const resultsCount = document.getElementById('results-count');
-    const totalTools = cards.length;
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreWrapper = document.getElementById('load-more-wrapper');
+    const loadMoreCounter = document.getElementById('load-more-counter');
 
+    let fullIndex = null;
+    let displayedCount = PAGE_SIZE;
     let currentFilter = 'all';
+
+    function getToolIconUrl(url, githubUrl) {
+      if (githubUrl && githubUrl.includes('github.com/')) {
+        try {
+          const clean = githubUrl.replace(/^https?:\/\/(www\.)?github\.com\//, '');
+          const owner = clean.split('/')[0];
+          if (owner && !owner.startsWith('?')) {
+            return `https://github.com/${owner}.png?size=96`;
+          }
+        } catch (_) {}
+      }
+      try {
+        const domain = new URL(url).hostname;
+        return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function createCardHTML(tool) {
+      const iconUrl = getToolIconUrl(tool.url, tool.github_url);
+      const initial = (tool.name || '?').charAt(0);
+      const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(' ')} ${tool.primary_alternative || ''}`.toLowerCase();
+      const starsDisplay = tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars;
+      const sourceLabel = tool.source === 'github_trending' ? 'GitHub' : tool.source === 'producthunt' ? 'PH' : 'HN';
+      const pricingClass = tool.pricing_model === 'Open Source' ? 'badge badge-oss' : 'badge badge-free';
+
+      return `
+        <article 
+          class="tool-card" 
+          data-id="${tool.id}"
+          data-corpus="${searchCorpus}"
+          data-self-host="${tool.is_self_hostable ? 'true' : 'false'}"
+          data-no-signup="${tool.no_signup_required ? 'true' : 'false'}"
+          data-has-alt="${tool.primary_alternative ? 'true' : 'false'}"
+          data-signal="${tool.signal_score || 0}"
+        >
+          <div>
+            <div class="tool-card-top">
+              <div class="tool-icon">
+                ${iconUrl ? `
+                  <img 
+                    src="${iconUrl}" 
+                    alt="${tool.name} icon" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="tool-icon-fallback" style="display: none;">${initial}</div>
+                ` : `
+                  <div class="tool-icon-fallback">${initial}</div>
+                `}
+              </div>
+
+              <div class="tool-meta-header">
+                <div class="tool-title-row">
+                  <h3 class="tool-title">
+                    <a href="/tool/${tool.id}" style="color: var(--text-primary); text-decoration: none;">
+                      ${tool.name}
+                    </a>
+                  </h3>
+                  <div style="display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0;">
+                    ${tool.stars > 0 ? `
+                      <span class="stars-badge">
+                        <span>★</span>
+                        <span>${starsDisplay}</span>
+                      </span>
+                    ` : ''}
+                    ${tool.signal_score ? `
+                      <span style="font-size: 0.7rem; font-weight: 700; color: #a1a1aa; background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono);">
+                        ⚡${tool.signal_score}
+                      </span>
+                    ` : ''}
+                  </div>
+                </div>
+                <p class="tool-tagline">${tool.tagline}</p>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
+              ${tool.primary_alternative ? `
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px;">
+                  🔄 Alt to ${tool.primary_alternative}
+                </span>
+              ` : ''}
+              ${tool.is_self_hostable ? `
+                <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                  🐳 Self-Hostable
+                </span>
+              ` : ''}
+              ${tool.no_signup_required ? `
+                <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); color: #fcd34d; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                  🔓 No Sign-up
+                </span>
+              ` : ''}
+              ${(tool.tags || []).slice(0, 3).map(tag => `
+                <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
+                  #${tag}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="tool-footer">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span class="${pricingClass}">${tool.pricing_model}</span>
+              <span class="badge badge-source">${sourceLabel}</span>
+            </div>
+            <a href="/tool/${tool.id}" style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
+              Details & Alternatives <span style="font-size: 1rem; line-height: 1;">→</span>
+            </a>
+          </div>
+        </article>
+      `;
+    }
+
+    async function ensureIndexLoaded() {
+      if (fullIndex) return fullIndex;
+      try {
+        const resp = await fetch('/search-index.json');
+        fullIndex = await resp.json();
+      } catch (e) {
+        console.error('Failed to load search index:', e);
+        fullIndex = [];
+      }
+      return fullIndex;
+    }
 
     // Keyboard shortcut '/'
     window.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
-        searchInput.focus();
+        searchInput?.focus();
       }
     });
 
-    function applyFilters() {
+    // Instant Search and Chip Filter across the full catalog
+    async function handleFilterOrSearch() {
       const query = (searchInput?.value || '').toLowerCase().trim();
-      let matchCount = 0;
+      const isFiltered = currentFilter !== 'all' || query !== '';
 
-      cards.forEach(card => {
-        const corpus = card.getAttribute('data-corpus') || '';
-        const isSelfHost = card.getAttribute('data-self-host') === 'true';
-        const isNoSignup = card.getAttribute('data-no-signup') === 'true';
-        const hasAlt = card.getAttribute('data-has-alt') === 'true';
-        const signal = parseInt(card.getAttribute('data-signal') || '0', 10);
+      const index = await ensureIndexLoaded();
 
-        // Filter condition
-        let passesChip = true;
-        if (currentFilter === 'self-host') passesChip = isSelfHost;
-        else if (currentFilter === 'no-signup') passesChip = isNoSignup;
-        else if (currentFilter === 'alternatives') passesChip = hasAlt;
-        else if (currentFilter === 'high-signal') passesChip = signal >= 80;
-
-        // Search condition
-        const passesQuery = !query || corpus.includes(query);
-
-        if (passesChip && passesQuery) {
-          card.style.display = 'flex';
-          matchCount++;
-        } else {
-          card.style.display = 'none';
+      if (!isFiltered) {
+        // Return to standard paginated view
+        container.innerHTML = index.slice(0, displayedCount).map(createCardHTML).join('');
+        if (loadMoreWrapper) {
+          loadMoreWrapper.style.display = displayedCount < index.length ? 'block' : 'none';
         }
-      });
-
-      if (resultsCount) {
-        resultsCount.textContent = `Showing ${matchCount} of ${totalTools} tools`;
+        if (loadMoreCounter) {
+          loadMoreCounter.textContent = `(${displayedCount} / ${index.length})`;
+        }
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${displayedCount} of ${index.length} tools`;
+        }
+        if (noResults) noResults.style.display = 'none';
+        return;
       }
 
+      // Filter across 100% of all tools
+      if (loadMoreWrapper) loadMoreWrapper.style.display = 'none';
+
+      const matched = index.filter(tool => {
+        const corpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(' ')} ${tool.primary_alternative || ''}`.toLowerCase();
+        
+        let passesChip = true;
+        if (currentFilter === 'self-host') passesChip = tool.is_self_hostable;
+        else if (currentFilter === 'no-signup') passesChip = tool.no_signup_required;
+        else if (currentFilter === 'alternatives') passesChip = Boolean(tool.primary_alternative);
+        else if (currentFilter === 'high-signal') passesChip = (tool.signal_score || 0) >= 80;
+
+        const passesQuery = !query || corpus.includes(query);
+        return passesChip && passesQuery;
+      });
+
+      container.innerHTML = matched.map(createCardHTML).join('');
+
+      if (resultsCount) {
+        resultsCount.textContent = `Found ${matched.length} tools`;
+      }
       if (noResults) {
-        noResults.style.display = matchCount === 0 ? 'block' : 'none';
+        noResults.style.display = matched.length === 0 ? 'block' : 'none';
       }
     }
 
-    searchInput?.addEventListener('input', applyFilters);
+    searchInput?.addEventListener('input', handleFilterOrSearch);
+    searchInput?.addEventListener('focus', ensureIndexLoaded);
 
     filterChips.forEach(chip => {
       chip.addEventListener('click', () => {
         filterChips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         currentFilter = chip.getAttribute('data-filter') || 'all';
-        applyFilters();
+        handleFilterOrSearch();
       });
     });
+
+    // Load More Button Handler
+    loadMoreBtn?.addEventListener('click', async () => {
+      const index = await ensureIndexLoaded();
+      const nextBatch = index.slice(displayedCount, displayedCount + PAGE_SIZE);
+      displayedCount += nextBatch.length;
+
+      const tempContainer = document.createElement('div');
+      tempContainer.innerHTML = nextBatch.map(createCardHTML).join('');
+      while (tempContainer.firstChild) {
+        container.appendChild(tempContainer.firstChild);
+      }
+
+      if (resultsCount) {
+        resultsCount.textContent = `Showing ${displayedCount} of ${index.length} tools`;
+      }
+
+      if (loadMoreCounter) {
+        loadMoreCounter.textContent = `(${displayedCount} / ${index.length})`;
+      }
+
+      if (displayedCount >= index.length && loadMoreWrapper) {
+        loadMoreWrapper.style.display = 'none';
+      }
+    });
+
+    // Preload index in idle time
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => ensureIndexLoaded());
+    } else {
+      setTimeout(ensureIndexLoaded, 1000);
+    }
   </script>
 </Layout>
