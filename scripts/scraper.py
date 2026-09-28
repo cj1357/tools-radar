@@ -350,7 +350,7 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
         return None
 
     api_base = os.environ.get("AI_API_BASE", "").strip() or "https://api.openai.com/v1"
-    model = os.environ.get("AI_MODEL", "google/gemini-3.1-flash-lite").strip()
+    model = os.environ.get("AI_MODEL", "google/gemini-3.5-flash-lite").strip()
 
     base = api_base.rstrip("/")
     if not base.endswith("/v1"):
@@ -528,7 +528,7 @@ def run_scraper():
     use_ai = bool(api_key)
     if use_ai:
         api_base = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
-        model = os.environ.get("AI_MODEL", "google/gemini-3.1-flash-lite")
+        model = os.environ.get("AI_MODEL", "google/gemini-3.5-flash-lite")
         print(f"[AI Mode Active] Base: {api_base} | Model: {model} | RateLimit: 4.2s delay (15 RPM safe)")
     else:
         print("[Rule-Based Mode] No AI_API_KEY detected. Using fast heuristic extraction.")

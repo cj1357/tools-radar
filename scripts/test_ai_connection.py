@@ -36,7 +36,7 @@ def test_connection():
 
     api_base = os.environ.get("AI_API_BASE", "").strip()
     api_key = os.environ.get("AI_API_KEY", "").strip() or os.environ.get("OPENAI_API_KEY", "").strip()
-    model = os.environ.get("AI_MODEL", "google/gemini-3.1-flash-lite").strip()
+    model = os.environ.get("AI_MODEL", "google/gemini-3.5-flash-lite").strip()
 
     print("=" * 60)
     print(" Tools Radar - AI Configuration & Deep Extraction Tester")
