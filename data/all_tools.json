@@ -2,22 +2,41 @@
   {
     "id": "univer",
     "name": "Univer",
-    "tagline": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runti...",
-    "summary": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.",
+    "tagline": "The open-source office suite designed for AI agents and developers.",
+    "summary": "Univer is a modular, high-performance office suite that integrates spreadsheets, documents, and slides into a single, extensible runtime. It provides a headless architecture that allows developers to embed complex document editing capabilities directly into their own applications.",
     "url": "https://github.com/dream-num/univer",
     "github_url": "https://github.com/dream-num/univer",
     "source": "github_trending",
-    "category": "ai-tools",
+    "category": "developer-tools",
     "tags": [
+      "Spreadsheet",
+      "Headless",
+      "Collaborative",
       "TypeScript",
-      "AI"
+      "Office Suite"
     ],
     "pricing_model": "Open Source",
     "stars": 20893,
-    "primary_alternative": "Google Sheets / Airtable",
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "Google Workspace / Airtable",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Unified Multi-Doc Runtime",
+        "description": "A single reactive architecture supporting spreadsheets, documents, slides, and relational tables in one canvas."
+      },
+      {
+        "title": "Headless Extensible Architecture",
+        "description": "Designed for seamless integration into web apps via a robust TypeScript plugin system."
+      },
+      {
+        "title": "Native AI Agent Harness",
+        "description": "Built from the ground up to allow AI agents to interact with, query, and manipulate document data programmatically."
+      }
+    ],
+    "target_audience": "Software developers and enterprise architects building custom data-driven applications that require embedded document editing and AI workflow integration.",
+    "comparison_vs_alt": "Unlike Google Workspace, which is a closed SaaS ecosystem, Univer provides a fully open-source, self-hostable framework that gives developers complete control over data privacy, zero recurring per-seat fees, and limitless UI customization.",
     "date_added": "2026-09-28",
     "featured": false
   },

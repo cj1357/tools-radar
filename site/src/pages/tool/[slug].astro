@@ -172,11 +172,11 @@ const jsonLd = {
   </article>
 
   <!-- Detailed Specs & Overview -->
-  <section style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+  <section style="display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 3rem;">
     <!-- Overview Card -->
     <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem;">
-        What Problem Does {tool.name} Solve?
+      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span style="color: var(--accent);">💡</span> What Problem Does {tool.name} Solve?
       </h2>
       <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">
         {tool.summary}
@@ -202,6 +202,52 @@ const jsonLd = {
         </div>
       </div>
     </div>
+
+    <!-- Key Capabilities / Feature Highlights -->
+    {tool.key_features && tool.key_features.length > 0 && (
+      <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: #f59e0b;">⚡</span> Key Capabilities & Architecture
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+          {tool.key_features.map((feat: any, idx: number) => (
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: flex-start;">
+              <div style="font-size: 0.98rem; font-weight: 700; color: #f4f4f5; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                <span style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem; padding: 0.1rem 0.45rem; border-radius: 4px; font-weight: 800;">#{idx + 1}</span>
+                <span>{feat.title}</span>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                {feat.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Deep Alternative Comparison Callout -->
+    {tool.primary_alternative && (
+      <div style="background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(18, 18, 20, 0.8) 100%); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 14px; padding: 1.75rem;">
+        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #38bdf8; display: flex; align-items: center; gap: 0.5rem;">
+          <span>⚖️</span> Why Choose {tool.name} Over {tool.primary_alternative}?
+        </h2>
+        <p style="color: #e4e4e7; font-size: 0.98rem; line-height: 1.7; margin: 0;">
+          {tool.comparison_vs_alt || `Compared to closed SaaS alternatives like ${tool.primary_alternative}, ${tool.name} delivers transparent data ownership, extensive customizability, and developer-first integration capabilities without recurring licensing bottlenecks.`}
+        </p>
+      </div>
+    )}
+
+    <!-- Target Audience & Ideal Use Cases -->
+    {tool.target_audience && (
+      <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.5rem;">
+        <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
+          <span style="color: #10b981;">🎯</span> Who is this for?
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin: 0;">
+          {tool.target_audience}
+        </p>
+      </div>
+    )}
   </section>
 
   <!-- Similar Alternatives -->

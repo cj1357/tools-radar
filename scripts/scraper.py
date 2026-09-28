@@ -307,6 +307,19 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
         raw_item["source"]
     )
     
+    key_features = [
+        {
+            "title": "Developer-First Architecture",
+            "description": f"{raw_item['title']} is built with modern developer workflows in mind, prioritizing low overhead and straightforward setup."
+        },
+        {
+            "title": "Extensible & Modular",
+            "description": "Easily adapts to existing toolchains and development environments with clean configuration interfaces."
+        }
+    ]
+    target_audience = "Engineers, builders, and technical teams looking for high-efficiency software utilities."
+    comparison_vs_alt = f"Offers an open and flexible alternative to {alt} without proprietary ecosystem constraints." if alt else None
+
     return {
         "id": slug,
         "name": raw_item["title"],
@@ -323,18 +336,21 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
         "is_self_hostable": is_self_host,
         "no_signup_required": no_signup,
         "signal_score": signal_score,
+        "key_features": key_features,
+        "target_audience": target_audience,
+        "comparison_vs_alt": comparison_vs_alt,
         "date_added": datetime.date.today().isoformat(),
         "featured": False
     }
 
 def classify_and_structure_ai(raw_item: dict) -> dict | None:
-    """Uses LLM (via New API / OpenAI-compatible endpoint) to extract structured features."""
+    """Uses LLM (via New API / OpenAI-compatible endpoint) to extract deep structured features."""
     api_key = os.environ.get("AI_API_KEY", "").strip() or os.environ.get("OPENAI_API_KEY", "").strip()
     if not api_key:
         return None
 
     api_base = os.environ.get("AI_API_BASE", "").strip() or "https://api.openai.com/v1"
-    model = os.environ.get("AI_MODEL", "gemini-2.5-flash-lite").strip()
+    model = os.environ.get("AI_MODEL", "google/gemini-3.1-flash-lite").strip()
 
     base = api_base.rstrip("/")
     if not base.endswith("/v1"):
@@ -355,20 +371,27 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
     source = raw_item.get("source", "")
 
     system_prompt = (
-        "You are a senior tech analyst curating top developer tools, open-source projects, and AI software.\n"
-        "Analyze the provided tool information and return ONLY a valid JSON object with the following fields:\n"
+        "You are a senior tech analyst and product architect curating top developer tools, open-source repositories, and AI apps.\n"
+        "Analyze the product info and return ONLY a valid JSON object with the following fields:\n"
         "{\n"
-        '  "name": "Clean canonical product or project name (strip \'Show HN:\', repo owner prefixes, etc.)",\n'
-        '  "tagline": "A punchy, concise English one-liner (max 80 chars) describing what it does",\n'
-        '  "summary": "1-2 informative sentences explaining the core value, target users, and why it matters",\n'
+        '  "name": "Clean canonical product or project name",\n'
+        '  "tagline": "A punchy, compelling English one-liner (max 80 chars) describing its superpower",\n'
+        '  "summary": "2 informative sentences explaining the core value, problem solved, and technical edge",\n'
         '  "category": "Must be exactly ONE of: developer-tools, ai-tools, productivity, open-source, security-devops, design-ui",\n'
-        '  "tags": ["3 to 5 relevant concise tags, e.g. Python, AI, Agent, CLI, Database"],\n'
+        '  "tags": ["3 to 5 concise tags like TypeScript, AI Agents, Canvas, Headless"],\n'
         '  "pricing_model": "One of: Open Source, Free, Freemium, Paid",\n'
-        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces (e.g. Notion, Airtable, Linear, Cursor, PostHog, Figma, Supabase, Zapier), or null if none",\n'
-        '  "is_self_hostable": true or false (can developers run or deploy it locally/on-premise via Docker or source),\n'
-        '  "no_signup_required": true or false (can it be used without registering an account, e.g. open source repo, CLI, local-first app)\n'
+        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces (e.g. Google Workspace, Airtable, Notion, Linear, Cursor, PostHog), or null",\n'
+        '  "is_self_hostable": true or false,\n'
+        '  "no_signup_required": true or false,\n'
+        '  "key_features": [\n'
+        '    {"title": "Feature 1 Title", "description": "Concise 1-sentence feature explanation"},\n'
+        '    {"title": "Feature 2 Title", "description": "Concise 1-sentence feature explanation"},\n'
+        '    {"title": "Feature 3 Title", "description": "Concise 1-sentence feature explanation"}\n'
+        '  ],\n'
+        '  "target_audience": "1 sentence describing exactly who will benefit most from using this tool",\n'
+        '  "comparison_vs_alt": "1-2 sentences comparing it directly to primary_alternative, highlighting advantages like open-source control, data privacy, extensibility, or cost savings"\n'
         "}\n"
-        "Return ONLY pure JSON without markdown backticks or extra commentary."
+        "Return ONLY pure JSON without markdown backticks or commentary."
     )
 
     user_prompt = (
@@ -433,6 +456,10 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
             is_self_host = bool(ai_data.get("is_self_hostable", False))
             no_signup = bool(ai_data.get("no_signup_required", False))
 
+            key_features = ai_data.get("key_features") or []
+            target_audience = ai_data.get("target_audience")
+            comparison_vs_alt = ai_data.get("comparison_vs_alt")
+
             _, _, _, signal_score = infer_alternative_and_features(
                 name + " " + summary,
                 url,
@@ -457,6 +484,9 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
                 "is_self_hostable": is_self_host,
                 "no_signup_required": no_signup,
                 "signal_score": signal_score,
+                "key_features": key_features,
+                "target_audience": target_audience,
+                "comparison_vs_alt": comparison_vs_alt,
                 "date_added": datetime.date.today().isoformat(),
                 "featured": False
             }
@@ -498,7 +528,7 @@ def run_scraper():
     use_ai = bool(api_key)
     if use_ai:
         api_base = os.environ.get("AI_API_BASE", "https://api.openai.com/v1")
-        model = os.environ.get("AI_MODEL", "gemini-2.5-flash-lite")
+        model = os.environ.get("AI_MODEL", "google/gemini-3.1-flash-lite")
         print(f"[AI Mode Active] Base: {api_base} | Model: {model} | RateLimit: 4.2s delay (15 RPM safe)")
     else:
         print("[Rule-Based Mode] No AI_API_KEY detected. Using fast heuristic extraction.")
@@ -522,8 +552,8 @@ def run_scraper():
         candidate_slug = slugify(raw["raw_name"])
         prefix = f"[{i+1}/{len(all_raw)}] {raw.get('source')}: {raw.get('title')[:30]}"
 
-        # Optimization: Check if already in master database to save AI tokens/quota
-        if candidate_slug in master_data:
+        # Optimization: Only reuse from DB if already enriched with deep key_features
+        if candidate_slug in master_data and master_data[candidate_slug].get("key_features"):
             existing = master_data[candidate_slug]
             existing["stars"] = max(existing.get("stars", 0), raw.get("stars", 0))
             if candidate_slug not in seen_slugs:
