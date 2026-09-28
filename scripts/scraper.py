@@ -403,41 +403,31 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
         f"Description: {clean_raw_desc}"
     )
 
-    models_to_try = [model]
-    if not model.startswith("google/") and "gemini" in model.lower():
-        models_to_try.append(f"google/{model}")
-    elif model.startswith("google/"):
-        models_to_try.append(model.replace("google/", ""))
+    payload = {
+        "model": model,
+        "temperature": 0.2,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+    }
 
-    for attempt_model in models_to_try:
-        payload = {
-            "model": attempt_model,
-            "temperature": 0.2,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ]
-        }
+    max_retries = 2
+    for attempt in range(max_retries):
+        try:
+            resp = requests.post(endpoint, json=payload, headers=headers, timeout=25)
+            if resp.status_code == 429:
+                print(f"    [Rate Limit 429] Waiting 10s before retry (attempt {attempt+1}/{max_retries})...")
+                time.sleep(10)
+                continue
+            if resp.status_code != 200:
+                print(f"    [AI API Error] HTTP {resp.status_code}: {resp.text[:140]}")
+                return None
 
-        max_retries = 2
-        for attempt in range(max_retries):
-            try:
-                resp = requests.post(endpoint, json=payload, headers=headers, timeout=25)
-                if resp.status_code == 429:
-                    print(f"    [Rate Limit 429] Waiting 10s before retry (attempt {attempt+1}/{max_retries})...")
-                    time.sleep(10)
-                    continue
-                if resp.status_code != 200:
-                    if "model_not_found" in resp.text and attempt_model != models_to_try[-1]:
-                        # Try next model candidate
-                        break
-                    print(f"    [AI API Error] HTTP {resp.status_code}: {resp.text[:120]}")
-                    return None
+            res_json = resp.json()
+            content = res_json["choices"][0]["message"]["content"].strip()
 
-                res_json = resp.json()
-                content = res_json["choices"][0]["message"]["content"].strip()
-
-                cleaned = content
+            cleaned = content
             if cleaned.startswith("```json"):
                 cleaned = cleaned[7:]
             if cleaned.startswith("```"):
