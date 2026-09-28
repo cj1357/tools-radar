@@ -1,542 +1,971 @@
 [
   {
+    "id": "voicestudio",
+    "name": "Voicestudio",
+    "tagline": "The fully-local open-source alternative to ElevenLabs",
+    "summary": "Voicestudio is a comprehensive, self-hosted voice AI platform delivering voice cloning, video dubbing, transcription, and audiobook creation across 646 languages. It eliminates third-party API dependencies by running completely offline for absolute data privacy and zero usage costs.",
+    "url": "https://github.com/debpalash/VoiceStudio",
+    "github_url": "https://github.com/debpalash/VoiceStudio",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "Voice Cloning",
+      "Speech-to-Text",
+      "Open Source",
+      "AI Audio",
+      "Self-Hosted"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 41475,
+    "primary_alternative": "ElevenLabs",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Local Voice Cloning",
+        "description": "Clone voices with high fidelity entirely on your own local hardware without cloud subscriptions."
+      },
+      {
+        "title": "Multi-Language Video Dubbing",
+        "description": "Dub videos and translate content seamlessly across a massive catalog of 646 supported languages."
+      },
+      {
+        "title": "Transcription & Dictation",
+        "description": "Convert speech to text accurately and handle automated audiobook creation out-of-the-box."
+      }
+    ],
+    "target_audience": "Developers, creators, and privacy-conscious teams needing advanced AI voice synthesis without cloud fees.",
+    "comparison_vs_alt": "Unlike ElevenLabs which relies on expensive cloud APIs and subscriptions, Voicestudio runs entirely locally, giving you total data ownership and unlimited usage at zero cost.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
     "id": "paperclip",
     "name": "Paperclip",
     "tagline": "The open-source app everyone uses to manage agents at work",
-    "summary": "The open-source app everyone uses to manage agents at work",
+    "summary": "Paperclip is an open-source platform designed to orchestrate and manage autonomous AI agents in professional environments. It solves the chaos of multi-agent collaboration by providing centralized visibility, task assignment, and workflow governance.",
     "url": "https://github.com/paperclipai/paperclip",
     "github_url": "https://github.com/paperclipai/paperclip",
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "TypeScript",
-      "AI"
+      "AI Agents",
+      "Open Source",
+      "Workflow Automation",
+      "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 91431,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": true,
+    "stars": 91468,
+    "primary_alternative": "Linear",
+    "is_self_hostable": true,
+    "no_signup_required": false,
     "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Agent Orchestration",
+        "description": "Centralized dashboard to coordinate multiple specialized AI agents on shared tasks."
+      },
+      {
+        "title": "Workflow Governance",
+        "description": "Define strict execution boundaries, approval gates, and permission scopes for agents."
+      },
+      {
+        "title": "Open Source Control",
+        "description": "Self-host the entire infrastructure to maintain complete privacy and ownership of your agent data."
+      }
+    ],
+    "target_audience": "Engineering teams and developers building and deploying autonomous multi-agent systems in production.",
+    "comparison_vs_alt": "Unlike traditional project management tools like Linear that are built exclusively for human teams, Paperclip is natively designed to treat AI agents as first-class team members with automated workflows.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
     "id": "hindsight",
     "name": "Hindsight",
-    "tagline": "Hindsight: Agent Memory That Learns",
-    "summary": "Hindsight: Agent Memory That Learns",
+    "tagline": "Agent Memory That Learns",
+    "summary": "Hindsight provides state-of-the-art memory architecture for AI agents, allowing them to dynamically learn, retain context, and adapt over time. It solves the context window and statelessness limits of LLMs through specialized graph and vector retention mechanisms.",
     "url": "https://github.com/vectorize-io/hindsight",
     "github_url": "https://github.com/vectorize-io/hindsight",
     "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "Python",
-      "AI"
+      "AI Agents",
+      "Memory",
+      "Vector Database",
+      "Open Source",
+      "LLMs"
     ],
     "pricing_model": "Open Source",
-    "stars": 39356,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 95,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "voicestudio",
-    "name": "Voicestudio",
-    "tagline": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbin...",
-    "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
-    "url": "https://github.com/debpalash/VoiceStudio",
-    "github_url": "https://github.com/debpalash/VoiceStudio",
-    "source": "github_trending",
-    "category": "design-ui",
-    "tags": [
-      "Design",
-      "Python"
-    ],
-    "pricing_model": "Open Source",
-    "stars": 41388,
-    "primary_alternative": null,
+    "stars": 39414,
+    "primary_alternative": "Mem0",
     "is_self_hostable": true,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 95,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "ai-engineering-from-scratch",
-    "name": "Ai Engineering From Scratch",
-    "tagline": "Learn it. Build it. Ship it for others.",
-    "summary": "Learn it. Build it. Ship it for others.",
-    "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-    "github_url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-    "source": "github_trending",
-    "category": "ai-tools",
-    "tags": [
-      "Python",
-      "AI"
+    "key_features": [
+      {
+        "title": "Dynamic Memory Updates",
+        "description": "Continuously updates agent knowledge bases based on real-time interactions and feedback."
+      },
+      {
+        "title": "Contextual Retrieval",
+        "description": "Fetches only the most relevant historical context to optimize LLM token usage and accuracy."
+      },
+      {
+        "title": "Seamless Integration",
+        "description": "Easily plugs into existing AI agent frameworks and LLM orchestrators with minimal boilerplate."
+      }
     ],
-    "pricing_model": "Open Source",
-    "stars": 59994,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 95,
+    "target_audience": "AI engineers and developers building sophisticated, long-running autonomous agents that need persistent context.",
+    "comparison_vs_alt": "Unlike proprietary memory solutions, Hindsight is fully open-source and self-hostable, giving developers absolute ownership over their agent's data and privacy.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "pipepipe",
-    "name": "Pipepipe",
-    "tagline": "An open-source Android app to let you browse YouTube and other services freely.",
-    "summary": "An open-source Android app to let you browse YouTube and other services freely.",
-    "url": "https://github.com/InfinityLoop1308/PipePipe",
-    "github_url": "https://github.com/InfinityLoop1308/PipePipe",
+    "id": "plfm-radar",
+    "name": "PLFM Radar",
+    "tagline": "Open-source, low-cost 10.5 GHz PLFM phased array RADAR system",
+    "summary": "PLFM Radar is an open-source hardware and software project providing an accessible 10.5 GHz Phase-Modulated Continuous Wave (PMCW) phased array radar system. It lowers the barrier to entry for RF engineering, signal processing, and radar prototyping by utilizing affordable, off-the-shelf components.",
+    "url": "https://github.com/NawfalMotii79/PLFM_RADAR",
+    "github_url": "https://github.com/NawfalMotii79/PLFM_RADAR",
     "source": "github_trending",
     "category": "open-source",
     "tags": [
-      "Open Source",
-      "Shell"
+      "Radar",
+      "RF Engineering",
+      "Signal Processing",
+      "Hardware",
+      "Embedded Systems"
     ],
     "pricing_model": "Open Source",
-    "stars": 6765,
+    "stars": 25589,
     "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 88,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "10.5 GHz Operation",
+        "description": "Operates at X-band frequencies suitable for high-resolution target detection and ranging."
+      },
+      {
+        "title": "Phase-Coded Modulation",
+        "description": "Implements advanced pulse-compression techniques for improved signal-to-noise ratio."
+      },
+      {
+        "title": "Open-Source Hardware Design",
+        "description": "Full schematics, gerber files, and control software provided for complete customizability."
+      }
+    ],
+    "target_audience": "RF engineers, researchers, students, and hardware hackers building advanced radar systems on a budget.",
+    "comparison_vs_alt": "Unlike proprietary commercial radar development kits that cost thousands of dollars, PLFM Radar provides a fully transparent, customizable, and extremely low-cost open-source alternative.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "scriptc",
-    "name": "Scriptc",
-    "tagline": "TypeScript-to-Native Compiler",
-    "summary": "Scriptc is a modern solution designed to improve developer workflow and productivity.",
-    "url": "https://github.com/vercel-labs/scriptc",
-    "github_url": "https://github.com/vercel-labs/scriptc",
+    "id": "coursebook",
+    "name": "Coursebook",
+    "tagline": "An open-source introductory systems programming textbook",
+    "summary": "Coursebook is an open-source educational platform and textbook designed for introductory systems programming at the University of Illinois. It provides comprehensive, community-driven course materials to help students master low-level programming concepts.",
+    "url": "https://github.com/cs341-illinois/coursebook",
+    "github_url": "https://github.com/cs341-illinois/coursebook",
     "source": "github_trending",
-    "category": "developer-tools",
+    "category": "open-source",
     "tags": [
-      "DevTools",
-      "TypeScript"
+      "Education",
+      "C",
+      "Systems Programming",
+      "Open Source",
+      "Documentation"
     ],
     "pricing_model": "Open Source",
-    "stars": 5569,
+    "stars": 2195,
     "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Comprehensive Curriculum",
+        "description": "Covers essential introductory systems programming concepts thoroughly."
+      },
+      {
+        "title": "Open Source Content",
+        "description": "Community-driven textbook allowing collaborative improvements and updates."
+      },
+      {
+        "title": "Accessible Resource",
+        "description": "Freely available educational material for students and self-taught developers."
+      }
+    ],
+    "target_audience": "Computer science students and self-taught developers learning low-level systems programming.",
+    "comparison_vs_alt": "As an open educational resource, it provides a tailored, community-driven alternative to traditional expensive textbooks for systems programming.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "up",
+    "name": "Up",
+    "tagline": "Han Xiankai's comprehensive personal growth and AI learning guide",
+    "summary": "Up is an advanced, curated guide designed to help individuals accelerate their personal development, navigate modern career paths, and master AI technologies and English learning. It serves as a comprehensive knowledge base tackling self-improvement, continuous learning, and future-proof skill acquisition.",
+    "url": "https://github.com/byoungd/up",
+    "github_url": "https://github.com/byoungd/up",
+    "source": "github_trending",
+    "category": "productivity",
+    "tags": [
+      "Personal Growth",
+      "AI Learning",
+      "Knowledge Base",
+      "Open Source",
+      "JavaScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 64314,
+    "primary_alternative": "Notion",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "AI Learning Curricula",
+        "description": "Structured roadmaps and resources to help developers and learners master artificial intelligence concepts."
+      },
+      {
+        "title": "Career & Life Advancement",
+        "description": "Pragmatic frameworks and mental models for navigating modern career trajectories and personal growth."
+      },
+      {
+        "title": "English Mastery Guide",
+        "description": "Targeted strategies and tutorials to improve professional and conversational English proficiency."
+      }
+    ],
+    "target_audience": "Software engineers, lifelong learners, and professionals looking to level up their technical skills and personal productivity.",
+    "comparison_vs_alt": "Unlike proprietary productivity spaces like Notion, Up is a completely open-source repository of crowdsourced wisdom and structured learning guides that you can fork and read freely without accounts or paywalls.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
     "id": "openrig",
     "name": "Openrig",
-    "tagline": "Multi-agent harness that runs Claude Code and Codex together as one system",
-    "summary": "Multi-agent harness that runs Claude Code and Codex together as one system",
+    "tagline": "Run Claude Code and Codex together as a multi-agent system",
+    "summary": "Openrig is an open-source multi-agent harness that orchestrates Claude Code and Codex to collaborate on complex software tasks. It solves the fragmentation of using isolated AI coding assistants by combining their strengths into a unified development workflow.",
     "url": "https://github.com/mvschwarz/openrig",
     "github_url": "https://github.com/mvschwarz/openrig",
     "source": "github_trending",
-    "category": "ai-tools",
+    "category": "developer-tools",
     "tags": [
+      "AI Agents",
       "TypeScript",
-      "AI"
+      "CLI",
+      "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 1307,
-    "primary_alternative": "Cursor / Copilot",
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "stars": 1316,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Multi-Agent Harness",
+        "description": "Orchestrates Claude Code and Codex simultaneously to handle complex multi-step coding workflows."
+      },
+      {
+        "title": "Unified System Execution",
+        "description": "Combines different AI architectures into a single coherent development pipeline."
+      },
+      {
+        "title": "Open-Source Extensibility",
+        "description": "Fully self-hostable harness allowing custom agent routing and local execution control."
+      }
+    ],
+    "target_audience": "Full-stack developers and AI engineers looking to leverage multiple advanced coding assistants in a unified workflow.",
+    "comparison_vs_alt": "Unlike walled-garden AI editors like Cursor, Openrig is a modular open-source harness that gives you direct control over orchestrating multiple independent AI coding agents.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
     "id": "univer",
     "name": "Univer",
-    "tagline": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runti...",
-    "summary": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.",
+    "tagline": "The open-source office suite designed for AI agents and developers.",
+    "summary": "Univer is a modular, high-performance office suite that integrates spreadsheets, documents, and slides into a single, extensible runtime. It provides a headless architecture that allows developers to embed complex document editing capabilities directly into their own applications.",
     "url": "https://github.com/dream-num/univer",
     "github_url": "https://github.com/dream-num/univer",
     "source": "github_trending",
-    "category": "ai-tools",
+    "category": "developer-tools",
     "tags": [
+      "Spreadsheet",
+      "Headless",
+      "Collaborative",
       "TypeScript",
-      "AI"
+      "Office Suite"
     ],
     "pricing_model": "Open Source",
-    "stars": 20893,
-    "primary_alternative": "Google Sheets / Airtable",
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "stars": 20901,
+    "primary_alternative": "Google Workspace / Airtable",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 95,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "madeira",
-    "name": "Madeira",
-    "tagline": "Run x86-64 Windows PC games on jailed iOS via FEX-Emu + Wine + DXMT",
-    "summary": "Run x86-64 Windows PC games on jailed iOS via FEX-Emu + Wine + DXMT",
-    "url": "https://github.com/willfaust/Madeira",
-    "github_url": "https://github.com/willfaust/Madeira",
-    "source": "github_trending",
-    "category": "ai-tools",
-    "tags": [
-      "AI",
-      "C"
+    "key_features": [
+      {
+        "title": "Unified Multi-Doc Runtime",
+        "description": "A single reactive architecture supporting spreadsheets, documents, slides, and relational tables in one canvas."
+      },
+      {
+        "title": "Headless Extensible Architecture",
+        "description": "Designed for seamless integration into web apps via a robust TypeScript plugin system."
+      },
+      {
+        "title": "Native AI Agent Harness",
+        "description": "Built from the ground up to allow AI agents to interact with, query, and manipulate document data programmatically."
+      }
     ],
-    "pricing_model": "Open Source",
-    "stars": 931,
-    "primary_alternative": "SAP / Odoo",
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 80,
+    "target_audience": "Software developers and enterprise architects building custom data-driven applications that require embedded document editing and AI workflow integration.",
+    "comparison_vs_alt": "Unlike Google Workspace, which is a closed SaaS ecosystem, Univer provides a fully open-source, self-hostable framework that gives developers complete control over data privacy, zero recurring per-seat fees, and limitless UI customization.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "papermono-e-ink-fridge-magnet-shopping-list-with-mobile-web-",
-    "name": "PaperMono, e-ink fridge magnet shopping list with mobile web page",
-    "tagline": "PaperMono, e-ink fridge magnet shopping list with mobile web page — newly launched project showcased by indie ...",
-    "summary": "PaperMono, e-ink fridge magnet shopping list with mobile web page — newly launched project showcased by indie creators on Hacker News with 2 community upvotes.",
+    "id": "papermono",
+    "name": "PaperMono",
+    "tagline": "An e-ink fridge magnet shopping list with a mobile web companion",
+    "summary": "PaperMono bridges physical and digital household workflows by providing an e-ink display device paired with a mobile web interface for real-time grocery tracking. It eliminates the friction of traditional paper lists while maintaining the convenience of a permanent kitchen-side display.",
     "url": "https://github.com/seamusc/papermono-shopping-list",
     "github_url": "https://github.com/seamusc/papermono-shopping-list",
     "source": "hackernews",
     "category": "open-source",
     "tags": [
-      "Open Source"
+      "E-Ink",
+      "IoT",
+      "Hardware",
+      "Mobile Web",
+      "Python"
     ],
     "pricing_model": "Open Source",
     "stars": 2,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "AnyList",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "E-Ink Display",
+        "description": "Low-power electronic paper screen designed to live permanently on the refrigerator."
+      },
+      {
+        "title": "Mobile Companion",
+        "description": "Responsive web interface allowing family members to update the list on the go."
+      },
+      {
+        "title": "Open Source Hardware",
+        "description": "Fully customizable codebase and wiring blueprints for DIY makers and tinkerers."
+      }
+    ],
+    "target_audience": "DIY enthusiasts and smart home hobbyists looking to build a dedicated kitchen shopping device.",
+    "comparison_vs_alt": "Unlike mainstream apps like AnyList that rely entirely on smartphones or tablets, PaperMono offers a dedicated, always-on physical display with complete data ownership and zero subscription fees.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "lofi-cities-pixel-art-city-nights-with-browser-generated-lof",
-    "name": "Lofi Cities – Pixel-art city nights with browser-generated lofi",
-    "tagline": "Lofi Cities – Pixel-art city nights with browser-generated lofi — newly launched project showcased by indie cr...",
-    "summary": "Lofi Cities – Pixel-art city nights with browser-generated lofi — newly launched project showcased by indie creators on Hacker News with 197 community upvotes.",
+    "id": "lofi-cities",
+    "name": "Lofi Cities",
+    "tagline": "Pixel-art city nights paired with browser-generated lofi beats",
+    "summary": "Lofi Cities delivers an immersive audio-visual experience combining procedural lofi music generation directly in the browser with charming pixel-art animations. It eliminates the need for external video streaming platforms by synthesizing relaxing soundscapes natively on demand.",
     "url": "https://loficities.com/",
     "github_url": null,
     "source": "hackernews",
     "category": "productivity",
-    "tags": [],
+    "tags": [
+      "Audio",
+      "Pixel Art",
+      "Browser",
+      "Generative AI",
+      "Ambient"
+    ],
     "pricing_model": "Free",
-    "stars": 253,
-    "primary_alternative": null,
+    "stars": 256,
+    "primary_alternative": "YouTube",
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Browser-Generated Audio",
+        "description": "Procedurally synthesizes endless relaxing lofi beats directly within your browser."
+      },
+      {
+        "title": "Pixel-Art Animation",
+        "description": "Features cozy, looping city nightscapes designed to reduce stress and improve focus."
+      },
+      {
+        "title": "Zero Friction",
+        "description": "Loads instantly with no sign-ups, subscriptions, or heavy video streams required."
+      }
+    ],
+    "target_audience": "Developers, students, and remote workers looking for a distraction-free background soundtrack and visual focus aid.",
+    "comparison_vs_alt": "Unlike YouTube or Spotify streams that rely on heavy video hosting or third-party ads, Lofi Cities offers a lightweight, dedicated, and ad-free ambient experience generated completely on the fly.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "free-alternative-to-graphics-design-giants",
-    "name": "Free alternative to graphics design giants",
-    "tagline": "Free alternative to graphics design giants — newly launched project showcased by indie creators on Hacker News...",
-    "summary": "Free alternative to graphics design giants — newly launched project showcased by indie creators on Hacker News with 3 community upvotes.",
+    "id": "scissor-studio",
+    "name": "Scissor Studio",
+    "tagline": "Free alternative to graphics design giants",
+    "summary": "Scissor Studio is a browser-based graphic design tool built as a free alternative to industry-heavyweight design suites. It empowers creators to craft stunning visuals quickly without the friction and high subscription costs of legacy software.",
     "url": "https://scissor.studio/",
     "github_url": null,
     "source": "hackernews",
     "category": "design-ui",
     "tags": [
-      "Design"
+      "Design",
+      "Graphics",
+      "Browser-based",
+      "Visuals",
+      "Creator Tools"
     ],
     "pricing_model": "Free",
-    "stars": 3,
-    "primary_alternative": null,
+    "stars": 4,
+    "primary_alternative": "Canva",
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Browser-Based Editor",
+        "description": "Design and edit graphics seamlessly directly inside your web browser."
+      },
+      {
+        "title": "Zero Cost Access",
+        "description": "Enjoy full graphic design capabilities completely free without paywalls."
+      },
+      {
+        "title": "Lightweight Workflow",
+        "description": "Streamlined interface focused on speed and simplicity for indie creators."
+      }
+    ],
+    "target_audience": "Indie creators, marketers, and developers looking for a free, fast web-based alternative to heavy design software.",
+    "comparison_vs_alt": "Unlike paid dominant platforms like Canva, Scissor Studio offers a streamlined, completely free experience without aggressive upsells or subscription locks.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "redthread-autonomous-llm-pentesting-with-proof-of-concept-ex",
-    "name": "Redthread – autonomous LLM pentesting with proof-of-concept exploits",
-    "tagline": "Redthread – autonomous LLM pentesting with proof-of-concept exploits — newly launched project showcased by ind...",
-    "summary": "Redthread – autonomous LLM pentesting with proof-of-concept exploits — newly launched project showcased by indie creators on Hacker News with 2 community upvotes.",
+    "id": "redthread",
+    "name": "Redthread",
+    "tagline": "Autonomous LLM pentesting with proof-of-concept exploits",
+    "summary": "Redthread is an autonomous security tool designed to penetration-test large language models and generate actionable proof-of-concept exploits. It automates vulnerability discovery to help developers harden AI applications against prompt injection, data leakage, and jailbreaking.",
     "url": "https://millenniums.ai/docs",
     "github_url": null,
     "source": "hackernews",
-    "category": "ai-tools",
+    "category": "security-devops",
     "tags": [
-      "AI"
+      "LLM",
+      "Security",
+      "AI Agents",
+      "Pentesting"
     ],
     "pricing_model": "Free",
     "stars": 2,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "Snyk",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Autonomous Pentesting",
+        "description": "Automatically scans and evaluates LLM endpoints for common security vulnerabilities and boundary failures."
+      },
+      {
+        "title": "PoC Exploit Generation",
+        "description": "Produces actionable proof-of-concept exploits to clearly demonstrate discovered weaknesses."
+      },
+      {
+        "title": "AI Vulnerability Assessment",
+        "description": "Helps secure AI applications against prompt injection, jailbreaking, and unintended data exposure."
+      }
+    ],
+    "target_audience": "AI engineers, security professionals, and DevOps teams looking to secure LLM deployments before production.",
+    "comparison_vs_alt": "Unlike traditional enterprise security platforms, Redthread specializes directly in autonomous LLM vulnerability analysis and exploit generation, offering targeted AI threat assessment.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "tinyaiarena-watch-ai-agents-battle-it-out",
-    "name": "TinyAIArena watch AI agents battle it out",
-    "tagline": "TinyAIArena watch AI agents battle it out — newly launched project showcased by indie creators on Hacker News ...",
-    "summary": "TinyAIArena watch AI agents battle it out — newly launched project showcased by indie creators on Hacker News with 104 community upvotes.",
+    "id": "tinyai-arena",
+    "name": "TinyAI Arena",
+    "tagline": "Watch autonomous AI agents battle it out in real-time",
+    "summary": "TinyAI Arena is an interactive platform that lets users observe autonomous artificial intelligence agents compete against each other in simulated environments. It provides a lightweight, engaging way to evaluate agent performance, strategy, and decision-making capabilities.",
     "url": "https://tinyaiarena.com/",
     "github_url": null,
     "source": "hackernews",
     "category": "ai-tools",
     "tags": [
-      "AI"
+      "AI Agents",
+      "Simulation",
+      "LLMs",
+      "Entertainment"
     ],
     "pricing_model": "Free",
-    "stars": 109,
+    "stars": 110,
     "primary_alternative": null,
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Real-Time Agent Battles",
+        "description": "Watch different AI models and agent configurations compete live in structured scenarios."
+      },
+      {
+        "title": "Interactive Simulations",
+        "description": "Engage with dynamic environments designed to test reasoning and tactical execution."
+      },
+      {
+        "title": "Performance Tracking",
+        "description": "Compare agent behaviors, win rates, and tactical decisions on the fly."
+      }
+    ],
+    "target_audience": "AI enthusiasts, developers, and researchers interested in watching and evaluating autonomous agent behaviors.",
+    "comparison_vs_alt": "Unlike standard static LLM benchmarks, TinyAI Arena gamifies AI evaluation by letting you visually watch agents compete in real-time.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "dodosend-a-fast-keyboard-first-gmail-client",
-    "name": "Dodosend – a Fast keyboard first Gmail client",
-    "tagline": "Dodosend – a Fast keyboard first Gmail client — newly launched project showcased by indie creators on Hacker N...",
-    "summary": "Dodosend – a Fast keyboard first Gmail client — newly launched project showcased by indie creators on Hacker News with 5 community upvotes.",
+    "id": "dodosend",
+    "name": "Dodosend",
+    "tagline": "A fast, keyboard-first Gmail client built for speed",
+    "summary": "Dodosend is a lightning-fast email client designed exclusively for power users who prefer navigating Gmail entirely through keyboard shortcuts. It strips away UI bloat to deliver a streamlined, distraction-free inbox experience optimized for rapid triage and composition.",
     "url": "https://dodosend.com",
     "github_url": null,
     "source": "hackernews",
-    "category": "ai-tools",
+    "category": "productivity",
     "tags": [
-      "AI"
+      "Email",
+      "Keyboard Shortcuts",
+      "Productivity",
+      "Gmail Client"
     ],
     "pricing_model": "Free",
     "stars": 5,
-    "primary_alternative": null,
+    "primary_alternative": "Superhuman",
     "is_self_hostable": false,
     "no_signup_required": false,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Keyboard-First Navigation",
+        "description": "Execute every action, search, and reply without ever touching your mouse."
+      },
+      {
+        "title": "Lightning Fast Performance",
+        "description": "Engineered for zero latency to keep up with high-volume inbox workflows."
+      },
+      {
+        "title": "Distraction-Free UI",
+        "description": "A minimal, clean interface that helps you focus purely on reading and responding."
+      }
+    ],
+    "target_audience": "Fast-paced professionals, developers, and founders who process high volumes of email daily and want to minimize context switching.",
+    "comparison_vs_alt": "Unlike expensive alternatives like Superhuman, Dodosend offers a lightweight and focused keyboard-centric experience built specifically for speed and simplicity.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
     "id": "jev-plays-pokémon-red",
     "name": "Jev Plays Pokémon Red",
-    "tagline": "Jev Plays Pokémon Red — newly launched project showcased by indie creators on Hacker News with 272 community u...",
-    "summary": "Jev Plays Pokémon Red — newly launched project showcased by indie creators on Hacker News with 272 community upvotes.",
+    "tagline": "An autonomous AI agent playing through classic Pokémon Red",
+    "summary": "Jev Plays Pokémon Red is an experimental AI-driven gaming project that showcases autonomous agent decision-making in a complex, retro video game environment. It demonstrates the capabilities of modern AI models in interpreting visual state and executing sequential gameplay strategies without human intervention.",
     "url": "https://jev-pokemon.vercel.app/",
     "github_url": null,
     "source": "hackernews",
-    "category": "productivity",
-    "tags": [],
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Gaming",
+      "TypeScript",
+      "React"
+    ],
     "pricing_model": "Free",
     "stars": 273,
     "primary_alternative": null,
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Autonomous Gameplay",
+        "description": "AI agent plays through Pokémon Red completely unassisted in real-time."
+      },
+      {
+        "title": "Live Spectator View",
+        "description": "Interactive web interface allows users to watch the AI's current game state and decisions."
+      },
+      {
+        "title": "Retro Integration",
+        "description": "Combines classic emulator tech with modern LLM-driven decision loops."
+      }
+    ],
+    "target_audience": "AI enthusiasts, indie game developers, and retro gaming fans interested in autonomous agent behavior.",
+    "comparison_vs_alt": "Unlike standard human playthroughs or static speedruns, this project explores the frontier of AI capabilities in navigating non-linear virtual worlds.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "cartopolis-interactive-globe-sized-3d-world",
-    "name": "Cartopolis, interactive globe-sized 3D world",
-    "tagline": "Cartopolis, interactive globe-sized 3D world — newly launched project showcased by indie creators on Hacker Ne...",
-    "summary": "Cartopolis, interactive globe-sized 3D world — newly launched project showcased by indie creators on Hacker News with 14 community upvotes.",
+    "id": "cartopolis",
+    "name": "Cartopolis",
+    "tagline": "Explore an interactive, globe-sized 3D virtual world",
+    "summary": "Cartopolis is an immersive 3D world simulation mapped across a realistic globe layout for spatial exploration. It enables users to navigate large-scale virtual environments with smooth, interactive rendering performance.",
     "url": "https://code.garage44.eu/jeroen/cartopolis",
     "github_url": null,
     "source": "hackernews",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
+    "category": "open-source",
+    "tags": [
+      "3D Graphics",
+      "Interactive",
+      "Globe",
+      "Spatial Computing"
+    ],
+    "pricing_model": "Open Source",
     "stars": 15,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "Google Earth",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Globe-Sized Rendering",
+        "description": "Navigate seamlessly across a full-scale 3D planetary environment."
+      },
+      {
+        "title": "Interactive Exploration",
+        "description": "Engage with dynamic spatial elements embedded directly in the world."
+      },
+      {
+        "title": "Lightweight Architecture",
+        "description": "Optimized performance for smooth browser-based 3D navigation."
+      }
+    ],
+    "target_audience": "Indie creators, developers, and spatial computing enthusiasts looking for interactive 3D world environments.",
+    "comparison_vs_alt": "Unlike proprietary mapping platforms like Google Earth, Cartopolis provides an open exploration framework focused on community-driven 3D environments.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "reladraw-a-diagram-language-where-you-decide-where-to-place-",
-    "name": "Reladraw – A diagram language where you decide where to place things",
-    "tagline": "Reladraw – A diagram language where you decide where to place things — newly launched project showcased by ind...",
-    "summary": "Reladraw – A diagram language where you decide where to place things — newly launched project showcased by indie creators on Hacker News with 392 community upvotes.",
+    "id": "reladraw",
+    "name": "Reladraw",
+    "tagline": "A diagram language where you decide where to place things",
+    "summary": "Reladraw is an open-source diagramming language that combines programmatic definition with precise manual layout control. It solves the rigidity of traditional auto-layout tools by letting developers define diagram logic while retaining explicit control over positioning.",
     "url": "https://github.com/reladraw/reladraw",
     "github_url": "https://github.com/reladraw/reladraw",
     "source": "hackernews",
-    "category": "design-ui",
+    "category": "developer-tools",
     "tags": [
-      "Design"
+      "Diagrams",
+      "Open Source",
+      "Developer Tools",
+      "DSL"
     ],
     "pricing_model": "Open Source",
     "stars": 396,
-    "primary_alternative": "Figma / Excalidraw",
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "Mermaid",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Code-Driven Diagrams",
+        "description": "Define nodes, edges, and relationships using a clean, human-readable domain-specific language."
+      },
+      {
+        "title": "Explicit Positioning",
+        "description": "Override automatic layout engines to place elements precisely where you want them."
+      },
+      {
+        "title": "Open Source & Extensible",
+        "description": "Fully self-hostable and customizable codebase tailored for technical documentation workflows."
+      }
+    ],
+    "target_audience": "Software architects and developers who want code-driven diagrams without sacrificing layout control.",
+    "comparison_vs_alt": "Unlike Mermaid, which strictly enforces automatic node placement, Reladraw gives developers the freedom to programmatically define diagrams while retaining precise control over element positioning.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "fusor-like-vue-but-the-logic-is-rust",
-    "name": "Fusor – Like Vue, but the logic is Rust",
-    "tagline": "Fusor – Like Vue, but the logic is Rust — newly launched project showcased by indie creators on Hacker News wi...",
-    "summary": "Fusor – Like Vue, but the logic is Rust — newly launched project showcased by indie creators on Hacker News with 3 community upvotes.",
+    "id": "fusor",
+    "name": "Fusor",
+    "tagline": "Build reactive web UIs with Vue-like ergonomics powered by Rust logic",
+    "summary": "Fusor bridges the gap between reactive frontend design and systems programming by allowing developers to write web application logic in Rust. It eliminates JavaScript overhead while providing a familiar, component-based paradigm inspired by Vue.",
     "url": "https://fusor.build",
     "github_url": null,
     "source": "hackernews",
     "category": "developer-tools",
     "tags": [
-      "DevTools"
+      "Rust",
+      "WebAssembly",
+      "Frontend",
+      "Reactive",
+      "Open Source"
     ],
-    "pricing_model": "Free",
+    "pricing_model": "Open Source",
     "stars": 6,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
+    "primary_alternative": "Vue",
+    "is_self_hostable": true,
+    "no_signup_required": true,
     "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Rust-Powered Logic",
+        "description": "Write type-safe, high-performance application logic using Rust compiled to WebAssembly."
+      },
+      {
+        "title": "Vue-Inspired Ergonomics",
+        "description": "Enjoy a familiar, component-based reactive development model without the JavaScript runtime."
+      },
+      {
+        "title": "Lightweight Runtime",
+        "description": "Minimize bundle sizes and maximize execution speed for resource-constrained environments."
+      }
+    ],
+    "target_audience": "Rust developers and frontend engineers looking for maximum performance and type safety in web applications.",
+    "comparison_vs_alt": "Unlike Vue which runs on JavaScript, Fusor leverages Rust and WebAssembly to deliver systems-level performance and strict memory safety guarantees while maintaining a similar component structure.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "statable-analytics",
-    "name": "Statable Analytics",
-    "tagline": "Web analytics built for you and your AI agents",
-    "summary": "Web analytics built for you and your AI agents",
-    "url": "https://www.producthunt.com/products/statable-analytics",
+    "id": "pip",
+    "name": "PIP",
+    "tagline": "Your intelligent desktop AI companion for everyday workflows",
+    "summary": "PIP is an AI buddy that lives directly on your computer to assist with daily tasks, streamline workflows, and boost productivity. It bridges the gap between local desktop operations and intelligent automation without requiring complex setup.",
+    "url": "https://www.producthunt.com/products/pip-9",
     "github_url": null,
     "source": "producthunt",
     "category": "ai-tools",
     "tags": [
-      "AI"
+      "AI Agents",
+      "Desktop App",
+      "Productivity",
+      "Automation"
     ],
     "pricing_model": "Free",
     "stars": 0,
-    "primary_alternative": "Google Analytics",
+    "primary_alternative": "Cursor",
     "is_self_hostable": false,
     "no_signup_required": false,
     "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Desktop Integration",
+        "description": "Acts as a persistent AI companion residing right on your computer interface."
+      },
+      {
+        "title": "Task Automation",
+        "description": "Streamlines repetitive workflows and answers questions directly within your environment."
+      },
+      {
+        "title": "Contextual Assistance",
+        "description": "Provides real-time help tailored to the tasks and applications you are currently using."
+      }
+    ],
+    "target_audience": "Knowledge workers and developers looking for a persistent desktop AI assistant to speed up everyday tasks.",
+    "comparison_vs_alt": "Unlike code-specific assistants like Cursor, PIP acts as a broader desktop companion aimed at general-purpose computer productivity and ease of use.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "sayble",
-    "name": "Sayble",
-    "tagline": "AI copilot for calls that tells you what to say next",
-    "summary": "AI copilot for calls that tells you what to say next",
-    "url": "https://www.producthunt.com/products/sayble",
+    "id": "shotcandy",
+    "name": "Shotcandy",
+    "tagline": "Transform ordinary screenshots into stunning visuals",
+    "summary": "Shotcandy elevates standard screenshots by adding professional styling, customizable backgrounds, and polished frames. It solves the problem of dull product imagery, giving developers and creators a fast way to generate marketing-ready assets.",
+    "url": "https://www.producthunt.com/products/shotcandy",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "design-ui",
+    "tags": [
+      "Design",
+      "Screenshots",
+      "Marketing",
+      "Visuals"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "CleanShot X",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Custom Backgrounds",
+        "description": "Apply beautiful gradients, wallpapers, and solid colors behind your screenshots."
+      },
+      {
+        "title": "Window Frames",
+        "description": "Enclose captures in realistic browser or OS window frames for a polished look."
+      },
+      {
+        "title": "One-Click Export",
+        "description": "Quickly export your styled images in high resolution ready for social media or landing pages."
+      }
+    ],
+    "target_audience": "Developers, designers, and marketers who want to make their product screenshots look professional with minimal effort.",
+    "comparison_vs_alt": "Unlike desktop-bound capture tools like CleanShot X, Shotcandy offers web-based styling workflows focused specifically on transforming and beautifying existing image assets.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "vantage",
+    "name": "Vantage",
+    "tagline": "See and control what your coding agent does in real time",
+    "summary": "Vantage provides developers with visibility and control over autonomous coding agents, preventing unexpected changes and hallucinations. It acts as an oversight layer that tracks agent execution, allowing you to intercept and steer code generation safely.",
+    "url": "https://www.producthunt.com/products/vantage-ai-2",
     "github_url": null,
     "source": "producthunt",
     "category": "ai-tools",
     "tags": [
-      "AI"
+      "AI Agents",
+      "Developer Tools",
+      "Code Generation",
+      "Productivity"
     ],
-    "pricing_model": "Free",
+    "pricing_model": "Freemium",
     "stars": 0,
-    "primary_alternative": "Cursor / Copilot",
+    "primary_alternative": "Cursor",
     "is_self_hostable": false,
     "no_signup_required": false,
     "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Real-time Agent Tracking",
+        "description": "Monitor every file edit, terminal command, and decision made by your coding agent live."
+      },
+      {
+        "title": "Human-in-the-Loop Interception",
+        "description": "Pause, approve, or redirect agent workflows instantly before unintended changes are committed."
+      },
+      {
+        "title": "Execution History & Auditing",
+        "description": "Review complete session logs and diffs to understand how your agent arrived at a specific solution."
+      }
+    ],
+    "target_audience": "Software engineers and tech leads who leverage autonomous AI coding assistants and need tighter guardrails.",
+    "comparison_vs_alt": "Unlike standard IDE-integrated assistants like Cursor that operate as black boxes, Vantage gives you explicit oversight dashboards and intervention controls to manage complex agentic workflows safely.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
     "id": "microsoft-copilot",
     "name": "Microsoft Copilot",
-    "tagline": "The Al built for work",
-    "summary": "Microsoft Copilot is a modern solution designed to improve developer workflow and productivity.",
+    "tagline": "The everyday AI companion built for work and life",
+    "summary": "Microsoft Copilot integrates advanced generative AI directly into everyday productivity suites to streamline workflows, draft content, and analyze data. It bridges the gap between web-scale intelligence and enterprise applications to boost efficiency across teams.",
     "url": "https://www.producthunt.com/products/microsoft-copilot-2",
     "github_url": null,
     "source": "producthunt",
-    "category": "design-ui",
+    "category": "ai-tools",
     "tags": [
-      "Design"
+      "AI",
+      "Productivity",
+      "Enterprise",
+      "Generative AI"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "ChatGPT",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Office Integration",
+        "description": "Seamlessly embedded into Word, Excel, PowerPoint, and Outlook for contextual assistance."
+      },
+      {
+        "title": "Enterprise Security",
+        "description": "Built on enterprise-grade data privacy, compliance, and security standards."
+      },
+      {
+        "title": "Web & Work Grounding",
+        "description": "Combines real-time web data with internal organizational files and communications."
+      }
+    ],
+    "target_audience": "Enterprise professionals and knowledge workers seeking to automate daily tasks within Microsoft 365.",
+    "comparison_vs_alt": "Unlike standalone chatbots like ChatGPT, Copilot operates natively inside your enterprise workspace, leveraging organizational context while maintaining strict corporate security controls.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "arc-ai-screen-assistant",
+    "name": "Arc AI Screen Assistant",
+    "tagline": "Your mobile AI assistant accessible directly on any screen",
+    "summary": "Arc is a mobile AI assistant that integrates seamlessly across your phone's interface to provide instant context-aware help. It solves the friction of switching between apps by bringing AI intelligence directly to whatever is currently on your screen.",
+    "url": "https://www.producthunt.com/products/arc-ai-screen-assistant",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Assistant",
+      "Mobile",
+      "Productivity",
+      "Screen Context"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Google Assistant",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Screen Awareness",
+        "description": "Contextual AI assistance that understands what is currently displayed on your screen."
+      },
+      {
+        "title": "Universal Accessibility",
+        "description": "Trigger the assistant quickly from any mobile application or interface."
+      },
+      {
+        "title": "Instant Actions",
+        "description": "Perform tasks, summarize text, or answer questions without app-switching."
+      }
+    ],
+    "target_audience": "Mobile power users and professionals seeking to streamline their workflow and eliminate app-switching friction.",
+    "comparison_vs_alt": "Unlike standard built-in assistants, Arc focuses deeply on granular screen context and customizable workflows tailored for modern productivity tasks.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "favenest",
+    "name": "FaveNest",
+    "tagline": "AI-powered bookmarks that automatically organize themselves",
+    "summary": "FaveNest is an intelligent bookmark manager leveraging Apple Intelligence to automatically categorize, tag, and summarize your saved web content. It eliminates bookmark clutter by using on-device machine learning to keep your digital research effortlessly organized.",
+    "url": "https://www.producthunt.com/products/favenest",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Apple Intelligence",
+      "Bookmarks",
+      "AI",
+      "Organization"
     ],
     "pricing_model": "Free",
     "stars": 0,
-    "primary_alternative": "Cursor / Copilot",
+    "primary_alternative": "Raindrop.io",
     "is_self_hostable": false,
     "no_signup_required": false,
     "signal_score": 65,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "salesmartly",
-    "name": "SaleSmartly",
-    "tagline": "Turn conversations across every channel into customers",
-    "summary": "Turn conversations across every channel into customers",
-    "url": "https://www.producthunt.com/products/salesmartly",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 65,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "ryu-journal",
-    "name": "Ryu Journal",
-    "tagline": "A journal to help busy minds let go",
-    "summary": "A journal to help busy minds let go",
-    "url": "https://www.producthunt.com/products/ryu-journal",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 65,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "vitals",
-    "name": "Vitals ",
-    "tagline": "A Mac activity monitor that thinks in apps, not processes",
-    "summary": "A Mac activity monitor that thinks in apps, not processes",
-    "url": "https://www.producthunt.com/products/vitals-3",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 65,
-    "date_added": "2026-09-28",
-    "featured": false
-  },
-  {
-    "id": "dina-45",
-    "name": "Dina 4.5",
-    "tagline": "Beautiful screen recordings, screenshots, and 3D motion",
-    "summary": "Beautiful screen recordings, screenshots, and 3D motion",
-    "url": "https://www.producthunt.com/products/dina",
-    "github_url": null,
-    "source": "producthunt",
-    "category": "productivity",
-    "tags": [],
-    "pricing_model": "Free",
-    "stars": 0,
-    "primary_alternative": null,
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Smart Auto-Categorization",
+        "description": "Apple Intelligence automatically sorts saved links into relevant folders and topics."
+      },
+      {
+        "title": "Instant Summaries",
+        "description": "Generates quick, readable summaries of bookmarked articles and web pages."
+      },
+      {
+        "title": "Privacy-First AI",
+        "description": "Utilizes on-device processing to ensure your browsing history and data remain private."
+      }
+    ],
+    "target_audience": "Power researchers, developers, and knowledge workers drowning in unorganized browser tabs and bookmarks.",
+    "comparison_vs_alt": "Unlike Raindrop.io which requires manual tagging and rules, FaveNest leverages native Apple Intelligence to automatically classify bookmarks with zero manual setup.",
     "date_added": "2026-09-28",
     "featured": false
   },
@@ -544,60 +973,159 @@
     "id": "mochi",
     "name": "Mochi",
     "tagline": "A cute Mac desktop pet that organizes your loose files",
-    "summary": "A cute Mac desktop pet that organizes your loose files",
+    "summary": "Mochi is an adorable virtual desktop pet for macOS that automatically sorts your messy files into designated folders. It transforms a mundane file management chore into an interactive, delightful desktop experience.",
     "url": "https://www.producthunt.com/products/mochi-6",
     "github_url": null,
     "source": "producthunt",
     "category": "productivity",
-    "tags": [],
+    "tags": [
+      "macOS",
+      "Desktop Pet",
+      "File Management",
+      "Utility"
+    ],
     "pricing_model": "Free",
     "stars": 0,
-    "primary_alternative": null,
+    "primary_alternative": "Hazel",
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Interactive Desktop Pet",
+        "description": "A charming animated companion that lives directly on your Mac desktop."
+      },
+      {
+        "title": "Automated File Sorting",
+        "description": "Drags and drops loose files into your preferred folders automatically."
+      },
+      {
+        "title": "Lightweight macOS App",
+        "description": "Designed natively for macOS with minimal resource consumption."
+      }
+    ],
+    "target_audience": "Mac users with cluttered desktops who want to automate file organization with a touch of personality.",
+    "comparison_vs_alt": "Unlike robust rule-based automation tools like Hazel, Mochi adds a layer of fun and charm by gamifying desktop decluttering through a virtual pet.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "harness-router",
-    "name": "Harness Router",
-    "tagline": "Fast AI tool routing powered by Jev.",
-    "summary": "Fast AI tool routing powered by Jev.",
-    "url": "https://www.producthunt.com/products/harness-103",
+    "id": "mum",
+    "name": "MuM",
+    "tagline": "A reading-first Markdown engine for macOS",
+    "summary": "MuM is a macOS application designed to deliver an optimized, distraction-free reading experience for multi-project Markdown documentation. It streamlines navigation and viewing across complex local directory structures without heavy text editing overhead.",
+    "url": "https://www.producthunt.com/products/mum-multi-project-markdown",
     "github_url": null,
     "source": "producthunt",
-    "category": "ai-tools",
+    "category": "productivity",
     "tags": [
-      "AI"
+      "Markdown",
+      "macOS",
+      "Documentation",
+      "Reader"
     ],
     "pricing_model": "Free",
     "stars": 0,
-    "primary_alternative": null,
+    "primary_alternative": "Notion",
     "is_self_hostable": false,
-    "no_signup_required": false,
+    "no_signup_required": true,
     "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Multi-Project Support",
+        "description": "Seamlessly navigate and read Markdown files across multiple distinct local projects."
+      },
+      {
+        "title": "Reading-First Engine",
+        "description": "Optimized typography and layout built specifically for consuming documentation smoothly."
+      },
+      {
+        "title": "macOS Native",
+        "description": "Crafted as a fast, lightweight native Mac application with minimal resource footprint."
+      }
+    ],
+    "target_audience": "Developers, technical writers, and researchers who manage and read extensive Markdown documentation locally.",
+    "comparison_vs_alt": "Unlike cloud-bound tools like Notion, MuM provides a fast, local-first reading experience designed specifically for raw Markdown directories without requiring account setups or cloud syncing.",
     "date_added": "2026-09-28",
     "featured": false
   },
   {
-    "id": "mcp-connectors-by-databox",
-    "name": "MCP Connectors by Databox",
-    "tagline": "Give your AI Analyst context to explain performance and act",
-    "summary": "Give your AI Analyst context to explain performance and act",
-    "url": "https://www.producthunt.com/products/databox",
+    "id": "vitals",
+    "name": "Vitals",
+    "tagline": "A Mac activity monitor that thinks in apps, not processes",
+    "summary": "Vitals is a macOS activity monitor that groups low-level system resources by user-facing applications instead of confusing background processes. It helps developers and power users diagnose performance hogs and memory leaks instantly without digging through Activity Monitor.",
+    "url": "https://www.producthunt.com/products/vitals-3",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "macOS",
+      "Performance",
+      "Productivity",
+      "System Monitor"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Activity Monitor",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "App-Centric View",
+        "description": "Groups fragmented processes under their parent application for clear resource tracking."
+      },
+      {
+        "title": "Quick Diagnostics",
+        "description": "Instantly identify which applications are draining battery, CPU, or memory."
+      },
+      {
+        "title": "Native macOS Design",
+        "description": "Built specifically for Apple Silicon and macOS with a clean, modern interface."
+      }
+    ],
+    "target_audience": "Mac power users, developers, and designers looking to optimize system performance without wading through complex process trees.",
+    "comparison_vs_alt": "Unlike the native macOS Activity Monitor which splits apps into dozens of unreadable helper processes, Vitals aggregates everything by application for immediate clarity.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "okara",
+    "name": "Okara",
+    "tagline": "The world's first AI CMO",
+    "summary": "Okara acts as an autonomous Chief Marketing Officer, designing and executing data-driven marketing strategies for modern businesses. It solves the problem of high overhead and resource constraints in scaling marketing operations by automating high-level growth decisions.",
+    "url": "https://www.producthunt.com/products/okara-2",
     "github_url": null,
     "source": "producthunt",
     "category": "ai-tools",
     "tags": [
-      "AI"
+      "AI Agents",
+      "Marketing",
+      "Growth",
+      "Automation"
     ],
-    "pricing_model": "Free",
+    "pricing_model": "Freemium",
     "stars": 0,
-    "primary_alternative": null,
+    "primary_alternative": "HubSpot",
     "is_self_hostable": false,
     "no_signup_required": false,
     "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Autonomous Strategy",
+        "description": "Generates comprehensive, multi-channel marketing campaigns tailored to your business goals."
+      },
+      {
+        "title": "Data-Driven Execution",
+        "description": "Continuously analyzes performance metrics to optimize ad spend and content output in real-time."
+      },
+      {
+        "title": "Growth Analytics",
+        "description": "Provides actionable executive-level insights without requiring a dedicated analytics team."
+      }
+    ],
+    "target_audience": "Founders, startup teams, and lean businesses looking to scale their marketing operations without hiring a full agency.",
+    "comparison_vs_alt": "Unlike traditional marketing suites like HubSpot that require heavy manual configuration, Okara uses autonomous AI agents to actively strategize and execute campaigns on your behalf.",
     "date_added": "2026-09-28",
     "featured": false
   }
