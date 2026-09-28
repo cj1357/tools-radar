@@ -86,60 +86,71 @@ def test_connection():
         "Return ONLY pure JSON without markdown backticks or commentary."
     )
 
-    test_payload = {
-        "model": model,
-        "temperature": 0.2,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {
-                "role": "user",
-                "content": (
-                    "Product: Univer\n"
-                    "Description: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.\n"
-                    "URL: https://github.com/dream-num/univer\n"
-                    "GitHub: https://github.com/dream-num/univer\n"
-                    "Stars: 20700"
-                )
-            }
-        ]
-    }
+    models_to_try = [model]
+    if not model.startswith("google/") and "gemini" in model.lower():
+        models_to_try.append(f"google/{model}")
+    elif model.startswith("google/"):
+        models_to_try.append(model.replace("google/", ""))
 
-    print(f"\n[*] Sending test request to: {endpoint}")
-    start_time = time.time()
+    for attempt_model in models_to_try:
+        test_payload = {
+            "model": attempt_model,
+            "temperature": 0.2,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {
+                    "role": "user",
+                    "content": (
+                        "Product: Univer\n"
+                        "Description: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.\n"
+                        "URL: https://github.com/dream-num/univer\n"
+                        "GitHub: https://github.com/dream-num/univer\n"
+                        "Stars: 20700"
+                    )
+                }
+            ]
+        }
 
-    try:
-        resp = requests.post(endpoint, json=test_payload, headers=headers, timeout=25)
-        duration = round((time.time() - start_time) * 1000, 2)
+        print(f"\n[*] Sending test request using model: '{attempt_model}' to: {endpoint}")
+        start_time = time.time()
 
-        print(f"Status Code: {resp.status_code} (took {duration} ms)")
+        try:
+            resp = requests.post(endpoint, json=test_payload, headers=headers, timeout=25)
+            duration = round((time.time() - start_time) * 1000, 2)
 
-        if resp.status_code == 200:
-            res_json = resp.json()
-            raw_content = res_json["choices"][0]["message"]["content"].strip()
-            
-            cleaned = raw_content
-            if cleaned.startswith("```json"):
-                cleaned = cleaned[7:]
-            if cleaned.startswith("```"):
-                cleaned = cleaned[3:]
-            if cleaned.endswith("```"):
-                cleaned = cleaned[:-3]
-            cleaned = cleaned.strip()
+            print(f"Status Code: {resp.status_code} (took {duration} ms)")
 
-            parsed_data = json.loads(cleaned)
-            print("\n[SUCCESS] Deep AI Extraction Succeeded!")
-            print("-" * 60)
-            print(json.dumps(parsed_data, indent=2, ensure_ascii=False))
-            print("-" * 60)
-            return True
-        else:
-            print(f"\n[FAIL] Request failed with HTTP {resp.status_code}:")
-            print(resp.text)
+            if resp.status_code == 200:
+                res_json = resp.json()
+                raw_content = res_json["choices"][0]["message"]["content"].strip()
+                
+                cleaned = raw_content
+                if cleaned.startswith("```json"):
+                    cleaned = cleaned[7:]
+                if cleaned.startswith("```"):
+                    cleaned = cleaned[3:]
+                if cleaned.endswith("```"):
+                    cleaned = cleaned[:-3]
+                cleaned = cleaned.strip()
+
+                parsed_data = json.loads(cleaned)
+                print(f"\n[SUCCESS] Deep AI Extraction Succeeded with model: {attempt_model}!")
+                print("-" * 60)
+                print(json.dumps(parsed_data, indent=2, ensure_ascii=False))
+                print("-" * 60)
+                return True
+            elif "model_not_found" in resp.text and attempt_model != models_to_try[-1]:
+                print(f"[Notice] Model '{attempt_model}' not found in channel, auto-trying '{models_to_try[-1]}'...")
+                continue
+            else:
+                print(f"\n[FAIL] Request failed with HTTP {resp.status_code}:")
+                print(resp.text)
+                return False
+        except Exception as e:
+            print(f"\n[FAIL] Unexpected error: {e}")
             return False
 
-    except Exception as e:
-        print(f"\n[FAIL] Unexpected error: {e}")
-        return False
+    return False
 
 if __name__ == "__main__":
     test_connection()
