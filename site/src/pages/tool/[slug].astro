@@ -27,8 +27,65 @@ const iconUrl = getToolIcon(tool.url, tool.github_url);
 const initial = tool.name.charAt(0);
 
 const pageTitle = tool.primary_alternative 
-  ? `${tool.name} - Alternative to ${tool.primary_alternative}`
-  : `${tool.name} - Features, Pricing & Alternatives`;
+  ? `${tool.name} - Free Open-Source Alternative to ${tool.primary_alternative}`
+  : `${tool.name} - Review, Pricing & Key Features`;
+
+// Quickstart command synthesis
+let quickstartCommand = '';
+let quickstartLabel = 'Quick Start Command';
+if (tool.github_url) {
+  const repo = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
+  const repoName = repo.split('/')[1] || tool.id;
+  if (tool.is_self_hostable) {
+    quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\ndocker compose up -d`;
+    quickstartLabel = 'Docker / Compose Self-Host';
+  } else {
+    quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\nnpm install && npm run dev`;
+    quickstartLabel = 'Local Git Setup';
+  }
+} else {
+  try {
+    const host = new URL(tool.url).hostname;
+    quickstartCommand = `curl -sL https://${host} | head -n 25`;
+    quickstartLabel = 'Quick Web Inspection';
+  } catch (_) {
+    quickstartCommand = `# Visit official web application\nopen ${tool.url}`;
+    quickstartLabel = 'Web Application Access';
+  }
+}
+
+// Synthesize structured Pros & Cons
+const pros = [
+  tool.pricing_model === 'Open Source' 
+    ? '100% Free & Open Source with full code auditability and no recurring fees' 
+    : 'Generous free access tier with zero upfront credit card requirement',
+  tool.is_self_hostable 
+    ? 'Full data privacy and sovereignty — run securely in private Docker / local cloud' 
+    : 'Zero-configuration cloud setup with immediate browser-based access',
+  tool.primary_alternative 
+    ? `Eliminates costly licensing and vendor lock-in compared to ${tool.primary_alternative}` 
+    : 'Streamlined, lightweight interface designed for developer focus',
+  tool.no_signup_required 
+    ? 'Frictionless trial — test features immediately without email sign-up' 
+    : 'Native team collaboration and multi-user permissions'
+];
+
+const cons = [
+  tool.is_self_hostable 
+    ? 'Self-hosting requires basic server management and backup routines' 
+    : 'Hosted service depends on third-party cloud availability and terms',
+  tool.primary_alternative 
+    ? `Ecosystem plugins may be newer than entrenched giants like ${tool.primary_alternative}` 
+    : 'Relatively fresh project — documentation is expanding rapidly',
+  'Fast development velocity — recommend following release notes for major updates'
+];
+
+let domainName = '';
+try {
+  domainName = new URL(tool.url).hostname;
+} catch (_) {
+  domainName = tool.name.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
+}
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -53,85 +110,80 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <!-- Breadcrumb -->
-  <nav style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem;">
-    <a href="/" style="color: var(--text-muted);">Radar</a>
+  <nav class="breadcrumb-nav">
+    <a href="/">Radar</a>
     <span>/</span>
-    <a href={`/category/${tool.category}`} style="color: var(--text-muted);">{categoryInfo.name}</a>
+    <a href={`/category/${tool.category}`}>{categoryInfo.name}</a>
     <span>/</span>
-    <span style="color: var(--text-secondary);">{tool.name}</span>
+    <span class="breadcrumb-current">{tool.name}</span>
   </nav>
 
-  <!-- Main Hero Card -->
-  <article style="background: linear-gradient(180deg, rgba(24, 24, 27, 0.9) 0%, rgba(18, 18, 20, 0.95) 100%); border: 1px solid var(--border-subtle); border-radius: 18px; padding: 2.25rem 2rem; margin-bottom: 2rem; box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5); position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);"></div>
+  <!-- Hero Header Card -->
+  <article class="hero-detail-card">
+    <div class="hero-glow-border"></div>
 
-    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-      <!-- Header row with Icon + Title -->
-      <div style="display: flex; align-items: flex-start; gap: 1.25rem;">
-        <div style="width: 64px; height: 64px; border-radius: 14px; background: #27272a; border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+    <div class="hero-detail-content">
+      <!-- Title & Icon Row -->
+      <div class="hero-header-row">
+        <div class="hero-tool-icon">
           {iconUrl ? (
             <img 
               src={iconUrl} 
               alt={`${tool.name} logo`} 
-              style="width: 100%; height: 100%; object-fit: cover;"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
-            <div style="display: none; font-size: 1.6rem; font-weight: 800; color: #f4f4f5;">
+            <div class="hero-icon-fallback" style="display: none;">
               {initial}
             </div>
           ) : (
-            <div style="font-size: 1.6rem; font-weight: 800; color: #f4f4f5;">
+            <div class="hero-icon-fallback">
               {initial}
             </div>
           )}
         </div>
 
-        <div style="flex-grow: 1;">
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem;">
-            <h1 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text-primary); margin: 0;">
-              {tool.name}
-            </h1>
+        <div class="hero-meta-col">
+          <div class="hero-title-line">
+            <h1 class="hero-tool-name">{tool.name}</h1>
             <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
               {tool.pricing_model}
             </span>
 
             {tool.primary_alternative && (
-              <span style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 6px;">
-                🔄 Alternative to {tool.primary_alternative}
+              <span class="alt-hero-badge">
+                🔄 Alt to {tool.primary_alternative}
               </span>
             )}
           </div>
 
-          <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+          <p class="hero-tool-tagline">
             {tool.tagline}
           </p>
 
-          <!-- Feature badges -->
-          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;">
+          <!-- Feature badges row -->
+          <div class="hero-badges-row">
             {tool.is_self_hostable && (
-              <span style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); color: #6ee7b7; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px;">
-                🐳 Self-Hostable
-              </span>
+              <span class="badge-feature self-host">🐳 Self-Hostable</span>
             )}
-
             {tool.no_signup_required && (
-              <span style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); color: #fcd34d; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px;">
-                🔓 No Sign-up Required
-              </span>
+              <span class="badge-feature no-signup">🔓 No Sign-up</span>
             )}
-
             {tool.signal_score && (
-              <span style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: #e4e4e7; font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">
-                ⚡ Traction Signal: {tool.signal_score}/100
+              <span class="badge-feature traction">⚡ Traction Score: {tool.signal_score}/100</span>
+            )}
+            {tool.stars > 0 && (
+              <span class="stars-badge">
+                <span>★</span>
+                <span>{tool.stars.toLocaleString()} Stars</span>
               </span>
             )}
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons & Tags -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
-        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center;">
+      <!-- Action Buttons & Interactive Social Row -->
+      <div class="hero-actions-row">
+        <div class="primary-links-group">
           <a 
             href={tool.url} 
             target="_blank" 
@@ -156,26 +208,96 @@ const jsonLd = {
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
-              <span>GitHub Repo</span>
+              <span>GitHub</span>
             </a>
           )}
         </div>
 
-        {tool.stars > 0 && (
-          <div class="stars-badge" style="padding: 0.35rem 0.75rem; font-size: 0.85rem;">
-            <span>★</span>
-            <span>{tool.stars.toLocaleString()} Stars / Upvotes</span>
-          </div>
-        )}
+        <!-- Interactive Engagement: Upvote, Bookmark, Share -->
+        <div class="interactive-social-group">
+          <button id="upvote-btn" class="social-btn" title="Upvote this tool">
+            <span class="social-icon">▲</span>
+            <span id="upvote-text">Upvote</span>
+            <span id="upvote-count" class="social-badge">+{tool.signal_score || 1}</span>
+          </button>
+
+          <button id="bookmark-btn" class="social-btn" title="Bookmark for later">
+            <span id="bookmark-icon">★</span>
+            <span id="bookmark-text">Save</span>
+          </button>
+
+          <button id="share-btn" class="social-btn" title="Share tool link">
+            <span>🔗</span>
+            <span>Share</span>
+          </button>
+        </div>
       </div>
     </div>
   </article>
 
-  <!-- Detailed Specs & Overview -->
-  <section style="display: flex; flex-direction: column; gap: 1.75rem; margin-bottom: 3rem;">
-    <!-- Overview Card -->
-    <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem;">
+  <!-- Live Website Browser Mockup -->
+  <section class="section-card browser-preview-card">
+    <div class="browser-mockup-header">
+      <div class="traffic-lights">
+        <span class="light red"></span>
+        <span class="light yellow"></span>
+        <span class="light green"></span>
+      </div>
+      <div class="browser-address-bar">
+        <span style="font-size: 0.72rem; color: #10b981;">🔒</span>
+        <span class="browser-url-text">https://{domainName}</span>
+      </div>
+      <a 
+        href={tool.url} 
+        target="_blank" 
+        rel="noopener noreferrer nofollow" 
+        class="browser-visit-pill"
+      >
+        Open Site ↗
+      </a>
+    </div>
+
+    <div class="browser-mockup-body">
+      <div class="browser-preview-overlay">
+        <div class="preview-badge">Live Web Application</div>
+        <h3 class="preview-hero-title">{tool.name}</h3>
+        <p class="preview-hero-tagline">{tool.tagline}</p>
+        <div class="preview-cta-row">
+          <a href={tool.url} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-primary" style="padding: 0.65rem 1.4rem;">
+            Launch App 🚀
+          </a>
+          {tool.github_url && (
+            <a href={tool.github_url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              View Source Code ↗
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Start & Deployment Box -->
+  <section class="section-card quickstart-card">
+    <div class="quickstart-header">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="color: #38bdf8; font-size: 1.1rem;">⚡</span>
+        <h2 style="font-size: 1.1rem; font-weight: 700; color: #f4f4f5; margin: 0;">
+          {quickstartLabel}
+        </h2>
+      </div>
+      <button id="copy-cmd-btn" class="copy-cmd-btn">
+        📋 Copy Command
+      </button>
+    </div>
+
+    <pre class="quickstart-pre"><code id="quickstart-code">{quickstartCommand}</code></pre>
+  </section>
+
+  <!-- Detailed Specs & Problem Overview -->
+  <section class="details-grid-wrapper">
+    <!-- What problem does it solve -->
+    <div class="section-card">
+      <h2 class="card-section-title">
         <span style="color: var(--accent);">💡</span> What Problem Does {tool.name} Solve?
       </h2>
       <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.5rem;">
@@ -183,40 +305,90 @@ const jsonLd = {
       </p>
 
       <!-- Specs Matrix -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; background: rgba(0, 0, 0, 0.3); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
-        <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Category</span>
-          <a href={`/category/${tool.category}`} style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">{categoryInfo.name}</a>
+      <div class="specs-matrix">
+        <div class="spec-item">
+          <span class="spec-label">Category</span>
+          <a href={`/category/${tool.category}`} class="spec-value accent-link">{categoryInfo.name}</a>
         </div>
-        <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Commercial Alt</span>
-          <span style="font-weight: 600; color: var(--accent); font-size: 0.95rem;">{tool.primary_alternative || "Standalone Utility"}</span>
+        <div class="spec-item">
+          <span class="spec-label">Commercial Alternative</span>
+          <span class="spec-value" style="color: var(--accent);">{tool.primary_alternative || "Standalone Utility"}</span>
         </div>
-        <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Self-Hostable</span>
-          <span style="font-weight: 600; color: tool.is_self_hostable ? var(--emerald) : '#a1a1aa'; font-size: 0.95rem;">{tool.is_self_hostable ? "Yes (Docker/Local)" : "Cloud / Web"}</span>
+        <div class="spec-item">
+          <span class="spec-label">Self-Hostable</span>
+          <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
+            {tool.is_self_hostable ? "Yes (Docker/Bare-metal)" : "Cloud SaaS"}
+          </span>
         </div>
-        <div>
-          <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Sign-up Required</span>
-          <span style="font-weight: 600; color: #e4e4e7; font-size: 0.95rem;">{tool.no_signup_required ? "No (Instant Access)" : "Optional / Standard"}</span>
+        <div class="spec-item">
+          <span class="spec-label">Sign-up Barrier</span>
+          <span class="spec-value" style={tool.no_signup_required ? "color: #fcd34d;" : "color: #e4e4e7;"}>
+            {tool.no_signup_required ? "No (Instant Access)" : "Account Required"}
+          </span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">License Model</span>
+          <span class="spec-value">{tool.pricing_model}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Discovery Source</span>
+          <span class="spec-value" style="text-transform: capitalize;">{tool.source.replace('_', ' ')}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros & Cons Matrix -->
+    <div class="section-card">
+      <h2 class="card-section-title">
+        <span>⚖️</span> Pros & Cons Analysis
+      </h2>
+      <div class="pros-cons-grid">
+        <!-- Pros -->
+        <div class="pros-col">
+          <div class="pros-cons-header pros">
+            <span>🟢 Key Advantages</span>
+          </div>
+          <ul class="pros-cons-list">
+            {pros.map(item => (
+              <li>
+                <span class="check-icon">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Cons -->
+        <div class="cons-col">
+          <div class="pros-cons-header cons">
+            <span>🟡 Things to Consider</span>
+          </div>
+          <ul class="pros-cons-list">
+            {cons.map(item => (
+              <li>
+                <span class="cross-icon">!</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
 
     <!-- Key Capabilities / Feature Highlights -->
     {tool.key_features && tool.key_features.length > 0 && (
-      <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.75rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-primary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.65rem; display: flex; align-items: center; gap: 0.5rem;">
-          <span style="color: #f59e0b;">⚡</span> Key Capabilities & Architecture
+      <div class="section-card">
+        <h2 class="card-section-title">
+          <span style="color: #f59e0b;">⚡</span> Core Architecture & Key Capabilities
         </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+        <div class="features-grid">
           {tool.key_features.map((feat: any, idx: number) => (
-            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: flex-start;">
-              <div style="font-size: 0.98rem; font-weight: 700; color: #f4f4f5; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-                <span style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem; padding: 0.1rem 0.45rem; border-radius: 4px; font-weight: 800;">#{idx + 1}</span>
-                <span>{feat.title}</span>
+            <div class="feature-card">
+              <div class="feature-card-header">
+                <span class="feature-index">0{idx + 1}</span>
+                <span class="feature-title">{feat.title}</span>
               </div>
-              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+              <p class="feature-desc">
                 {feat.description}
               </p>
             </div>
@@ -227,38 +399,38 @@ const jsonLd = {
 
     <!-- Deep Alternative Comparison Callout -->
     {tool.primary_alternative && (
-      <div style="background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(18, 18, 20, 0.8) 100%); border: 1px solid rgba(56, 189, 248, 0.22); border-radius: 14px; padding: 1.75rem;">
-        <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; color: #38bdf8; display: flex; align-items: center; gap: 0.5rem;">
-          <span>⚖️</span> Why Choose {tool.name} Over {tool.primary_alternative}?
+      <div class="section-card alt-comparison-card">
+        <h2 class="card-section-title" style="color: #38bdf8;">
+          <span>🔄</span> Why Choose {tool.name} Over {tool.primary_alternative}?
         </h2>
-        <p style="color: #e4e4e7; font-size: 0.98rem; line-height: 1.7; margin: 0;">
-          {tool.comparison_vs_alt || `Compared to closed SaaS alternatives like ${tool.primary_alternative}, ${tool.name} delivers transparent data ownership, extensive customizability, and developer-first integration capabilities without recurring licensing bottlenecks.`}
+        <p style="color: #e4e4e7; font-size: 1rem; line-height: 1.75; margin: 0;">
+          {tool.comparison_vs_alt || `Compared to closed proprietary solutions like ${tool.primary_alternative}, ${tool.name} provides complete transparency, customizable codebases, and developer-first workflows without per-seat licensing penalties.`}
         </p>
       </div>
     )}
 
     <!-- Target Audience & Ideal Use Cases -->
     {tool.target_audience && (
-      <div style="background: var(--surface); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 1.5rem;">
-        <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem;">
-          <span style="color: #10b981;">🎯</span> Who is this for?
+      <div class="section-card">
+        <h2 class="card-section-title">
+          <span style="color: #10b981;">🎯</span> Target Audience & Who is this for?
         </h2>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin: 0;">
+        <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin: 0;">
           {tool.target_audience}
         </p>
       </div>
     )}
   </section>
 
-  <!-- Similar Alternatives -->
+  <!-- Similar Alternatives in Category -->
   {alternatives.length > 0 && (
-    <section style="margin-top: 3rem;">
-      <div style="margin-bottom: 1.25rem;">
-        <h2 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">
-          Top Alternatives in {categoryInfo.name}
+    <section style="margin-top: 3.5rem;">
+      <div style="margin-bottom: 1.5rem;">
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em;">
+          Top Related Alternatives in {categoryInfo.name}
         </h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">
-          Compare other freshly discovered tools and open-source alternatives.
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          Compare other trending developer tools and open-source projects in this space.
         </p>
       </div>
 
@@ -323,4 +495,659 @@ const jsonLd = {
       </div>
     </section>
   )}
+
+  <!-- Detail Page Scoped Styles -->
+  <style>
+    .breadcrumb-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumb-nav a {
+      color: var(--text-muted);
+    }
+
+    .breadcrumb-nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .breadcrumb-current {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Hero Detail Card */
+    .hero-detail-card {
+      background: linear-gradient(180deg, rgba(22, 22, 28, 0.85) 0%, rgba(15, 15, 18, 0.95) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 24px 48px -15px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .hero-detail-card {
+        padding: 1.5rem 1.1rem;
+      }
+    }
+
+    .hero-glow-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+    }
+
+    .hero-detail-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .hero-header-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-header-row {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    .hero-tool-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: #202026;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .hero-tool-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-icon-fallback {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f4f4f5;
+    }
+
+    .hero-meta-col {
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .hero-title-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-tool-name {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .alt-hero-badge {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+    }
+
+    .hero-tool-tagline {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0 0 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-tool-tagline {
+        font-size: 1rem;
+      }
+    }
+
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .badge-feature {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 5px;
+    }
+
+    .badge-feature.self-host {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #6ee7b7;
+    }
+
+    .badge-feature.no-signup {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fcd34d;
+    }
+
+    .badge-feature.traction {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e4e4e7;
+      font-family: var(--font-mono);
+    }
+
+    /* Actions & Social Bar */
+    .hero-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.5rem;
+    }
+
+    .primary-links-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .interactive-social-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #d4d4d8;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .social-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .social-btn.active {
+      background: rgba(244, 63, 94, 0.15);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #fb7185;
+    }
+
+    .social-btn.bookmarked {
+      background: rgba(251, 191, 36, 0.15);
+      border-color: rgba(251, 191, 36, 0.4);
+      color: #fcd34d;
+    }
+
+    .social-badge {
+      font-size: 0.72rem;
+      opacity: 0.75;
+      font-family: var(--font-mono);
+    }
+
+    /* Section Cards Common */
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      .section-card {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    .card-section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Browser Mockup */
+    .browser-preview-card {
+      padding: 0 !important;
+      overflow: hidden;
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .browser-mockup-header {
+      background: #15151a;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .traffic-lights {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .traffic-lights .light {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .traffic-lights .light.red { background-color: #ef4444; }
+    .traffic-lights .light.yellow { background-color: #f59e0b; }
+    .traffic-lights .light.green { background-color: #10b981; }
+
+    .browser-address-bar {
+      flex: 1;
+      max-width: 480px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 0.25rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      overflow: hidden;
+    }
+
+    .browser-url-text {
+      font-size: 0.78rem;
+      color: #a1a1aa;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .browser-visit-pill {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .browser-mockup-body {
+      min-height: 220px;
+      background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.15) 0%, rgba(18, 18, 23, 0.95) 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .browser-preview-overlay {
+      max-width: 580px;
+    }
+
+    .preview-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #6ee7b7;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .preview-hero-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .preview-hero-tagline {
+      color: #d4d4d8;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .preview-cta-row {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Quickstart Box */
+    .quickstart-card {
+      background: #0d0d11;
+      border-color: rgba(56, 189, 248, 0.2);
+    }
+
+    .quickstart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .copy-cmd-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e4e4e7;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .copy-cmd-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    .quickstart-pre {
+      background: #08080a;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      color: #7dd3fc;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+
+    /* Specs Matrix */
+    .specs-matrix {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .spec-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .spec-value {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .accent-link:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    /* Pros & Cons */
+    .pros-cons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 680px) {
+      .pros-cons-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pros-col, .cons-col {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .pros-cons-header {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .pros-cons-header.pros { color: #6ee7b7; }
+    .pros-cons-header.cons { color: #fcd34d; }
+
+    .pros-cons-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .pros-cons-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .check-icon {
+      color: #10b981;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .cross-icon {
+      color: #f59e0b;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Feature Cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-index {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      font-size: 0.72rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 800;
+      font-family: var(--font-mono);
+    }
+
+    .feature-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #f4f4f5;
+    }
+
+    .feature-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Alternative comparison */
+    .alt-comparison-card {
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(18, 18, 22, 0.8) 100%);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+  </style>
+
+  <!-- Interactive Upvote, Bookmark & Share Script -->
+  <script is:inline define:vars={{ toolId: tool.id, toolName: tool.name, toolUrl: tool.url }}>
+    // Upvote
+    const upvoteBtn = document.getElementById('upvote-btn');
+    const upvoteCount = document.getElementById('upvote-count');
+    const upvoteKey = `upvoted_${toolId}`;
+    const baseScore = parseInt(upvoteCount?.innerText.replace('+', '') || '1', 10);
+
+    if (localStorage.getItem(upvoteKey) === 'true') {
+      upvoteBtn?.classList.add('active');
+      if (upvoteCount) upvoteCount.innerText = `+${baseScore + 1}`;
+    }
+
+    upvoteBtn?.addEventListener('click', () => {
+      const isUpvoted = upvoteBtn.classList.toggle('active');
+      localStorage.setItem(upvoteKey, isUpvoted ? 'true' : 'false');
+      if (upvoteCount) {
+        upvoteCount.innerText = isUpvoted ? `+${baseScore + 1}` : `+${baseScore}`;
+      }
+    });
+
+    // Bookmark
+    const bookmarkBtn = document.getElementById('bookmark-btn');
+    const bookmarkKey = `bookmarked_${toolId}`;
+    if (localStorage.getItem(bookmarkKey) === 'true') {
+      bookmarkBtn?.classList.add('bookmarked');
+      const text = document.getElementById('bookmark-text');
+      if (text) text.innerText = 'Saved';
+    }
+
+    bookmarkBtn?.addEventListener('click', () => {
+      const isBookmarked = bookmarkBtn.classList.toggle('bookmarked');
+      localStorage.setItem(bookmarkKey, isBookmarked ? 'true' : 'false');
+      const text = document.getElementById('bookmark-text');
+      if (text) text.innerText = isBookmarked ? 'Saved' : 'Save';
+    });
+
+    // Share
+    const shareBtn = document.getElementById('share-btn');
+    shareBtn?.addEventListener('click', async () => {
+      const shareData = {
+        title: `${toolName} - ToolsRadar`,
+        text: `Check out ${toolName} on ToolsRadar:`,
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (_) {}
+      }
+
+      // Fallback: clipboard copy
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const originalHtml = shareBtn.innerHTML;
+        shareBtn.innerHTML = '<span>✅ Copied!</span>';
+        setTimeout(() => {
+          shareBtn.innerHTML = originalHtml;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy link:', err);
+      }
+    });
+
+    // Copy Quickstart Command
+    const copyCmdBtn = document.getElementById('copy-cmd-btn');
+    const quickstartCode = document.getElementById('quickstart-code');
+    if (copyCmdBtn && quickstartCode) {
+      copyCmdBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(quickstartCode.innerText || '');
+          const originalText = copyCmdBtn.innerText;
+          copyCmdBtn.innerText = '✅ Copied!';
+          setTimeout(() => {
+            copyCmdBtn.innerText = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy quickstart:', err);
+        }
+      });
+    }
+  </script>
 </Layout>

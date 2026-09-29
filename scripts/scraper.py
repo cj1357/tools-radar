@@ -377,7 +377,7 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
         '  "name": "Clean canonical product or project name",\n'
         '  "tagline": "A punchy, compelling English one-liner (max 80 chars) describing its superpower",\n'
         '  "summary": "2 informative sentences explaining the core value, problem solved, and technical edge",\n'
-        '  "category": "Must be exactly ONE of: developer-tools, ai-tools, productivity, open-source, security-devops, design-ui",\n'
+        '  "category": "Must be exactly ONE of: ai-agents, ai-tools, developer-tools, open-source, frameworks-libraries, database-storage, security-devops, cybersecurity-reverse, productivity, design-ui, testing-qa, web-scraping-apis",\n'
         '  "tags": ["3 to 5 concise tags like TypeScript, AI Agents, Canvas, Headless"],\n'
         '  "pricing_model": "One of: Open Source, Free, Freemium, Paid",\n'
         '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces (e.g. Google Workspace, Airtable, Notion, Linear, Cursor, PostHog), or null",\n'

@@ -1,38 +1,74 @@
 [
   {
-    "id": "developer-tools",
-    "name": "Developer Tools",
-    "description": "Compilers, CLI tools, SDKs, and libraries that empower software engineering.",
-    "icon": "code"
+    "id": "ai-agents",
+    "name": "AI Agents & Autonomous",
+    "description": "Autonomous agents, agent memory, LLM tool orchestration, and agentic workflows.",
+    "icon": "bot"
   },
   {
     "id": "ai-tools",
     "name": "AI & Machine Learning",
-    "description": "Cutting-edge AI agents, models, LLM wrappers, and intelligent automation.",
+    "description": "Cutting-edge foundation models, local speech/vision, embeddings, and intelligent tools.",
     "icon": "cpu"
   },
   {
-    "id": "productivity",
-    "name": "Productivity & Workflow",
-    "description": "Tools that save time, automate repetitive tasks, and streamline daily work.",
-    "icon": "zap"
+    "id": "developer-tools",
+    "name": "DevTools & CLI",
+    "description": "Compilers, terminal utilities, debuggers, and command-line speedups for engineers.",
+    "icon": "terminal"
   },
   {
     "id": "open-source",
     "name": "Open Source Alternatives",
-    "description": "Free, self-hostable, and community-driven replacements for commercial SaaS.",
+    "description": "Self-hostable, privacy-first, community-driven replacements for commercial big tech SaaS.",
     "icon": "git-branch"
+  },
+  {
+    "id": "frameworks-libraries",
+    "name": "Frameworks & Libraries",
+    "description": "Modern frontend/backend runtimes, SDKs, typed DSLs, and developer building blocks.",
+    "icon": "code"
+  },
+  {
+    "id": "database-storage",
+    "name": "Database & Storage",
+    "description": "Vector databases, caching layers, key-value stores, and distributed storage engines.",
+    "icon": "database"
   },
   {
     "id": "security-devops",
     "name": "DevOps & Cloud",
-    "description": "Infrastructure, monitoring, containerization, and edge deployment utilities.",
+    "description": "Docker sandboxes, Linux virtualization, Kubernetes tooling, and edge hosting utilities.",
     "icon": "cloud"
+  },
+  {
+    "id": "cybersecurity-reverse",
+    "name": "Security & Pentesting",
+    "description": "Automated security audits, 2FA utilities, air-gapped encryption, and reverse engineering.",
+    "icon": "shield"
+  },
+  {
+    "id": "productivity",
+    "name": "Productivity & Workflow",
+    "description": "High-velocity keyboards, modern spreadsheets, noise-free notes, and focus utilities.",
+    "icon": "zap"
   },
   {
     "id": "design-ui",
     "name": "Design & Frontend",
-    "description": "UI kits, icons, CSS tools, and creative assets for modern web builders.",
+    "description": "Diagramming languages, canvas graphics, fonts, CSS components, and creator UI kits.",
     "icon": "layout"
+  },
+  {
+    "id": "testing-qa",
+    "name": "Testing & Benchmarks",
+    "description": "AI code verification, post-mortem debuggers, AST code similarity, and proxy auditing.",
+    "icon": "check-circle"
+  },
+  {
+    "id": "web-scraping-apis",
+    "name": "APIs & Web Scraping",
+    "description": "MCP server connectors, intelligent crawlers, headless data scrapers, and API tooling.",
+    "icon": "network"
   }
 ]

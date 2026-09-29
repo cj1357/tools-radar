@@ -14,7 +14,7 @@ const noSignupCount = allTools.filter(t => t.no_signup_required).length;
 const altCount = allTools.filter(t => t.primary_alternative).length;
 const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length;
 
-// Scalability slice: render only top 24 on initial HTML to ensure sub-50ms load
+// Initial render slice for lightning-fast sub-50ms SSR
 const PAGE_SIZE = 24;
 const initialTools = allTools.slice(0, PAGE_SIZE);
 ---
@@ -25,7 +25,7 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
   canonicalUrl="https://lordorange.top/"
 >
   <!-- Hero Section -->
-  <section style="text-align: center; padding: 3rem 0 2rem;">
+  <section class="hero-section">
     <!-- Live Status Pill -->
     <div style="display: inline-block; margin-bottom: 1.25rem;">
       <div class="live-badge">
@@ -35,12 +35,12 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
     </div>
 
     <!-- Title -->
-    <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.15; margin-bottom: 1rem;" class="gradient-title">
+    <h1 class="hero-title gradient-title">
       Discover Tomorrow's Best <br />
       <span class="gradient-accent">Developer Tools & AI Gems</span>
     </h1>
 
-    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto; line-height: 1.6;">
+    <p class="hero-subtitle">
       High-signal software curation filtered for open-source alternatives, self-hostable tech, and developer utilities.
     </p>
 
@@ -54,231 +54,372 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
         type="text" 
         id="tool-search" 
         class="search-input" 
-        placeholder="Search entire catalog across all tools, alternatives, and tags..." 
+        placeholder="Search 160+ tools, alternatives (e.g. Notion, Cursor), or tags..." 
         autocomplete="off"
       />
       <div class="search-shortcut">/</div>
     </div>
+  </section>
 
-    <!-- Hardcore Feature Filter Chips -->
-    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.5rem;" id="feature-filters">
-      <button 
-        class="filter-chip active" 
-        data-filter="all"
-      >
-        <span>⚡ All Tools</span>
-        <span class="chip-count">{allTools.length}</span>
+  <!-- Horizontal Scrollable Category Bar -->
+  <section class="category-scroll-wrapper">
+    <div class="category-scroll-bar" id="category-bar">
+      <button class="category-chip active" data-category="all">
+        <span class="chip-icon">⚡</span>
+        <span class="chip-name">All Categories</span>
+        <span class="chip-badge">{allTools.length}</span>
       </button>
 
-      <button 
-        class="filter-chip" 
-        data-filter="alternatives"
-      >
-        <span>🔄 Big-Tech Alternatives</span>
+      {categoryCounts.map(cat => {
+        const iconMap: Record<string, string> = {
+          "ai-agents": "🤖",
+          "ai-tools": "🧠",
+          "developer-tools": "💻",
+          "open-source": "🔄",
+          "frameworks-libraries": "📦",
+          "database-storage": "🗄️",
+          "security-devops": "☁️",
+          "cybersecurity-reverse": "🛡️",
+          "productivity": "⚡",
+          "design-ui": "🎨",
+          "testing-qa": "🧪",
+          "web-scraping-apis": "🌐"
+        };
+        const catIcon = iconMap[cat.id] || "📁";
+
+        return (
+          <button class="category-chip" data-category={cat.id}>
+            <span class="chip-icon">{catIcon}</span>
+            <span class="chip-name">{cat.name}</span>
+            <span class="chip-badge">{cat.count}</span>
+          </button>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Secondary Filter Chips & Sort Controls Toolbar -->
+  <section class="toolbar-section">
+    <!-- Quick Filters -->
+    <div class="filter-chips-group" id="feature-filters">
+      <button class="filter-chip active" data-filter="all">
+        All
+      </button>
+      <button class="filter-chip" data-filter="alternatives">
+        <span>🔄 Alternatives</span>
         <span class="chip-count">{altCount}</span>
       </button>
-
-      <button 
-        class="filter-chip" 
-        data-filter="self-host"
-      >
-        <span>🐳 Self-Hostable</span>
+      <button class="filter-chip" data-filter="self-host">
+        <span>🐳 Self-Host</span>
         <span class="chip-count">{selfHostCount}</span>
       </button>
-
-      <button 
-        class="filter-chip" 
-        data-filter="no-signup"
-      >
+      <button class="filter-chip" data-filter="no-signup">
         <span>🔓 No Sign-up</span>
         <span class="chip-count">{noSignupCount}</span>
       </button>
-
-      <button 
-        class="filter-chip" 
-        data-filter="high-signal"
-      >
-        <span>🔥 High Traction</span>
+      <button class="filter-chip" data-filter="high-signal">
+        <span>🔥 Top Traction</span>
         <span class="chip-count">{highSignalCount}</span>
       </button>
     </div>
 
-    <!-- Category Filter Pills -->
-    <div style="display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-top: 1.25rem;">
-      {categoryCounts.map(cat => (
-        <a 
-          href={`/category/${cat.id}`} 
-          style="display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(24, 24, 27, 0.6); border: 1px solid var(--border-subtle); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; color: var(--text-secondary); text-decoration: none; transition: all 0.15s ease;"
-          onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='#f4f4f5';"
-          onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.color='#a1a1aa';"
+    <!-- Sort Selector -->
+    <div class="sort-selector-wrapper">
+      <span class="sort-label">Sort:</span>
+      <select id="sort-select" class="sort-select">
+        <option value="signal" selected>⚡ Highest Traction</option>
+        <option value="stars">★ Most Stars / Upvotes</option>
+        <option value="newest">🆕 Recently Discovered</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Feed Header with Count & Meta -->
+  <section class="feed-header-section">
+    <div class="feed-title-group">
+      <h2 class="feed-title">Curated Radar Feed</h2>
+      <span id="results-count" class="results-badge">
+        Showing {initialTools.length} of {allTools.length} tools
+      </span>
+    </div>
+
+    <div class="feed-meta-text">
+      Daily crawler across GitHub Trending, Hacker News & Product Hunt
+    </div>
+  </section>
+
+  <!-- Empty search state -->
+  <div id="no-results" class="empty-state">
+    <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+    <p style="font-size: 1.15rem; font-weight: 600; color: #f4f4f5; margin-bottom: 0.35rem;">No tools match your current filter</p>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">Try relaxing your keywords, switching categories, or clearing filters.</p>
+    <button id="reset-filters-btn" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">
+      Reset All Filters
+    </button>
+  </div>
+
+  <!-- Tools Grid (Initial static batch) -->
+  <div class="tools-grid" id="tools-container">
+    {initialTools.map(tool => {
+      const iconUrl = getToolIcon(tool.url, tool.github_url);
+      const initial = tool.name.charAt(0);
+      const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")} ${tool.primary_alternative || ""}`.toLowerCase();
+
+      return (
+        <article 
+          class="tool-card" 
+          data-id={tool.id}
+          data-corpus={searchCorpus}
+          data-category={tool.category}
+          data-self-host={tool.is_self_hostable ? "true" : "false"}
+          data-no-signup={tool.no_signup_required ? "true" : "false"}
+          data-has-alt={tool.primary_alternative ? "true" : "false"}
+          data-signal={tool.signal_score || 0}
+          data-stars={tool.stars || 0}
         >
-          <span>{cat.name}</span>
-          <span style="background: rgba(255, 255, 255, 0.06); color: var(--text-muted); font-size: 0.7rem; padding: 0.05rem 0.35rem; border-radius: 9999px;">{cat.count}</span>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- Feed Header -->
-  <section style="margin-top: 2.5rem;">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.85rem;">
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em;">
-          Curated Feed
-        </h2>
-        <span id="results-count" style="font-size: 0.8rem; color: var(--text-muted); background: rgba(255, 255, 255, 0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">
-          Showing {initialTools.length} of {allTools.length} tools
-        </span>
-      </div>
-
-      <div style="font-size: 0.8rem; color: var(--text-muted);">
-        Aggregated across GitHub, Product Hunt & Hacker News
-      </div>
-    </div>
-
-    <!-- Empty search state -->
-    <div id="no-results" style="display: none; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-      <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">No tools match your current filter.</p>
-      <p style="font-size: 0.85rem;">Try resetting your search query or selecting "All Tools".</p>
-    </div>
-
-    <!-- Tools Grid (Initial static batch) -->
-    <div class="tools-grid" id="tools-container">
-      {initialTools.map(tool => {
-        const iconUrl = getToolIcon(tool.url, tool.github_url);
-        const initial = tool.name.charAt(0);
-        const searchCorpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(" ")} ${tool.primary_alternative || ""}`.toLowerCase();
-
-        return (
-          <article 
-            class="tool-card" 
-            data-id={tool.id}
-            data-corpus={searchCorpus}
-            data-self-host={tool.is_self_hostable ? "true" : "false"}
-            data-no-signup={tool.no_signup_required ? "true" : "false"}
-            data-has-alt={tool.primary_alternative ? "true" : "false"}
-            data-signal={tool.signal_score || 0}
-          >
-            <div>
-              <div class="tool-card-top">
-                <div class="tool-icon">
-                  {iconUrl ? (
-                    <img 
-                      src={iconUrl} 
-                      alt={`${tool.name} icon`} 
-                      loading="lazy"
-                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                    />
-                    <div class="tool-icon-fallback" style="display: none;">
-                      {initial}
-                    </div>
-                  ) : (
-                    <div class="tool-icon-fallback">
-                      {initial}
-                    </div>
-                  )}
-                </div>
-
-                <div class="tool-meta-header">
-                  <div class="tool-title-row">
-                    <h3 class="tool-title">
-                      <a href={`/tool/${tool.id}`} style="color: var(--text-primary); text-decoration: none;">
-                        {tool.name}
-                      </a>
-                    </h3>
-
-                    <div style="display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0;">
-                      {tool.stars > 0 && (
-                        <span class="stars-badge">
-                          <span>★</span>
-                          <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
-                        </span>
-                      )}
-                      {tool.signal_score && (
-                        <span style="font-size: 0.7rem; font-weight: 700; color: #a1a1aa; background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono);">
-                          ⚡{tool.signal_score}
-                        </span>
-                      )}
-                    </div>
+          <div>
+            <div class="tool-card-top">
+              <div class="tool-icon">
+                {iconUrl ? (
+                  <img 
+                    src={iconUrl} 
+                    alt={`${tool.name} icon`} 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  />
+                  <div class="tool-icon-fallback" style="display: none;">
+                    {initial}
                   </div>
+                ) : (
+                  <div class="tool-icon-fallback">
+                    {initial}
+                  </div>
+                )}
+              </div>
 
-                  <p class="tool-tagline">{tool.tagline}</p>
+              <div class="tool-meta-header">
+                <div class="tool-title-row">
+                  <h3 class="tool-title">
+                    <a href={`/tool/${tool.id}`} style="color: var(--text-primary); text-decoration: none;">
+                      {tool.name}
+                    </a>
+                  </h3>
+
+                  <div style="display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0;">
+                    {tool.stars > 0 && (
+                      <span class="stars-badge">
+                        <span>★</span>
+                        <span>{tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}</span>
+                      </span>
+                    )}
+                    {tool.signal_score && (
+                      <span style="font-size: 0.7rem; font-weight: 700; color: #a1a1aa; background: rgba(255, 255, 255, 0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--font-mono);">
+                        ⚡{tool.signal_score}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              <!-- Alternatives Pill & Hardcore Badges -->
-              <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
-                {tool.primary_alternative && (
-                  <span style="display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px;">
-                    🔄 Alt to {tool.primary_alternative}
-                  </span>
-                )}
-
-                {tool.is_self_hostable && (
-                  <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
-                    🐳 Self-Hostable
-                  </span>
-                )}
-
-                {tool.no_signup_required && (
-                  <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); color: #fcd34d; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
-                    🔓 No Sign-up
-                  </span>
-                )}
-
-                {tool.tags && tool.tags.slice(0, 3).map((tag: string) => (
-                  <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
-                    #{tag}
-                  </span>
-                ))}
+                <p class="tool-tagline">{tool.tagline}</p>
               </div>
             </div>
 
-            <!-- Footer -->
-            <div class="tool-footer">
-              <div style="display: flex; align-items: center; gap: 0.4rem;">
-                <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
-                  {tool.pricing_model}
+            <!-- Alternative Pill & Badges -->
+            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.85rem;">
+              {tool.primary_alternative && (
+                <span style="display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px;">
+                  🔄 Alt to {tool.primary_alternative}
                 </span>
+              )}
 
-                <span class="badge badge-source">
-                  {tool.source === "github_trending" ? "GitHub" : tool.source === "producthunt" ? "PH" : "HN"}
+              {tool.is_self_hostable && (
+                <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                  🐳 Self-Host
                 </span>
-              </div>
+              )}
 
-              <a href={`/tool/${tool.id}`} style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);">
-                Details & Alternatives <span style="font-size: 1rem; line-height: 1;">→</span>
-              </a>
+              {tool.no_signup_required && (
+                <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); color: #fcd34d; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
+                  🔓 No Sign-up
+                </span>
+              )}
+
+              {(tool.tags || []).slice(0, 3).map(tag => (
+                <span style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); color: #a1a1aa; font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px;">
+                  #{tag}
+                </span>
+              ))}
             </div>
-          </article>
-        );
-      })}
-    </div>
+          </div>
 
-    <!-- Scalable Load More Pagination Button -->
-    {allTools.length > PAGE_SIZE && (
-      <div id="load-more-wrapper" style="text-align: center; margin: 3rem 0 1.5rem;">
-        <button id="load-more-btn" class="btn btn-secondary" style="padding: 0.75rem 2.25rem; border-radius: 9999px; font-size: 0.95rem; gap: 0.6rem;">
-          <span>Load More Tools</span>
-          <span id="load-more-counter" style="opacity: 0.65; font-size: 0.8rem; font-family: var(--font-mono);">
-            ({initialTools.length} / {allTools.length})
-          </span>
-        </button>
-      </div>
-    )}
-  </section>
+          <!-- Footer -->
+          <div class="tool-footer">
+            <div style="display: flex; align-items: center; gap: 0.4rem;">
+              <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+                {tool.pricing_model}
+              </span>
+              <span class="badge badge-source">
+                {tool.source === "github_trending" ? "GitHub" : tool.source === "producthunt" ? "PH" : "HN"}
+              </span>
+            </div>
 
-  <!-- Filter & Chip Styles -->
+            <a 
+              href={`/tool/${tool.id}`} 
+              style="display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; font-size: 0.82rem; color: var(--accent);"
+            >
+              Details & Alternatives <span style="font-size: 1rem; line-height: 1;">→</span>
+            </a>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+
+  <!-- Scalable Load More Pagination Button -->
+  <div id="load-more-wrapper" style="text-align: center; margin: 3rem 0 1.5rem;">
+    <button 
+      id="load-more-btn" 
+      class="btn btn-secondary" 
+      style="padding: 0.75rem 2.25rem; border-radius: 9999px; font-size: 0.95rem; gap: 0.6rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4);"
+    >
+      <span>Load More Tools</span>
+      <span id="load-more-counter" style="opacity: 0.65; font-size: 0.8rem; font-family: var(--font-mono);">
+        ({initialTools.length} / {allTools.length})
+      </span>
+    </button>
+  </div>
+
+  <!-- Component Styles -->
   <style>
-    .filter-chip {
+    .hero-section {
+      text-align: center;
+      padding: 3.5rem 0 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-section {
+        padding: 2rem 0 1rem;
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 660px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .hero-subtitle {
+        font-size: 0.98rem;
+      }
+    }
+
+    /* Horizontal Category Scroll Bar */
+    .category-scroll-wrapper {
+      margin-top: 2rem;
+      position: relative;
+    }
+
+    .category-scroll-bar {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0.25rem 0.75rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x proximity;
+    }
+
+    .category-scroll-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-chip {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      background: rgba(24, 24, 27, 0.8);
+      background: rgba(22, 22, 27, 0.75);
       border: 1px solid var(--border-subtle);
-      padding: 0.4rem 0.9rem;
       border-radius: 9999px;
-      font-size: 0.82rem;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .category-chip:hover {
+      background: rgba(32, 32, 38, 0.9);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: var(--text-primary);
+    }
+
+    .category-chip.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+    }
+
+    .chip-icon {
+      font-size: 0.95rem;
+    }
+
+    .chip-badge {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+    }
+
+    .category-chip.active .chip-badge {
+      background: rgba(56, 189, 248, 0.25);
+      color: var(--accent);
+    }
+
+    /* Toolbar: Filters & Sort */
+    .toolbar-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 0.75rem 0;
+    }
+
+    .filter-chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(18, 18, 22, 0.6);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
       color: var(--text-secondary);
       font-weight: 500;
       cursor: pointer;
@@ -296,37 +437,121 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
       border-color: var(--accent);
       color: #ffffff;
       font-weight: 600;
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
     }
 
     .chip-count {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       color: #a1a1aa;
-      font-size: 0.72rem;
-      padding: 0.1rem 0.45rem;
+      font-size: 0.68rem;
+      padding: 0.05rem 0.4rem;
       border-radius: 9999px;
     }
 
-    .filter-chip.active .chip-count {
-      background: rgba(56, 189, 248, 0.2);
-      color: var(--accent);
+    .sort-selector-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sort-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .sort-select {
+      background: #17171c;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s ease;
+    }
+
+    .sort-select:hover, .sort-select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Feed Header */
+    .feed-header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.5rem 0 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .feed-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .feed-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .results-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .feed-meta-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .feed-meta-text {
+        display: none;
+      }
+    }
+
+    /* Empty state */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 4.5rem 1rem;
+      background: rgba(18, 18, 22, 0.5);
+      border: 1px dashed var(--border-subtle);
+      border-radius: 16px;
+      margin-top: 2rem;
     }
   </style>
 
-  <!-- Infinite / Load More & Decoupled Search Engine Script -->
+  <!-- Dynamic Multi-filter, Category & Sorting Client Script -->
   <script is:inline define:vars={{ PAGE_SIZE }}>
     const searchInput = document.getElementById('tool-search');
+    const categoryChips = document.querySelectorAll('.category-chip');
     const filterChips = document.querySelectorAll('.filter-chip');
+    const sortSelect = document.getElementById('sort-select');
     const container = document.getElementById('tools-container');
     const noResults = document.getElementById('no-results');
     const resultsCount = document.getElementById('results-count');
     const loadMoreBtn = document.getElementById('load-more-btn');
     const loadMoreWrapper = document.getElementById('load-more-wrapper');
     const loadMoreCounter = document.getElementById('load-more-counter');
+    const resetFiltersBtn = document.getElementById('reset-filters-btn');
 
     let fullIndex = null;
     let displayedCount = PAGE_SIZE;
-    let currentFilter = 'all';
+    let selectedCategory = 'all';
+    let selectedFeature = 'all';
+    let selectedSort = 'signal';
+    let currentSearch = '';
 
     function getToolIconUrl(url, githubUrl) {
       if (githubUrl && githubUrl.includes('github.com/')) {
@@ -359,10 +584,12 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
           class="tool-card" 
           data-id="${tool.id}"
           data-corpus="${searchCorpus}"
+          data-category="${tool.category}"
           data-self-host="${tool.is_self_hostable ? 'true' : 'false'}"
           data-no-signup="${tool.no_signup_required ? 'true' : 'false'}"
           data-has-alt="${tool.primary_alternative ? 'true' : 'false'}"
           data-signal="${tool.signal_score || 0}"
+          data-stars="${tool.stars || 0}"
         >
           <div>
             <div class="tool-card-top">
@@ -413,7 +640,7 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
               ` : ''}
               ${tool.is_self_hostable ? `
                 <span style="display: inline-flex; align-items: center; gap: 0.2rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); color: #6ee7b7; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px;">
-                  🐳 Self-Hostable
+                  🐳 Self-Host
                 </span>
               ` : ''}
               ${tool.no_signup_required ? `
@@ -454,105 +681,139 @@ const initialTools = allTools.slice(0, PAGE_SIZE);
       return fullIndex;
     }
 
-    // Keyboard shortcut '/'
-    window.addEventListener('keydown', (e) => {
-      if (e.key === '/' && document.activeElement !== searchInput) {
-        e.preventDefault();
-        searchInput?.focus();
-      }
-    });
-
-    // Instant Search and Chip Filter across the full catalog
-    async function handleFilterOrSearch() {
-      const query = (searchInput?.value || '').toLowerCase().trim();
-      const isFiltered = currentFilter !== 'all' || query !== '';
-
-      const index = await ensureIndexLoaded();
-
-      if (!isFiltered) {
-        // Return to standard paginated view
-        container.innerHTML = index.slice(0, displayedCount).map(createCardHTML).join('');
-        if (loadMoreWrapper) {
-          loadMoreWrapper.style.display = displayedCount < index.length ? 'block' : 'none';
-        }
-        if (loadMoreCounter) {
-          loadMoreCounter.textContent = `(${displayedCount} / ${index.length})`;
-        }
-        if (resultsCount) {
-          resultsCount.textContent = `Showing ${displayedCount} of ${index.length} tools`;
-        }
-        if (noResults) noResults.style.display = 'none';
-        return;
-      }
-
-      // Filter across 100% of all tools
-      if (loadMoreWrapper) loadMoreWrapper.style.display = 'none';
-
-      const matched = index.filter(tool => {
-        const corpus = `${tool.name} ${tool.tagline} ${tool.category} ${(tool.tags || []).join(' ')} ${tool.primary_alternative || ''}`.toLowerCase();
-        
-        let passesChip = true;
-        if (currentFilter === 'self-host') passesChip = tool.is_self_hostable;
-        else if (currentFilter === 'no-signup') passesChip = tool.no_signup_required;
-        else if (currentFilter === 'alternatives') passesChip = Boolean(tool.primary_alternative);
-        else if (currentFilter === 'high-signal') passesChip = (tool.signal_score || 0) >= 80;
-
-        const passesQuery = !query || corpus.includes(query);
-        return passesChip && passesQuery;
-      });
-
-      container.innerHTML = matched.map(createCardHTML).join('');
-
-      if (resultsCount) {
-        resultsCount.textContent = `Found ${matched.length} tools`;
-      }
-      if (noResults) {
-        noResults.style.display = matched.length === 0 ? 'block' : 'none';
+    function sortTools(tools, sortMode) {
+      if (sortMode === 'stars') {
+        return [...tools].sort((a, b) => (b.stars || 0) - (a.stars || 0));
+      } else if (sortMode === 'newest') {
+        return [...tools].sort((a, b) => (b.date_added || '').localeCompare(a.date_added || ''));
+      } else {
+        // default signal
+        return [...tools].sort((a, b) => (b.signal_score || 0) - (a.signal_score || 0));
       }
     }
 
-    searchInput?.addEventListener('input', handleFilterOrSearch);
-    searchInput?.addEventListener('focus', ensureIndexLoaded);
+    async function applyAllFilters() {
+      const all = await ensureIndexLoaded();
+      const q = currentSearch.trim().toLowerCase();
 
+      // 1. Filter
+      let filtered = all.filter(t => {
+        // Category filter
+        if (selectedCategory !== 'all' && t.category !== selectedCategory) {
+          return false;
+        }
+
+        // Feature filter
+        if (selectedFeature === 'alternatives' && !t.primary_alternative) return false;
+        if (selectedFeature === 'self-host' && !t.is_self_hostable) return false;
+        if (selectedFeature === 'no-signup' && !t.no_signup_required) return false;
+        if (selectedFeature === 'high-signal' && (t.signal_score || 0) < 80) return false;
+
+        // Search text query
+        if (q) {
+          const corpus = `${t.name} ${t.tagline} ${t.category} ${(t.tags || []).join(' ')} ${t.primary_alternative || ''}`.toLowerCase();
+          return corpus.includes(q);
+        }
+
+        return true;
+      });
+
+      // 2. Sort
+      filtered = sortTools(filtered, selectedSort);
+
+      // 3. Render
+      const totalMatches = filtered.length;
+      if (totalMatches === 0) {
+        container.innerHTML = '';
+        noResults.style.display = 'block';
+        loadMoreWrapper.style.display = 'none';
+        resultsCount.innerText = '0 tools found';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      const toShow = filtered.slice(0, displayedCount);
+      container.innerHTML = toShow.map(createCardHTML).join('');
+
+      resultsCount.innerText = `Showing ${toShow.length} of ${totalMatches} tools`;
+
+      if (toShow.length < totalMatches) {
+        loadMoreWrapper.style.display = 'block';
+        loadMoreCounter.innerText = `(${toShow.length} / ${totalMatches})`;
+      } else {
+        loadMoreWrapper.style.display = 'none';
+      }
+    }
+
+    // Category click handler
+    categoryChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        categoryChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        selectedCategory = chip.getAttribute('data-category') || 'all';
+        displayedCount = PAGE_SIZE;
+        applyAllFilters();
+      });
+    });
+
+    // Feature filter click handler
     filterChips.forEach(chip => {
       chip.addEventListener('click', () => {
         filterChips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
-        currentFilter = chip.getAttribute('data-filter') || 'all';
-        handleFilterOrSearch();
+        selectedFeature = chip.getAttribute('data-filter') || 'all';
+        displayedCount = PAGE_SIZE;
+        applyAllFilters();
       });
     });
 
-    // Load More Button Handler
-    loadMoreBtn?.addEventListener('click', async () => {
-      const index = await ensureIndexLoaded();
-      const nextBatch = index.slice(displayedCount, displayedCount + PAGE_SIZE);
-      displayedCount += nextBatch.length;
+    // Sort select handler
+    if (sortSelect) {
+      sortSelect.addEventListener('change', (e) => {
+        selectedSort = e.target.value;
+        applyAllFilters();
+      });
+    }
 
-      const tempContainer = document.createElement('div');
-      tempContainer.innerHTML = nextBatch.map(createCardHTML).join('');
-      while (tempContainer.firstChild) {
-        container.appendChild(tempContainer.firstChild);
-      }
+    // Search input handler
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        displayedCount = PAGE_SIZE;
+        applyAllFilters();
+      });
 
-      if (resultsCount) {
-        resultsCount.textContent = `Showing ${displayedCount} of ${index.length} tools`;
-      }
+      // Quick slash / key focus
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    }
 
-      if (loadMoreCounter) {
-        loadMoreCounter.textContent = `(${displayedCount} / ${index.length})`;
-      }
+    // Load More button handler
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        displayedCount += PAGE_SIZE;
+        applyAllFilters();
+      });
+    }
 
-      if (displayedCount >= index.length && loadMoreWrapper) {
-        loadMoreWrapper.style.display = 'none';
-      }
-    });
-
-    // Preload index in idle time
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(() => ensureIndexLoaded());
-    } else {
-      setTimeout(ensureIndexLoaded, 1000);
+    // Reset filters
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        currentSearch = '';
+        selectedCategory = 'all';
+        selectedFeature = 'all';
+        selectedSort = 'signal';
+        if (sortSelect) sortSelect.value = 'signal';
+        categoryChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-category') === 'all'));
+        filterChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-filter') === 'all'));
+        displayedCount = PAGE_SIZE;
+        applyAllFilters();
+      });
     }
   </script>
 </Layout>

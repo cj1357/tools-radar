@@ -16,12 +16,14 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    
     <!-- Canonical URL normalized to root domain for AdSense -->
     {canonicalUrl && <link rel="canonical" href={canonicalUrl.replace('https://tools.lordorange.top', 'https://lordorange.top')} />}
 
@@ -59,27 +61,36 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
     <style is:global>
       :root {
-        --bg-main: #09090b;
-        --surface: #121215;
-        --surface-hover: #18181d;
+        --bg-main: #08080a;
+        --surface: #111115;
+        --surface-hover: #17171d;
+        --surface-card: rgba(18, 18, 23, 0.8);
         --border-subtle: rgba(255, 255, 255, 0.08);
-        --border-hover: rgba(56, 189, 248, 0.35);
+        --border-strong: rgba(255, 255, 255, 0.16);
+        --border-hover: rgba(56, 189, 248, 0.4);
         --text-primary: #f4f4f5;
         --text-secondary: #a1a1aa;
         --text-muted: #71717a;
         --accent: #38bdf8;
-        --accent-glow: rgba(56, 189, 248, 0.15);
+        --accent-glow: rgba(56, 189, 248, 0.2);
         --emerald: #10b981;
-        --emerald-glow: rgba(16, 185, 129, 0.15);
+        --emerald-glow: rgba(16, 185, 129, 0.2);
         --purple: #a855f7;
+        --purple-glow: rgba(168, 85, 247, 0.2);
+        --amber: #f59e0b;
         --font-sans: -apple-system, BlinkMacSystemFont, "Geist", "Inter", "Segoe UI", Roboto, sans-serif;
-        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       }
 
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
       }
 
       body {
@@ -90,9 +101,15 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         background-image: 
-          radial-gradient(at 50% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 40%);
+          radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.11) 0%, transparent 55%),
+          radial-gradient(circle at 100% 25%, rgba(168, 85, 247, 0.07) 0%, transparent 45%),
+          radial-gradient(circle at 0% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+          linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
         background-attachment: fixed;
       }
 
@@ -107,71 +124,206 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       }
 
       .container {
-        max-width: 1140px;
+        max-width: 1180px;
         margin: 0 auto;
-        padding: 1.75rem 1.25rem;
+        padding: 2rem 1.25rem;
         width: 100%;
+        flex: 1;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 1.25rem 0.85rem;
+        }
       }
 
       /* Navbar */
       .navbar {
         border-bottom: 1px solid var(--border-subtle);
-        background-color: rgba(9, 9, 11, 0.75);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background-color: rgba(8, 8, 10, 0.82);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         position: sticky;
         top: 0;
-        z-index: 50;
+        z-index: 100;
+        transition: border-color 0.2s ease;
       }
 
       .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.85rem 1.25rem;
-        max-width: 1140px;
+        padding: 0.75rem 1.25rem;
+        max-width: 1180px;
         margin: 0 auto;
       }
 
       .nav-brand {
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        font-size: 1.15rem;
-        font-weight: 700;
+        gap: 0.65rem;
+        font-size: 1.18rem;
+        font-weight: 800;
         color: var(--text-primary);
         text-decoration: none;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.03em;
       }
 
       .nav-brand-icon {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
         background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
-        border-radius: 8px;
+        border-radius: 9px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 0.95rem;
-        box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+        box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+        flex-shrink: 0;
       }
 
-      .nav-links {
-        display: flex;
+      /* Desktop Nav Links */
+      .nav-desktop-links {
+        display: none;
         gap: 1.5rem;
         align-items: center;
         list-style: none;
       }
 
-      .nav-links a {
+      @media (min-width: 860px) {
+        .nav-desktop-links {
+          display: flex;
+        }
+      }
+
+      .nav-desktop-links a {
         color: var(--text-secondary);
         font-size: 0.9rem;
         font-weight: 500;
         transition: color 0.15s ease;
       }
 
-      .nav-links a:hover {
+      .nav-desktop-links a:hover {
         color: var(--text-primary);
+      }
+
+      /* Navbar Action Buttons */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .nav-submit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(56, 189, 248, 0.1);
+        color: #38bdf8;
+        padding: 0.35rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(56, 189, 248, 0.28);
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+
+      .nav-submit-btn:hover {
+        background: rgba(56, 189, 248, 0.2);
+        color: #ffffff;
+        border-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+      }
+
+      /* Mobile Hamburger Button */
+      .mobile-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        color: var(--text-primary);
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.15s ease;
+      }
+
+      @media (min-width: 860px) {
+        .mobile-toggle-btn {
+          display: none;
+        }
+      }
+
+      .mobile-toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Mobile Slide-down Drawer */
+      .mobile-drawer {
+        display: none;
+        position: fixed;
+        top: 55px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(8, 8, 10, 0.96);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        z-index: 99;
+        overflow-y: auto;
+        padding: 1.25rem 1rem 3rem;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .mobile-drawer.open {
+        display: block;
+      }
+
+      .mobile-drawer-inner {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .mobile-section-header {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin: 0.75rem 0 0.35rem 0.5rem;
+      }
+
+      .mobile-nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.7rem 0.85rem;
+        border-radius: 10px;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        transition: all 0.15s ease;
+      }
+
+      .mobile-nav-item:hover, .mobile-nav-item:active {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: var(--border-subtle);
+        color: #ffffff;
+      }
+
+      .mobile-nav-item.active {
+        background: rgba(56, 189, 248, 0.12);
+        border-color: rgba(56, 189, 248, 0.3);
+        color: var(--accent);
       }
 
       /* Live Breathing Status Pill */
@@ -179,15 +331,14 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(16, 185, 129, 0.1);
-        border: 1px solid rgba(16, 185, 129, 0.25);
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.22);
         color: #6ee7b7;
         padding: 0.3rem 0.8rem;
         border-radius: 9999px;
         font-size: 0.75rem;
         font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
+        letter-spacing: 0.04em;
       }
 
       .live-dot {
@@ -207,7 +358,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       /* Gradient Text */
       .gradient-title {
-        background: linear-gradient(180deg, #ffffff 20%, #a1a1aa 100%);
+        background: linear-gradient(180deg, #ffffff 10%, #a1a1aa 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         letter-spacing: -0.04em;
@@ -220,36 +371,38 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         -webkit-text-fill-color: transparent;
       }
 
-      /* Search Bar */
+      /* Raycast-style Instant Search Bar */
       .search-box-wrapper {
         position: relative;
-        max-width: 580px;
+        max-width: 620px;
         margin: 1.75rem auto 0;
+        width: 100%;
       }
 
       .search-input {
         width: 100%;
-        background-color: rgba(24, 24, 27, 0.7);
+        background-color: rgba(20, 20, 25, 0.75);
         border: 1px solid var(--border-subtle);
-        border-radius: 12px;
-        padding: 0.85rem 1.25rem 0.85rem 2.85rem;
+        border-radius: 14px;
+        padding: 0.9rem 1.25rem 0.9rem 3rem;
         color: var(--text-primary);
-        font-size: 0.95rem;
+        font-size: 0.98rem;
         outline: none;
-        backdrop-filter: blur(8px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         transition: all 0.2s ease;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
       }
 
       .search-input:focus {
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 8px 30px rgba(0, 0, 0, 0.4);
-        background-color: #18181b;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15), 0 8px 32px rgba(0, 0, 0, 0.5);
+        background-color: #17171d;
       }
 
       .search-icon {
         position: absolute;
-        left: 1rem;
+        left: 1.1rem;
         top: 50%;
         transform: translateY(-50%);
         color: var(--text-muted);
@@ -258,7 +411,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       .search-shortcut {
         position: absolute;
-        right: 0.85rem;
+        right: 0.9rem;
         top: 50%;
         transform: translateY(-50%);
         background: #27272a;
@@ -270,24 +423,36 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         border-radius: 5px;
       }
 
+      @media (max-width: 640px) {
+        .search-shortcut {
+          display: none;
+        }
+      }
+
       /* Card Anatomy */
       .tools-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1.25rem;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 680px) {
         .tools-grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
+      @media (min-width: 1040px) {
+        .tools-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
       .tool-card {
-        background: linear-gradient(180deg, rgba(24, 24, 27, 0.7) 0%, rgba(18, 18, 20, 0.8) 100%);
+        background: linear-gradient(180deg, rgba(22, 22, 27, 0.75) 0%, rgba(15, 15, 18, 0.85) 100%);
         border: 1px solid var(--border-subtle);
-        border-radius: 14px;
+        border-radius: 16px;
         padding: 1.25rem;
         display: flex;
         flex-direction: column;
@@ -310,28 +475,29 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       .tool-card:hover {
         transform: translateY(-3px);
         border-color: var(--border-hover);
-        box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -3px var(--accent-glow);
-        background: linear-gradient(180deg, rgba(28, 28, 32, 0.85) 0%, rgba(20, 20, 24, 0.95) 100%);
+        box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 24px -4px var(--accent-glow);
+        background: linear-gradient(180deg, rgba(28, 28, 34, 0.9) 0%, rgba(20, 20, 25, 0.95) 100%);
       }
 
       .tool-card-top {
         display: flex;
         align-items: flex-start;
-        gap: 0.9rem;
+        gap: 0.85rem;
         margin-bottom: 0.85rem;
       }
 
       .tool-icon {
         width: 44px;
         height: 44px;
-        border-radius: 10px;
-        background: #27272a;
+        border-radius: 11px;
+        background: #222227;
         border: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
         overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
 
       .tool-icon img {
@@ -341,8 +507,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       }
 
       .tool-icon-fallback {
-        font-size: 1.15rem;
-        font-weight: 700;
+        font-size: 1.2rem;
+        font-weight: 800;
         color: #e4e4e7;
         text-transform: uppercase;
       }
@@ -356,7 +522,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
 
       .tool-title {
@@ -371,7 +537,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       .tool-tagline {
         color: var(--text-secondary);
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         line-height: 1.5;
         margin-top: 0.35rem;
         display: -webkit-box;
@@ -384,7 +550,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
         padding-top: 0.85rem;
         margin-top: 0.85rem;
         font-size: 0.8rem;
@@ -424,12 +590,12 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         display: inline-flex;
         align-items: center;
         gap: 0.25rem;
-        font-size: 0.75rem;
+        font-size: 0.74rem;
         font-weight: 600;
         color: #fbbf24;
         background: rgba(251, 191, 36, 0.1);
         border: 1px solid rgba(251, 191, 36, 0.2);
-        padding: 0.18rem 0.5rem;
+        padding: 0.15rem 0.5rem;
         border-radius: 9999px;
       }
 
@@ -439,12 +605,13 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         align-items: center;
         gap: 0.45rem;
         padding: 0.55rem 1.1rem;
-        border-radius: 8px;
+        border-radius: 9px;
         font-weight: 600;
         font-size: 0.875rem;
         text-decoration: none;
         cursor: pointer;
         transition: all 0.15s ease;
+        border: 1px solid transparent;
       }
 
       .btn-primary {
@@ -455,7 +622,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       .btn-primary:hover {
         background: #ffffff;
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+        color: #000000;
       }
 
       .btn-secondary {
@@ -466,21 +634,22 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       .btn-secondary:hover {
         background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
       }
 
       /* Footer */
       .footer {
         border-top: 1px solid var(--border-subtle);
         margin-top: auto;
-        padding: 3rem 1.25rem;
-        background-color: #070709;
+        padding: 3rem 1.25rem 2.5rem;
+        background-color: #060608;
         font-size: 0.875rem;
         color: var(--text-muted);
       }
 
       .footer-container {
-        max-width: 1140px;
+        max-width: 1180px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -499,11 +668,14 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       .footer-links {
         display: flex;
-        gap: 1.5rem;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .footer-links a {
         color: var(--text-secondary);
+        font-size: 0.85rem;
       }
 
       .footer-links a:hover {
@@ -518,38 +690,79 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
           <div class="nav-brand-icon">⚡</div>
           <span>ToolsRadar</span>
         </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="/">Radar</a></li>
-            <li><a href="/category/ai-tools">AI Tools</a></li>
-            <li><a href="/category/developer-tools">DevTools</a></li>
-            <li><a href="/category/open-source">Open Source</a></li>
-            <li><a href="/about">About</a></li>
-            <li>
-              <a 
-                href="/submit" 
-                style="display: flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.12); color: #38bdf8; padding: 0.3rem 0.65rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.3); font-weight: 600;"
-              >
-                + Submit
-              </a>
-            </li>
-            <li>
-              <a 
-                href="https://github.com/cj1357/tools-radar" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                style="display: flex; align-items: center; gap: 0.35rem; background: rgba(255, 255, 255, 0.06); padding: 0.3rem 0.65rem; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.1);"
-              >
-                <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-                GitHub
-              </a>
-            </li>
-          </ul>
-        </nav>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-desktop-links">
+          <li><a href="/">Radar</a></li>
+          <li><a href="/category/ai-agents">AI Agents</a></li>
+          <li><a href="/category/ai-tools">AI Tools</a></li>
+          <li><a href="/category/developer-tools">DevTools</a></li>
+          <li><a href="/category/open-source">Open Source</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+
+        <!-- Action Items (Submit + Mobile Hamburger) -->
+        <div class="nav-actions">
+          <a href="/submit" class="nav-submit-btn">
+            <span>+</span>
+            <span>Submit</span>
+          </a>
+
+          <a 
+            href="https://github.com/cj1357/tools-radar" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            style="display: none; padding: 0.35rem 0.65rem; font-size: 0.8rem; border-radius: 7px;"
+            id="desktop-github-link"
+          >
+            <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <!-- Mobile Toggle Button -->
+          <button id="mobile-toggle" class="mobile-toggle-btn" aria-label="Toggle navigation menu">
+            <svg id="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg id="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
+
+    <!-- Mobile Slide-down Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <div class="mobile-drawer-inner">
+        <div class="mobile-section-header">Core Navigation</div>
+        <a href="/" class="mobile-nav-item">⚡ All Radar Feed</a>
+        <a href="/category/ai-agents" class="mobile-nav-item">🤖 AI Agents & Workflows</a>
+        <a href="/category/ai-tools" class="mobile-nav-item">🧠 AI & Machine Learning</a>
+        <a href="/category/developer-tools" class="mobile-nav-item">💻 DevTools & CLI</a>
+        <a href="/category/open-source" class="mobile-nav-item">🔄 Open Source Alternatives</a>
+        <a href="/category/frameworks-libraries" class="mobile-nav-item">📦 Frameworks & Libraries</a>
+        <a href="/category/database-storage" class="mobile-nav-item">🗄️ Database & Storage</a>
+        <a href="/category/security-devops" class="mobile-nav-item">☁️ DevOps & Cloud</a>
+        <a href="/category/cybersecurity-reverse" class="mobile-nav-item">🛡️ Security & Pentesting</a>
+        <a href="/category/productivity" class="mobile-nav-item">⚡ Productivity & Workflow</a>
+        <a href="/category/design-ui" class="mobile-nav-item">🎨 Design & Frontend</a>
+        <a href="/category/testing-qa" class="mobile-nav-item">🧪 Testing & Benchmarks</a>
+        <a href="/category/web-scraping-apis" class="mobile-nav-item">🌐 APIs & Web Scraping</a>
+
+        <div class="mobile-section-header" style="margin-top: 1.25rem;">Directory & Community</div>
+        <a href="/about" class="mobile-nav-item">ℹ️ About ToolsRadar</a>
+        <a href="/submit" class="mobile-nav-item" style="color: var(--accent); font-weight: 600;">+ Submit a Tool</a>
+        <a href="/privacy" class="mobile-nav-item">📜 Privacy Policy</a>
+        <a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">🐙 GitHub Source Code ↗</a>
+      </div>
+    </div>
 
     <main class="container">
       <slot />
@@ -558,10 +771,11 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
     <footer class="footer">
       <div class="footer-container">
         <div>
-          <p>© {new Date().getFullYear()} ToolsRadar.dev — Curating the world's best new developer tools.</p>
-          <p style="margin-top: 0.35rem; color: #52525b;">Automated daily crawling across GitHub Trending, Hacker News & Product Hunt.</p>
+          <p style="font-weight: 600; color: #e4e4e7;">© {new Date().getFullYear()} ToolsRadar.dev — Curating the world's best new developer tools.</p>
+          <p style="margin-top: 0.35rem; color: #71717a; font-size: 0.82rem;">Automated daily crawling across GitHub Trending, Hacker News & Product Hunt.</p>
         </div>
         <div class="footer-links">
+          <a href="/">All Tools</a>
           <a href="/about">About</a>
           <a href="/submit">Submit Tool</a>
           <a href="mailto:hello@lordorange.top">Contact</a>
@@ -570,5 +784,38 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         </div>
       </div>
     </footer>
+
+    <script>
+      // Mobile Drawer Toggle
+      const toggleBtn = document.getElementById('mobile-toggle');
+      const drawer = document.getElementById('mobile-drawer');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      if (toggleBtn && drawer && menuIcon && closeIcon) {
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = drawer.classList.toggle('open');
+          menuIcon.style.display = isOpen ? 'none' : 'block';
+          closeIcon.style.display = isOpen ? 'block' : 'none';
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        // Close drawer when clicking any link
+        drawer.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            drawer.classList.remove('open');
+            menuIcon.style.display = 'block';
+            closeIcon.style.display = 'none';
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // Check desktop github button display
+      const desktopGithub = document.getElementById('desktop-github-link');
+      if (desktopGithub && window.innerWidth >= 860) {
+        desktopGithub.style.display = 'inline-flex';
+      }
+    </script>
   </body>
 </html>
