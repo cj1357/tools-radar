@@ -30,32 +30,35 @@ const pageTitle = tool.primary_alternative
   ? `${tool.name} - Free Open-Source Alternative to ${tool.primary_alternative}`
   : `${tool.name} - Review, Pricing & Key Features`;
 
-// Quickstart command synthesis
-let quickstartCommand = '';
-let quickstartLabel = 'Quick Start Command';
-if (tool.github_url) {
-  const repo = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
-  const repoName = repo.split('/')[1] || tool.id;
-  if (tool.is_self_hostable) {
-    quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\ndocker compose up -d`;
-    quickstartLabel = 'Docker / Compose Self-Host';
+// Quickstart command: prioritize authentic AI install command, fallback to git/docker/curl
+let quickstartCommand = tool.install_command || '';
+let quickstartLabel = tool.install_command ? 'Quick Installation / Run' : 'Quick Start Command';
+
+if (!quickstartCommand) {
+  if (tool.github_url) {
+    const repo = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
+    const repoName = repo.split('/')[1] || tool.id;
+    if (tool.is_self_hostable) {
+      quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\ndocker compose up -d`;
+      quickstartLabel = 'Docker / Compose Self-Host';
+    } else {
+      quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\nnpm install && npm run dev`;
+      quickstartLabel = 'Local Git Setup';
+    }
   } else {
-    quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\nnpm install && npm run dev`;
-    quickstartLabel = 'Local Git Setup';
-  }
-} else {
-  try {
-    const host = new URL(tool.url).hostname;
-    quickstartCommand = `curl -sL https://${host} | head -n 25`;
-    quickstartLabel = 'Quick Web Inspection';
-  } catch (_) {
-    quickstartCommand = `# Visit official web application\nopen ${tool.url}`;
-    quickstartLabel = 'Web Application Access';
+    try {
+      const host = new URL(tool.url).hostname;
+      quickstartCommand = `curl -sL https://${host} | head -n 25`;
+      quickstartLabel = 'Quick Web Inspection';
+    } catch (_) {
+      quickstartCommand = `# Visit official web application\nopen ${tool.url}`;
+      quickstartLabel = 'Web Application Access';
+    }
   }
 }
 
-// Synthesize structured Pros & Cons
-const pros = [
+// Tailored Pros & Cons: Use tailored AI-extracted insights when available, with fallback
+const displayPros = (tool.pros && tool.pros.length > 0) ? tool.pros : [
   tool.pricing_model === 'Open Source' 
     ? '100% Free & Open Source with full code auditability and no recurring fees' 
     : 'Generous free access tier with zero upfront credit card requirement',
@@ -70,7 +73,7 @@ const pros = [
     : 'Native team collaboration and multi-user permissions'
 ];
 
-const cons = [
+const displayCons = (tool.cons && tool.cons.length > 0) ? tool.cons : [
   tool.is_self_hostable 
     ? 'Self-hosting requires basic server management and backup routines' 
     : 'Hosted service depends on third-party cloud availability and terms',
@@ -235,6 +238,22 @@ const jsonLd = {
     </div>
   </article>
 
+  <!-- Analyst Verdict & Strategic Take Banner -->
+  {tool.verdict && (
+    <section class="verdict-banner-card">
+      <div class="verdict-header">
+        <div class="verdict-pill">
+          <span class="verdict-icon">💡</span>
+          <span class="verdict-label">Analyst Verdict & Strategic Take</span>
+        </div>
+        <span class="verdict-badge">AI Editorial Assessment</span>
+      </div>
+      <blockquote class="verdict-quote">
+        "{tool.verdict}"
+      </blockquote>
+    </section>
+  )}
+
   <!-- Live Website Browser Mockup -->
   <section class="section-card browser-preview-card">
     <div class="browser-mockup-header">
@@ -349,7 +368,7 @@ const jsonLd = {
             <span>🟢 Key Advantages</span>
           </div>
           <ul class="pros-cons-list">
-            {pros.map(item => (
+            {displayPros.map(item => (
               <li>
                 <span class="check-icon">✓</span>
                 <span>{item}</span>
@@ -364,7 +383,7 @@ const jsonLd = {
             <span>🟡 Things to Consider</span>
           </div>
           <ul class="pros-cons-list">
-            {cons.map(item => (
+            {displayCons.map(item => (
               <li>
                 <span class="cross-icon">!</span>
                 <span>{item}</span>
@@ -391,6 +410,23 @@ const jsonLd = {
               <p class="feature-desc">
                 {feat.description}
               </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Practical Applications & High-Value Use Cases -->
+    {tool.use_cases && tool.use_cases.length > 0 && (
+      <div class="section-card">
+        <h2 class="card-section-title">
+          <span style="color: #6366f1;">🎯</span> Practical Applications & High-Value Use Cases
+        </h2>
+        <div class="use-cases-grid">
+          {tool.use_cases.map((uc: string, idx: number) => (
+            <div class="use-case-item">
+              <span class="use-case-index">Scenario 0{idx + 1}</span>
+              <p class="use-case-text">{uc}</p>
             </div>
           ))}
         </div>
@@ -1063,6 +1099,99 @@ const jsonLd = {
     .alt-comparison-card {
       background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(18, 18, 22, 0.8) 100%);
       border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    /* Analyst Verdict Banner */
+    .verdict-banner-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(20, 20, 26, 0.9) 100%);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      .verdict-banner-card {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    .verdict-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .verdict-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+
+    .verdict-icon {
+      font-size: 1.1rem;
+    }
+
+    .verdict-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(99, 102, 241, 0.2);
+      color: #c7d2fe;
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+    }
+
+    .verdict-quote {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #f4f4f5;
+      font-style: italic;
+      margin: 0;
+      border-left: 3px solid #818cf8;
+      padding-left: 1.1rem;
+    }
+
+    /* Use Cases Grid */
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .use-case-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .use-case-index {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #a5b4fc;
+      font-family: var(--font-mono);
+    }
+
+    .use-case-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
     }
   </style>
 

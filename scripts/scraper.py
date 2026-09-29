@@ -319,6 +319,27 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
     ]
     target_audience = "Engineers, builders, and technical teams looking for high-efficiency software utilities."
     comparison_vs_alt = f"Offers an open and flexible alternative to {alt} without proprietary ecosystem constraints." if alt else None
+    
+    # Safe heuristic fallbacks
+    verdict = f"{raw_item['title']} offers a streamlined developer-centric approach, making it an appealing option for teams valuing agility and low overhead."
+    use_cases = [
+        f"Integrating {raw_item['title']} into existing technical workflows for rapid prototyping",
+        "Streamlining day-to-day developer and engineering tasks",
+        "Reducing dependency on heavy commercial vendor suites"
+    ]
+    pros = [
+        "100% Free & Open Source with full code auditability" if pricing == "Open Source" else "Generous free tier with frictionless access",
+        "Self-hostable architecture with complete data privacy" if is_self_host else "Cloud-ready deployment with zero local maintenance",
+        f"Reduces vendor lock-in compared to {alt}" if alt else "Clean, lightweight interface designed for developer focus"
+    ]
+    cons = [
+        "Self-hosting requires basic server management and backup routines" if is_self_host else "Hosted service relies on external cloud infrastructure",
+        f"Ecosystem may be more nascent than legacy solutions like {alt}" if alt else "Active open-source project with evolving documentation"
+    ]
+    install_cmd = None
+    if raw_item.get("github_url"):
+        repo = raw_item["github_url"].replace("https://github.com/", "").strip("/")
+        install_cmd = f"git clone https://github.com/{repo}.git"
 
     return {
         "id": slug,
@@ -336,9 +357,14 @@ def classify_and_structure_heuristic(raw_item: dict) -> dict:
         "is_self_hostable": is_self_host,
         "no_signup_required": no_signup,
         "signal_score": signal_score,
+        "verdict": verdict,
         "key_features": key_features,
+        "use_cases": use_cases,
+        "pros": pros,
+        "cons": cons,
         "target_audience": target_audience,
         "comparison_vs_alt": comparison_vs_alt,
+        "install_command": install_cmd,
         "date_added": datetime.date.today().isoformat(),
         "featured": False
     }
@@ -371,27 +397,46 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
     source = raw_item.get("source", "")
 
     system_prompt = (
-        "You are a senior tech analyst and product architect curating top developer tools, open-source repositories, and AI apps.\n"
-        "Analyze the product info and return ONLY a valid JSON object with the following fields:\n"
+        "You are a senior tech analyst, software architect, and product scout curating top developer tools, open-source repositories, and AI apps.\n"
+        "Analyze the provided product info and return ONLY a valid JSON object matching the exact schema below.\n\n"
+        "JSON Schema:\n"
         "{\n"
-        '  "name": "Clean canonical product or project name",\n'
+        '  "name": "Clean canonical product name (e.g. Univer, Supabase, LangChain)",\n'
         '  "tagline": "A punchy, compelling English one-liner (max 80 chars) describing its superpower",\n'
         '  "summary": "2 informative sentences explaining the core value, problem solved, and technical edge",\n'
         '  "category": "Must be exactly ONE of: ai-agents, ai-tools, developer-tools, open-source, frameworks-libraries, database-storage, security-devops, cybersecurity-reverse, productivity, design-ui, testing-qa, web-scraping-apis",\n'
         '  "tags": ["3 to 5 concise tags like TypeScript, AI Agents, Canvas, Headless"],\n'
         '  "pricing_model": "One of: Open Source, Free, Freemium, Paid",\n'
-        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces (e.g. Google Workspace, Airtable, Notion, Linear, Cursor, PostHog), or null",\n'
+        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces, or null",\n'
         '  "is_self_hostable": true or false,\n'
         '  "no_signup_required": true or false,\n'
+        '  "verdict": "1-2 authoritative sentences providing an expert verdict on who should adopt this tool and why it stands out",\n'
         '  "key_features": [\n'
         '    {"title": "Feature 1 Title", "description": "Concise 1-sentence feature explanation"},\n'
         '    {"title": "Feature 2 Title", "description": "Concise 1-sentence feature explanation"},\n'
         '    {"title": "Feature 3 Title", "description": "Concise 1-sentence feature explanation"}\n'
         '  ],\n'
+        '  "use_cases": [\n'
+        '    "Specific realistic engineering or business use case 1",\n'
+        '    "Specific realistic engineering or business use case 2",\n'
+        '    "Specific realistic engineering or business use case 3"\n'
+        '  ],\n'
+        '  "pros": [\n'
+        '    "Specific unique advantage or technical moat (not generic)",\n'
+        '    "Specific developer experience or cost/privacy benefit",\n'
+        '    "Specific architectural flexibility or performance highlight"\n'
+        '  ],\n'
+        '  "cons": [\n'
+        '    "Genuine technical limitation or steeper learning curve",\n'
+        '    "Trade-off compared to established commercial giants"\n'
+        '  ],\n'
         '  "target_audience": "1 sentence describing exactly who will benefit most from using this tool",\n'
-        '  "comparison_vs_alt": "1-2 sentences comparing it directly to primary_alternative, highlighting advantages like open-source control, data privacy, extensibility, or cost savings"\n'
-        "}\n"
-        "Return ONLY pure JSON without markdown backticks or commentary."
+        '  "comparison_vs_alt": "1-2 sentences comparing it directly to primary_alternative, highlighting open-source control, privacy, or pricing advantages",\n'
+        '  "install_command": "Best realistic CLI command to install or run (e.g. npm install ..., pip install ..., docker run ..., or curl ...), or null"\n'
+        "}\n\n"
+        "Constraints:\n"
+        "- Return pure JSON only, without markdown fences or additional text.\n"
+        "- Pros and cons must be specific to this tool's actual nature, avoiding repetitive boilerplate."
     )
 
     user_prompt = (
@@ -438,7 +483,12 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
 
             ai_data = json.loads(cleaned)
 
-            valid_cats = ["developer-tools", "ai-tools", "productivity", "open-source", "security-devops", "design-ui"]
+            valid_cats = [
+                "ai-agents", "ai-tools", "developer-tools", "open-source", 
+                "frameworks-libraries", "database-storage", "security-devops", 
+                "cybersecurity-reverse", "productivity", "design-ui", 
+                "testing-qa", "web-scraping-apis"
+            ]
             cat = ai_data.get("category", "")
             if cat not in valid_cats:
                 cat = "open-source" if github_url else "productivity"
@@ -456,9 +506,14 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
             is_self_host = bool(ai_data.get("is_self_hostable", False))
             no_signup = bool(ai_data.get("no_signup_required", False))
 
+            verdict = ai_data.get("verdict")
             key_features = ai_data.get("key_features") or []
+            use_cases = ai_data.get("use_cases") or []
+            pros = ai_data.get("pros") or []
+            cons = ai_data.get("cons") or []
             target_audience = ai_data.get("target_audience")
             comparison_vs_alt = ai_data.get("comparison_vs_alt")
+            install_command = ai_data.get("install_command")
 
             _, _, _, signal_score = infer_alternative_and_features(
                 name + " " + summary,
@@ -484,9 +539,14 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
                 "is_self_hostable": is_self_host,
                 "no_signup_required": no_signup,
                 "signal_score": signal_score,
+                "verdict": verdict,
                 "key_features": key_features,
+                "use_cases": use_cases,
+                "pros": pros,
+                "cons": cons,
                 "target_audience": target_audience,
                 "comparison_vs_alt": comparison_vs_alt,
+                "install_command": install_command,
                 "date_added": datetime.date.today().isoformat(),
                 "featured": False
             }

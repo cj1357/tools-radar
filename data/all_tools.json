@@ -2,17 +2,17 @@
   {
     "id": "salesmartly",
     "name": "SaleSmartly",
-    "tagline": "Omnichannel customer communication and AI chatbot automation",
-    "summary": "SaleSmartly unifies customer interactions from WhatsApp, Facebook, Telegram, and live chat into a single shared inbox. It empowers sales and support teams to automate workflows and deploy AI chatbots to convert traffic into customers faster.",
+    "tagline": "Unified omni-channel customer service and AI automation inbox",
+    "summary": "SaleSmartly centralizes customer interactions from WhatsApp, Facebook, Telegram, and live chat into a single shared inbox. It bridges communication gaps by empowering sales and support teams to automate workflows and deploy AI chatbots for faster conversions.",
     "url": "https://www.producthunt.com/products/salesmartly",
     "github_url": null,
     "source": "producthunt",
-    "category": "ai-tools",
+    "category": "productivity",
     "tags": [
       "Omnichannel",
-      "Chatbots",
       "Customer Support",
-      "CRM",
+      "AI Chatbots",
+      "WhatsApp",
       "Automation"
     ],
     "pricing_model": "Freemium",
@@ -23,37 +23,54 @@
     "signal_score": 65,
     "key_features": [
       {
-        "title": "Omnichannel Inbox",
-        "description": "Manage customer chats from WhatsApp, Messenger, and live web widgets in one unified dashboard."
+        "title": "Unified Shared Inbox",
+        "description": "Aggregates messages from WhatsApp, Facebook Messenger, Telegram, Instagram, and live chat into one dashboard."
       },
       {
-        "title": "AI Chatbot Automation",
-        "description": "Build custom conversational flows and AI bots to qualify leads and answer FAQs 24/7."
+        "title": "Visual Workflow Automation",
+        "description": "Design sophisticated routing and follow-up sequences using a drag-and-drop automation builder."
       },
       {
-        "title": "Broadcast Marketing",
-        "description": "Send targeted promotional campaigns and automated follow-ups across messaging channels."
+        "title": "AI Chatbot Integration",
+        "description": "Deploy intelligent virtual assistants to handle routine queries and pre-qualify leads 24/7."
       }
     ],
-    "target_audience": "E-commerce merchants, digital marketers, and customer support teams managing high-volume cross-channel messaging.",
-    "comparison_vs_alt": "Unlike Intercom which can become prohibitively expensive at scale, SaleSmartly offers an affordable, feature-rich omnichannel alternative with robust multi-channel inbox and automation capabilities.",
+    "target_audience": "E-commerce store owners, digital marketers, and customer support managers handling multi-channel social traffic",
+    "comparison_vs_alt": "Unlike Intercom which focuses heavily on web-first chat and expensive per-seat pricing, SaleSmartly leans heavily into Asian and global social messaging apps like WhatsApp and Telegram at a fraction of the cost.",
     "date_added": "2026-09-29",
-    "featured": false
+    "featured": false,
+    "verdict": "An essential multi-channel helpdesk tool for growing e-commerce and support teams looking to consolidate scattered social messaging apps without enterprise pricing.",
+    "use_cases": [
+      "Consolidating customer support tickets across multiple social commerce channels",
+      "Automating lead qualification and routing via WhatsApp and Telegram bots",
+      "Managing high-volume holiday flash-sale inquiries from a single team dashboard"
+    ],
+    "pros": [
+      "Comprehensive coverage of popular global messaging apps beyond traditional email and live chat",
+      "Cost-effective alternative to legacy enterprise helpdesks for SMBs",
+      "Visual workflow builder lowers the technical barrier for setting up complex automation"
+    ],
+    "cons": [
+      "Lacks the deep ecosystem of native integrations found in established giants like Intercom or Zendesk",
+      "Advanced automation and analytics features require higher-tier paid plans"
+    ],
+    "install_command": null
   },
   {
     "id": "harness-router",
     "name": "Harness Router",
-    "tagline": "Fast AI tool routing powered by Jev",
-    "summary": "Harness Router optimizes AI workflows by intelligently directing tasks to the most efficient language model and tool stack. It solves API cost and latency bottlenecks through automated, high-speed routing mechanisms.",
+    "tagline": "Intelligent AI model and tool routing for lower cost and latency",
+    "summary": "Harness Router optimizes AI workflows by dynamically directing tasks to the most cost-effective and performant language model and tool stack. It solves API cost overruns and latency bottlenecks through automated, high-speed execution routing mechanisms.",
     "url": "https://www.producthunt.com/products/harness-103",
     "github_url": null,
     "source": "producthunt",
-    "category": "ai-agents",
+    "category": "ai-tools",
     "tags": [
-      "AI Agents",
-      "API Routing",
+      "AI",
       "LLM",
-      "Automation"
+      "Workflow Optimization",
+      "API Management",
+      "Cost Reduction"
     ],
     "pricing_model": "Freemium",
     "stars": 0,
@@ -63,62 +80,95 @@
     "signal_score": 65,
     "key_features": [
       {
-        "title": "Intelligent Routing",
-        "description": "Dynamically routes AI queries to optimal models based on cost and performance."
+        "title": "Dynamic Model Routing",
+        "description": "Automatically directs prompts to cheaper or faster models based on complexity thresholds."
       },
       {
-        "title": "Jev Engine",
-        "description": "Powered by advanced Jev routing technology for ultra-low latency execution."
+        "title": "Cost & Latency Optimization",
+        "description": "Continuously benchmarks and selects the best LLM provider to meet performance SLAs."
       },
       {
-        "title": "Workflow Optimization",
-        "description": "Reduces overall token expenditure and response times for complex AI applications."
+        "title": "Tool Stack Orchestration",
+        "description": "Intelligently routes required context and tool calls alongside the optimal model selection."
       }
     ],
-    "target_audience": "AI engineers and developers building applications that require multi-model orchestration and cost control.",
-    "comparison_vs_alt": "Unlike standard gateway proxies, Harness Router focuses heavily on ultra-fast tool and model routing via Jev to minimize operational latency.",
+    "target_audience": "AI engineers and backend developers scaling production applications with high LLM volume and strict latency budgets.",
+    "comparison_vs_alt": "Unlike monolithic gateway solutions, Harness Router focuses intensely on granular, automated optimization of model and tool paths to maximize ROI.",
     "date_added": "2026-09-29",
-    "featured": false
+    "featured": false,
+    "verdict": "An essential middleware for production AI applications seeking to slash LLM expenditure without degrading output quality.",
+    "use_cases": [
+      "Routing simple classification tasks to smaller open-source models while sending complex reasoning to GPT-4",
+      "Reducing enterprise API bills by automatically failing over to lower-cost providers during high-volume periods",
+      "Minimizing user-facing latency by dynamically selecting the fastest available inference endpoint"
+    ],
+    "pros": [
+      "Significantly cuts down enterprise LLM token spend through smart fallback and tiered routing",
+      "Improves application reliability by handling provider outages gracefully",
+      "Simplifies complex multi-model AI pipeline orchestration"
+    ],
+    "cons": [
+      "Adds an additional network hop and intermediary layer to every LLM request",
+      "Requires fine-tuning of routing rules to avoid misclassifying complex prompts"
+    ],
+    "install_command": "npm install harness-router"
   },
   {
     "id": "papermono",
     "name": "PaperMono",
-    "tagline": "An e-ink fridge magnet shopping list with a mobile web companion",
-    "summary": "PaperMono bridges physical and digital household management by combining a low-power e-paper fridge display with a seamless mobile web interface. It solves the friction of traditional grocery tracking through dedicated hardware and instant synchronization.",
+    "tagline": "E-paper fridge display bridging physical and digital household tracking",
+    "summary": "PaperMono combines a low-power e-paper fridge display with a seamless mobile web interface to eliminate the friction of grocery tracking. It solves the fragmentation of household management by offering dedicated hardware with instant, real-time synchronization.",
     "url": "https://github.com/seamusc/papermono-shopping-list",
     "github_url": "https://github.com/seamusc/papermono-shopping-list",
     "source": "hackernews",
     "category": "open-source",
     "tags": [
-      "E-Ink",
+      "E-Paper",
       "IoT",
-      "Hardware",
-      "Mobile Web"
+      "Smart Home",
+      "TypeScript",
+      "Hardware"
     ],
     "pricing_model": "Open Source",
     "stars": 132,
     "primary_alternative": "AnyList",
     "is_self_hostable": true,
-    "no_signup_required": true,
+    "no_signup_required": false,
     "signal_score": 81,
     "key_features": [
       {
-        "title": "E-Ink Display",
-        "description": "Always-on, low-power electronic paper screen designed to mount effortlessly on the refrigerator."
+        "title": "E-Paper Fridge Display",
+        "description": "Low-power hardware screen optimized for constant visibility on household surfaces."
       },
       {
-        "title": "Mobile Web Companion",
-        "description": "Quickly add or check off grocery items on the go through a lightweight mobile browser interface."
+        "title": "Seamless Mobile Web App",
+        "description": "Quickly add items on the go from any smartphone browser without heavy app installs."
       },
       {
-        "title": "Real-time Synchronization",
-        "description": "Instantly updates your household shopping list between the physical fridge magnet and your phone."
+        "title": "Real-Time Synchronization",
+        "description": "Instantly reflects grocery additions and check-offs between mobile and kitchen display."
       }
     ],
-    "target_audience": "IoT hobbyists and smart-home enthusiasts looking for a dedicated, distraction-free grocery list display.",
-    "comparison_vs_alt": "Unlike mainstream apps like AnyList, PaperMono offers a tangible, dedicated hardware display that lives right on your fridge without requiring app installation for quick glances.",
+    "target_audience": "Hardware hobbyists and smart home enthusiasts looking to build custom, privacy-respecting kitchen dashboards.",
+    "comparison_vs_alt": "Unlike commercial apps like AnyList, PaperMono gives you a dedicated physical e-paper display on your fridge while keeping all household data entirely self-hosted.",
     "date_added": "2026-09-29",
-    "featured": false
+    "featured": false,
+    "verdict": "An exceptional weekend hardware-software project for makers who want a tangible, low-power smart home dashboard without cloud lock-in.",
+    "use_cases": [
+      "Maintaining a shared family grocery list visible directly on the kitchen refrigerator",
+      "Building a custom low-power IoT dashboard using e-paper display tech",
+      "Replacing subscription-based digital shopping list apps with a self-hosted hardware alternative"
+    ],
+    "pros": [
+      "Tangible e-paper interface provides zero-glare, always-on kitchen visibility",
+      "Fully self-hostable with complete data privacy for personal household information",
+      "Bridges physical hardware tinkering with practical everyday utility"
+    ],
+    "cons": [
+      "Requires manual assembly and configuration of e-paper hardware components",
+      "Lacks the polish and out-of-the-box integrations of commercial smart displays"
+    ],
+    "install_command": "git clone https://github.com/seamusc/papermono-shopping-list.git"
   },
   {
     "id": "lofi-cities",
@@ -377,11 +427,11 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 2,
+    "stars": 3,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 71,
+    "signal_score": 69,
     "key_features": [
       {
         "title": "Process Interception",
@@ -399,7 +449,8 @@
     "target_audience": "Software engineers and AI developers building, testing, or running autonomous agents locally.",
     "comparison_vs_alt": "As a specialized open-source security utility, Corral provides granular process-level control that standard containerization tools often overlook.",
     "date_added": "2026-09-29",
-    "featured": false
+    "featured": false,
+    "forks": 0
   },
   {
     "id": "jylus",
@@ -457,11 +508,11 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 3,
+    "stars": 4,
     "primary_alternative": "OpenAI Advanced Voice",
     "is_self_hostable": true,
     "no_signup_required": false,
-    "signal_score": 71,
+    "signal_score": 72,
     "key_features": [
       {
         "title": "Multi-Model Support",
@@ -479,7 +530,8 @@
     "target_audience": "Developers and AI enthusiasts looking for hands-free, multi-model voice interaction with coding assistants.",
     "comparison_vs_alt": "Unlike proprietary voice modes tied to a single vendor, Jauvex gives you open-source control and flexibility to converse across multiple disparate AI models like Claude and Grok.",
     "date_added": "2026-09-29",
-    "featured": false
+    "featured": false,
+    "forks": 2
   },
   {
     "id": "lattice",
@@ -739,11 +791,11 @@
       "Office Suite"
     ],
     "pricing_model": "Open Source",
-    "stars": 21398,
+    "stars": 21577,
     "primary_alternative": "Google Workspace / Airtable",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 99,
     "key_features": [
       {
         "title": "Unified Multi-Doc Runtime",
@@ -761,7 +813,8 @@
     "target_audience": "Software developers and enterprise architects building custom data-driven applications that require embedded document editing and AI workflow integration.",
     "comparison_vs_alt": "Unlike Google Workspace, which is a closed SaaS ecosystem, Univer provides a fully open-source, self-hostable framework that gives developers complete control over data privacy, zero recurring per-seat fees, and limitless UI customization.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 1824
   },
   {
     "id": "hindsight",
@@ -820,11 +873,11 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 93206,
+    "stars": 93865,
     "primary_alternative": "Linear",
     "is_self_hostable": true,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 99,
     "key_features": [
       {
         "title": "Agent Orchestration",
@@ -842,7 +895,8 @@
     "target_audience": "Engineering teams and developers building and deploying autonomous multi-agent systems in production.",
     "comparison_vs_alt": "Unlike traditional project management tools like Linear that are built exclusively for human teams, Paperclip is natively designed to treat AI agents as first-class team members with automated workflows.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 15975
   },
   {
     "id": "jev-plays-pokémon-red",
@@ -898,13 +952,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 59994,
+    "stars": 60754,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 10463
   },
   {
     "id": "reladraw-a-diagram-language-where-you-decide-where-to-place-",
@@ -919,13 +974,14 @@
       "Design"
     ],
     "pricing_model": "Open Source",
-    "stars": 396,
+    "stars": 951,
     "primary_alternative": "Figma / Excalidraw",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 81,
+    "signal_score": 78,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 16
   },
   {
     "id": "hemory",
@@ -1007,11 +1063,11 @@
       "Self-Hosted"
     ],
     "pricing_model": "Open Source",
-    "stars": 44814,
+    "stars": 46141,
     "primary_alternative": "ElevenLabs",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 99,
     "key_features": [
       {
         "title": "Local Voice Cloning",
@@ -1029,7 +1085,8 @@
     "target_audience": "Developers, creators, and privacy-conscious teams needing advanced AI voice synthesis without cloud fees.",
     "comparison_vs_alt": "Unlike ElevenLabs which relies on expensive cloud APIs and subscriptions, Voicestudio runs entirely locally, giving you total data ownership and unlimited usage at zero cost.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 5234
   },
   {
     "id": "pipepipe",
@@ -1045,13 +1102,14 @@
       "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 6765,
+    "stars": 6819,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 230
   },
   {
     "id": "scriptc",
@@ -1067,13 +1125,14 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 5569,
+    "stars": 5657,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 149
   },
   {
     "id": "openrig",
@@ -1129,13 +1188,14 @@
       "C"
     ],
     "pricing_model": "Open Source",
-    "stars": 931,
+    "stars": 1014,
     "primary_alternative": "SAP / Odoo",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 80,
+    "signal_score": 89,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 178
   },
   {
     "id": "lofi-cities-pixel-art-city-nights-with-browser-generated-lof",
@@ -1230,13 +1290,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 2,
+    "stars": 5,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 71,
+    "signal_score": 65,
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 1
   },
   {
     "id": "parkournote-a-research-workspace-built-solo-in-a-month-with-",
@@ -1766,11 +1827,11 @@
       "Embedded Systems"
     ],
     "pricing_model": "Open Source",
-    "stars": 25836,
+    "stars": 26021,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 97,
     "key_features": [
       {
         "title": "10.5 GHz Operation",
@@ -1788,7 +1849,8 @@
     "target_audience": "RF engineers, researchers, students, and hardware hackers building advanced radar systems on a budget.",
     "comparison_vs_alt": "Unlike proprietary commercial radar development kits that cost thousands of dollars, PLFM Radar provides a fully transparent, customizable, and extremely low-cost open-source alternative.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 5915
   },
   {
     "id": "coursebook",
@@ -1807,11 +1869,11 @@
       "Documentation"
     ],
     "pricing_model": "Open Source",
-    "stars": 2605,
+    "stars": 2758,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 88,
+    "signal_score": 90,
     "key_features": [
       {
         "title": "Comprehensive Curriculum",
@@ -1829,7 +1891,8 @@
     "target_audience": "Computer science students and self-taught developers learning low-level systems programming.",
     "comparison_vs_alt": "As an open educational resource, it provides a tailored, community-driven alternative to traditional expensive textbooks for systems programming.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 252
   },
   {
     "id": "up",
@@ -1848,11 +1911,11 @@
       "JavaScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 64918,
+    "stars": 65367,
     "primary_alternative": "Notion",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 99,
     "key_features": [
       {
         "title": "AI Learning Curricula",
@@ -1870,7 +1933,8 @@
     "target_audience": "Software engineers, lifelong learners, and professionals looking to level up their technical skills and personal productivity.",
     "comparison_vs_alt": "Unlike proprietary productivity spaces like Notion, Up is a completely open-source repository of crowdsourced wisdom and structured learning guides that you can fork and read freely without accounts or paywalls.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 6559
   },
   {
     "id": "redthread",
@@ -2048,11 +2112,11 @@
       "DSL"
     ],
     "pricing_model": "Open Source",
-    "stars": 396,
+    "stars": 951,
     "primary_alternative": "Mermaid",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 81,
+    "signal_score": 82,
     "key_features": [
       {
         "title": "Code-Driven Diagrams",
@@ -2070,7 +2134,8 @@
     "target_audience": "Software architects and developers who want code-driven diagrams without sacrificing layout control.",
     "comparison_vs_alt": "Unlike Mermaid, which strictly enforces automatic node placement, Reladraw gives developers the freedom to programmatically define diagrams while retaining precise control over element positioning.",
     "date_added": "2026-09-28",
-    "featured": false
+    "featured": false,
+    "forks": 16
   },
   {
     "id": "fusor",
@@ -2406,13 +2471,14 @@
       "Design"
     ],
     "pricing_model": "Open Source",
-    "stars": 411,
+    "stars": 2154,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 81,
+    "signal_score": 83,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 95
   },
   {
     "id": "hacker-atlas-a-map-of-what-hacker-news-talks-about",
@@ -2466,13 +2532,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 4793,
+    "stars": 5061,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 88,
+    "signal_score": 90,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 704
   },
   {
     "id": "tensorflow",
@@ -2488,13 +2555,14 @@
       "C++"
     ],
     "pricing_model": "Open Source",
-    "stars": 200483,
+    "stars": 200617,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 77928
   },
   {
     "id": "openbao",
@@ -2510,13 +2578,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 8038,
+    "stars": 8197,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 599
   },
   {
     "id": "buzz",
@@ -2532,13 +2601,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 34858,
+    "stars": 35264,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 4641
   },
   {
     "id": "vscode",
@@ -2554,13 +2624,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 193092,
+    "stars": 193265,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 43877
   },
   {
     "id": "reverse-skill",
@@ -2576,13 +2647,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 38088,
+    "stars": 38642,
     "primary_alternative": "Cursor / Copilot",
     "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 96,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 5380
   },
   {
     "id": "a-claude-code-skill-to-analyze-your-chess-games",
@@ -2597,13 +2669,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 73,
+    "stars": 64,
     "primary_alternative": "Cursor / Copilot",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 76,
+    "signal_score": 73,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 1
   },
   {
     "id": "spivaks-calculus-formalized-in-lean-4-every-theorem-every-pr",
@@ -2618,13 +2691,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 12,
+    "stars": 38,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 71,
+    "signal_score": 70,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 0
   },
   {
     "id": "i-checked-1m-free-proxies-1-in-5-working-ones-injected-scrip",
@@ -2639,13 +2713,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 7,
+    "stars": 25,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 71,
+    "signal_score": 70,
     "date_added": "2026-09-27",
-    "featured": false
+    "featured": false,
+    "forks": 3
   },
   {
     "id": "caughtshipping-curfew-app-for-developers-enforced-by-a-publi",
@@ -2840,13 +2915,14 @@
       "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 291713,
+    "stars": 292670,
     "primary_alternative": "LangChain / CrewAI",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 96,
     "date_added": "2026-09-26",
-    "featured": false
+    "featured": false,
+    "forks": 26200
   },
   {
     "id": "a-game-about-fake-news-and-memes",
@@ -2881,13 +2957,14 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 36964,
+    "stars": 37181,
     "primary_alternative": "Cursor / Copilot",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 96,
     "date_added": "2026-09-26",
-    "featured": false
+    "featured": false,
+    "forks": 4171
   },
   {
     "id": "skills",
@@ -2903,13 +2980,14 @@
       "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 269790,
+    "stars": 271660,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-26",
-    "featured": false
+    "featured": false,
+    "forks": 22869
   },
   {
     "id": "starnet",
@@ -2947,13 +3025,14 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 979,
+    "stars": 1526,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 80,
+    "signal_score": 86,
     "date_added": "2026-09-26",
-    "featured": false
+    "featured": false,
+    "forks": 125
   },
   {
     "id": "kubernetes-the-hard-way",
@@ -2968,13 +3047,14 @@
       "DevOps"
     ],
     "pricing_model": "Open Source",
-    "stars": 50145,
+    "stars": 50247,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 97,
     "date_added": "2026-09-26",
-    "featured": false
+    "featured": false,
+    "forks": 15932
   },
   {
     "id": "make-math-automatic-with-mathy",
@@ -3293,13 +3373,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 37395,
+    "stars": 38153,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-25",
-    "featured": false
+    "featured": false,
+    "forks": 5496
   },
   {
     "id": "ax",
@@ -3315,13 +3396,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 10612,
+    "stars": 12499,
     "primary_alternative": "LangChain / CrewAI",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 96,
     "date_added": "2026-09-25",
-    "featured": false
+    "featured": false,
+    "forks": 611
   },
   {
     "id": "cli-anything",
@@ -3544,13 +3626,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 5385,
+    "stars": 5566,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-25",
-    "featured": false
+    "featured": false,
+    "forks": 263
   },
   {
     "id": "mvt",
@@ -3629,13 +3712,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 40,
+    "stars": 90,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 76,
+    "signal_score": 70,
     "date_added": "2026-09-25",
-    "featured": false
+    "featured": false,
+    "forks": 9
   },
   {
     "id": "treepeat-code-similarity-detection-using-tree-sitter",
@@ -3856,9 +3940,11 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 45,
+    "stars": 21,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 5,
+    "signal_score": 70
   },
   {
     "id": "npunlock-run-custom-c-kernels-for-intel-npus",
@@ -3873,13 +3959,14 @@
       "DevTools"
     ],
     "pricing_model": "Open Source",
-    "stars": 64,
+    "stars": 62,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 76,
+    "signal_score": 70,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 1
   },
   {
     "id": "jevbench-a-reproducible-benchmark-for-typed-decision-models",
@@ -3953,9 +4040,11 @@
       "DevTools"
     ],
     "pricing_model": "Open Source",
-    "stars": 2,
+    "stars": 38,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 2,
+    "signal_score": 70
   },
   {
     "id": "claude-code-templates",
@@ -3971,13 +4060,14 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 31668,
+    "stars": 32135,
     "primary_alternative": "Cursor / Copilot",
     "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 95,
+    "signal_score": 96,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 3655
   },
   {
     "id": "agent-native",
@@ -3993,13 +4083,14 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 6726,
+    "stars": 6903,
     "primary_alternative": "LangChain / CrewAI",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 89,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 623
   },
   {
     "id": "openstock",
@@ -4015,13 +4106,14 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 19069,
+    "stars": 19470,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 95,
+    "signal_score": 93,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 2387
   },
   {
     "id": "substrate",
@@ -4037,13 +4129,14 @@
       "Go"
     ],
     "pricing_model": "Open Source",
-    "stars": 3661,
+    "stars": 3946,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 469
   },
   {
     "id": "harness-sdk",
@@ -4059,13 +4152,14 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 8036,
+    "stars": 8542,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 88,
+    "signal_score": 86,
     "date_added": "2026-09-24",
-    "featured": false
+    "featured": false,
+    "forks": 1284
   },
   {
     "id": "training-a-model-to-identify-ai-web-content-from-structure-a",

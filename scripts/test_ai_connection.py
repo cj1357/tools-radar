@@ -63,27 +63,46 @@ def test_connection():
     }
 
     system_prompt = (
-        "You are a senior tech analyst and product architect curating top developer tools, open-source repositories, and AI apps.\n"
-        "Analyze the product info and return ONLY a valid JSON object with the following fields:\n"
+        "You are a senior tech analyst, software architect, and product scout curating top developer tools, open-source repositories, and AI apps.\n"
+        "Analyze the provided product info and return ONLY a valid JSON object matching the exact schema below.\n\n"
+        "JSON Schema:\n"
         "{\n"
-        '  "name": "Clean canonical product or project name",\n'
-        '  "tagline": "A punchy, compelling English one-liner (max 80 chars)",\n'
+        '  "name": "Clean canonical product name (e.g. Univer, Supabase, LangChain)",\n'
+        '  "tagline": "A punchy, compelling English one-liner (max 80 chars) describing its superpower",\n'
         '  "summary": "2 informative sentences explaining the core value, problem solved, and technical edge",\n'
-        '  "category": "Must be exactly ONE of: developer-tools, ai-tools, productivity, open-source, security-devops, design-ui",\n'
+        '  "category": "Must be exactly ONE of: ai-agents, ai-tools, developer-tools, open-source, frameworks-libraries, database-storage, security-devops, cybersecurity-reverse, productivity, design-ui, testing-qa, web-scraping-apis",\n'
         '  "tags": ["3 to 5 concise tags like TypeScript, AI Agents, Canvas, Headless"],\n'
         '  "pricing_model": "One of: Open Source, Free, Freemium, Paid",\n'
-        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces (e.g. Google Workspace, Airtable, Notion, Linear, Cursor, PostHog), or null",\n'
+        '  "primary_alternative": "A well-known commercial SaaS alternative it competes with or replaces, or null",\n'
         '  "is_self_hostable": true or false,\n'
         '  "no_signup_required": true or false,\n'
+        '  "verdict": "1-2 authoritative sentences providing an expert verdict on who should adopt this tool and why it stands out",\n'
         '  "key_features": [\n'
         '    {"title": "Feature 1 Title", "description": "Concise 1-sentence feature explanation"},\n'
         '    {"title": "Feature 2 Title", "description": "Concise 1-sentence feature explanation"},\n'
         '    {"title": "Feature 3 Title", "description": "Concise 1-sentence feature explanation"}\n'
         '  ],\n'
+        '  "use_cases": [\n'
+        '    "Specific realistic engineering or business use case 1",\n'
+        '    "Specific realistic engineering or business use case 2",\n'
+        '    "Specific realistic engineering or business use case 3"\n'
+        '  ],\n'
+        '  "pros": [\n'
+        '    "Specific unique advantage or technical moat (not generic)",\n'
+        '    "Specific developer experience or cost/privacy benefit",\n'
+        '    "Specific architectural flexibility or performance highlight"\n'
+        '  ],\n'
+        '  "cons": [\n'
+        '    "Genuine technical limitation or steeper learning curve",\n'
+        '    "Trade-off compared to established commercial giants"\n'
+        '  ],\n'
         '  "target_audience": "1 sentence describing exactly who will benefit most from using this tool",\n'
-        '  "comparison_vs_alt": "1-2 sentences comparing it directly to primary_alternative, highlighting advantages like open-source control, data privacy, extensibility, or cost savings"\n'
-        "}\n"
-        "Return ONLY pure JSON without markdown backticks or commentary."
+        '  "comparison_vs_alt": "1-2 sentences comparing it directly to primary_alternative, highlighting open-source control, privacy, or pricing advantages",\n'
+        '  "install_command": "Best realistic CLI command to install or run (e.g. npm install ..., pip install ..., docker run ..., or curl ...), or null"\n'
+        "}\n\n"
+        "Constraints:\n"
+        "- Return pure JSON only, without markdown fences or additional text.\n"
+        "- Pros and cons must be specific to this tool's actual nature, avoiding repetitive boilerplate."
     )
 
     test_payload = {
@@ -98,7 +117,7 @@ def test_connection():
                     "Description: The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.\n"
                     "URL: https://github.com/dream-num/univer\n"
                     "GitHub: https://github.com/dream-num/univer\n"
-                    "Stars: 20700"
+                    "Stars: 21500"
                 )
             }
         ]

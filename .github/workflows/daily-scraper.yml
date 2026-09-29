@@ -38,6 +38,12 @@ jobs:
         run: |
           python scripts/scraper.py
 
+      - name: Sync GitHub Metrics & Stars
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/sync_metrics.py
+
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
