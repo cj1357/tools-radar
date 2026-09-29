@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://radar.example.com',
+  site: 'https://tools.lordorange.top',
   integrations: [sitemap()]
 });
