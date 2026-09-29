@@ -9,7 +9,7 @@ interface Props {
 const { title, description, canonicalUrl, jsonLd } = Astro.props;
 const siteName = "ToolsRadar";
 const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-const gaId = import.meta.env.PUBLIC_GA_ID || "";
+const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 ---
 
 <!doctype html>
@@ -22,8 +22,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "";
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <!-- Canonical URL normalized to root domain for AdSense -->
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl.replace('https://tools.lordorange.top', 'https://lordorange.top')} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
