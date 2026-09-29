@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Submit a Tool - Get Featured on ToolsRadar"
+  description="Submit your developer tool, AI project, or indie SaaS to ToolsRadar. Free daily curation for makers and open-source contributors."
+  canonicalUrl="https://tools.lordorange.top/submit"
+>
+  <div class="submit-wrapper">
+    <!-- Header -->
+    <div class="submit-header">
+      <div class="live-badge" style="margin-bottom: 1rem;">
+        <span class="live-dot"></span>
+        <span>Submissions Open • Free Curation</span>
+      </div>
+      <h1 class="gradient-title" style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">
+        Submit Your Tool to <span class="gradient-accent">ToolsRadar</span>
+      </h1>
+      <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 620px; margin: 0 auto;">
+        Are you building a developer tool, AI utility, or open-source software? Get discovered by thousands of tech enthusiasts and engineers.
+      </p>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="submit-grid">
+      <!-- Card 1: Email Submission -->
+      <div class="submit-card highlight-card">
+        <div class="card-tag">⚡ Primary Channel</div>
+        <h2>Direct Email Submission</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+          Send your product details directly to our editorial inbox. We review submissions daily and usually list approved tools within 24–48 hours.
+        </p>
+
+        <div class="email-box">
+          <div class="email-label">Send submissions to:</div>
+          <a href="mailto:hello@lordorange.top?subject=[Tool%20Submission]%20Your%20Product%20Name" class="email-address">
+            hello@lordorange.top
+          </a>
+        </div>
+
+        <div style="margin: 1.5rem 0 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Recommended Template</span>
+            <button id="copy-btn" class="copy-btn">📋 Copy Template</button>
+          </div>
+          <pre class="template-pre"><code id="submission-template">Tool Name: 
+Website URL: 
+GitHub Repo (if open source): 
+One-line Pitch (What it does): 
+Key Features (2-3 bullet points): 
+Pricing Model (Free / Freemium / Paid / Open Source): 
+Alternatives / Better than: </code></pre>
+        </div>
+
+        <a 
+          href="mailto:hello@lordorange.top?subject=%5BTool%20Submission%5D%20%3CProduct%20Name%3E&body=Tool%20Name%3A%20%0AWebsite%20URL%3A%20%0AGitHub%20Repo%20(if%20open%20source)%3A%20%0AOne-line%20Pitch%3A%20%0AKey%20Features%3A%20%0APricing%20Model%20(Free%20%2F%20Freemium%20%2F%20Paid)%3A%20%0AAlternatives%3A%20" 
+          class="btn btn-primary" 
+          style="width: 100%; justify-content: center; margin-top: 1rem; padding: 0.75rem;"
+        >
+          ✉️ Open in Your Email App
+        </a>
+      </div>
+
+      <!-- Card 2: GitHub & Sponsorships -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <!-- GitHub Submission -->
+        <div class="submit-card">
+          <div class="card-tag" style="background: rgba(255, 255, 255, 0.08); color: #d4d4d8;">🐙 Open Source Way</div>
+          <h2>Submit via GitHub</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+            Prefer creating an issue or opening a PR? You can propose new tools directly in our open repository.
+          </p>
+          <a 
+            href="https://github.com/cj1357/tools-radar/issues/new?title=%5BTool+Submission%5D+&body=Tool+Name%3A+%0AWebsite%3A+%0ADescription%3A+" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-secondary"
+            style="width: 100%; justify-content: center;"
+          >
+            Open GitHub Issue ↗
+          </a>
+        </div>
+
+        <!-- Partnership & Sponsorship -->
+        <div class="submit-card">
+          <div class="card-tag" style="background: rgba(168, 85, 247, 0.15); color: #d8b4fe;">💎 Partnerships</div>
+          <h2>Sponsorship & Ads</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
+            Want to promote your tool with prominent banner placement or featured badge?
+          </p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
+            Contact us at <a href="mailto:hello@lordorange.top?subject=[Sponsorship%20Inquiry]">hello@lordorange.top</a> with subject <code>[Sponsorship Inquiry]</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submission Guidelines -->
+    <div class="guidelines-card">
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text-primary);">
+        Submission Guidelines
+      </h3>
+      <ul style="color: var(--text-secondary); padding-left: 1.25rem; line-height: 1.8; font-size: 0.92rem;">
+        <li><strong>Original software only:</strong> We curate developer tools, CLI utilities, SaaS products, AI models/agents, and APIs.</li>
+        <li><strong>Functional MVP minimum:</strong> Tools must have an active live demo, landing page, or public repository.</li>
+        <li><strong>No spam or scam links:</strong> Products with malicious scripts, crypto scams, or deceptive landing pages will be discarded.</li>
+        <li><strong>Language:</strong> Currently our listings are primarily in English to maintain global discovery.</li>
+      </ul>
+    </div>
+  </div>
+
+  <style>
+    .submit-wrapper {
+      max-width: 960px;
+      margin: 1.5rem auto 3rem;
+    }
+
+    .submit-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .submit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 820px) {
+      .submit-grid {
+        grid-template-columns: 1.2fr 0.9fr;
+      }
+    }
+
+    .submit-card {
+      background: linear-gradient(180deg, rgba(24, 24, 27, 0.75) 0%, rgba(18, 18, 20, 0.85) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .highlight-card {
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.1);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      margin-bottom: 0.85rem;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+    }
+
+    .submit-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .email-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.85rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .email-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .email-address {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--font-mono);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #e4e4e7;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+    }
+
+    .template-pre {
+      background: #0d0d10;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: #a1a1aa;
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+
+    .guidelines-card {
+      background: rgba(18, 18, 21, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+  </style>
+
+  <script>
+    const copyBtn = document.getElementById('copy-btn');
+    const templateEl = document.getElementById('submission-template');
+
+    if (copyBtn && templateEl) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(templateEl.textContent || '');
+          const originalText = copyBtn.innerText;
+          copyBtn.innerText = '✅ Copied!';
+          setTimeout(() => {
+            copyBtn.innerText = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy template:', err);
+        }
+      });
+    }
+  </script>
+</Layout>
