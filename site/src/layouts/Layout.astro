@@ -9,6 +9,7 @@ interface Props {
 const { title, description, canonicalUrl, jsonLd } = Astro.props;
 const siteName = "ToolsRadar";
 const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+const gaId = import.meta.env.PUBLIC_GA_ID || "";
 ---
 
 <!doctype html>
@@ -38,6 +39,22 @@ const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
     <!-- Schema.org JSON-LD -->
     {jsonLd && (
       <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+
+    <!-- Google AdSense Account Verification -->
+    <meta name="google-adsense-account" content="ca-pub-7664136332131758" />
+
+    <!-- Google Analytics (GA4) -->
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
     )}
 
     <style is:global>
