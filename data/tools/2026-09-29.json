@@ -1,0 +1,1131 @@
+[
+  {
+    "id": "voicestudio",
+    "name": "Voicestudio",
+    "tagline": "The fully-local open-source alternative to ElevenLabs",
+    "summary": "Voicestudio is a comprehensive, self-hosted voice AI platform delivering voice cloning, video dubbing, transcription, and audiobook creation across 646 languages. It eliminates third-party API dependencies by running completely offline for absolute data privacy and zero usage costs.",
+    "url": "https://github.com/debpalash/VoiceStudio",
+    "github_url": "https://github.com/debpalash/VoiceStudio",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "Voice Cloning",
+      "Speech-to-Text",
+      "Open Source",
+      "AI Audio",
+      "Self-Hosted"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 44814,
+    "primary_alternative": "ElevenLabs",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Local Voice Cloning",
+        "description": "Clone voices with high fidelity entirely on your own local hardware without cloud subscriptions."
+      },
+      {
+        "title": "Multi-Language Video Dubbing",
+        "description": "Dub videos and translate content seamlessly across a massive catalog of 646 supported languages."
+      },
+      {
+        "title": "Transcription & Dictation",
+        "description": "Convert speech to text accurately and handle automated audiobook creation out-of-the-box."
+      }
+    ],
+    "target_audience": "Developers, creators, and privacy-conscious teams needing advanced AI voice synthesis without cloud fees.",
+    "comparison_vs_alt": "Unlike ElevenLabs which relies on expensive cloud APIs and subscriptions, Voicestudio runs entirely locally, giving you total data ownership and unlimited usage at zero cost.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "paperclip",
+    "name": "Paperclip",
+    "tagline": "The open-source app everyone uses to manage agents at work",
+    "summary": "Paperclip is an open-source platform designed to orchestrate and manage autonomous AI agents in professional environments. It solves the chaos of multi-agent collaboration by providing centralized visibility, task assignment, and workflow governance.",
+    "url": "https://github.com/paperclipai/paperclip",
+    "github_url": "https://github.com/paperclipai/paperclip",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Open Source",
+      "Workflow Automation",
+      "TypeScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 93206,
+    "primary_alternative": "Linear",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Agent Orchestration",
+        "description": "Centralized dashboard to coordinate multiple specialized AI agents on shared tasks."
+      },
+      {
+        "title": "Workflow Governance",
+        "description": "Define strict execution boundaries, approval gates, and permission scopes for agents."
+      },
+      {
+        "title": "Open Source Control",
+        "description": "Self-host the entire infrastructure to maintain complete privacy and ownership of your agent data."
+      }
+    ],
+    "target_audience": "Engineering teams and developers building and deploying autonomous multi-agent systems in production.",
+    "comparison_vs_alt": "Unlike traditional project management tools like Linear that are built exclusively for human teams, Paperclip is natively designed to treat AI agents as first-class team members with automated workflows.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "hindsight",
+    "name": "Hindsight",
+    "tagline": "Agent Memory That Learns",
+    "summary": "Hindsight provides state-of-the-art memory architecture for AI agents, allowing them to dynamically learn, retain context, and adapt over time. It solves the context window and statelessness limits of LLMs through specialized graph and vector retention mechanisms.",
+    "url": "https://github.com/vectorize-io/hindsight",
+    "github_url": "https://github.com/vectorize-io/hindsight",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Memory",
+      "Vector Database",
+      "Open Source",
+      "LLMs"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 41341,
+    "primary_alternative": "Mem0",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Dynamic Memory Updates",
+        "description": "Continuously updates agent knowledge bases based on real-time interactions and feedback."
+      },
+      {
+        "title": "Contextual Retrieval",
+        "description": "Fetches only the most relevant historical context to optimize LLM token usage and accuracy."
+      },
+      {
+        "title": "Seamless Integration",
+        "description": "Easily plugs into existing AI agent frameworks and LLM orchestrators with minimal boilerplate."
+      }
+    ],
+    "target_audience": "AI engineers and developers building sophisticated, long-running autonomous agents that need persistent context.",
+    "comparison_vs_alt": "Unlike proprietary memory solutions, Hindsight is fully open-source and self-hostable, giving developers absolute ownership over their agent's data and privacy.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "plfm-radar",
+    "name": "PLFM Radar",
+    "tagline": "Open-source, low-cost 10.5 GHz PLFM phased array RADAR system",
+    "summary": "PLFM Radar is an open-source hardware and software project providing an accessible 10.5 GHz Phase-Modulated Continuous Wave (PMCW) phased array radar system. It lowers the barrier to entry for RF engineering, signal processing, and radar prototyping by utilizing affordable, off-the-shelf components.",
+    "url": "https://github.com/NawfalMotii79/PLFM_RADAR",
+    "github_url": "https://github.com/NawfalMotii79/PLFM_RADAR",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Radar",
+      "RF Engineering",
+      "Signal Processing",
+      "Hardware",
+      "Embedded Systems"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 25836,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "10.5 GHz Operation",
+        "description": "Operates at X-band frequencies suitable for high-resolution target detection and ranging."
+      },
+      {
+        "title": "Phase-Coded Modulation",
+        "description": "Implements advanced pulse-compression techniques for improved signal-to-noise ratio."
+      },
+      {
+        "title": "Open-Source Hardware Design",
+        "description": "Full schematics, gerber files, and control software provided for complete customizability."
+      }
+    ],
+    "target_audience": "RF engineers, researchers, students, and hardware hackers building advanced radar systems on a budget.",
+    "comparison_vs_alt": "Unlike proprietary commercial radar development kits that cost thousands of dollars, PLFM Radar provides a fully transparent, customizable, and extremely low-cost open-source alternative.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "coursebook",
+    "name": "Coursebook",
+    "tagline": "An open-source introductory systems programming textbook",
+    "summary": "Coursebook is an open-source educational platform and textbook designed for introductory systems programming at the University of Illinois. It provides comprehensive, community-driven course materials to help students master low-level programming concepts.",
+    "url": "https://github.com/cs341-illinois/coursebook",
+    "github_url": "https://github.com/cs341-illinois/coursebook",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Education",
+      "C",
+      "Systems Programming",
+      "Open Source",
+      "Documentation"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2605,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Comprehensive Curriculum",
+        "description": "Covers essential introductory systems programming concepts thoroughly."
+      },
+      {
+        "title": "Open Source Content",
+        "description": "Community-driven textbook allowing collaborative improvements and updates."
+      },
+      {
+        "title": "Accessible Resource",
+        "description": "Freely available educational material for students and self-taught developers."
+      }
+    ],
+    "target_audience": "Computer science students and self-taught developers learning low-level systems programming.",
+    "comparison_vs_alt": "As an open educational resource, it provides a tailored, community-driven alternative to traditional expensive textbooks for systems programming.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "up",
+    "name": "Up",
+    "tagline": "Han Xiankai's comprehensive personal growth and AI learning guide",
+    "summary": "Up is an advanced, curated guide designed to help individuals accelerate their personal development, navigate modern career paths, and master AI technologies and English learning. It serves as a comprehensive knowledge base tackling self-improvement, continuous learning, and future-proof skill acquisition.",
+    "url": "https://github.com/byoungd/up",
+    "github_url": "https://github.com/byoungd/up",
+    "source": "github_trending",
+    "category": "productivity",
+    "tags": [
+      "Personal Growth",
+      "AI Learning",
+      "Knowledge Base",
+      "Open Source",
+      "JavaScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 64918,
+    "primary_alternative": "Notion",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "AI Learning Curricula",
+        "description": "Structured roadmaps and resources to help developers and learners master artificial intelligence concepts."
+      },
+      {
+        "title": "Career & Life Advancement",
+        "description": "Pragmatic frameworks and mental models for navigating modern career trajectories and personal growth."
+      },
+      {
+        "title": "English Mastery Guide",
+        "description": "Targeted strategies and tutorials to improve professional and conversational English proficiency."
+      }
+    ],
+    "target_audience": "Software engineers, lifelong learners, and professionals looking to level up their technical skills and personal productivity.",
+    "comparison_vs_alt": "Unlike proprietary productivity spaces like Notion, Up is a completely open-source repository of crowdsourced wisdom and structured learning guides that you can fork and read freely without accounts or paywalls.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "openrig",
+    "name": "Openrig",
+    "tagline": "Run Claude Code and Codex together as a multi-agent system",
+    "summary": "Openrig is an open-source multi-agent harness that orchestrates Claude Code and Codex to collaborate on complex software tasks. It solves the fragmentation of using isolated AI coding assistants by combining their strengths into a unified development workflow.",
+    "url": "https://github.com/mvschwarz/openrig",
+    "github_url": "https://github.com/mvschwarz/openrig",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "AI Agents",
+      "TypeScript",
+      "CLI",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 1860,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Multi-Agent Harness",
+        "description": "Orchestrates Claude Code and Codex simultaneously to handle complex multi-step coding workflows."
+      },
+      {
+        "title": "Unified System Execution",
+        "description": "Combines different AI architectures into a single coherent development pipeline."
+      },
+      {
+        "title": "Open-Source Extensibility",
+        "description": "Fully self-hostable harness allowing custom agent routing and local execution control."
+      }
+    ],
+    "target_audience": "Full-stack developers and AI engineers looking to leverage multiple advanced coding assistants in a unified workflow.",
+    "comparison_vs_alt": "Unlike walled-garden AI editors like Cursor, Openrig is a modular open-source harness that gives you direct control over orchestrating multiple independent AI coding agents.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "univer",
+    "name": "Univer",
+    "tagline": "The open-source office suite designed for AI agents and developers.",
+    "summary": "Univer is a modular, high-performance office suite that integrates spreadsheets, documents, and slides into a single, extensible runtime. It provides a headless architecture that allows developers to embed complex document editing capabilities directly into their own applications.",
+    "url": "https://github.com/dream-num/univer",
+    "github_url": "https://github.com/dream-num/univer",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "Spreadsheet",
+      "Headless",
+      "Collaborative",
+      "TypeScript",
+      "Office Suite"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 21398,
+    "primary_alternative": "Google Workspace / Airtable",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Unified Multi-Doc Runtime",
+        "description": "A single reactive architecture supporting spreadsheets, documents, slides, and relational tables in one canvas."
+      },
+      {
+        "title": "Headless Extensible Architecture",
+        "description": "Designed for seamless integration into web apps via a robust TypeScript plugin system."
+      },
+      {
+        "title": "Native AI Agent Harness",
+        "description": "Built from the ground up to allow AI agents to interact with, query, and manipulate document data programmatically."
+      }
+    ],
+    "target_audience": "Software developers and enterprise architects building custom data-driven applications that require embedded document editing and AI workflow integration.",
+    "comparison_vs_alt": "Unlike Google Workspace, which is a closed SaaS ecosystem, Univer provides a fully open-source, self-hostable framework that gives developers complete control over data privacy, zero recurring per-seat fees, and limitless UI customization.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "pac-bench",
+    "name": "Pac-Bench",
+    "tagline": "Benchmark evaluating how well AI models one-shot a Pac-Man game",
+    "summary": "Pac-Bench is an interactive evaluation framework designed to test the code generation and spatial reasoning capabilities of LLMs by challenging them to one-shot build a fully working Pac-Man game. It provides developers and researchers with a standardized benchmark to measure frontier model performance on complete game development tasks.",
+    "url": "https://jonclegg.github.io/pacman-bakeoff/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI Benchmarks",
+      "LLM Evaluation",
+      "Game Development",
+      "Code Generation"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 17,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "key_features": [
+      {
+        "title": "One-Shot Game Generation",
+        "description": "Challenges AI models to write a complete, playable Pac-Man game in a single prompt."
+      },
+      {
+        "title": "Model Comparison",
+        "description": "Compares performance across various frontier LLMs to gauge coding and spatial reasoning."
+      },
+      {
+        "title": "Interactive Playground",
+        "description": "Allows users to view and test the resulting generated games directly in the browser."
+      }
+    ],
+    "target_audience": "AI researchers, prompt engineers, and developers interested in evaluating LLM code generation capabilities.",
+    "comparison_vs_alt": "Unlike standard coding benchmarks like HumanEval that focus on isolated functions, Pac-Bench tests holistic application development and end-to-end game logic.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "hnwatch",
+    "name": "HN.watch",
+    "tagline": "Turn every Hacker News post into an engaging video automatically",
+    "summary": "HN.watch is an innovative content platform that transforms top Hacker News submissions into dynamic video formats. It solves the fatigue of text-heavy reading by providing audio-visual digests of trending tech discussions and startup launches.",
+    "url": "https://hn.watch/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "Hacker News",
+      "Video Generation",
+      "Content Aggregator",
+      "AI Media"
+    ],
+    "pricing_model": "Free",
+    "stars": 145,
+    "primary_alternative": "YouTube",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Automated Video Conversion",
+        "description": "Instantly converts trending Hacker News posts and comments into digestible video formats."
+      },
+      {
+        "title": "Curated Tech Insights",
+        "description": "Brings the front page of HN to life with fast-paced visual summaries of developer discourse."
+      },
+      {
+        "title": "Zero Friction Access",
+        "description": "Explore community discussions visually without needing to create an account or log in."
+      }
+    ],
+    "target_audience": "Developers, indie hackers, and tech enthusiasts who want to consume Hacker News content on the go.",
+    "comparison_vs_alt": "Unlike standard video platforms filled with creator-led tech vlogs, HN.watch directly synthesizes raw community discourse and front-page news into automated, bite-sized video summaries.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "destroy-any-website-with-stickman",
+    "name": "Destroy Any Website with Stickman",
+    "tagline": "Let a chaotic stickman smash any webpage to pieces",
+    "summary": "An interactive entertainment app that injects a destructive stickman into any webpage, letting users smash and demolish elements for stress relief. It transforms static browsing into a playful, interactive sandbox experience directly in the browser.",
+    "url": "https://destroy.spritefusion.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Browser Extension",
+      "Interactive",
+      "Entertainment",
+      "Web Toy"
+    ],
+    "pricing_model": "Free",
+    "stars": 121,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Webpage Demolition",
+        "description": "Deploy a stickman equipped with tools to smash text, images, and layout elements."
+      },
+      {
+        "title": "Instant Activation",
+        "description": "Easily run the interactive destruction script directly within any active browser tab."
+      },
+      {
+        "title": "Stress Relief Sandbox",
+        "description": "Turn frustrating websites into a satisfying playground of chaos and destruction."
+      }
+    ],
+    "target_audience": "Developers, designers, and internet users looking for a fun way to blow off steam while browsing the web.",
+    "comparison_vs_alt": null,
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "papermono",
+    "name": "PaperMono",
+    "tagline": "An e-ink fridge magnet shopping list with a mobile web companion",
+    "summary": "PaperMono bridges physical and digital household management by combining a low-power e-paper fridge display with a seamless mobile web interface. It solves the friction of traditional grocery tracking through dedicated hardware and instant synchronization.",
+    "url": "https://github.com/seamusc/papermono-shopping-list",
+    "github_url": "https://github.com/seamusc/papermono-shopping-list",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "E-Ink",
+      "IoT",
+      "Hardware",
+      "Mobile Web"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 132,
+    "primary_alternative": "AnyList",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "key_features": [
+      {
+        "title": "E-Ink Display",
+        "description": "Always-on, low-power electronic paper screen designed to mount effortlessly on the refrigerator."
+      },
+      {
+        "title": "Mobile Web Companion",
+        "description": "Quickly add or check off grocery items on the go through a lightweight mobile browser interface."
+      },
+      {
+        "title": "Real-time Synchronization",
+        "description": "Instantly updates your household shopping list between the physical fridge magnet and your phone."
+      }
+    ],
+    "target_audience": "IoT hobbyists and smart-home enthusiasts looking for a dedicated, distraction-free grocery list display.",
+    "comparison_vs_alt": "Unlike mainstream apps like AnyList, PaperMono offers a tangible, dedicated hardware display that lives right on your fridge without requiring app installation for quick glances.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "scissor-studio",
+    "name": "Scissor Studio",
+    "tagline": "A powerful free alternative to heavy graphic design software",
+    "summary": "Scissor Studio is a browser-based graphic design tool built for creators seeking a lightweight alternative to traditional design giants. It streamlines digital asset creation with a modern interface and zero setup friction.",
+    "url": "https://scissor.studio/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "design-ui",
+    "tags": [
+      "Graphic Design",
+      "Canvas",
+      "Browser-based",
+      "Visual Editor"
+    ],
+    "pricing_model": "Free",
+    "stars": 112,
+    "primary_alternative": "Canva",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Browser-Based Editor",
+        "description": "Create and edit graphics directly in your browser without downloading heavy software."
+      },
+      {
+        "title": "Zero Friction Access",
+        "description": "Jump straight into designing instantly without mandatory registration walls."
+      },
+      {
+        "title": "Lightweight Workflow",
+        "description": "Enjoy a streamlined UI focused purely on core graphic design tasks."
+      }
+    ],
+    "target_audience": "Indie creators, marketers, and developers who need quick, professional graphic design capabilities without paying for bloated subscriptions.",
+    "comparison_vs_alt": "Unlike mainstream design platforms locked behind expensive tiered paywalls and forced signups, Scissor Studio offers an accessible, lightweight editing experience for free.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "interactive-diesel-price-forecaster",
+    "name": "Interactive Diesel Price Forecaster",
+    "tagline": "Interactive forecasting model for predicting future diesel price trends",
+    "summary": "This interactive tool empowers users to analyze market trends and forecast future diesel price fluctuations through data-driven simulations. It solves the unpredictability of fuel costs by offering granular insights into the underlying macroeconomic drivers.",
+    "url": "https://sightspinner.ai/blog/diesel-prices-are-high-here-s-why-they-might-go-higher-2026-09-29.html",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Forecasting",
+      "Data Visualization",
+      "Analytics",
+      "Finance"
+    ],
+    "pricing_model": "Free",
+    "stars": 3,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Interactive Projections",
+        "description": "Adjust macroeconomic variables to dynamically simulate future diesel price scenarios."
+      },
+      {
+        "title": "Trend Analysis",
+        "description": "Visualize historical pricing data alongside predictive modeling curves."
+      },
+      {
+        "title": "Market Insights",
+        "description": "Break down the core supply and demand factors influencing fuel market shifts."
+      }
+    ],
+    "target_audience": "Logistics managers, fleet operators, and analysts seeking data-driven insights into fuel cost trends.",
+    "comparison_vs_alt": "Provides focused, interactive forecasting specific to diesel pricing without requiring complex enterprise setup.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "corral",
+    "name": "Corral",
+    "tagline": "Kill every runaway command your AI agent starts",
+    "summary": "Corral is a safety utility designed to intercept and terminate rogue system processes and commands spawned by autonomous AI agents. It protects developer environments from accidental destructive actions, infinite loops, and unintended system modifications.",
+    "url": "https://github.com/Cardinal44/corral",
+    "github_url": "https://github.com/Cardinal44/corral",
+    "source": "hackernews",
+    "category": "security-devops",
+    "tags": [
+      "AI Agents",
+      "Process Management",
+      "Safety",
+      "CLI",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Process Interception",
+        "description": "Intercepts shell commands and processes initiated by autonomous AI agents in real time."
+      },
+      {
+        "title": "Automated Kill Switch",
+        "description": "Instantly terminates runaway or potentially destructive commands before they execute system changes."
+      },
+      {
+        "title": "Environment Protection",
+        "description": "Safeguards local developer workstations and CI/CD pipelines from agentic hallucinations."
+      }
+    ],
+    "target_audience": "Software engineers and AI developers building, testing, or running autonomous agents locally.",
+    "comparison_vs_alt": "As a specialized open-source security utility, Corral provides granular process-level control that standard containerization tools often overlook.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "jylus",
+    "name": "Jylus",
+    "tagline": "Ground AI systems in real-time, rapidly changing data evidence",
+    "summary": "Jylus is an advanced AI tool designed to feed real-time, dynamic data evidence directly into LLM workflows. It solves the problem of stale AI context by providing a robust mechanism to query and supply changing datasets on the fly.",
+    "url": "https://jylus.ai/try",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Data Pipelines",
+      "LLMs",
+      "Real-time"
+    ],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": "Pinecone",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Dynamic Evidence Retrieval",
+        "description": "Feed changing datasets and fresh context directly into your AI pipelines."
+      },
+      {
+        "title": "Real-time Synchronization",
+        "description": "Keep AI systems aligned with constantly updated external data sources."
+      },
+      {
+        "title": "LLM Grounding",
+        "description": "Reduce hallucinations by anchoring model outputs in verifiable live evidence."
+      }
+    ],
+    "target_audience": "AI engineers and developers building applications that require real-time data access and high factual accuracy.",
+    "comparison_vs_alt": "Unlike static vector databases or traditional RAG setups, Jylus focuses specifically on handling rapidly changing data streams to keep AI systems consistently grounded.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "jauvex",
+    "name": "Jauvex",
+    "tagline": "Two-way voice chat harness for Claude, Codex, Grok, and Jev",
+    "summary": "Jauvex is an open-source two-way voice chat harness that bridges multiple advanced AI models like Claude, Codex, Grok, and Jev into a unified audio workflow. It solves the friction of multi-model orchestration by offering a hands-free, conversational interface for developer operations.",
+    "url": "https://github.com/reindent/jauvex",
+    "github_url": "https://github.com/reindent/jauvex",
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Voice AI",
+      "Developer Tools",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3,
+    "primary_alternative": "OpenAI Advanced Voice",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "key_features": [
+      {
+        "title": "Multi-Model Support",
+        "description": "Seamlessly switch and converse with Claude, Codex, Grok, and Jev via voice."
+      },
+      {
+        "title": "Two-Way Voice Chat",
+        "description": "Engage in real-time, low-latency conversational loops for hands-free coding assistance."
+      },
+      {
+        "title": "Extensible Harness",
+        "description": "Easily plug in custom LLMs and adjust audio routing configurations to fit your workflow."
+      }
+    ],
+    "target_audience": "Developers and AI enthusiasts looking for hands-free, multi-model voice interaction with coding assistants.",
+    "comparison_vs_alt": "Unlike proprietary voice modes tied to a single vendor, Jauvex gives you open-source control and flexibility to converse across multiple disparate AI models like Claude and Grok.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "lofi-cities",
+    "name": "Lofi Cities",
+    "tagline": "Pixel-art city nights with browser-generated lofi beats",
+    "summary": "Lofi Cities is an immersive web experience that combines charming animated pixel-art cityscapes with continuously generated lofi hip-hop music. It solves the need for relaxing, distraction-free ambient audio and visual backdrops by synthesizing everything directly inside the browser.",
+    "url": "https://loficities.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Audio",
+      "Pixel Art",
+      "Browser",
+      "Ambient"
+    ],
+    "pricing_model": "Free",
+    "stars": 307,
+    "primary_alternative": "Brain.fm",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "key_features": [
+      {
+        "title": "Browser-Generated Audio",
+        "description": "Generates soothing lofi music dynamically right in your browser without heavy pre-recorded audio streaming."
+      },
+      {
+        "title": "Animated Pixel Art",
+        "description": "Features cozy, handcrafted nighttime cityscapes with smooth animations to enhance focus and relaxation."
+      },
+      {
+        "title": "Zero Friction",
+        "description": "Accessible instantly in any browser with no accounts, logins, or software installation required."
+      }
+    ],
+    "target_audience": "Developers, students, and remote workers looking for a relaxing audio-visual backdrop to boost focus and reduce stress.",
+    "comparison_vs_alt": "Unlike paid subscription services like Brain.fm, Lofi Cities is entirely free, requires no signup, and leans into nostalgic aesthetics with interactive pixel art.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "lattice",
+    "name": "Lattice",
+    "tagline": "Reshape your text across languages while preserving meaning",
+    "summary": "Lattice is an advanced localization tool designed to adapt text across multiple languages without losing the original context or nuance. It solves the challenge of stiff, literal translations by intelligently restructuring content for native resonance.",
+    "url": "https://www.producthunt.com/products/lattice-11",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Localization",
+      "Translation",
+      "Writing",
+      "Multilingual"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Google Translate",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Context-Aware Adaptation",
+        "description": "Transforms phrasing to sound natural in target languages while keeping the core message intact."
+      },
+      {
+        "title": "Multi-Language Support",
+        "description": "Seamlessly reshape and refine content across dozens of global languages."
+      },
+      {
+        "title": "Tone Preservation",
+        "description": "Maintains the intended voice, whether professional, casual, or technical, during translation."
+      }
+    ],
+    "target_audience": "Content creators, global marketers, and developers looking to localize copy with high fidelity.",
+    "comparison_vs_alt": "Unlike traditional literal translation tools like Google Translate, Lattice focuses on reshaping text to preserve semantic depth and natural native flow.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "vantage-ai",
+    "name": "Vantage AI",
+    "tagline": "See and control what your coding agent does in real time",
+    "summary": "Vantage AI provides deep observability and fine-grained control over autonomous coding agents. It solves the black-box problem of AI development by letting engineers audit, pause, and steer agent actions before they impact the codebase.",
+    "url": "https://www.producthunt.com/products/vantage-ai-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Developer Tools",
+      "Observability",
+      "Code Generation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Real-Time Execution Audit",
+        "description": "Stream and inspect every command, file write, and API call made by your coding agent."
+      },
+      {
+        "title": "Interactive Guardrails",
+        "description": "Pause, modify, or block agent actions mid-stream to prevent unintended codebase modifications."
+      },
+      {
+        "title": "Action History & Replay",
+        "description": "Review complete agent sessions step-by-step to debug failures or optimize prompt chains."
+      }
+    ],
+    "target_audience": "Software engineers and engineering teams actively integrating autonomous coding agents into their daily workflows.",
+    "comparison_vs_alt": "Unlike standard IDE-integrated tools like Cursor that often act as opaque black boxes, Vantage AI focuses explicitly on transparency, providing granular visibility and safety checkpoints for autonomous agent workflows.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "okara",
+    "name": "Okara",
+    "tagline": "The world's first AI CMO",
+    "summary": "Okara acts as an autonomous Chief Marketing Officer, designing and executing data-driven marketing strategies for modern businesses. It solves the problem of high overhead and resource constraints in scaling marketing operations by automating high-level growth decisions.",
+    "url": "https://www.producthunt.com/products/okara-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Marketing",
+      "Growth",
+      "Automation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "HubSpot",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Autonomous Strategy",
+        "description": "Generates comprehensive, multi-channel marketing campaigns tailored to your business goals."
+      },
+      {
+        "title": "Data-Driven Execution",
+        "description": "Continuously analyzes performance metrics to optimize ad spend and content output in real-time."
+      },
+      {
+        "title": "Growth Analytics",
+        "description": "Provides actionable executive-level insights without requiring a dedicated analytics team."
+      }
+    ],
+    "target_audience": "Founders, startup teams, and lean businesses looking to scale their marketing operations without hiring a full agency.",
+    "comparison_vs_alt": "Unlike traditional marketing suites like HubSpot that require heavy manual configuration, Okara uses autonomous AI agents to actively strategize and execute campaigns on your behalf.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "salesmartly",
+    "name": "SaleSmartly",
+    "tagline": "Omnichannel customer communication and AI chatbot automation",
+    "summary": "SaleSmartly unifies customer interactions from WhatsApp, Facebook, Telegram, and live chat into a single shared inbox. It empowers sales and support teams to automate workflows and deploy AI chatbots to convert traffic into customers faster.",
+    "url": "https://www.producthunt.com/products/salesmartly",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Omnichannel",
+      "Chatbots",
+      "Customer Support",
+      "CRM",
+      "Automation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Intercom",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Omnichannel Inbox",
+        "description": "Manage customer chats from WhatsApp, Messenger, and live web widgets in one unified dashboard."
+      },
+      {
+        "title": "AI Chatbot Automation",
+        "description": "Build custom conversational flows and AI bots to qualify leads and answer FAQs 24/7."
+      },
+      {
+        "title": "Broadcast Marketing",
+        "description": "Send targeted promotional campaigns and automated follow-ups across messaging channels."
+      }
+    ],
+    "target_audience": "E-commerce merchants, digital marketers, and customer support teams managing high-volume cross-channel messaging.",
+    "comparison_vs_alt": "Unlike Intercom which can become prohibitively expensive at scale, SaleSmartly offers an affordable, feature-rich omnichannel alternative with robust multi-channel inbox and automation capabilities.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "arc",
+    "name": "Arc",
+    "tagline": "Your mobile AI assistant on any screen",
+    "summary": "Arc is a mobile AI screen assistant that integrates intelligence directly into your device's interface. It solves the friction of context-switching between apps by providing instant AI-powered assistance anywhere on your screen.",
+    "url": "https://www.producthunt.com/products/arc-ai-screen-assistant",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Assistant",
+      "Mobile",
+      "Screen OCR",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Google Gemini",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Any-Screen Context",
+        "description": "Access AI assistance instantly across any mobile application without switching apps."
+      },
+      {
+        "title": "Visual Recognition",
+        "description": "Analyze and extract insights directly from what is currently displayed on your screen."
+      },
+      {
+        "title": "Quick Actions",
+        "description": "Perform contextual tasks and shortcuts generated dynamically from your active screen content."
+      }
+    ],
+    "target_audience": "Mobile-first power users and professionals looking to streamline workflows and reduce app-switching friction.",
+    "comparison_vs_alt": "Unlike standard assistant apps that require manual copy-pasting, Arc integrates seamlessly over your entire OS interface to act on whatever is on your screen instantly.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "mum",
+    "name": "MuM",
+    "tagline": "A reading-first Markdown engine for macOS",
+    "summary": "MuM is a macOS application designed to deliver an optimized, distraction-free reading experience for multi-project Markdown documentation. It streamlines navigation and viewing across complex local directory structures without heavy text editing overhead.",
+    "url": "https://www.producthunt.com/products/mum-multi-project-markdown",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Markdown",
+      "macOS",
+      "Documentation",
+      "Reader"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Notion",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Multi-Project Support",
+        "description": "Seamlessly navigate and read Markdown files across multiple distinct local projects."
+      },
+      {
+        "title": "Reading-First Engine",
+        "description": "Optimized typography and layout built specifically for consuming documentation smoothly."
+      },
+      {
+        "title": "macOS Native",
+        "description": "Crafted as a fast, lightweight native Mac application with minimal resource footprint."
+      }
+    ],
+    "target_audience": "Developers, technical writers, and researchers who manage and read extensive Markdown documentation locally.",
+    "comparison_vs_alt": "Unlike cloud-bound tools like Notion, MuM provides a fast, local-first reading experience designed specifically for raw Markdown directories without requiring account setups or cloud syncing.",
+    "date_added": "2026-09-28",
+    "featured": false
+  },
+  {
+    "id": "vibedefend",
+    "name": "VibeDefend",
+    "tagline": "Secure your AI coding assistants with a single command",
+    "summary": "VibeDefend is a security tool designed to safeguard popular AI coding environments like Cursor and Claude Code. It allows developers to quickly audit, harden, and protect their AI-driven workflows against prompt injections and data leaks.",
+    "url": "https://www.producthunt.com/products/cybedefend",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "security-devops",
+    "tags": [
+      "AI Agents",
+      "Security",
+      "CLI",
+      "Developer Tools",
+      "Privacy"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "One-Command Setup",
+        "description": "Instantly secure your AI coding assistant workspace with a single CLI command."
+      },
+      {
+        "title": "Prompt Injection Defense",
+        "description": "Mitigate risks associated with malicious code and indirect prompt injection attacks."
+      },
+      {
+        "title": "Data Leakage Prevention",
+        "description": "Prevent sensitive codebase context from leaking to unauthorized external endpoints."
+      }
+    ],
+    "target_audience": "Developers and engineering teams leveraging AI coding assistants like Cursor and Claude Code who want robust security guardrails.",
+    "comparison_vs_alt": "Unlike standard enterprise security suites that require complex integrations, VibeDefend provides instant, frictionless protection tailored specifically for modern AI developer workflows.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "gencode",
+    "name": "GenCode",
+    "tagline": "An intelligent coding agent built inside the Genspark Super App",
+    "summary": "GenCode is an AI-driven coding assistant integrated within the Genspark platform designed to streamline software development workflows. It helps developers write, debug, and refactor code rapidly using advanced contextual intelligence.",
+    "url": "https://www.producthunt.com/products/genspark",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Code Generation",
+      "Developer Tools",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Context-Aware Coding",
+        "description": "Generates accurate code snippets and logic based on your current project workspace."
+      },
+      {
+        "title": "Automated Debugging",
+        "description": "Quickly identifies bugs and suggests optimized fixes within your codebase."
+      },
+      {
+        "title": "Super App Integration",
+        "description": "Seamlessly operates alongside other productivity workflows inside the Genspark ecosystem."
+      }
+    ],
+    "target_audience": "Software engineers and developers looking for an integrated AI coding partner to accelerate development.",
+    "comparison_vs_alt": "Unlike standalone editors like Cursor, GenCode functions directly within a broader super app ecosystem, offering unified access to search and productivity tools alongside code generation.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "harness-router",
+    "name": "Harness Router",
+    "tagline": "Fast AI tool routing powered by Jev",
+    "summary": "Harness Router optimizes AI workflows by intelligently directing tasks to the most efficient language model and tool stack. It solves API cost and latency bottlenecks through automated, high-speed routing mechanisms.",
+    "url": "https://www.producthunt.com/products/harness-103",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "API Routing",
+      "LLM",
+      "Automation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Portkey",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Intelligent Routing",
+        "description": "Dynamically routes AI queries to optimal models based on cost and performance."
+      },
+      {
+        "title": "Jev Engine",
+        "description": "Powered by advanced Jev routing technology for ultra-low latency execution."
+      },
+      {
+        "title": "Workflow Optimization",
+        "description": "Reduces overall token expenditure and response times for complex AI applications."
+      }
+    ],
+    "target_audience": "AI engineers and developers building applications that require multi-model orchestration and cost control.",
+    "comparison_vs_alt": "Unlike standard gateway proxies, Harness Router focuses heavily on ultra-fast tool and model routing via Jev to minimize operational latency.",
+    "date_added": "2026-09-29",
+    "featured": false
+  },
+  {
+    "id": "zerg-router",
+    "name": "Zerg Router",
+    "tagline": "Run DeepSeek models inside Codex seamlessly",
+    "summary": "Zerg Router is a specialized integration tool that bridges powerful DeepSeek AI models with Codex development environments. It eliminates workflow friction by allowing developers to leverage state-of-the-art reasoning capabilities directly within their preferred coding interface.",
+    "url": "https://www.producthunt.com/products/zerg-router",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "DeepSeek",
+      "Developer Tools",
+      "LLM Routing"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "key_features": [
+      {
+        "title": "Codex Integration",
+        "description": "Seamlessly routes DeepSeek model requests directly into your Codex environment."
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Ensures low-latency response times for real-time coding assistance and refactoring."
+      },
+      {
+        "title": "Alternative Routing",
+        "description": "Gives developers the flexibility to bypass default LLMs in favor of specialized models."
+      }
+    ],
+    "target_audience": "Software developers and AI enthusiasts looking to integrate DeepSeek models into their daily coding workflows.",
+    "comparison_vs_alt": "Unlike standard all-in-one AI IDEs like Cursor, Zerg Router acts as a dedicated bridge to bring specialized model performance directly into your existing Codex setup.",
+    "date_added": "2026-09-29",
+    "featured": false
+  }
+]
