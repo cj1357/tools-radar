@@ -1,0 +1,1698 @@
+[
+  {
+    "id": "voicestudio",
+    "name": "Voicestudio",
+    "tagline": "Comprehensive, self-hosted voice AI for cloning, dubbing, and transcription",
+    "summary": "Voicestudio is an all-in-one offline voice AI platform that handles voice cloning, video dubbing, transcription, and audiobook creation across 646 languages. By running entirely locally, it eliminates third-party API costs and ensures absolute data privacy for sensitive audio workloads.",
+    "url": "https://github.com/debpalash/VoiceStudio",
+    "github_url": "https://github.com/debpalash/VoiceStudio",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Voice Cloning",
+      "AI",
+      "Self-Hosted",
+      "Audio",
+      "Python"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 48616,
+    "primary_alternative": "ElevenLabs",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Multi-Language Support",
+        "description": "Seamlessly process and generate speech, transcription, and dubbing across 646 different languages."
+      },
+      {
+        "title": "Offline Voice Cloning",
+        "description": "Clone voices accurately using local compute without leaking sensitive audio data to third-party servers."
+      },
+      {
+        "title": "End-to-End Audio Suite",
+        "description": "Cover all bases from video dubbing and automated transcription to long-form audiobook creation in one app."
+      }
+    ],
+    "target_audience": "AI engineers, creators, and privacy-conscious organizations looking to self-host advanced voice cloning and dubbing workflows.",
+    "comparison_vs_alt": "Unlike ElevenLabs which charges heavily per character and processes data in the cloud, Voicestudio runs completely offline on your hardware for free, keeping all audio assets private.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "forks": 5234,
+    "verdict": "An exceptional tool for creators and developers seeking absolute privacy and zero-cost scaling for multi-language voice workloads. It provides a robust, locally runnable alternative to expensive commercial cloud voice APIs.",
+    "use_cases": [
+      "Dubbing localization videos into hundreds of languages without ongoing cloud transcription fees",
+      "Creating custom proprietary voice clones for privacy-focused enterprise applications",
+      "Generating automated transcriptions and audiobooks locally on secure offline infrastructure"
+    ],
+    "pros": [
+      "Zero usage costs and complete independence from rate-limited or expensive cloud APIs",
+      "Absolute data privacy through local, self-hosted execution",
+      "Massive linguistic reach supporting over 600 languages"
+    ],
+    "cons": [
+      "Requires significant local GPU hardware resources to achieve reasonable inference speeds",
+      "Setup and dependency management for complex local audio models can be steep for non-technical users"
+    ],
+    "install_command": "git clone https://github.com/debpalash/VoiceStudio.git"
+  },
+  {
+    "id": "openshell",
+    "name": "OpenShell",
+    "tagline": "The safe, private runtime for autonomous AI agents",
+    "summary": "OpenShell provides a secure, isolated runtime environment designed specifically for autonomous AI agents to execute code, browse the web, and interact with systems safely. It solves the critical security challenge of giving LLM-driven agents uncontrolled system access by enforcing fine-grained boundaries and sandboxing.",
+    "url": "https://github.com/NVIDIA/OpenShell",
+    "github_url": "https://github.com/NVIDIA/OpenShell",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Security",
+      "Sandboxing",
+      "Runtime",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 10801,
+    "primary_alternative": "Docker",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "verdict": "An essential open-source infrastructure project for developers deploying high-capability autonomous agents that require deep system interaction without risking host machine integrity.",
+    "key_features": [
+      {
+        "title": "Secure Agent Sandboxing",
+        "description": "Isolates execution environments to prevent autonomous agents from compromising host infrastructure."
+      },
+      {
+        "title": "Fine-Grained Resource Controls",
+        "description": "Enforces strict limits on network access, file system modifications, and compute resource consumption."
+      },
+      {
+        "title": "Private Execution",
+        "description": "Ensures sensitive agent payloads and data remain strictly localized within controlled enterprise boundaries."
+      }
+    ],
+    "use_cases": [
+      "Executing multi-step coding agent tasks safely within a secure containerized boundary",
+      "Allowing autonomous web-scraping and data-processing agents to interact with the internet risk-free",
+      "Building enterprise agent platforms that demand strict compliance and data privacy guarantees"
+    ],
+    "pros": [
+      "Backed by NVIDIA, ensuring robust systems-level engineering and enterprise readiness",
+      "Dramatically reduces the risk of prompt injection leading to remote code execution on hosts",
+      "Tailored specifically for the unique execution patterns of autonomous LLM agents"
+    ],
+    "cons": [
+      "Adds an extra virtualization and policy-enforcement layer which may introduce minor performance overhead",
+      "Requires careful configuration of capability policies to ensure agents can still perform intended tasks"
+    ],
+    "target_audience": "AI engineers, security architects, and platform developers building production-grade autonomous agent systems.",
+    "comparison_vs_alt": "Unlike standard Docker containers or raw virtual machines, OpenShell is purpose-built for the dynamic, unpredictable execution patterns of LLM agents, offering native guardrails and simpler policy management.",
+    "install_command": "git clone https://github.com/NVIDIA/OpenShell.git",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "hindsight",
+    "name": "Hindsight",
+    "tagline": "State-of-the-art memory architecture and context engine for AI agents",
+    "summary": "Hindsight provides advanced memory architecture for AI agents, allowing them to dynamically learn, retain context, and adapt over time. It solves the context window and statelessness limits of LLMs through specialized graph and vector retention mechanisms.",
+    "url": "https://github.com/vectorize-io/hindsight",
+    "github_url": "https://github.com/vectorize-io/hindsight",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Memory",
+      "Vector Database",
+      "Knowledge Graph",
+      "LLM"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 43082,
+    "primary_alternative": "LangChain Memory",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Dynamic Context Retention",
+        "description": "Enables AI agents to learn and remember user preferences and past interactions over extended periods."
+      },
+      {
+        "title": "Graph & Vector Mechanics",
+        "description": "Combines vector similarity search with structured graph retention to maintain rich, contextual relationships."
+      },
+      {
+        "title": "Statelessness Mitigation",
+        "description": "Bypasses standard LLM token window limitations by abstracting and retrieving only relevant historical context."
+      }
+    ],
+    "target_audience": "AI engineers and software architects building complex, stateful autonomous agents or customized assistants.",
+    "comparison_vs_alt": "Unlike standard memory wrappers found in frameworks like LangChain, Hindsight offers a dedicated, production-optimized architecture combining graphs and vectors specifically designed for advanced agentic memory retention.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "verdict": "An essential open-source utility for developers building production-grade autonomous agents that require persistent, long-term memory across sessions.",
+    "use_cases": [
+      "Building personalized AI companions that recall user habits and historical chats",
+      "Enterprise coding assistants that maintain codebase knowledge across multi-day sessions",
+      "Autonomous agents that iteratively update their internal world models based on task feedback"
+    ],
+    "pros": [
+      "Solves the fundamental stateless bottleneck of modern LLMs",
+      "Combines graph structures with vector search for superior context recall",
+      "Fully open-source and self-hostable for data privacy compliance"
+    ],
+    "cons": [
+      "Requires additional infrastructure overhead to manage graph and vector stores",
+      "Can introduce latency overhead during context retrieval phases"
+    ],
+    "install_command": "pip install hindsight-ai"
+  },
+  {
+    "id": "paperclip",
+    "name": "Paperclip",
+    "tagline": "Open-source platform to orchestrate and govern autonomous AI agents",
+    "summary": "Paperclip is an open-source platform designed to orchestrate and manage autonomous AI agents in professional environments. It solves the chaos of multi-agent collaboration by providing centralized visibility, task assignment, and workflow governance.",
+    "url": "https://github.com/paperclipai/paperclip",
+    "github_url": "https://github.com/paperclipai/paperclip",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Orchestration",
+      "Open Source",
+      "Workflow Governance",
+      "TypeScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 94667,
+    "primary_alternative": "LangGraph Cloud",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "key_features": [
+      {
+        "title": "Centralized Visibility",
+        "description": "Monitor and track real-time execution, logs, and states of all deployed autonomous agents in one dashboard."
+      },
+      {
+        "title": "Task Assignment & Routing",
+        "description": "Dynamically route workloads and assign specialized sub-tasks to the most appropriate AI agents."
+      },
+      {
+        "title": "Workflow Governance",
+        "description": "Enforce safety guardrails, human-in-the-loop checkpoints, and strict policy boundaries for multi-agent systems."
+      }
+    ],
+    "target_audience": "AI engineers, platform architects, and developers building production-grade multi-agent systems.",
+    "comparison_vs_alt": "Unlike managed alternatives like LangGraph Cloud, Paperclip gives engineering teams complete ownership and self-hosting freedom over their agent orchestration layer.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "forks": 15975,
+    "verdict": "An essential control plane for engineering teams deploying multiple autonomous agents that require strict governance and visibility. It transforms chaotic agent scripts into structured, manageable enterprise workflows.",
+    "use_cases": [
+      "Orchestrating a team of coding and testing agents for automated software development lifecycles",
+      "Managing autonomous customer support agents that require escalation paths and cross-agent handoffs",
+      "Governing complex data-processing pipelines driven by interacting LLM agents"
+    ],
+    "pros": [
+      "Provides much-needed structural governance to chaotic multi-agent environments",
+      "Fully open-source and self-hostable ensuring complete data privacy and local control",
+      "Eliminates blind spots in autonomous agent execution with robust logging and visualization"
+    ],
+    "cons": [
+      "Requires significant configuration to map custom agent architectures into its governance model",
+      "Relatively new ecosystem compared to enterprise-grade proprietary agent management tools"
+    ],
+    "install_command": "npx @paperclipai/cli init"
+  },
+  {
+    "id": "dbx",
+    "name": "Dbx",
+    "tagline": "A lightweight 25MB cross-platform database client for 100+ DBs with AI",
+    "summary": "Dbx is a high-performance, 25MB database client that unifies access to over 100 relational, NoSQL, and vector databases into a single interface. It provides native desktop apps, Docker containers, a CLI, and built-in AI assistance with Model Context Protocol (MCP) support.",
+    "url": "https://github.com/t8y2/dbx",
+    "github_url": "https://github.com/t8y2/dbx",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "Database Client",
+      "Cross-Platform",
+      "AI",
+      "MCP Server",
+      "Docker"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 22318,
+    "primary_alternative": "DBeaver",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "verdict": "An exceptional, blazing-fast alternative to bloated Java-based database IDEs, ideal for developers managing heterogeneous polyglot persistence stacks.",
+    "key_features": [
+      {
+        "title": "Universal Database Support",
+        "description": "Seamlessly connect to over 100 databases including MySQL, PostgreSQL, SQLite, Redis, MongoDB, and DuckDB."
+      },
+      {
+        "title": "Built-in AI & MCP Server",
+        "description": "Leverage integrated AI agents and Model Context Protocol support for intelligent SQL generation and database querying."
+      },
+      {
+        "title": "Featherweight Footprint",
+        "description": "Packaged into a lean 25MB binary that launches instantly across desktop, Docker, and CLI environments."
+      }
+    ],
+    "use_cases": [
+      "Querying and managing multi-cloud SQL and NoSQL databases from a single unified desktop app",
+      "Deploying a lightweight web or containerized database client via Docker for remote team access",
+      "Generating and optimizing complex SQL queries instantly using built-in AI assistant capabilities"
+    ],
+    "pros": [
+      "Incredibly small 25MB footprint compared to heavy JVM-based alternatives like DBeaver",
+      "Extensive out-of-the-box support for over 100 database drivers",
+      "Modern flexibility with native desktop, CLI, Docker, and MCP server integrations"
+    ],
+    "cons": [
+      "Newer ecosystem with fewer community plugins and extensions than mature rivals",
+      "Advanced enterprise database management tooling may lack niche legacy features"
+    ],
+    "target_audience": "Full-stack developers, database administrators, and DevOps engineers looking for a fast, universal database tool.",
+    "comparison_vs_alt": "Unlike DBeaver which suffers from heavy memory usage due to its Java runtime, Dbx offers a lightning-fast native experience with a fraction of the footprint and modern AI workflows.",
+    "install_command": "docker run -d -p 8080:8080 t8y2/dbx",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "openrig",
+    "name": "Openrig",
+    "tagline": "Multi-agent harness orchestrating Claude Code and Codex for coding",
+    "summary": "Openrig is an open-source multi-agent harness designed to orchestrate autonomous coding assistants like Claude Code and Codex to collaborate on complex software engineering tasks. It eliminates workflow fragmentation by combining distinct AI models into a unified, synergistic development pipeline.",
+    "url": "https://github.com/mvschwarz/openrig",
+    "github_url": "https://github.com/mvschwarz/openrig",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Multi-Agent",
+      "Open Source",
+      "Developer Tools",
+      "Claude Code"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2532,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Multi-Agent Orchestration",
+        "description": "Seamlessly coordinates multiple AI coding assistants like Claude Code and Codex on a single repository."
+      },
+      {
+        "title": "Unified Workflow",
+        "description": "Bridges the fragmentation of disparate AI tools into a coherent, automated development lifecycle."
+      },
+      {
+        "title": "Open-Source Extensibility",
+        "description": "Fully customizable harness allowing developers to plug in custom models and agents."
+      }
+    ],
+    "target_audience": "Advanced developers and software architects looking to automate complex coding pipelines using multiple AI agents.",
+    "comparison_vs_alt": "Unlike proprietary AI editors like Cursor, Openrig provides an open-source, multi-agent harness that orchestrates specialized external CLIs and models together.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "verdict": "An essential open-source orchestrator for developers looking to break free from isolated AI assistants and leverage multi-model collaboration.",
+    "use_cases": [
+      "Automating complex multi-file refactoring using complementary AI models",
+      "Running collaborative code generation where one agent writes and another reviews",
+      "Orchestrating end-to-end feature implementation across a large codebase"
+    ],
+    "pros": [
+      "Combines the specialized strengths of multiple leading AI coding models",
+      "Removes context switching and tool fragmentation from the developer workflow",
+      "Fully open-source and self-hostable for maximum control over source code and data"
+    ],
+    "cons": [
+      "Requires API keys and setup for multiple underlying AI providers",
+      "Complex multi-agent interactions can occasionally lead to conflicting code changes"
+    ],
+    "install_command": "git clone https://github.com/mvschwarz/openrig.git && cd openrig"
+  },
+  {
+    "id": "openship",
+    "name": "Openship",
+    "tagline": "The open-source self-hosted deployment platform",
+    "summary": "Openship provides a lightweight, self-hosted deployment engine to manage application releases and server infrastructure without vendor lock-in. It simplifies continuous deployment pipelines and server management directly on your own hardware.",
+    "url": "https://github.com/oblien/openship",
+    "github_url": "https://github.com/oblien/openship",
+    "source": "github_trending",
+    "category": "security-devops",
+    "tags": [
+      "DevOps",
+      "Self-Hosted",
+      "Deployment",
+      "Docker",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 13941,
+    "primary_alternative": "Vercel",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "verdict": "An exceptional tool for teams looking for a private, self-hosted Heroku or Vercel alternative without recurring cloud infrastructure premiums.",
+    "key_features": [
+      {
+        "title": "Self-Hosted Control",
+        "description": "Deploy applications directly to your own private servers and infrastructure."
+      },
+      {
+        "title": "Automated Pipelines",
+        "description": "Streamline builds and releases with out-of-the-box continuous deployment workflows."
+      },
+      {
+        "title": "Lightweight Architecture",
+        "description": "Minimal resource footprint ensuring maximum server capacity is dedicated to your apps."
+      }
+    ],
+    "use_cases": [
+      "Hosting internal company applications on private corporate infrastructure",
+      "Managing independent client deployments on dedicated VPS nodes",
+      "Running cost-effective staging environments for development teams"
+    ],
+    "pros": [
+      "Complete data sovereignty and ownership of your deployment pipelines",
+      "Significantly cheaper than managed PaaS alternatives at scale",
+      "Simple architecture that avoids the bloat of enterprise orchestration tools"
+    ],
+    "cons": [
+      "Requires manual setup, maintenance, and server administration",
+      "Smaller ecosystem of community plugins compared to older platforms"
+    ],
+    "target_audience": "Full-stack developers and DevOps engineers seeking granular control over their deployment pipelines.",
+    "comparison_vs_alt": "Unlike Vercel or Netlify, Openship runs entirely on your own infrastructure, giving you zero usage caps and absolute privacy.",
+    "install_command": "docker run -d -p 8080:8080 openship/openship",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "reclip",
+    "name": "Reclip",
+    "tagline": "Download videos from almost any website with a clean web UI",
+    "summary": "Reclip is a lightweight, self-hosted media downloader designed to effortlessly extract videos from virtually any website. It bridges the gap between complex command-line utilities and user-friendly interfaces, providing a clean web dashboard for batch downloading and media management.",
+    "url": "https://github.com/averygan/reclip",
+    "github_url": "https://github.com/averygan/reclip",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Media Downloader",
+      "Self-Hosted",
+      "TypeScript",
+      "Web UI",
+      "Video"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 10269,
+    "primary_alternative": "JDownloader",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "verdict": "An essential utility for power users and data hoarders who want a sleek, modern self-hosted alternative to clunky desktop video downloaders.",
+    "key_features": [
+      {
+        "title": "Universal Site Support",
+        "description": "Leverages robust extraction engines to pull video content from thousands of supported websites."
+      },
+      {
+        "title": "Clean Web Interface",
+        "description": "Offers an intuitive, modern dashboard to manage, monitor, and trigger downloads remotely."
+      },
+      {
+        "title": "Self-Hosted & Private",
+        "description": "Deployable instantly via Docker, ensuring complete control over your downloaded media and private data."
+      }
+    ],
+    "use_cases": [
+      "Archiving educational videos and tutorials from niche web platforms for offline study",
+      "Running a personal media ingestion server on a home lab or NAS device",
+      "Batch downloading web video streams without relying on ad-heavy third-party online converters"
+    ],
+    "pros": [
+      "Extremely lightweight deployment footprint via containerization",
+      "Modern, distraction-free web UI compared to terminal-only CLI wrappers",
+      "Full ownership of downloaded media with zero telemetry or tracking"
+    ],
+    "cons": [
+      "Requires basic technical knowledge to self-host and maintain via Docker",
+      "Website layout changes can occasionally break specific video extraction routes until updated"
+    ],
+    "target_audience": "Self-hosters, home lab enthusiasts, and power users who frequently need to download and archive web media.",
+    "comparison_vs_alt": "Unlike heavy legacy desktop applications like JDownloader, Reclip provides a modern, lightweight web-first interface built for easy remote deployment on personal servers.",
+    "install_command": "docker run -d -p 3000:3000 averygan/reclip",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "coursebook",
+    "name": "Coursebook",
+    "tagline": "Open-source interactive platform for systems programming education",
+    "summary": "Coursebook is an open-source educational platform developed for introductory systems programming at the University of Illinois. It delivers community-driven, low-level programming curricula designed to make complex systems concepts accessible and interactive.",
+    "url": "https://github.com/cs341-illinois/coursebook",
+    "github_url": "https://github.com/cs341-illinois/coursebook",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Education",
+      "Systems Programming",
+      "Open Source",
+      "University",
+      "C"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3176,
+    "primary_alternative": "Canvas LMS",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 88,
+    "key_features": [
+      {
+        "title": "Community-Driven Textbooks",
+        "description": "Crowdsourced, continuously updated course materials tailored for low-level computing."
+      },
+      {
+        "title": "Systems Programming Focus",
+        "description": "Specialized modules targeting memory management, concurrency, and OS fundamentals."
+      },
+      {
+        "title": "Open Source Platform",
+        "description": "Fully transparent codebase allowing institutions to fork and adapt course structures."
+      }
+    ],
+    "target_audience": "Computer science educators, university students, and self-taught developers mastering low-level programming.",
+    "comparison_vs_alt": "Unlike generic LMS platforms like Canvas, Coursebook is purpose-built as an interactive textbook specifically tailored for systems programming education.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "forks": 252,
+    "verdict": "An exceptional resource for university educators and self-taught developers looking to master systems programming through structured, battle-tested curricula.",
+    "use_cases": [
+      "Deploying a modern textbook and curriculum for a university-level systems programming course",
+      "Self-studying low-level C programming, memory management, and POSIX threads",
+      "Contributing community-driven exercises and fixes to systems programming modules"
+    ],
+    "pros": [
+      "Battle-tested curriculum originating from a top-tier computer science department",
+      "Deep focus on practical systems programming nuances often glossed over in standard textbooks",
+      "Fully open-source model allows for easy community contributions and institutional adaptation"
+    ],
+    "cons": [
+      "Niche curriculum focused primarily on introductory systems programming",
+      "Lacks the broad administrative ecosystem of commercial learning management systems"
+    ],
+    "install_command": "git clone https://github.com/cs341-illinois/coursebook.git"
+  },
+  {
+    "id": "ai-engineering-from-scratch",
+    "name": "AI Engineering From Scratch",
+    "tagline": "Master AI engineering by building LLM applications from the ground up",
+    "summary": "This comprehensive open-source repository offers a first-principles approach to learning AI engineering, taking developers from foundational concepts to production-ready deployments. It demystifies modern LLM stacks by building architectures like RAG, agents, and fine-tuning pipelines using clean, readable code.",
+    "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "github_url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "AI Agents",
+      "LLMs",
+      "Python",
+      "RAG",
+      "Machine Learning"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 61613,
+    "primary_alternative": "DeepLearning.AI",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "date_added": "2026-09-28",
+    "featured": false,
+    "forks": 10463,
+    "verdict": "An exceptional resource for software engineers looking to transition into AI development without relying on bloated abstractions. It provides invaluable architectural clarity through hands-on implementation.",
+    "key_features": [
+      {
+        "title": "First-Principles Approach",
+        "description": "Build core AI components from scratch rather than relying on heavy wrapper frameworks."
+      },
+      {
+        "title": "Production-Ready Blueprints",
+        "description": "Learn how to structure, test, and ship real-world LLM applications to production."
+      },
+      {
+        "title": "Comprehensive Architecture Guides",
+        "description": "Clear code implementations covering RAG systems, vector search, and custom AI agents."
+      }
+    ],
+    "use_cases": [
+      "Software engineers transitioning into AI engineering and looking for deep foundational understanding",
+      "Teams building custom retrieval-augmented generation (RAG) pipelines without black-box abstractions",
+      "Developers looking to understand the underlying mechanics of LLM orchestration and prompt engineering"
+    ],
+    "pros": [
+      "Zero hidden framework abstractions for absolute architectural transparency",
+      "Completely open-source and free to study, modify, and self-host",
+      "Bridges the gap between theoretical machine learning and practical software engineering"
+    ],
+    "cons": [
+      "Requires a solid baseline of Python programming and backend fundamentals",
+      "Rapidly evolving ecosystem means some cutting-edge methods require continuous manual updates"
+    ],
+    "target_audience": "Backend and software engineers who want to deeply understand how to build and ship production AI systems.",
+    "comparison_vs_alt": "Unlike video-heavy online courses like DeepLearning.AI, this repository provides pure, code-first implementations that you can immediately fork, adapt, and run locally.",
+    "install_command": "git clone https://github.com/rohitg00/ai-engineering-from-scratch.git"
+  },
+  {
+    "id": "real-time-solar-system",
+    "name": "Real-time Solar System",
+    "tagline": "Explore 526k asteroids and tracked satellites in real-time 3D",
+    "summary": "An interactive web-based 3D simulation mapping the solar system alongside hundreds of thousands of asteroids and active orbital satellites. It leverages modern web graphics to render complex astronomical and orbital data fluidly in the browser.",
+    "url": "https://space.bl2.net/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "3D",
+      "WebGL",
+      "Astronomy",
+      "Visualization",
+      "Data Viz"
+    ],
+    "pricing_model": "Free",
+    "stars": 166,
+    "primary_alternative": "NASA Eyes",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An impressive and visually stunning web application for astronomy enthusiasts and educators looking to visualize orbital mechanics without heavy desktop software.",
+    "key_features": [
+      {
+        "title": "Massive Asteroid Dataset",
+        "description": "Renders over 526,000 distinct asteroid trajectories in a unified 3D space."
+      },
+      {
+        "title": "Satellite Tracking",
+        "description": "Displays real-time positions of tracked artificial satellites orbiting Earth and beyond."
+      },
+      {
+        "title": "Interactive 3D Navigation",
+        "description": "Smooth camera controls allowing users to zoom from systemic views down to individual celestial bodies."
+      }
+    ],
+    "use_cases": [
+      "Educational demonstrations of orbital mechanics and space debris",
+      "Visualizing the scale and density of the asteroid belt relative to inner planets",
+      "Casual space exploration and astronomical observation"
+    ],
+    "pros": [
+      "Extremely high density of tracked objects rendered smoothly in browser",
+      "Instant access with no account creation or software installation required",
+      "Engaging user interface tailored for seamless spatial exploration"
+    ],
+    "cons": [
+      "Demands significant GPU resources for smooth 60fps rendering of half a million objects",
+      "Lacks deep scientific analysis tools or API access for research-grade telemetry"
+    ],
+    "target_audience": "Astronomy enthusiasts, educators, and students looking for an interactive visual map of the solar system.",
+    "comparison_vs_alt": "Unlike heavy institutional tools like NASA Eyes, this project offers an instantly accessible, lightweight web experience focused on sheer volume of tracked space objects.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "enigma-3d",
+    "name": "Enigma 3D",
+    "tagline": "An interactive, fully working 3D model of an Enigma machine",
+    "summary": "This project provides a browser-based, interactive 3D simulation of the historic Enigma cryptographic machine. It allows users to visually inspect and operate the rotors, plugboard, and lampboard to encrypt and decrypt messages with historical accuracy.",
+    "url": "https://enigma.design",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "3D",
+      "Cryptography",
+      "WebGL",
+      "Interactive",
+      "History"
+    ],
+    "pricing_model": "Free",
+    "stars": 48,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "A brilliantly crafted educational and historical web app that brings cryptography history to life through immersive 3D visualization.",
+    "key_features": [
+      {
+        "title": "Interactive 3D Simulation",
+        "description": "Rotate, inspect, and operate a fully rendered 3D Enigma machine directly in your browser."
+      },
+      {
+        "title": "Authentic Mechanics",
+        "description": "Simulates real rotor stepping, reflector configurations, and plugboard wiring permutations."
+      },
+      {
+        "title": "Message Encryption/Decryption",
+        "description": "Type messages and watch the lamps light up to trace the electrical path of historical encodings."
+      }
+    ],
+    "use_cases": [
+      "Teaching the history and mechanics of World War II cryptography",
+      "Exploring symmetric cipher concepts through hands-on interaction",
+      "Visualizing complex electromechanical gear and rotor behaviors"
+    ],
+    "pros": [
+      "Zero installation required with instant browser-based 3D rendering",
+      "High fidelity to the original electromechanical design of the Enigma",
+      "Engaging user experience suitable for enthusiasts and educators alike"
+    ],
+    "cons": [
+      "Limited to demonstration and educational use rather than practical modern security",
+      "Lacks advanced deep-dive historical text analysis tools found in dedicated crypto software"
+    ],
+    "target_audience": "Cryptogrpahy enthusiasts, history educators, and developers interested in interactive WebGL simulations.",
+    "comparison_vs_alt": "Unlike static diagrams or text-based crypto explainers, it provides an immersive, tactile 3D exploration of historical hardware.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "nsl",
+    "name": "NSL",
+    "tagline": "Run Windows applications seamlessly inside Linux environments",
+    "summary": "NSL brings the core convenience of Windows Subsystem for Linux (WSL) to the reverse ecosystem, enabling users to run native Windows binaries inside Linux distributions. It bridges operating system gaps by providing transparent execution layers for cross-platform workflows.",
+    "url": "https://frostyard.github.io/nsl/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "Linux",
+      "Windows",
+      "Virtualization",
+      "Emulation",
+      "CLI"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 103,
+    "primary_alternative": "Wine",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An intriguing reverse-WSL concept that appeals to developers and power users needing seamless Windows binary execution on Linux without heavy VMs.",
+    "key_features": [
+      {
+        "title": "Windows Binary Execution",
+        "description": "Run native Windows applications directly from your Linux command line interface."
+      },
+      {
+        "title": "Lightweight Architecture",
+        "description": "Avoids the heavy resource overhead of full hardware virtualization solutions."
+      },
+      {
+        "title": "Cross-Platform Workflow",
+        "description": "Bridges the gap for developers who must test or run Windows-only tools on Linux hosts."
+      }
+    ],
+    "use_cases": [
+      "Running legacy Windows-only internal CLI tools directly inside a Linux developer workstation",
+      "Testing Windows-compiled binaries within a Linux CI/CD build pipeline",
+      "Executing Windows utilities alongside native Linux environments without booting a full VM"
+    ],
+    "pros": [
+      "Provides a novel reverse-WSL capability previously unavailable in standard toolchains",
+      "Significantly lighter footprint than traditional hypervisor-based virtual machines",
+      "Open-source transparency allows deep customization for specialized workflows"
+    ],
+    "cons": [
+      "Early-stage project with potential compatibility gaps for complex Windows APIs",
+      "Steeper troubleshooting curve compared to mature solutions like Wine or full VMs"
+    ],
+    "target_audience": "Linux systems engineers and developers looking for a lightweight way to execute Windows binaries natively.",
+    "comparison_vs_alt": "Unlike traditional Wine setups that focus heavily on desktop applications and games, NSL targets a streamlined subsystem experience akin to how WSL operates in reverse.",
+    "install_command": "git clone https://github.com/frostyard/nsl.git",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "turbogpt",
+    "name": "TurboGPT",
+    "tagline": "Train a 22KiB transformer model in just 13 seconds",
+    "summary": "TurboGPT is a high-performance minimalist transformer training engine designed for extreme speed and educational experimentation. It strips away heavy framework overhead to achieve rapid training cycles on lightweight neural network architectures.",
+    "url": "https://github.com/lostmsu/TurboGPT",
+    "github_url": "https://github.com/lostmsu/TurboGPT",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Machine Learning",
+      "Transformers",
+      "Python",
+      "Neural Networks"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 45,
+    "primary_alternative": "PyTorch",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "An exceptional playground for researchers and students looking to deeply understand transformer training loops without the immense compute or overhead of mainstream frameworks.",
+    "key_features": [
+      {
+        "title": "Blazing Fast Training",
+        "description": "Achieve complete model training on tiny architectures in mere seconds."
+      },
+      {
+        "title": "Minimalist Footprint",
+        "description": "Features a lightweight codebase focusing strictly on essential transformer mechanics."
+      },
+      {
+        "title": "Zero Bloat Architecture",
+        "description": "Eliminates heavy abstraction layers for maximum transparency and speed."
+      }
+    ],
+    "use_cases": [
+      "Rapidly prototyping lightweight transformer mechanics for educational curricula",
+      "Experimenting with custom attention mechanisms and loss functions quickly",
+      "Benchmarking local CPU training efficiency for tiny language models"
+    ],
+    "pros": [
+      "Unmatched execution speed for tiny model iterations",
+      "Complete codebase transparency without deep framework magic",
+      "Extremely low barrier to entry for studying transformer internals"
+    ],
+    "cons": [
+      "Limited to very small model sizes and experimental datasets",
+      "Lacks the extensive ecosystem and hardware accelerators of PyTorch or TensorFlow"
+    ],
+    "target_audience": "Machine learning researchers, students, and educators wanting to inspect and run transformer training loops instantaneously.",
+    "comparison_vs_alt": "Unlike PyTorch which provides massive general-purpose deep learning abstractions, TurboGPT offers an ultra-focused, lightning-fast playground specifically tuned for tiny transformers.",
+    "install_command": "git clone https://github.com/lostmsu/TurboGPT.git",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "ledgesh",
+    "name": "Ledge.sh",
+    "tagline": "Runnable Markdown notes for modern developers and technical writers",
+    "summary": "Ledge.sh is an interactive note-taking platform that allows users to embed and execute code directly within standard Markdown documents. It bridges the gap between static documentation and live execution environments, solving the problem of outdated code snippets in notes.",
+    "url": "https://ledge.sh",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Markdown",
+      "Notes",
+      "Code Execution",
+      "Developer Tools",
+      "Documentation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 5,
+    "primary_alternative": "Notion",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "verdict": "An exciting lightweight utility for developers who want their technical notes and scratchpads to double as functional playgrounds without spinning up full notebooks.",
+    "key_features": [
+      {
+        "title": "Interactive Code Blocks",
+        "description": "Run snippets directly inside your Markdown files instantly."
+      },
+      {
+        "title": "Standard Markdown Format",
+        "description": "Keep your data portable and readable using plain text Markdown syntax."
+      },
+      {
+        "title": "Frictionless Sharing",
+        "description": "Publish and share runnable notes with your team or community with a single link."
+      }
+    ],
+    "use_cases": [
+      "Drafting runnable code snippets and API integration tests",
+      "Writing interactive developer documentation and technical guides",
+      "Maintaining a personal knowledge base of executable script snippets"
+    ],
+    "pros": [
+      "Eliminates the friction of copying code into external IDEs to test quick logic",
+      "Keeps technical documentation synchronized with live executable behavior",
+      "Clean, minimalist interface tailored specifically for developers"
+    ],
+    "cons": [
+      "Early-stage product with limited ecosystem integrations compared to mature giants",
+      "Relies on cloud execution sandboxes which may restrict heavy local environment access"
+    ],
+    "target_audience": "Software engineers, technical writers, and indie hackers who want their notes to be executable.",
+    "comparison_vs_alt": "Unlike Notion which treats code blocks as static text with syntax highlighting, Ledge.sh turns your notes into active playgrounds where code actually executes.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "jevstiller",
+    "name": "Jevstiller",
+    "tagline": "Distill frontier AI models locally with guaranteed disagreement bounds",
+    "summary": "Jevstiller is an innovative machine learning utility designed to distill larger language models into efficient local models while providing mathematical guarantees on the disagreement bound. It bridges the gap between high-performance frontier reasoning and cost-effective local deployment without sacrificing predictability.",
+    "url": "https://jevstiller.pages.dev/posts/the-guarantee/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "Machine Learning",
+      "Model Distillation",
+      "Local LLM",
+      "AI",
+      "Optimization"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 62,
+    "primary_alternative": "Unsloth",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "An intriguing tool for AI engineers seeking to safely compress large models into localized versions with measurable performance boundaries.",
+    "key_features": [
+      [
+        {
+          "title": "Disagreement Bounds",
+          "description": "Provides mathematical guarantees on how much the distilled local model diverges from the teacher model."
+        },
+        {
+          "title": "Local Model Distillation",
+          "description": "Enables efficient knowledge transfer from heavy frontier models into lightweight local equivalents."
+        },
+        {
+          "title": "Privacy-First Execution",
+          "description": "Run distillation pipelines entirely on your own infrastructure to protect sensitive training data."
+        }
+      ]
+    ],
+    "use_cases": [
+      "Compressing heavy cloud-based LLMs into fast, locally hosted variants for latency-critical apps",
+      "Ensuring predictable behavioral boundaries when migrating from proprietary models to open weights",
+      "Researching model compression techniques with formal safety or divergence guarantees"
+    ],
+    "pros": [
+      "Mathematical bounds on model disagreement reduce the risk of unexpected regression",
+      "Enables significant reduction in inference costs and latency via local deployment",
+      "Fully local execution ensures strict data privacy and eliminates third-party API dependencies"
+    ],
+    "cons": [
+      "Niche specialized tool requiring strong ML engineering background to configure effectively",
+      "Limited documentation and community ecosystem compared to mainstream fine-tuning libraries"
+    ],
+    "target_audience": "Machine learning engineers and researchers looking to optimize model deployment costs while maintaining strict behavioral predictability.",
+    "comparison_vs_alt": "Unlike standard fine-tuning or distillation frameworks like Unsloth, Jevstiller specifically emphasizes formal disagreement bounds to quantify performance divergence.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "bgp-shield",
+    "name": "BGP Shield",
+    "tagline": "A BGP-based blackhole system deployable in minutes",
+    "summary": "BGP Shield is a specialized network infrastructure tool designed to mitigate volumetric DDoS attacks by quickly dropping malicious traffic via BGP blackholing. It simplifies the notoriously complex configuration of upstream routing mitigations into an accessible, rapid-deployment package.",
+    "url": "https://setecastronomyinc.com/shield",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "security-devops",
+    "tags": [
+      "Networking",
+      "BGP",
+      "DDoS Mitigation",
+      "Infrastructure"
+    ],
+    "pricing_model": "Paid",
+    "stars": 2,
+    "primary_alternative": "Cloudflare Magic Transit",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "verdict": "An intriguing lightweight solution for self-hosters and smaller networks needing rapid BGP-based DDoS response without enterprise complexity.",
+    "key_features": [
+      {
+        "title": "Rapid BGP Blackholing",
+        "description": "Instantly announce blackhole routes to upstream providers to drop malicious traffic at scale."
+      },
+      {
+        "title": "Minutes-to-Deploy Setup",
+        "description": "Streamlines configuration steps that traditionally require extensive routing expertise."
+      },
+      {
+        "title": "Volumetric Attack Mitigation",
+        "description": "Protects infrastructure from large-scale floods by discarding traffic before it hits core servers."
+      }
+    ],
+    "use_cases": [
+      "Mitigating sudden UDP reflection or volumetric DDoS attacks on ASNs",
+      "Automating emergency traffic dropping during active network saturations",
+      "Protecting self-hosted enterprise infrastructure with native BGP capabilities"
+    ],
+    "pros": [
+      "Drastically reduces the deployment time for BGP blackhole infrastructure",
+      "Provides direct network-layer protection without relying on intermediate proxy services",
+      "Gives operators absolute control over traffic mitigation policies"
+    ],
+    "cons": [
+      "BGP blackholing drops all traffic to the target IP, which can act as a blunt instrument",
+      "Early-stage project with limited community testing compared to commercial scrubbing centers"
+    ],
+    "target_audience": "Network engineers, system administrators, and infrastructure operators managing their own ASNs.",
+    "comparison_vs_alt": "Unlike massive commercial cloud scrubbing centers like Cloudflare Magic Transit, BGP Shield offers a lightweight, direct alternative for operators who want control over their own routing tables.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "rsscal",
+    "name": "RSScal",
+    "tagline": "A social news aggregator, RSS tracker, and publishing platform",
+    "summary": "RSScal combines traditional RSS feed tracking with modern social news aggregation and publishing capabilities into a single platform. It bridges the gap between content consumption and creator publishing for indie developers and enthusiasts.",
+    "url": "https://rsscal.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "RSS",
+      "Feed Reader",
+      "Publishing Platform",
+      "News Aggregator"
+    ],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": "Feedly",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "verdict": "An interesting early-stage indie project that unifies RSS consumption with publishing, best suited for creators looking for an integrated blogging and feed curation experience.",
+    "key_features": [
+      {
+        "title": "RSS Feed Tracker",
+        "description": "Aggregate and organize your favorite RSS feeds in one clean dashboard."
+      },
+      {
+        "title": "Social News Aggregator",
+        "description": "Discover community-curated news stories and trending discussions."
+      },
+      {
+        "title": "Publishing Platform",
+        "description": "Publish your own content directly to the platform alongside your curated feeds."
+      }
+    ],
+    "use_cases": [
+      "Tracking technical blogs and indie maker updates in a single reader",
+      "Curating and sharing industry news feeds with a community",
+      "Publishing personal articles and newsletter-style content directly"
+    ],
+    "pros": [
+      "Combines reading and publishing workflows in one place",
+      "Lightweight and tailored for independent creators",
+      "Streamlined discovery of niche community news"
+    ],
+    "cons": [
+      "Very early-stage project with limited community ecosystem so far",
+      "Lacks advanced feed filtering and automation features found in enterprise readers"
+    ],
+    "target_audience": "Indie hackers, tech bloggers, and content curators looking for a unified reading and publishing workflow.",
+    "comparison_vs_alt": "Unlike Feedly which focuses strictly on enterprise-grade feed consumption, RSScal adds integrated publishing capabilities geared toward independent creators.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "hnwatch-videos-of-all-hacker-news-posts",
+    "name": "HN.watch – Videos of all Hacker News posts",
+    "tagline": "HN.watch – Videos of all Hacker News posts — newly launched project showcased by indie creators on Hacker News...",
+    "summary": "HN.watch – Videos of all Hacker News posts — newly launched project showcased by indie creators on Hacker News with 208 community upvotes.",
+    "url": "https://hn.watch/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [],
+    "pricing_model": "Free",
+    "stars": 208,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 81,
+    "verdict": "HN.watch – Videos of all Hacker News posts offers a streamlined developer-centric approach, making it an appealing option for teams valuing agility and low overhead.",
+    "key_features": [
+      {
+        "title": "Developer-First Architecture",
+        "description": "HN.watch – Videos of all Hacker News posts is built with modern developer workflows in mind, prioritizing low overhead and straightforward setup."
+      },
+      {
+        "title": "Extensible & Modular",
+        "description": "Easily adapts to existing toolchains and development environments with clean configuration interfaces."
+      }
+    ],
+    "use_cases": [
+      "Integrating HN.watch – Videos of all Hacker News posts into existing technical workflows for rapid prototyping",
+      "Streamlining day-to-day developer and engineering tasks",
+      "Reducing dependency on heavy commercial vendor suites"
+    ],
+    "pros": [
+      "Generous free tier with frictionless access",
+      "Cloud-ready deployment with zero local maintenance",
+      "Clean, lightweight interface designed for developer focus"
+    ],
+    "cons": [
+      "Hosted service relies on external cloud infrastructure",
+      "Active open-source project with evolving documentation"
+    ],
+    "target_audience": "Engineers, builders, and technical teams looking for high-efficiency software utilities.",
+    "comparison_vs_alt": null,
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "sezwhere",
+    "name": "Sezwhere",
+    "tagline": "Ask any document 'where does it say that?' with precise citations",
+    "summary": "Sezwhere is an intelligent document querying tool designed to instantly pinpoint exact source locations when answering user prompts. It eliminates the hallucination and opacity typical of standard RAG systems by anchoring every response to verifiable document coordinates.",
+    "url": "https://sezwhere.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "RAG",
+      "Document Search",
+      "NLP"
+    ],
+    "pricing_model": "Free",
+    "stars": 17,
+    "primary_alternative": "NotebookLM",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exceptionally focused document assistant that solves the verification problem in AI search, ideal for researchers and professionals dealing with dense text.",
+    "key_features": [
+      {
+        "title": "Precise Source Citations",
+        "description": "Directly highlights and references the exact paragraph or page where information is found."
+      },
+      {
+        "title": "Natural Language Querying",
+        "description": "Ask complex questions about your documents in plain English and receive instant answers."
+      },
+      {
+        "title": "Powered by Jev Engine",
+        "description": "Built on a custom backend designed for fast, accurate context retrieval across multiple file formats."
+      }
+    ],
+    "use_cases": [
+      "Auditing legal contracts and compliance documents for specific clauses",
+      "Quickly reviewing dense academic papers and technical whitepapers",
+      "Extracting specific data points from lengthy financial reports"
+    ],
+    "pros": [
+      "Drastically reduces hallucination by forcing explicit source attribution",
+      "Frictionless user experience with no mandatory signup required to test",
+      "Extremely fast query turnaround times for large documents"
+    ],
+    "cons": [
+      "Limited ecosystem integrations compared to enterprise knowledge bases",
+      "Early-stage indie project lacking advanced team collaboration features"
+    ],
+    "target_audience": "Researchers, legal professionals, and developers who need verifiable answers from unstructured documents without manual skimming.",
+    "comparison_vs_alt": "Unlike mainstream tools like NotebookLM, Sezwhere offers a lightweight, instantly accessible web interface tailored specifically around ruthless citation transparency.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "paste-7",
+    "name": "Paste 7",
+    "tagline": "Intelligent clipboard that knows what you're about to paste",
+    "summary": "Paste 7 is an advanced clipboard manager designed for macOS and iOS that organizes copied text, images, links, and code snippets into intelligent, searchable cards. It leverages modern UI paradigms and cloud sync to streamline workflows, ensuring your entire clipboard history is instantly accessible across all your Apple devices.",
+    "url": "https://www.producthunt.com/products/paste",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "macOS",
+      "Clipboard Manager",
+      "Productivity",
+      "iOS",
+      "Workflow"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Raycast Clipboard",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for power users and developers who manage high volumes of snippets across devices and require a gorgeous, native macOS interface.",
+    "key_features": [
+      {
+        "title": "Universal Clipboard History",
+        "description": "Seamlessly syncs your clipboard history across Mac, iPhone, and iPad via iCloud."
+      },
+      {
+        "title": "Smart Pinboards",
+        "description": "Organize frequently used snippets, templates, and links into dedicated persistent boards."
+      },
+      {
+        "title": "Format Stripping & Conversion",
+        "description": "Quickly paste text as plain text or convert formats on the fly with a single keystroke."
+      }
+    ],
+    "use_cases": [
+      "Managing multiple code snippets and deployment commands during software development",
+      "Organizing research materials, URLs, and image clippings for content creation",
+      "Quickly accessing frequently used email templates and personal details"
+    ],
+    "pros": [
+      "Polished, native macOS aesthetic that blends seamlessly into Apple's ecosystem",
+      "Robust search capabilities that filter by content type, source app, and date",
+      "End-to-end encryption ensures private clipboard items stay secure via iCloud"
+    ],
+    "cons": [
+      "Subscription pricing model may deter users looking for a one-time purchase",
+      "Exclusive to the Apple ecosystem with no native Windows or Linux support"
+    ],
+    "target_audience": "Mac and iOS power users, developers, and writers who want to optimize their daily text and media handling.",
+    "comparison_vs_alt": "Compared to Raycast or Alfred clipboard managers, Paste 7 offers a much richer visual card-based interface and dedicated mobile companion apps, though it lacks the command-runner extensibility of Raycast.",
+    "install_command": "brew install --cask paste",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "ricly",
+    "name": "Ricly",
+    "tagline": "Put your most recurring tools directly into the right-click menu",
+    "summary": "Ricly integrates your favorite daily developer and productivity tools right into your operating system's native right-click context menu. It eliminates context-switching and desktop clutter by bringing quick actions directly to where your cursor already is.",
+    "url": "https://www.producthunt.com/products/ricly",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Desktop",
+      "Workflow",
+      "Mac",
+      "Windows",
+      "Productivity"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Raycast",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "A clever productivity utility for power users who want to shave milliseconds off daily file operations and command execution.",
+    "key_features": [
+      {
+        "title": "Contextual Menu Integration",
+        "description": "Add custom shortcuts and actions directly to native OS right-click menus."
+      },
+      {
+        "title": "Quick Tool Triggering",
+        "description": "Launch frequently used apps, scripts, and commands instantly without opening a launcher."
+      },
+      {
+        "title": "Custom Actions",
+        "description": "Define personalized workflows and scripts tied to specific file types or folders."
+      }
+    ],
+    "use_cases": [
+      "Instantly formatting and optimizing images right from the desktop context menu",
+      "Pushing selected files to a specific git repository or cloud storage with one click",
+      "Running custom shell scripts on local files without opening a terminal window"
+    ],
+    "pros": [
+      "Significantly reduces mouse travel and context switching compared to launcher apps",
+      "Lightweight native integration that feels like part of the operating system",
+      "Streamlines repetitive file manipulation and developer asset processing tasks"
+    ],
+    "cons": [
+      "Context menus can become bloated if too many tools are added",
+      "Lacks the vast community plugin ecosystem of keyboard-first launchers like Raycast or Alfred"
+    ],
+    "target_audience": "Developers, designers, and power users looking to optimize file-centric workflows and reduce keystrokes.",
+    "comparison_vs_alt": "Unlike Raycast or Alfred which rely on global hotkeys and keyboard launchers, Ricly targets the mouse-driven context menu for direct file interactions.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "tagline": "Advanced AI assistant built for nuanced reasoning and code generation",
+    "summary": "Claude is Anthropic's flagship AI model family designed for sophisticated reasoning, complex problem-solving, and agentic workflows. It bridges the gap between human intent and machine execution with industry-leading code generation and safety guardrails.",
+    "url": "https://www.producthunt.com/products/claude",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "LLM",
+      "Code Generation",
+      "Natural Language Processing",
+      "AI Agents"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "ChatGPT",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An exceptional choice for developers and knowledge workers needing deep contextual understanding, rigorous coding assistance, and advanced reasoning capabilities.",
+    "key_features": [
+      {
+        "title": "Advanced Reasoning",
+        "description": "Excels at complex logical deductions, mathematical problem solving, and strategic planning."
+      },
+      {
+        "title": "Superior Code Generation",
+        "description": "Writes, refactors, and debugs complex codebases across a wide variety of programming languages."
+      },
+      {
+        "title": "Extended Context Window",
+        "description": "Processes massive documents and entire repositories simultaneously for contextual accuracy."
+      }
+    ],
+    "use_cases": [
+      "Refactoring legacy software architecture and debugging complex multi-file codebases",
+      "Synthesizing insights from extensive research papers and legal documents",
+      "Building automated workflows and prototyping full-stack web applications"
+    ],
+    "pros": [
+      "Unmatched nuance and depth in natural language understanding and instruction following",
+      "Industry-leading code generation quality with minimal hallucination rates",
+      "Robust constitutional AI safety framework reducing harmful or biased outputs"
+    ],
+    "cons": [
+      "Higher token cost compared to smaller open-weight models",
+      "API rate limits can occasionally constrain high-throughput enterprise pipelines"
+    ],
+    "target_audience": "Software engineers, researchers, and technical professionals requiring high-fidelity reasoning and coding support.",
+    "comparison_vs_alt": "Compared to ChatGPT, Claude often provides superior coding accuracy and a more natural, less robotic tone for complex analytical tasks.",
+    "install_command": "npm install @anthropic-ai/sdk",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "timeos",
+    "name": "TimeOS",
+    "tagline": "Meeting notetaker that installs and runs inside Claude Code",
+    "summary": "TimeOS integrates meeting intelligence directly into your terminal environment via Claude Code. It bridges the gap between spoken collaboration and text-based developer workflows by capturing context without leaving the command line.",
+    "url": "https://www.producthunt.com/products/timeos",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "Claude Code",
+      "AI Agents",
+      "CLI",
+      "Meeting Assistant"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Otter.ai",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An innovative workflow tool for developers who live inside terminal-based AI agents like Claude Code and want automated meeting summaries without context-switching.",
+    "key_features": [
+      {
+        "title": "Terminal Integration",
+        "description": "Installs and operates directly inside the Claude Code CLI environment."
+      },
+      {
+        "title": "Automated Notetaking",
+        "description": "Captures and summarizes meeting discussions into actionable engineering items."
+      },
+      {
+        "title": "Context Retrieval",
+        "description": "Fetches meeting insights on-demand while coding within your terminal."
+      }
+    ],
+    "use_cases": [
+      "Pulling architecture decisions from a product meeting directly into a Claude Code prompt",
+      "Generating coding task lists from daily standups without opening a browser",
+      "Reviewing past technical syncs while debugging inside the command line"
+    ],
+    "pros": [
+      "Zero context switching away from terminal and Claude Code",
+      "Tailored specifically for developer and engineering workflows",
+      "Seamless integration with command-line AI coding assistants"
+    ],
+    "cons": [
+      "Requires dependency on Claude Code environment",
+      "Niche audience compared to traditional browser-based meeting notetakers"
+    ],
+    "target_audience": "Software engineers and technical leads who use Claude Code and want integrated meeting notes in their terminal.",
+    "comparison_vs_alt": "Unlike mainstream tools like Otter.ai which live in browser tabs or calendar apps, TimeOS embeds meeting intelligence natively where developers already work.",
+    "install_command": "npm install -g timeos",
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "ooonai",
+    "name": "Ooon.ai",
+    "tagline": "AI employee that answers, books, and reminds clients",
+    "summary": "Ooon.ai is an intelligent AI employee designed to automate customer interactions by handling incoming calls, booking appointments, and sending reminders. It bridges the gap between businesses and clients, eliminating missed leads and manual scheduling overhead.",
+    "url": "https://www.producthunt.com/products/ooon-ai",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Customer Support",
+      "Automation",
+      "Scheduling"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Retell AI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An efficient turnkey solution for small businesses and service providers looking to offload routine client communication without hiring full-time staff.",
+    "key_features": [
+      {
+        "title": "Smart Call Answering",
+        "description": "Handles inbound phone calls naturally using advanced conversational AI."
+      },
+      {
+        "title": "Automated Booking",
+        "description": "Directly integrates with calendars to schedule appointments in real-time."
+      },
+      {
+        "title": "Client Reminders",
+        "description": "Sends proactive reminders to reduce no-shows and keep clients informed."
+      }
+    ],
+    "use_cases": [
+      "Automating after-hours reception and client inquiries for local businesses",
+      "Managing appointment scheduling and follow-ups for clinics or salons",
+      "Reducing administrative burden by instantly answering FAQs over the phone"
+    ],
+    "pros": [
+      "Significantly reduces missed client calls and lost revenue opportunities",
+      "Streamlines the scheduling workflow without manual calendar checks",
+      "Provides a human-like conversational experience for callers"
+    ],
+    "cons": [
+      "Limited customization for highly complex enterprise routing workflows",
+      "Relies on cloud infrastructure with no current self-hosting option"
+    ],
+    "target_audience": "Small business owners, service providers, and operations managers seeking to automate front-desk client communications.",
+    "comparison_vs_alt": "Unlike developer-focused voice APIs like Retell AI, Ooon.ai targets end-users with out-of-the-box readiness requiring zero coding.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "semosai-manager-agents",
+    "name": "Semos.ai Manager Agents",
+    "tagline": "AI agents purpose-built to supercharge modern engineering and project managers",
+    "summary": "Semos.ai Manager Agents are specialized AI assistants designed to automate administrative overhead, status tracking, and team coordination for managers. They integrate into existing workflows to streamline sprint planning, performance insights, and daily syncs without manual upkeep.",
+    "url": "https://www.producthunt.com/products/semos-ai-manager-agents",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Management",
+      "Productivity",
+      "Automation",
+      "Workflow"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Jira AI / Linear",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential workflow multiplier for engineering and product managers looking to reclaim hours lost to status updates and administrative coordination.",
+    "key_features": [
+      {
+        "title": "Automated Status Syncs",
+        "description": "Generates accurate progress reports by aggregating updates across development and communication tools."
+      },
+      {
+        "title": "Sprint Planning Assistant",
+        "description": "Helps scope tasks, estimate workloads, and flag potential bottlenecks before they stall the team."
+      },
+      {
+        "title": "Context-Aware Insights",
+        "description": "Provides data-driven recommendations on team bandwidth and project velocity."
+      }
+    ],
+    "use_cases": [
+      "Automating weekly executive status reports and team standup summaries",
+      "Assisting engineering managers with backlog grooming and capacity planning",
+      "Onboarding new team members by providing instant context on ongoing projects"
+    ],
+    "pros": [
+      "Purpose-built specifically for management workflows rather than generic chat",
+      "Reduces context switching between disparate project management tools",
+      "Saves hours of manual administrative work every week"
+    ],
+    "cons": [
+      "Relies heavily on team compliance in connected tools for accurate data",
+      "May require organizational buy-in for deep workflow integrations"
+    ],
+    "target_audience": "Engineering managers, project managers, and team leads striving to reduce administrative overhead and improve execution speed.",
+    "comparison_vs_alt": "Unlike standard issue trackers with basic AI bolted on, Semos.ai is designed from the ground up to act as an active management partner.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "codex-remote",
+    "name": "Codex Remote",
+    "tagline": "Run AI coding agents on your own cloud infrastructure",
+    "summary": "Codex Remote allows developers to deploy and run powerful AI coding assistants like Codex or Claude Code securely on dedicated cloud machines. It bridges the gap between local editor workflows and heavy remote compute environments, enabling seamless cloud-based software generation.",
+    "url": "https://www.producthunt.com/products/codex-remote",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "AI Agents",
+      "Cloud",
+      "Developer Tools",
+      "DevOps"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "GitHub Copilot Workspace",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for developers looking to offload heavy AI coding workloads from their local machines to robust cloud environments.",
+    "key_features": [
+      {
+        "title": "Cloud Execution",
+        "description": "Run AI coding agents seamlessly on dedicated remote infrastructure."
+      },
+      {
+        "title": "Secure Environment",
+        "description": "Isolate AI-generated code execution within your own controlled cloud machines."
+      },
+      {
+        "title": "Workflow Integration",
+        "description": "Connect your local development workflow directly to powerful remote compute."
+      }
+    ],
+    "use_cases": [
+      "Offloading resource-intensive AI code generation tasks to a remote cloud server",
+      "Running autonomous coding agents in a secure, isolated cloud environment",
+      "Scaling AI-assisted software development without straining local hardware resources"
+    ],
+    "pros": [
+      "Frees up local machine resources from heavy AI model execution",
+      "Provides complete control over the cloud environment and security boundaries",
+      "Enables persistent, always-on AI coding agents for ongoing repository tasks"
+    ],
+    "cons": [
+      "Requires manual configuration and management of cloud infrastructure",
+      "Incurs additional cloud hosting costs beyond the software itself"
+    ],
+    "target_audience": "Full-stack developers and engineering teams leveraging AI coding agents who need scalable remote compute.",
+    "comparison_vs_alt": "Unlike managed cloud coding workspaces that lock you into proprietary ecosystems, Codex Remote gives you total ownership over the underlying machine and execution environment.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "luci-desktop",
+    "name": "LUCI Desktop",
+    "tagline": "Let your AI agents remember what you've seen",
+    "summary": "LUCI Desktop is an intelligent context-capture tool that records and indexes your screen activity to give AI agents persistent visual memory. It bridges the gap between human workflow and autonomous agents by turning visual history into queryable context.",
+    "url": "https://www.producthunt.com/products/luci-desktop",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Screen Capture",
+      "Productivity",
+      "Context Memory"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Rewind.ai",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for developers and power users building custom workflows with multimodal AI agents that need continuous visual awareness.",
+    "key_features": [
+      {
+        "title": "Continuous Visual Memory",
+        "description": "Seamlessly captures and indexes your desktop activity to build a searchable timeline for AI agents."
+      },
+      {
+        "title": "Agent Context Integration",
+        "description": "Provides APIs and hooks to feed relevant visual history directly into your LLM-powered workflows."
+      },
+      {
+        "title": "Privacy-First Processing",
+        "description": "Designed to handle sensitive on-screen data securely with local filtering and management controls."
+      }
+    ],
+    "use_cases": [
+      "Feeding past browser sessions and research directly into coding agents",
+      "Debugging UI issues by letting agents review exact error states from your screen history",
+      "Automating repetitive multi-app workflows using continuous visual context"
+    ],
+    "pros": [
+      "Unlocks true multimodal awareness for local and cloud AI agents",
+      "Eliminates the tedious manual context-copying traditionally required for prompts",
+      "Streamlines complex multi-step workflows by preserving state across applications"
+    ],
+    "cons": [
+      "Continuous screen recording can impact local system performance and battery life",
+      "Privacy implications require careful auditing of what data is indexed and retained"
+    ],
+    "target_audience": "AI developers, engineers, and power users building autonomous agent workflows that require rich contextual awareness of desktop activity.",
+    "comparison_vs_alt": "Unlike consumer-facing memory tools like Rewind, LUCI Desktop is specifically engineered to feed structured visual context directly to developer-centric AI agents.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "iris",
+    "name": "Iris",
+    "tagline": "AI agents built for your company’s operations",
+    "summary": "Iris deploys specialized AI agents designed to automate complex, multi-step internal operations and workflows. It integrates deeply with existing enterprise tooling to execute administrative and operational tasks autonomously.",
+    "url": "https://www.producthunt.com/products/ihermes",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Operations",
+      "Automation",
+      "Workflow"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Zapier Central",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "Iris is a compelling solution for operations teams looking to offload repetitive workflows to autonomous AI agents, though deployment requires careful integration planning.",
+    "key_features": [
+      {
+        "title": "Autonomous Workflow Execution",
+        "description": "AI agents handle end-to-end operational processes without manual intervention."
+      },
+      {
+        "title": "Enterprise Tool Integration",
+        "description": "Connects seamlessly with internal databases, communication platforms, and SaaS tools."
+      },
+      {
+        "title": "Operation Monitoring",
+        "description": "Provides real-time dashboards to track agent performance and task completion rates."
+      }
+    ],
+    "use_cases": [
+      "Automating internal IT helpdesk ticket resolution and triage",
+      "Streamlining cross-departmental data synchronization and reporting",
+      "Managing routine employee onboarding tasks and provisioning"
+    ],
+    "pros": [
+      "Reduces manual overhead in core operational workflows",
+      "Customizable agents tailored to specific company processes",
+      "Centralized monitoring for autonomous task execution"
+    ],
+    "cons": [
+      "Requires significant setup and tool authorization",
+      "Limited transparency when complex agent logic encounters edge cases"
+    ],
+    "target_audience": "Operations managers and engineering leads looking to scale internal process automation using specialized AI agents.",
+    "comparison_vs_alt": "Unlike generic automation platforms like Zapier, Iris focuses specifically on autonomous multi-step operational decision-making rather than simple trigger-action hooks.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  },
+  {
+    "id": "supertake",
+    "name": "Supertake",
+    "tagline": "AI-powered platform that turns your investment ideas into reality",
+    "summary": "Supertake leverages artificial intelligence to analyze, validate, and transform raw investment concepts into actionable strategies. It bridges the gap between ideation and execution by automating deep market research and financial analysis.",
+    "url": "https://www.producthunt.com/products/supertake",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "Finance",
+      "Investments",
+      "Market Research"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Bloomberg Terminal",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "A valuable tool for retail investors and early-stage founders looking to quickly vet financial hypotheses using automated AI research.",
+    "key_features": [
+      {
+        "title": "AI Idea Validation",
+        "description": "Instantly analyze the viability of your investment thesis using automated market data."
+      },
+      {
+        "title": "Automated Research Reports",
+        "description": "Generate comprehensive financial and competitive analysis reports in minutes."
+      },
+      {
+        "title": "Strategy Modeling",
+        "description": "Build preliminary financial models and risk assessments guided by AI prompts."
+      }
+    ],
+    "use_cases": [
+      "Evaluating the potential ROI of a niche stock or crypto investment thesis",
+      "Drafting preliminary market research for startup pitch decks",
+      "Quickly screening macroeconomic trends against personal portfolio goals"
+    ],
+    "pros": [
+      "Significantly reduces the time required for initial due diligence",
+      "Transforms complex financial jargon and data into digestible insights",
+      "Intuitive conversational interface tailored for investment workflows"
+    ],
+    "cons": [
+      "AI-generated financial insights should always be cross-verified with official data",
+      "Lacks the real-time execution capabilities of a traditional brokerage"
+    ],
+    "target_audience": "Individual investors, retail traders, and startup founders seeking fast, AI-driven market intelligence.",
+    "comparison_vs_alt": "Unlike enterprise terminals like Bloomberg, Supertake offers an accessible, AI-native approach designed for individual decision-makers rather than institutional desks.",
+    "install_command": null,
+    "date_added": "2026-09-30",
+    "featured": false
+  }
+]
