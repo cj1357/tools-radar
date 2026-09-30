@@ -161,25 +161,55 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       .nav-brand {
         display: flex;
         align-items: center;
-        gap: 0.65rem;
-        font-size: 1.18rem;
-        font-weight: 800;
-        color: var(--text-primary);
+        gap: 0.75rem;
         text-decoration: none;
-        letter-spacing: -0.03em;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      .nav-brand-icon {
-        width: 30px;
-        height: 30px;
-        background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
-        border-radius: 9px;
+      .nav-brand:hover {
+        transform: translateY(-1px);
+      }
+
+      .nav-brand-logo {
+        width: 34px;
+        height: 34px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.95rem;
-        box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
         flex-shrink: 0;
+        position: relative;
+        filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+
+      .nav-brand:hover .nav-brand-logo {
+        filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.7));
+        transform: rotate(5deg);
+      }
+
+      .brand-radar-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .nav-brand-text {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+      }
+
+      .brand-text-tools {
+        color: #ffffff;
+      }
+
+      .brand-text-radar {
+        background: linear-gradient(135deg, #38bdf8 0%, #818cf8 60%, #c084fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       /* Desktop Nav Links */
@@ -686,9 +716,39 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
   <body>
     <header class="navbar">
       <div class="nav-container">
-        <a href="/" class="nav-brand">
-          <div class="nav-brand-icon">⚡</div>
-          <span>ToolsRadar</span>
+        <a href="/" class="nav-brand" aria-label="ToolsRadar Home">
+          <div class="nav-brand-logo">
+            <svg class="brand-radar-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="nav-bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#0f121d"/>
+                  <stop offset="100%" stop-color="#06080d"/>
+                </linearGradient>
+                <linearGradient id="nav-beam" x1="24" y1="24" x2="42" y2="10" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#818cf8" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="nav-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="1.8" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+              </defs>
+              <rect width="48" height="48" rx="12" fill="url(#nav-bg)"/>
+              <rect width="48" height="48" rx="12" stroke="rgba(56, 189, 248, 0.28)" stroke-width="1.2"/>
+              <line x1="24" y1="7" x2="24" y2="41" stroke="rgba(129, 140, 248, 0.16)" stroke-width="1" stroke-dasharray="2 2"/>
+              <line x1="7" y1="24" x2="41" y2="24" stroke="rgba(129, 140, 248, 0.16)" stroke-width="1" stroke-dasharray="2 2"/>
+              <circle cx="24" cy="24" r="17" stroke="rgba(129, 140, 248, 0.25)" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="11.5" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="6" stroke="rgba(56, 189, 248, 0.75)" stroke-width="1.4"/>
+              <path d="M 24 24 L 38 12 A 17 17 0 0 0 24 7 Z" fill="url(#nav-beam)"/>
+              <line x1="24" y1="24" x2="38" y2="12" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" filter="url(#nav-glow)"/>
+              <circle cx="24" cy="24" r="2.5" fill="#ffffff" filter="url(#nav-glow)"/>
+            </svg>
+          </div>
+          <span class="nav-brand-text">
+            <span class="brand-text-tools">Tools</span><span class="brand-text-radar">Radar</span>
+          </span>
         </a>
 
         <!-- Desktop Navigation Links -->
@@ -771,8 +831,20 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
     <footer class="footer">
       <div class="footer-container">
         <div>
-          <p style="font-weight: 600; color: #e4e4e7;">© {new Date().getFullYear()} ToolsRadar.dev — Curating the world's best new developer tools.</p>
-          <p style="margin-top: 0.35rem; color: #71717a; font-size: 0.82rem;">Automated daily crawling across GitHub Trending, Hacker News & Product Hunt.</p>
+          <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.5rem;">
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+              <rect width="48" height="48" rx="12" fill="#0c0e17" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="17" stroke="rgba(129, 140, 248, 0.25)" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="11.5" stroke="rgba(56, 189, 248, 0.45)" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="6" stroke="rgba(56, 189, 248, 0.75)" stroke-width="1.4"/>
+              <circle cx="24" cy="24" r="2.5" fill="#38bdf8"/>
+            </svg>
+            <span style="font-weight: 800; font-size: 1.1rem; letter-spacing: -0.03em;">
+              <span style="color: #ffffff;">Tools</span><span style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Radar</span>
+            </span>
+          </div>
+          <p style="font-weight: 500; color: #a1a1aa; font-size: 0.88rem;">© {new Date().getFullYear()} ToolsRadar — Curating the world's best new developer tools.</p>
+          <p style="margin-top: 0.25rem; color: #71717a; font-size: 0.82rem;">Automated daily crawling across GitHub Trending, Hacker News & Product Hunt.</p>
         </div>
         <div class="footer-links">
           <a href="/">All Tools</a>
