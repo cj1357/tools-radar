@@ -1,0 +1,1731 @@
+[
+  {
+    "id": "e2e",
+    "name": "E2E",
+    "tagline": "Next-generation end-to-end testing framework for web and mobile apps",
+    "summary": "E2E is a modern testing framework designed to streamline end-to-end test automation across both web and mobile environments. It addresses the flakiness and performance bottlenecks of legacy testing tools with a high-performance execution engine.",
+    "url": "https://github.com/tester-army/e2e",
+    "github_url": "https://github.com/tester-army/e2e",
+    "source": "github_trending",
+    "category": "testing-qa",
+    "tags": [
+      "Testing",
+      "E2E",
+      "Automation",
+      "TypeScript",
+      "Mobile"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3348,
+    "primary_alternative": "Cypress",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "verdict": "An exciting open-source contender for teams looking to unify their web and mobile test automation pipelines under a modern framework.",
+    "key_features": [
+      {
+        "title": "Unified Web & Mobile",
+        "description": "Run identical test suites across web browsers and mobile applications seamlessly."
+      },
+      {
+        "title": "High-Speed Execution",
+        "description": "Optimized core engine built to minimize test run times and reduce flake."
+      },
+      {
+        "title": "Modern Developer Experience",
+        "description": "Intuitive API design with native TypeScript support and rich debugging capabilities."
+      }
+    ],
+    "use_cases": [
+      "Automating cross-platform regression tests for a React Native app and its web counterpart",
+      "Integrating high-speed UI test suites into continuous integration pipelines",
+      "Debugging flaky browser interactions with advanced visual timelines"
+    ],
+    "pros": [
+      "Unified tooling for both web and mobile platforms reduces context switching",
+      "Open-source architecture allows complete customization and self-hosting",
+      "Faster execution times compared to legacy WebDriver-based solutions"
+    ],
+    "cons": [
+      "Smaller community ecosystem and plugin library compared to Cypress or Playwright",
+      "Potential edge cases in mobile device emulation require active monitoring"
+    ],
+    "target_audience": "Full-stack engineers and QA automation leads seeking a unified cross-platform testing solution.",
+    "comparison_vs_alt": "Unlike Cypress which historically focused primarily on the web, E2E offers native cross-platform support for both web and mobile ecosystems with an open-source permissive license.",
+    "install_command": "npm install -g @tester-army/e2e",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "impeccable",
+    "name": "Impeccable",
+    "tagline": "The design language that makes your AI harness better at design",
+    "summary": "Impeccable is a specialized design system and prompt language engineered to guide LLMs and AI coding assistants toward producing visually stunning, professional UI components. It solves the common problem of generic, unpolished AI-generated interfaces by injecting strict design rules and aesthetic patterns directly into the prompt context.",
+    "url": "https://github.com/pbakaus/impeccable",
+    "github_url": "https://github.com/pbakaus/impeccable",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "Design System",
+      "AI Prompts",
+      "UI/UX",
+      "Generative AI",
+      "Frontend"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 76443,
+    "primary_alternative": "V0 by Vercel",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential toolkit for developers who use AI code assistants and want to bridge the gap between functional code and elite visual design without manually tweaking CSS.",
+    "key_features": [
+      {
+        "title": "Design Language Injection",
+        "description": "Provides structured design tokens and rules that drastically improve AI output aesthetics."
+      },
+      {
+        "title": "Framework Agnostic",
+        "description": "Works seamlessly across React, Vue, Svelte, or vanilla CSS setups."
+      },
+      {
+        "title": "Curated Aesthetic Rules",
+        "description": "Encodes best practices for typography, spacing, color theory, and micro-interactions into promptable guidelines."
+      }
+    ],
+    "use_cases": [
+      "Generating high-fidelity SaaS dashboard UIs using AI coding assistants",
+      "Standardizing the visual output of multi-agent coding workflows",
+      "Rapid prototyping production-ready frontends without relying on generic bootstrap templates"
+    ],
+    "pros": [
+      "Dramatically reduces the generic 'AI look' in generated user interfaces",
+      "Improves typography and spacing consistency across disparate AI-generated components",
+      "Completely open-source and customizable for team-specific design tokens"
+    ],
+    "cons": [
+      "Requires proper prompt integration into your existing AI workflow or IDE extension",
+      "Results can still vary depending on the underlying foundational LLM's capability"
+    ],
+    "target_audience": "Frontend developers and product engineers who frequently use LLMs to build user interfaces and want superior visual quality.",
+    "comparison_vs_alt": "Unlike closed cloud UI generators like v0, Impeccable gives you an open design language you can run locally and integrate directly into any AI assistant or codebase.",
+    "install_command": "git clone https://github.com/pbakaus/impeccable.git",
+    "date_added": "2026-10-03",
+    "featured": false,
+    "forks": 4525
+  },
+  {
+    "id": "marketingskills",
+    "name": "Marketingskills",
+    "tagline": "Expert marketing skills for Claude Code and autonomous AI agents",
+    "summary": "Marketingskills equips AI coding assistants and agents with professional-grade frameworks for CRO, copywriting, SEO, analytics, and growth engineering. It bridges the gap between raw code generation and market-ready product positioning directly inside your development workflow.",
+    "url": "https://github.com/coreyhaines31/marketingskills",
+    "github_url": "https://github.com/coreyhaines31/marketingskills",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Claude",
+      "Marketing",
+      "SEO",
+      "Growth"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 53168,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 97,
+    "verdict": "An essential toolkit for solo founders and developers using Claude Code who want to build products that not only work technically but actually acquire and convert users.",
+    "key_features": [
+      {
+        "title": "CRO Frameworks",
+        "description": "Embedded conversion rate optimization guidelines to maximize user onboarding flow efficiency."
+      },
+      {
+        "title": "SEO & Copywriting",
+        "description": "Specialized prompts and heuristics for generating high-ranking search content and compelling user copy."
+      },
+      {
+        "title": "Growth Engineering",
+        "description": "Tactical frameworks to bake viral loops and analytics instrumentation straight into your codebase."
+      }
+    ],
+    "use_cases": [
+      "Optimizing landing page conversion rates directly via Claude Code prompts",
+      "Generating SEO-optimized blog outlines and meta tags during feature development",
+      "Structuring user analytics tracking plans alongside frontend code implementation"
+    ],
+    "pros": [
+      "Brings elite domain expertise into the developer's local AI terminal workflow",
+      "Completely open-source and customizable for specific brand voices and niches",
+      "Saves context switching between coding tasks and marketing research"
+    ],
+    "cons": [
+      "Relies entirely on the capabilities of underlying AI models like Claude Code",
+      "Output quality depends on how well-prompted the overarching agent context is"
+    ],
+    "target_audience": "Indie hackers, full-stack developers, and growth engineers using Claude Code to build and launch software products.",
+    "comparison_vs_alt": "Unlike generic prompt libraries, Marketingskills is specifically structured as executable domain logic for AI coding assistants.",
+    "install_command": "git clone https://github.com/coreyhaines31/marketingskills.git",
+    "date_added": "2026-10-03",
+    "featured": false,
+    "forks": 7901
+  },
+  {
+    "id": "ponytail",
+    "name": "Ponytail",
+    "tagline": "Makes your AI agent think like the laziest senior dev in the room.",
+    "summary": "Ponytail configures AI coding agents to prioritize minimal code changes, zero-boilerplate solutions, and reusing existing codebase patterns over writing new lines. It prevents LLMs from over-engineering features by enforcing a philosophy that the best code is the code you never wrote.",
+    "url": "https://github.com/DietrichGebert/ponytail",
+    "github_url": "https://github.com/DietrichGebert/ponytail",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "LLM",
+      "Developer Productivity",
+      "Code Generation",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 155077,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential prompt-engineering and agentic framework extension for developers tired of LLMs generating bloated, over-engineered codebases. It is a must-have for keeping AI-assisted codebases lean and maintainable.",
+    "key_features": [
+      {
+        "title": "Anti-Bloat Prompting",
+        "description": "System prompts and constraints that actively discourage LLMs from writing unnecessary abstractions."
+      },
+      {
+        "title": "Existing Codebase Prioritization",
+        "description": "Forces the AI agent to thoroughly inspect and reuse existing utilities before creating new files."
+      },
+      {
+        "title": "Lazy Senior Dev Persona",
+        "description": "Simulates the pragmatic, shortcut-loving mindset of an experienced engineer who values shipping fast with minimal surface area."
+      }
+    ],
+    "use_cases": [
+      "Preventing AI coding assistants from generating hundreds of lines of boilerplate for a simple bug fix",
+      "Refactoring bloated repositories without letting LLMs introduce complex new architectural patterns",
+      "Streamlining daily pull requests by enforcing strict minimalism on AI-generated code changes"
+    ],
+    "pros": [
+      "Drastically reduces codebase bloat caused by enthusiastic LLM code generation",
+      "Saves review time by enforcing pragmatic and concise code solutions",
+      "Easily integrates into existing AI agent workflows and custom instructions"
+    ],
+    "cons": [
+      "May occasionally lead to overly terse code that requires minor human readability improvements",
+      "Requires careful tuning if you actually need complex boilerplate generated for new microservices"
+    ],
+    "target_audience": "Software engineers and tech leads who use AI coding assistants daily and want to curb codebase bloat.",
+    "comparison_vs_alt": "Unlike Cursor or GitHub Copilot which default to maximizing code output, Ponytail injects a specialized behavioral constraint layer that aggressively minimizes code volume.",
+    "install_command": "git clone https://github.com/DietrichGebert/ponytail.git",
+    "date_added": "2026-10-01",
+    "featured": false,
+    "forks": 8253
+  },
+  {
+    "id": "text-to-cad",
+    "name": "Text To CAD",
+    "tagline": "Give your AI agent CAD superpowers",
+    "summary": "Text To CAD is an open-source library that bridges generative AI with computer-aided design, enabling language models to programmatically generate precise 3D models. It solves the complexity of parametric modeling by translating natural language prompts into executable CAD scripts.",
+    "url": "https://github.com/earthtojake/text-to-cad",
+    "github_url": "https://github.com/earthtojake/text-to-cad",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "CAD",
+      "TypeScript",
+      "3D Modeling",
+      "Generative AI"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 16952,
+    "primary_alternative": "Autodesk Fusion 360",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "verdict": "An essential toolkit for developers building autonomous engineering agents that need to output real-world physical designs.",
+    "key_features": [
+      {
+        "title": "Natural Language to CAD",
+        "description": "Converts plain text descriptions directly into valid parametric 3D models."
+      },
+      {
+        "title": "Agent Integration",
+        "description": "Seamlessly plugs into popular AI agent frameworks to extend their functional output."
+      },
+      {
+        "title": "Programmatic Design",
+        "description": "Generates clean, editable code rather than black-box mesh files."
+      }
+    ],
+    "use_cases": [
+      "Generating rapid functional prototypes for 3D printing via conversational prompts",
+      "Building automated parametric part generation pipelines for manufacturing workflows",
+      "Empowering custom AI engineering assistants to construct mechanical components"
+    ],
+    "pros": [
+      "Bridges the gap between LLM reasoning and physical manufacturing formats",
+      "Fully open-source codebase allowing deep customization and local execution",
+      "Outputs editable code instead of static meshes for easy human refinement"
+    ],
+    "cons": [
+      "Reliant on underlying LLM capability for complex geometric reasoning",
+      "Limited to parametric modeling scopes supported by the target CAD engine"
+    ],
+    "target_audience": "AI engineers and hardware developers looking to integrate generative capabilities into mechanical design workflows.",
+    "comparison_vs_alt": "Unlike proprietary enterprise CAD suites, Text To CAD provides an open, programmable bridge specifically designed for AI agent integration and automation.",
+    "install_command": "npm install text-to-cad",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "agent-reach",
+    "name": "Agent Reach",
+    "tagline": "Give your AI agent eyes to see the entire internet via one CLI",
+    "summary": "Agent Reach enables AI agents to read and search across major platforms like Twitter, Reddit, YouTube, and GitHub through a unified command-line interface. It eliminates high API costs by scraping and formatting platform data directly for LLM consumption.",
+    "url": "https://github.com/Panniantong/Agent-Reach",
+    "github_url": "https://github.com/Panniantong/Agent-Reach",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "CLI",
+      "Web Scraping",
+      "Open Source",
+      "Automation"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 91071,
+    "primary_alternative": "Apify",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential open-source utility for developers building autonomous agents that need real-time, multi-platform web data without incurring hefty third-party API fees.",
+    "key_features": [
+      {
+        "title": "Unified CLI Access",
+        "description": "Query and extract content from diverse social and technical platforms using a single command interface."
+      },
+      {
+        "title": "Zero API Fees",
+        "description": "Bypass expensive official developer APIs by directly parsing and structuring web data for LLMs."
+      },
+      {
+        "title": "Multi-Platform Support",
+        "description": "Native scraping capabilities spanning Twitter, Reddit, YouTube, GitHub, Bilibili, and XiaoHongShu."
+      }
+    ],
+    "use_cases": [
+      "Feeding real-time social sentiment data into market analysis AI agents",
+      "Automating technical research by querying GitHub and Reddit threads directly from terminal workflows",
+      "Collecting cross-platform video and post transcripts for LLM-driven content generation pipelines"
+    ],
+    "pros": [
+      "Massive cost savings by completely eliminating platform-specific API subscription fees",
+      "Streamlined integration into existing developer CLI workflows and agent loops",
+      "Covers both Western and Eastern dominant social platforms out of the box"
+    ],
+    "cons": [
+      "Vulnerable to sudden web layout changes and bot-mitigation countermeasures by target platforms",
+      "Lacks the enterprise SLA and reliability guarantees of official paid platform APIs"
+    ],
+    "target_audience": "AI engineers and developers building autonomous agents that require live data ingestion from social and developer networks.",
+    "comparison_vs_alt": "Unlike managed scraping services like Apify that charge usage-based fees, Agent Reach is a completely free, self-hosted open-source alternative tailored specifically for AI agent data feeds.",
+    "install_command": "git clone https://github.com/Panniantong/Agent-Reach.git",
+    "date_added": "2026-10-03",
+    "featured": false,
+    "forks": 7917
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "tagline": "Developer-first error tracking and performance monitoring",
+    "summary": "Sentry is an open-source error tracking and performance monitoring platform that helps developers identify, triage, and resolve production issues in real time. It aggregates application crashes and bottlenecks across the entire stack, providing deep context and stack traces to drastically reduce debugging time.",
+    "url": "https://github.com/getsentry/sentry",
+    "github_url": "https://github.com/getsentry/sentry",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "Python",
+      "JavaScript",
+      "Error Tracking",
+      "Performance Monitoring",
+      "Open Source"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 45419,
+    "primary_alternative": "Datadog",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "verdict": "An indispensable standard for modern software engineering teams wanting proactive error detection and end-to-end tracing. Its comprehensive SDK support and self-hostable nature make it a top-tier choice for any production stack.",
+    "key_features": [
+      {
+        "title": "Real-time Error Tracking",
+        "description": "Automatically capture unhandled exceptions and crashes with full stack traces and context."
+      },
+      {
+        "title": "Application Performance Monitoring",
+        "description": "Trace transactions across microservices to isolate latency bottlenecks and slow database queries."
+      },
+      {
+        "title": "Release Health Tracking",
+        "description": "Monitor crash-free user sessions and deployment health directly linked to your Git commits."
+      }
+    ],
+    "use_cases": [
+      "Debugging complex async front-end exceptions in single-page applications",
+      "Tracing HTTP request bottlenecks across distributed backend microservices",
+      "Setting up automated alert routing for critical production outages"
+    ],
+    "pros": [
+      "Extensive multi-language SDK ecosystem covering almost every modern tech stack",
+      "Powerful event filtering, grouping, and custom tagging capabilities",
+      "Available as a fully self-hosted open-source deployment for strict data privacy requirements"
+    ],
+    "cons": [
+      "Self-hosting the full distributed architecture at scale requires significant operational overhead",
+      "Cloud tier pricing can escalate rapidly with high-volume log and transaction ingestion"
+    ],
+    "target_audience": "Software engineers and DevOps teams looking for deep visibility into production application health and performance.",
+    "comparison_vs_alt": "Unlike Datadog's heavy all-in-one infrastructure monitoring suite, Sentry focuses intensely on application code errors and performance, offering a more developer-centric workflow and a viable self-hosted open-source edition.",
+    "install_command": "docker run --rm -it sentry/sentry",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "openmontage",
+    "name": "OpenMontage",
+    "tagline": "World's first open-source agentic video production system",
+    "summary": "OpenMontage is an open-source agentic video production system featuring 12 pipelines, 100+ tools, and 700+ skill files. It transforms AI coding assistants into complete, automated video production studios.",
+    "url": "https://github.com/calesthio/OpenMontage",
+    "github_url": "https://github.com/calesthio/OpenMontage",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Video Production",
+      "Open Source",
+      "Automation",
+      "Workflow"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 63331,
+    "primary_alternative": "Runway Gen-2",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "verdict": "An exceptional tool for developers and creators wanting to programmatically orchestrate complex video production workflows using AI agents.",
+    "key_features": [
+      {
+        "title": "12 Production Pipelines",
+        "description": "Pre-configured workflows handling everything from scriptwriting to final video rendering."
+      },
+      {
+        "title": "100+ Specialized Tools",
+        "description": "Extensive toolkit designed for media processing, asset generation, and editing automation."
+      },
+      {
+        "title": "700+ Skill Files",
+        "description": "Deep domain knowledge embedded into agent skill files for professional-grade video output."
+      }
+    ],
+    "use_cases": [
+      "Automating YouTube channel video creation pipelines from a single prompt",
+      "Generating batch marketing videos with dynamic asset sourcing and editing",
+      "Integrating programmatic video rendering directly into CI/CD or content management systems"
+    ],
+    "pros": [
+      "Unprecedented depth with 700+ domain-specific agent skill files",
+      "Fully open-source with complete self-hosting and pipeline customization",
+      "Transforms standard AI coding assistants into multi-modal media studios"
+    ],
+    "cons": [
+      "Steep learning curve due to the massive number of tools and pipelines",
+      "Heavy compute requirements for running complex local video rendering tasks"
+    ],
+    "target_audience": "AI engineers, technical content creators, and developers building automated video generation platforms.",
+    "comparison_vs_alt": "Unlike proprietary cloud video generators like Runway, OpenMontage offers complete architectural control, self-hosting, and customizable multi-agent pipelines.",
+    "install_command": "git clone https://github.com/calesthio/OpenMontage.git",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "t3code",
+    "name": "T3Code",
+    "tagline": "Next-generation developer tooling for modern web engineering",
+    "summary": "T3Code is a streamlined, opinionated coding environment engineered by Theo Browne's T3 stack team to accelerate full-stack web application development. It bridges the gap between complex enterprise IDEs and rapid prototyping frameworks by offering zero-config setups and optimal modern defaults.",
+    "url": "https://github.com/pingdotgg/t3code",
+    "github_url": "https://github.com/pingdotgg/t3code",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "TypeScript",
+      "Web Development",
+      "IDE",
+      "Full-Stack",
+      "Productivity"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 25247,
+    "primary_alternative": "VS Code",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An exceptional choice for developers bought into the modern TypeScript ecosystem who want a frictionless, high-performance coding setup out of the box.",
+    "key_features": [
+      {
+        "title": "Zero-Config Setup",
+        "description": "Get an optimized development environment running instantly without tedious extension management."
+      },
+      {
+        "title": "Modern Stack Integration",
+        "description": "First-class support for TypeScript, Tailwind CSS, tRPC, and other T3-adjacent technologies."
+      },
+      {
+        "title": "Lightning Fast",
+        "description": "Built for performance with minimal bloat to keep resource consumption low during intense coding sessions."
+      }
+    ],
+    "use_cases": [
+      "Rapidly prototyping full-stack SaaS applications with modern TypeScript frameworks",
+      "Standardizing development environments across a modern web engineering team",
+      "Building and shipping high-performance web products with zero configuration overhead"
+    ],
+    "pros": [
+      "Curated specifically for modern full-stack TypeScript workflows",
+      "Eliminates decision fatigue with pre-configured best practices",
+      "Extremely lightweight compared to traditional heavy IDEs"
+    ],
+    "cons": [
+      "Opinionated structure may clash with developers preferring custom configurations",
+      "Ecosystem is newer and has fewer third-party extensions than VS Code"
+    ],
+    "target_audience": "Full-stack TypeScript developers and modern web engineers looking for a streamlined, opinionated coding workspace.",
+    "comparison_vs_alt": "Unlike standard VS Code which requires extensive plugin curation and configuration, T3Code provides an out-of-the-box environment optimized specifically for contemporary web stacks.",
+    "install_command": "npx t3code@latest",
+    "date_added": "2026-10-04",
+    "featured": false,
+    "forks": 6449
+  },
+  {
+    "id": "caddy",
+    "name": "Caddy",
+    "tagline": "Fast, extensible multi-platform web server with automatic HTTPS",
+    "summary": "Caddy is a powerful modern web server written in Go that radically simplifies infrastructure by provisioning and renewing TLS certificates automatically via Let's Encrypt. Its intuitive Caddyfile configuration and extensible module architecture make it a robust drop-in replacement for Nginx in both simple and complex deployments.",
+    "url": "https://github.com/caddyserver/caddy",
+    "github_url": "https://github.com/caddyserver/caddy",
+    "source": "github_trending",
+    "category": "security-devops",
+    "tags": [
+      "Go",
+      "Web Server",
+      "HTTPS",
+      "Reverse Proxy",
+      "DevOps"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 76632,
+    "primary_alternative": "Nginx",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "verdict": "Caddy is the premier web server and reverse proxy for developers who want robust performance coupled with zero-touch SSL certificate management. It eliminates configuration bloat and the endless hassle of cron-based certbot renewals.",
+    "key_features": [
+      {
+        "title": "Automatic HTTPS",
+        "description": "Obtains and renews TLS certificates automatically via ACME issuers like Let's Encrypt out of the box."
+      },
+      {
+        "title": "Human-Friendly Config",
+        "description": "Replaces complex directive syntax with the concise, readable Caddyfile configuration format."
+      },
+      {
+        "title": "Extensible Module System",
+        "description": "Built natively in Go with a modular plugin architecture that makes adding custom handlers straightforward."
+      }
+    ],
+    "use_cases": [
+      "Deploying self-hosted applications with instant, secure SSL endpoints",
+      "Serving as a dynamic reverse proxy and load balancer for microservice architectures",
+      "Automating local development domains with trusted local TLS certificates"
+    ],
+    "pros": [
+      "Zero-config automatic HTTPS eliminates manual certificate lifecycle maintenance",
+      "Written in memory-safe Go with excellent raw concurrency performance",
+      "Easily extensible via plugins compiled directly into the binary"
+    ],
+    "cons": [
+      "Smaller ecosystem of third-party modules compared to legacy giants like Nginx",
+      "Debugging complex routing logic can occasionally be tricky with the concise Caddyfile syntax"
+    ],
+    "target_audience": "Backend engineers, DevOps professionals, and system administrators looking for a secure, low-maintenance web server and reverse proxy.",
+    "comparison_vs_alt": "Unlike Nginx, which requires manual integration with Certbot for SSL management, Caddy handles HTTPS natively out of the box with zero external dependencies.",
+    "install_command": "sudo apt install -debian-keyring debian-archive-keyring apt-transport-https && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "glashütte-trash-clock",
+    "name": "Glashütte Trash Clock",
+    "tagline": "A working 30-minute mechanical pendulum clock built entirely from trash",
+    "summary": "Glashütte Trash Clock is a whimsical, ingenious engineering project that constructs a functional 30-minute pendulum clock using discarded household items and found objects. It showcases creative mechanical problem-solving and upcycling, turning literal garbage into a precise timing mechanism.",
+    "url": "https://niklasroy.com/gtc/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Hardware",
+      "Maker",
+      "Mechanics",
+      "DIY",
+      "Upcycling"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 176,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An absolute delight for hardware hackers and maker enthusiasts looking for a creative weekend mechanical challenge. It highlights the beauty of raw mechanical prototyping using unconventional materials.",
+    "key_features": [
+      [
+        {
+          "title": "Found-Object Escapement",
+          "description": "Utilizes unconventional household trash to form a working mechanical escapement mechanism."
+        },
+        {
+          "title": "30-Minute Cycle",
+          "description": "Precisely calibrated pendulum and gear train engineered to track half-hour intervals."
+        },
+        {
+          "title": "Zero-Cost Prototyping",
+          "description": "Built exclusively from discarded items, proving that high-concept engineering requires zero budget."
+        }
+      ]
+    ],
+    "use_cases": [
+      [
+        "Building a creative conversation piece for an office or workshop",
+        "Teaching mechanical physics and escapement principles using low-cost materials",
+        "Exploring hardware prototyping and upcycling as a maker hobby"
+      ]
+    ],
+    "pros": [
+      [
+        "Incredible display of resourceful mechanical engineering",
+        "Completely free to build using readily available household waste",
+        "Inspiring project documentation by an indie creator"
+      ]
+    ],
+    "cons": [
+      [
+        "Limited to 30-minute operational intervals before manual reset",
+        "High calibration effort required due to the unpredictable nature of trash materials"
+      ]
+    ],
+    "target_audience": "Hardware hackers, maker enthusiasts, and physics hobbyists who love creative mechanical DIY projects.",
+    "comparison_vs_alt": "Unlike standard commercial clocks, this project trades high-precision industrial manufacturing for raw maker creativity and sustainable upcycling.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "ramen",
+    "name": "Ramen",
+    "tagline": "Self-hosted multi-zone MCP server for Kubernetes",
+    "summary": "Ramen is a self-hosted Model Context Protocol (MCP) server built with Rust and Python designed specifically for Kubernetes multi-zone orchestration. It bridges LLM context protocols with cluster infrastructure to enable secure, decentralized AI-driven operations.",
+    "url": "https://github.com/bkraad47/ramen",
+    "github_url": "https://github.com/bkraad47/ramen",
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "Kubernetes",
+      "MCP",
+      "Rust",
+      "Python",
+      "Infrastructure"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exciting early-stage project for platform engineers experimenting with LLM agents controlling cluster infrastructure safely across zones.",
+    "key_features": [
+      {
+        "title": "Multi-Zone Kubernetes Support",
+        "description": "Orchestrate and query resources across multiple availability zones seamlessly."
+      },
+      {
+        "title": "Hybrid Rust & Python Stack",
+        "description": "Combines Rust's high-performance core with Python's ecosystem flexibility."
+      },
+      {
+        "title": "Model Context Protocol Ready",
+        "description": "Exposes standard MCP endpoints for AI agents to interact with cluster state."
+      }
+    ],
+    "use_cases": [
+      "Querying Kubernetes cluster health and resource allocation using LLM chat interfaces",
+      "Automating multi-zone failover workflows via AI agent orchestration",
+      "Managing secure self-hosted infrastructure operations without third-party SaaS middle-men"
+    ],
+    "pros": [
+      "High performance and memory safety guaranteed by the Rust core",
+      "Fully self-hosted architecture ensures complete data privacy and control",
+      "Native support for the emerging Model Context Protocol standard"
+    ],
+    "cons": [
+      "Very early stage project with a small community footprint",
+      "Requires deep understanding of both Kubernetes and MCP standards to operate effectively"
+    ],
+    "target_audience": "Platform engineers, DevOps specialists, and developers building self-hosted AI infrastructure for Kubernetes.",
+    "comparison_vs_alt": "Unlike managed proprietary AI operations platforms, Ramen gives teams complete open-source control and air-gapped security over their cluster context.",
+    "install_command": "git clone https://github.com/bkraad47/ramen.git",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "scm",
+    "name": "SCM",
+    "tagline": "AI search for every photo and video frame on macOS",
+    "summary": "SCM brings intelligent, local semantic search to your entire personal media library by indexing every photo and video frame on macOS. It solves the pain point of finding buried visual memories by utilizing local AI models for fast, privacy-preserving queries without sending data to the cloud.",
+    "url": "https://github.com/allenv0/SCM",
+    "github_url": "https://github.com/allenv0/SCM",
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "macOS",
+      "AI Search",
+      "Computer Vision",
+      "Privacy"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 146,
+    "primary_alternative": "Apple Photos Spotlight Search",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An exceptional tool for power users and creators looking to unlock deep semantic search across local visual archives without compromising privacy.",
+    "key_features": [
+      {
+        "title": "Frame-Level Video Search",
+        "description": "Search deep inside video files down to the exact individual frame using natural language queries."
+      },
+      {
+        "title": "Local AI Processing",
+        "description": "Indexes and embeds all media locally on macOS to ensure complete data privacy."
+      },
+      {
+        "title": "Lightning Fast Retrieval",
+        "description": "Leverages optimized vector search architecture for instant results across massive libraries."
+      }
+    ],
+    "use_cases": [
+      "Finding specific background objects or actions buried inside hours of unedited video footage",
+      "Searching personal photo collections using conceptual descriptions rather than filenames or dates",
+      "Content creators indexing b-roll footage locally for rapid asset retrieval"
+    ],
+    "pros": [
+      "100% local execution ensures complete privacy with no cloud subscription fees",
+      "Performs semantic search across video frames, going beyond standard photo metadata",
+      "Lightweight open-source architecture tailored specifically for Apple Silicon and macOS"
+    ],
+    "cons": [
+      "Requires significant local compute resources and storage for embedding generation during initial indexing",
+      "Ecosystem is currently limited strictly to macOS users"
+    ],
+    "target_audience": "macOS power users, video editors, and privacy-conscious individuals with massive local media collections.",
+    "comparison_vs_alt": "Unlike Apple Photos' built-in search which is often black-boxed and limited, SCM provides a transparent, customizable open-source alternative capable of deep video frame indexing.",
+    "install_command": "git clone https://github.com/allenv0/SCM.git",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "build-with-python",
+    "name": "Build with Python",
+    "tagline": "Learn Python programming by writing code that generates visual art",
+    "summary": "Build with Python is an interactive beginner course that teaches core programming concepts through visual graphics and drawing exercises. It bridges the gap between abstract syntax and immediate visual feedback, keeping learners engaged through creative coding.",
+    "url": "https://scimigo.com/en/learn/build-with-python/01-draw-with-python",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Python",
+      "Education",
+      "Beginner",
+      "Visual Arts"
+    ],
+    "pricing_model": "Free",
+    "stars": 30,
+    "primary_alternative": "Codecademy",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "An engaging entry-level resource for absolute beginners who learn better visually than through traditional console-based tutorials.",
+    "key_features": [
+      {
+        "title": "Visual Feedback Loop",
+        "description": "See your code instantly transform into graphical drawings and shapes."
+      },
+      {
+        "title": "Beginner-Friendly Curriculum",
+        "description": "Step-by-step lessons designed to introduce fundamental programming concepts smoothly."
+      },
+      {
+        "title": "Interactive Exercises",
+        "description": "Hands-on coding challenges that combine logic with artistic expression."
+      }
+    ],
+    "use_cases": [
+      "Teaching children or absolute beginners their first lines of Python code",
+      "Transitioning from visual block-based programming to text-based languages",
+      "Creating algorithmic art and patterns using basic loops and functions"
+    ],
+    "pros": [
+      "Immediate visual gratification reinforces coding logic effectively",
+      "Low friction entry point with no complex environment setup required",
+      "Fosters creativity alongside technical problem-solving skills"
+    ],
+    "cons": [
+      "Limited depth for intermediate or advanced software engineers",
+      "Lacks the comprehensive enterprise career tracks found on major platforms"
+    ],
+    "target_audience": "Absolute beginners, educators, and hobbyists looking for a creative introduction to Python programming.",
+    "comparison_vs_alt": "Unlike massive commercial learning platforms that focus heavily on syntax drills or backend logic, this course prioritizes creative visual outputs to maintain learner motivation.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "hypercmd",
+    "name": "HyperCMD",
+    "tagline": "Build rich CLI applications using plain HTML and web standards",
+    "summary": "HyperCMD is an innovative framework that allows developers to author command-line interface applications using standard HTML. By leveraging familiar web markup for terminal UIs, it bridges the gap between web development ergonomics and native terminal tooling.",
+    "url": "https://github.com/fusor-rs/hypercmd",
+    "github_url": "https://github.com/fusor-rs/hypercmd",
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "CLI",
+      "HTML",
+      "Terminal",
+      "Rust",
+      "UI"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3,
+    "primary_alternative": "Inquirer.js",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "A fascinating experimental tool for frontend developers looking to build terminal utilities without learning low-level TUI libraries. It stands out for repurposing web standards for command-line interfaces.",
+    "key_features": [
+      {
+        "title": "HTML-based TUI",
+        "description": "Structure your command-line interface layouts using standard HTML elements."
+      },
+      {
+        "title": "Terminal Rendering",
+        "description": "Translates web markup dynamically into responsive terminal user interfaces."
+      },
+      {
+        "title": "Web Standards Integration",
+        "description": "Leverage familiar paradigms from browser-based development inside the terminal."
+      }
+    ],
+    "use_cases": [
+      "Building interactive terminal dashboards using HTML and CSS-like styling",
+      "Rapidly prototyping CLI tools without configuring complex TUI frameworks",
+      "Allowing frontend engineers to build internal developer command-line utilities"
+    ],
+    "pros": [
+      "Dramatically lowers the barrier to entry for building rich terminal interfaces",
+      "Uses familiar HTML semantics instead of complex low-level layout primitives",
+      "Open-source codebase with high architectural flexibility"
+    ],
+    "cons": [
+      "Early-stage project with a very small community and limited production battle-testing",
+      "Performance overhead compared to native Rust TUI libraries like Ratatui"
+    ],
+    "target_audience": "Frontend developers and tool builders wanting to create terminal applications using web tech.",
+    "comparison_vs_alt": "Unlike JavaScript-based CLI prompt libraries such as Inquirer or Clack, HyperCMD completely reimagines terminal layout construction through the lens of HTML.",
+    "install_command": "cargo install hypercmd",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "thoreau-basic",
+    "name": "Thoreau BASIC",
+    "tagline": "A modern reimagining of BASIC for the modern web era",
+    "summary": "Thoreau BASIC reimagines the classic programming language as if it had evolved continuously alongside modern software demands. It provides a nostaligic yet capable environment for building modern applications with extreme simplicity.",
+    "url": "https://thoreaubasic.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "BASIC",
+      "Interpreter",
+      "Retro",
+      "Programming Language"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 92,
+    "primary_alternative": "Python",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "An intriguing nostalgic experiment that appeals to retro-computing enthusiasts and developers looking for ultra-simple scripting paradigms.",
+    "key_features": [
+      {
+        "title": "Modern BASIC Interpreter",
+        "description": "Executes classic-style syntax with modern runtime performance and capabilities."
+      },
+      {
+        "title": "Zero-Config Setup",
+        "description": "Get up and running instantly without complex build chains or package managers."
+      },
+      {
+        "title": "Retro-Futuristic DX",
+        "description": "Combines the simplicity of 80s programming with contemporary language constructs."
+      }
+    ],
+    "use_cases": [
+      "Building lightweight educational scripts to teach programming concepts",
+      "Creating retro-styled text games and interactive fiction",
+      "Rapid prototyping of simple logic without heavy tooling"
+    ],
+    "pros": [
+      "Extremely low barrier to entry for beginners and hobbyists",
+      "Clean, nostalgic syntax reminiscent of early home computers",
+      "Lightweight runtime footprint with zero heavy dependencies"
+    ],
+    "cons": [
+      "Lacks the vast ecosystem and libraries of modern mainstream languages",
+      "Not suitable for large-scale enterprise or high-concurrency systems"
+    ],
+    "target_audience": "Retro computing enthusiasts, educators, and hobbyist developers looking for nostalgic simplicity.",
+    "comparison_vs_alt": "Unlike Python or modern scripting languages designed for heavy data science and web apps, Thoreau BASIC focuses purely on the nostalgic joy and simplicity of vintage BASIC computing.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "pi-pod",
+    "name": "Pi pod",
+    "tagline": "Run your pi coding agent in sandboxes on your own server",
+    "summary": "Pi pod provides a secure self-hosted execution environment for running AI coding agents safely isolated within sandboxes. It bridges the gap between autonomous code generation and production server security by giving developers full control over their agent runtimes.",
+    "url": "https://pipod.dev/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Sandboxing",
+      "Docker",
+      "Self-Hosted",
+      "Developer Tools"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 114,
+    "primary_alternative": "E2B",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An essential utility for developers building or deploying autonomous coding agents who refuse to compromise on data privacy or infrastructure security.",
+    "key_features": [
+      {
+        "title": "Isolated Sandboxing",
+        "description": "Execute AI-generated code inside secure, ephemeral sandbox containers."
+      },
+      {
+        "title": "Self-Hosted Control",
+        "description": "Run the entire orchestration stack directly on your own hardware or private cloud."
+      },
+      {
+        "title": "Coding Agent Integration",
+        "description": "Seamlessly hook up pi and other autonomous coding agents for hands-free execution."
+      }
+    ],
+    "use_cases": [
+      "Running untrusted AI-generated code loops without risking host machine compromise",
+      "Deploying private autonomous coding assistants within an enterprise intranet",
+      "Testing and benchmarking agentic software engineering workflows locally"
+    ],
+    "pros": [
+      "Full data sovereignty and local infrastructure control compared to managed cloud sandboxes",
+      "Mitigates the inherent security risks of running autonomous shell-executing AI agents",
+      "Lightweight and purpose-built for indie creators and developers working with coding agents"
+    ],
+    "cons": [
+      "Requires manual provisioning and management of your own server infrastructure",
+      "Less out-of-the-box global edge distribution than commercial managed alternatives"
+    ],
+    "target_audience": "AI engineers, indie developers, and security-conscious teams building or utilizing autonomous coding agents.",
+    "comparison_vs_alt": "Unlike managed cloud sandbox providers like E2B, Pi pod allows you to completely own your sandbox infrastructure on your own hardware for maximum privacy.",
+    "install_command": "docker run -d -p 8080:8080 pipod/pipod",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "xxwikijs",
+    "name": "xxWikiJS",
+    "tagline": "A knowledge base from your docs that answers with verified citations",
+    "summary": "xxWikiJS turns documentation repositories into an interactive knowledge base that provides direct answers backed by verifiable citations. It solves the problem of hallucination and lost context in large documentation sets by linking AI responses directly to source lines.",
+    "url": "https://gmaterni.github.io/wikijs/wikijs.html",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "Knowledge Base",
+      "Documentation",
+      "RAG",
+      "Citations",
+      "AI Search"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2,
+    "primary_alternative": "GitBook",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An emerging tool for teams seeking trustworthy, citation-backed AI answers from their internal documentation. It stands out by prioritizing source transparency over black-box generation.",
+    "key_features": [
+      {
+        "title": "Verified Citations",
+        "description": "Every AI-generated answer includes direct references to the underlying documentation source."
+      },
+      {
+        "title": "Documentation Ingestion",
+        "description": "Seamlessly imports and indexes existing Markdown and documentation repositories."
+      },
+      {
+        "title": "Contextual Retrieval",
+        "description": "Uses advanced semantic search to surface the exact passages needed to answer user queries."
+      }
+    ],
+    "use_cases": [
+      "Building an internal engineering knowledge base that answers developer queries accurately",
+      "Creating a customer-facing support portal that cites specific user manual pages",
+      "Querying sprawling product documentation without manually hunting for pages"
+    ],
+    "pros": [
+      "Eliminates guesswork with strict citation-backed responses",
+      "Bridges the gap between raw documentation files and conversational interfaces",
+      "Lightweight and developer-friendly setup for custom knowledge bases"
+    ],
+    "cons": [
+      "Early-stage project with limited community ecosystem and integrations",
+      "May require manual curation of source docs for optimal retrieval quality"
+    ],
+    "target_audience": "Software engineers, technical writers, and support teams looking to build reliable RAG search over documentation.",
+    "comparison_vs_alt": "Unlike traditional documentation hosts like GitBook that rely on manual searching, xxWikiJS provides an AI-first conversational interface with strict source attribution.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "pasriscv",
+    "name": "PasRISCV",
+    "tagline": "An in-game RISC-V emulator capable of booting Linux inside a space game",
+    "summary": "PasRISCV is an innovative embedded RISC-V emulator integrated directly into an indie space game, allowing players to boot and interact with a full Linux operating system in-engine. It pushes the boundaries of programmable in-game computing environments by bridging gaming simulation with real computer architecture execution.",
+    "url": "https://againstallodds.games/blog/2026/10/03/our-risc-v-emulator-pasriscv/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "RISC-V",
+      "Emulator",
+      "Linux",
+      "Game Development",
+      "Architecture"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 89,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "A fascinating technical showcase for systems programmers and indie game devs interested in programmable virtual hardware.",
+    "key_features": [
+      {
+        "title": "Embedded RISC-V Core",
+        "description": "Custom RISC-V instruction set architecture implementation tailored for game engine integration."
+      },
+      {
+        "title": "Linux Boot Capability",
+        "description": "Fully capable of booting real Linux distributions within the game's simulation loop."
+      },
+      {
+        "title": "In-Game Programmability",
+        "description": "Enables players to write and execute real code or scripts that interact directly with the game world."
+      }
+    ],
+    "use_cases": [
+      "Building programmable in-game computers and terminals inside a space exploration game",
+      "Educational tool for demonstrating computer architecture and operating system booting",
+      "Creating complex automated engineering challenges within a sci-fi gaming narrative"
+    ],
+    "pros": [
+      "Unprecedented depth for in-game mechanics and player engineering",
+      "Brings real-world systems architecture concepts directly into a gaming environment",
+      "Creative integration of an open instruction set architecture"
+    ],
+    "cons": [
+      "Niche application scoped specifically to a game project rather than a general-purpose hypervisor",
+      "Performance overhead of emulating hardware inside a game simulation loop"
+    ],
+    "target_audience": "Indie game developers, systems programmers, and enthusiasts fascinated by virtual machines and computer architecture.",
+    "comparison_vs_alt": "Unlike standard virtual machines or cloud containers, PasRISCV embeds the execution environment directly into an interactive gaming world.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "tpmlsm",
+    "name": "tpmlsm",
+    "tagline": "An eBPF kernel guard for vTPM access control",
+    "summary": "tpmlsm is a security tool leveraging eBPF to monitor and restrict access to virtual Trusted Platform Modules (vTPMs) at the kernel level. It addresses the challenge of securing cloud-native workloads by enforcing strict isolation and access policies for sensitive cryptographic hardware states.",
+    "url": "https://github.com/bschaatsbergen/tpmlsm",
+    "github_url": "https://github.com/bschaatsbergen/tpmlsm",
+    "source": "hackernews",
+    "category": "security-devops",
+    "tags": [
+      "eBPF",
+      "vTPM",
+      "Linux Kernel",
+      "Security",
+      "Go"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 5,
+    "primary_alternative": "SELinux policies",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An innovative security utility for platform engineers looking to harden virtualized environments using modern kernel-space observability.",
+    "key_features": [
+      {
+        "title": "Kernel-Level Monitoring",
+        "description": "Intercepts and evaluates vTPM access requests using eBPF LSM (Linux Security Modules)."
+      },
+      {
+        "title": "Granular Access Control",
+        "description": "Enforces fine-grained policies to determine which processes can interact with the vTPM."
+      },
+      {
+        "title": "Low Overhead",
+        "description": "Runs efficiently inside the Linux kernel without adding significant latency to IO operations."
+      }
+    ],
+    "use_cases": [
+      "Hardening multi-tenant Kubernetes clusters against unauthorized vTPM access",
+      "Auditing containerized workloads that attempt to utilize cryptographic hardware",
+      "Implementing zero-trust security postures for virtualized infrastructure"
+    ],
+    "pros": [
+      "Leverages modern eBPF LSM for high-performance, safe kernel-space intervention",
+      "Avoids the complexity and performance penalties of traditional kernel modules",
+      "Provides deep visibility into containerized interactions with host cryptographic devices"
+    ],
+    "cons": [
+      "Requires a relatively modern Linux kernel supporting eBPF LSM",
+      "Early-stage project with a niche scope and small community"
+    ],
+    "target_audience": "DevSecOps engineers and infrastructure security specialists hardening Linux and cloud-native environments.",
+    "comparison_vs_alt": "Unlike static SELinux policies, tpmlsm utilizes eBPF to dynamically inspect and govern vTPM calls with greater flexibility and lower configuration friction.",
+    "install_command": "git clone https://github.com/bschaatsbergen/tpmlsm.git",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "rival-workshop",
+    "name": "Rival Workshop",
+    "tagline": "A bookshelf app to manage every skill your agents read",
+    "summary": "Rival Workshop is a specialized library management system designed specifically for organizing, versioning, and deploying skills to AI agents. It solves the fragmentation of agent knowledge bases by providing a centralized registry to curate, test, and monitor agent capabilities.",
+    "url": "https://www.producthunt.com/products/rival-workshop",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Knowledge Base",
+      "Skill Management",
+      "Workflow"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "LangChain Hub",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential organizational tool for developers scaling multi-agent architectures who need granular control over agent capabilities.",
+    "key_features": [
+      {
+        "title": "Agent Skill Registry",
+        "description": "Centralized repository to store, version, and organize every capability your AI agents utilize."
+      },
+      {
+        "title": "Skill Testing Sandbox",
+        "description": "Interactive environment to evaluate agent skill efficacy before deploying them to production."
+      },
+      {
+        "title": "Dependency Mapping",
+        "description": "Visualizes how different agent skills and system prompts interact and inherit logic."
+      }
+    ],
+    "use_cases": [
+      "Managing a growing catalog of specialized tools and prompts across multiple enterprise AI agents",
+      "Versioning agentic workflows to ensure deterministic behavior during model updates",
+      "Sharing and auditing agent capabilities across cross-functional engineering teams"
+    ],
+    "pros": [
+      "Dedicated focus on agent skill lifecycle management rather than generic prompt storage",
+      "Streamlines the debugging process when agent behavior degrades due to prompt drift",
+      "Improves team collaboration around agentic workflows with centralized sharing"
+    ],
+    "cons": [
+      "Niche utility focused exclusively on agent skill management rather than end-to-end orchestration",
+      "Early-stage product with an evolving ecosystem of integrations"
+    ],
+    "target_audience": "AI engineers and developers building complex multi-agent systems who need rigorous organization for agent capabilities.",
+    "comparison_vs_alt": "Unlike generic prompt hubs, Rival Workshop treats agent capabilities like a modular library with dedicated dependency tracking and testing loops.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "tinyfolder",
+    "name": "TinyFolder",
+    "tagline": "Customizable, beautiful app folders for your Mac Dock",
+    "summary": "TinyFolder brings customized, aesthetic app organization directly to the macOS Dock, solving the clutter of managing multiple applications. It provides a lightweight desktop utility that lets users group, theme, and launch apps efficiently without bloating system resources.",
+    "url": "https://www.producthunt.com/products/tinyfolder",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "macOS",
+      "Desktop",
+      "Utility",
+      "Design",
+      "Productivity"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "DockShelf",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An essential utility for macOS power users and minimalists looking to keep their Dock organized with style. It stands out by blending native performance with sleek aesthetic customization.",
+    "key_features": [
+      {
+        "title": "Custom Dock Folders",
+        "description": "Group related applications into clean, neatly organized folders right on your macOS Dock."
+      },
+      {
+        "title": "Personalized Themes",
+        "description": "Customize icon styles, layouts, and folder aesthetics to match your macOS desktop setup."
+      },
+      {
+        "title": "Lightning Fast Launch",
+        "description": "Access your grouped apps instantly with optimized performance and minimal resource overhead."
+      }
+    ],
+    "use_cases": [
+      "Organizing development tools, IDEs, and terminal apps into a single cohesive Dock folder",
+      "Grouping creative software like Photoshop, Figma, and Premiere for quick access",
+      "Decluttering a crowded laptop screen for presentation or focused work modes"
+    ],
+    "pros": [
+      "Significantly reduces macOS Dock clutter compared to native handling",
+      "High level of visual customization for design-conscious users",
+      "Lightweight native execution with negligible battery and memory impact"
+    ],
+    "cons": [
+      "Limited to macOS ecosystem only",
+      "Paid software when macOS offers basic native folder grouping in the Dock"
+    ],
+    "target_audience": "Mac power users, designers, and developers who want a cleaner, highly customized desktop workflow.",
+    "comparison_vs_alt": "Unlike heavy-weight window managers or complex alternative docks like DockShelf, TinyFolder focuses strictly on streamlining native Dock folders with superior aesthetics.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "pass-designer",
+    "name": "Pass Designer",
+    "tagline": "Design Apple Wallet passes and see the real card",
+    "summary": "Pass Designer is a specialized utility that allows developers and designers to visually create and preview Apple Wallet passes in real-time. It eliminates the tedious guesswork of writing raw JSON and configuring certificates by providing an intuitive graphical interface for pass customization.",
+    "url": "https://www.producthunt.com/products/apple",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "design-ui",
+    "tags": [
+      "Apple Wallet",
+      "UI Design",
+      "Passbook",
+      "Developer Tools"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "PassKit",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential time-saver for teams issuing boarding passes, loyalty cards, or event tickets who want to bypass complex Apple Wallet JSON specifications.",
+    "key_features": [
+      {
+        "title": "Real-Time Preview",
+        "description": "See exact renderings of your Apple Wallet pass as you modify fields, colors, and graphics."
+      },
+      {
+        "title": "Visual Layout Editor",
+        "description": "Easily configure primary, secondary, and auxiliary fields without manually editing raw JSON."
+      },
+      {
+        "title": "Asset Management",
+        "description": "Quickly upload and scale icons, logos, and background images according to Apple's strict guidelines."
+      }
+    ],
+    "use_cases": [
+      "Designing digital loyalty and reward cards for retail applications",
+      "Generating custom boarding passes and event tickets for customer workflows",
+      "Prototyping Apple Wallet integration assets for product presentations"
+    ],
+    "pros": [
+      "Drastically reduces development time spent debugging raw Apple Wallet pass structures",
+      "Provides pixel-accurate previews matching the native iOS wallet experience",
+      "Simplifies asset sizing and field mapping for developers unfamiliar with passbook specs"
+    ],
+    "cons": [
+      "Focused exclusively on Apple Wallet, lacking direct Google Wallet support",
+      "Cloud-dependent web interface rather than a local open-source utility"
+    ],
+    "target_audience": "Frontend developers, product designers, and marketers building native Apple Wallet integration workflows.",
+    "comparison_vs_alt": "Unlike enterprise-heavy platforms like PassKit, Pass Designer offers a lighter, design-first approach specifically tailored for quick pass prototyping.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "poddle",
+    "name": "Poddle",
+    "tagline": "Swing your phone, play pickleball on any computer!",
+    "summary": "Poddle turns your smartphone into a motion controller, allowing you to play pickleball directly on any computer browser. It bridges mobile motion sensors with desktop gaming to deliver an interactive sports experience without expensive VR hardware.",
+    "url": "https://www.producthunt.com/products/poddle-3",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Motion Tracking",
+      "Gaming",
+      "WebSockets",
+      "Mobile",
+      "Interactive"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Nintendo Switch Sports",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "A fun and innovative web-based experiment that showcases the power of smartphone sensor APIs for casual gaming. Perfect for quick office breaks or casual browser-based entertainment.",
+    "key_features": [
+      [
+        {
+          "title": "Smartphone Motion Controller",
+          "description": "Uses your phone's built-in gyroscope and accelerometer to track swings in real-time."
+        },
+        {
+          "title": "Cross-Device Syncing",
+          "description": "Instantly connects your mobile controller to any desktop browser via a simple QR code scan."
+        },
+        {
+          "title": "Zero Installation Required",
+          "description": "Runs entirely in the web browser without needing heavy game engine downloads or plugins."
+        }
+      ]
+    ],
+    "use_cases": [
+      "Quick team-building or stress-relief gaming sessions during office breaks",
+      "Casual web gaming parties with friends using existing smartphones",
+      "Demonstrating mobile sensor capabilities in modern browser applications"
+    ],
+    "pros": [
+      [
+        "Zero friction setup via browser and QR code pairing",
+        "Leverages hardware most users already own (smartphone and PC)",
+        "Lightweight web-based architecture with no app store downloads needed"
+      ]
+    ],
+    "cons": [
+      [
+        "Dependent on stable network latency for real-time motion response",
+        "Limited gameplay depth compared to dedicated console sports titles"
+      ]
+    ],
+    "target_audience": "Casual gamers and office workers looking for a quick, interactive browser-based physical game.",
+    "comparison_vs_alt": "Unlike Nintendo Switch Sports which requires expensive dedicated hardware and controllers, Poddle lets you play instantly using the smartphone and computer you already own.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "cursor-remote-lite",
+    "name": "Cursor Remote Lite",
+    "tagline": "Control your desktop Cursor AI code editor right from your mobile device",
+    "summary": "Cursor Remote Lite bridges the gap between desktop coding and mobile mobility by enabling seamless remote control of your Cursor instance. It solves the problem of being away from your workstation while needing to manage, review, or trigger AI coding workflows on the go.",
+    "url": "https://www.producthunt.com/products/cursor-remote-lite",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "AI",
+      "Mobile",
+      "Developer Tools",
+      "Remote"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "VS Code Remote",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for developers deeply reliant on Cursor who need lightweight mobile oversight without setting up complex SSH tunnels.",
+    "key_features": [
+      {
+        "title": "Mobile Code Monitoring",
+        "description": "Keep an eye on your ongoing Cursor AI sessions and code generations directly from your phone."
+      },
+      {
+        "title": "Remote Actions",
+        "description": "Trigger commands and manage your active workspace remotely without sitting at your physical desk."
+      },
+      {
+        "title": "Lightweight Companion",
+        "description": "Designed for speed and efficiency, focusing purely on remote accessibility for Cursor users."
+      }
+    ],
+    "use_cases": [
+      "Checking long-running AI code refactoring tasks while away from your desk",
+      "Reviewing and approving Cursor agent outputs during a commute",
+      "Quickly checking project status and logs from a mobile phone"
+    ],
+    "pros": [
+      "Brings powerful desktop AI coding workflows directly to mobile form factors",
+      "Eliminates the friction of configuring complex remote desktop solutions",
+      "Ideal companion for developers who are constantly away from their primary workstation"
+    ],
+    "cons": [
+      "Limited to monitoring and remote control rather than full-fledged mobile coding",
+      "Requires your host computer to remain powered on and connected"
+    ],
+    "target_audience": "Software engineers and indie hackers who use Cursor and need mobile visibility into their coding environments.",
+    "comparison_vs_alt": "Unlike heavy remote desktop apps or complex SSH setups, Cursor Remote Lite is purpose-built for the Cursor ecosystem, offering a streamlined mobile interface.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "octridev",
+    "name": "Octri.dev",
+    "tagline": "Generate customizable Docs, SDKs, MCP server, and monitoring",
+    "summary": "Octri.dev streamlines developer experience by automatically generating beautiful documentation, client SDKs, Model Context Protocol (MCP) servers, and monitoring endpoints from API specifications. It solves the fragmentation of API tooling by providing an all-in-one ecosystem builder for modern backend services.",
+    "url": "https://www.producthunt.com/products/octri",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "API Docs",
+      "SDK Generator",
+      "MCP",
+      "Monitoring",
+      "Developer Experience"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "ReadMe",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential productivity multiplier for API-first engineering teams looking to instantly bootstrap developer portals and AI agent integrations. It bridges the gap between raw endpoints and production-ready ecosystem tools with minimal overhead.",
+    "key_features": [
+      {
+        "title": "Automated Docs Generation",
+        "description": "Instantly create interactive, highly customizable API documentation from your backend schemas."
+      },
+      {
+        "title": "Multi-language SDKs",
+        "description": "Generate robust, type-safe client software development kits across multiple programming languages."
+      },
+      {
+        "title": "MCP Server Integration",
+        "description": "Easily expose your APIs as Model Context Protocol servers to seamlessly integrate with AI tools."
+      }
+    ],
+    "use_cases": [
+      "Bootstrapping a complete public developer portal and SDK suite for a newly launched SaaS API",
+      "Exposing proprietary backend capabilities as an MCP server for internal or external AI assistants",
+      "Monitoring API usage, performance, and client integration health from a centralized dashboard"
+    ],
+    "pros": [
+      "Eliminates the tedious manual labor of writing and maintaining client SDKs and documentation",
+      "Uniquely bridges traditional APIs with modern AI workflows via native MCP server generation",
+      "Ensures documentation and SDKs stay automatically synchronized with underlying schema changes"
+    ],
+    "cons": [
+      "Customizing generated SDKs beyond default templates may require additional configuration overhead",
+      "Relies heavily on well-structured API definitions to produce optimal output"
+    ],
+    "target_audience": "Backend engineers, API product managers, and developer advocates building scalable developer ecosystems.",
+    "comparison_vs_alt": "Unlike traditional documentation platforms like ReadMe, Octri.dev goes beyond static docs by actively generating client SDKs and native MCP servers for AI integration.",
+    "install_command": "npx octri init",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "chatgpt-space",
+    "name": "ChatGPT Space",
+    "tagline": "Collaborative AI workspace for real-time team intelligence",
+    "summary": "ChatGPT Space bridges the gap between individual AI interactions and team workflows by providing a shared digital canvas. It allows teams to co-create, manage context, and build projects together using integrated large language models.",
+    "url": "https://www.producthunt.com/products/chatgpt-space",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Collaboration",
+      "Workspace",
+      "Productivity",
+      "Team Chat"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Notion AI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential productivity layer for teams looking to move away from isolated AI chats and integrate LLMs into collaborative workflows.",
+    "key_features": [
+      {
+        "title": "Shared AI Canvases",
+        "description": "Co-edit documents and prompts in real-time alongside team members and AI assistants."
+      },
+      {
+        "title": "Context Preservation",
+        "description": "Maintain persistent team memory and conversation histories across projects."
+      },
+      {
+        "title": "Collaborative Prompting",
+        "description": "Iterate on complex prompts and workflows together as a unified team."
+      }
+    ],
+    "use_cases": [
+      "Co-authoring technical documentation and architecture specs with team AI input",
+      "Brainstorming product roadmaps and feature requirements in a shared AI environment",
+      "Managing collective prompt libraries and reusable team workflows"
+    ],
+    "pros": [
+      "Eliminates the friction of sharing individual chat threads via screenshots or copy-paste",
+      "Enhances team alignment by centralizing AI-driven research and output",
+      "Streamlined UI tailored for multi-user real-time collaboration"
+    ],
+    "cons": [
+      "Lacks self-hosting options for organizations with strict enterprise data residency rules",
+      "Dependent on OpenAI ecosystem infrastructure and pricing models"
+    ],
+    "target_audience": "Product teams, engineering leads, and collaborative groups who want to standardize and share their AI workflows.",
+    "comparison_vs_alt": "Unlike standard ChatGPT or Notion AI which lean heavily on individual workflows, ChatGPT Space focuses explicitly on multi-user real-time co-creation with AI.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "docsalot-mcp-connector",
+    "name": "DocsAlot MCP Connector",
+    "tagline": "Maintain help centers and docs directly via Claude, Cursor, or Codex",
+    "summary": "DocsAlot MCP Connector integrates Model Context Protocol (MCP) servers with your existing help center documentation. It allows developers and support teams to read, update, and maintain knowledge bases seamlessly through AI assistants like Claude Desktop or Cursor.",
+    "url": "https://www.producthunt.com/products/docsalot-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "MCP",
+      "Documentation",
+      "AI Assistants",
+      "Knowledge Base"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "GitBook AI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for teams wanting to bridge the gap between codebase context and external help center articles using MCP-compatible AI interfaces.",
+    "key_features": [
+      {
+        "title": "MCP Protocol Integration",
+        "description": "Connects directly to Claude, Cursor, and other MCP clients for native documentation access."
+      },
+      {
+        "title": "Real-time Help Center Sync",
+        "description": "Update, query, and structure help-center articles through conversational AI prompts."
+      },
+      {
+        "title": "Context-Aware Editing",
+        "description": "Allows AI assistants to reference existing knowledge base articles to maintain consistent tone and structure."
+      }
+    ],
+    "use_cases": [
+      "Updating API documentation directly from Cursor while refactoring backend code",
+      "Querying internal help center knowledge bases via Claude Desktop during support workflows",
+      "Generating and publishing new knowledge base articles using codebase READMEs and markdown files"
+    ],
+    "pros": [
+      "Leverages the rapidly growing Model Context Protocol ecosystem",
+      "Streamlines documentation maintenance without leaving the IDE or chat interface",
+      "Reduces context switching between documentation platforms and code editors"
+    ],
+    "cons": [
+      "Requires an MCP-compatible client like Claude Desktop or Cursor to function",
+      "Dependency on third-party help center platform API limits and rate limits"
+    ],
+    "target_audience": "Software engineers, technical writers, and product managers who want to automate documentation workflows using AI.",
+    "comparison_vs_alt": "Unlike traditional documentation platforms with built-in AI chatboxes, DocsAlot lets you bring your own favorite IDE or AI client via MCP for ultimate workflow flexibility.",
+    "install_command": "npx @docsalot/mcp-connector",
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "qarunbook",
+    "name": "QArunbook",
+    "tagline": "Interactive test plans for both human teams and AI agents",
+    "summary": "QArunbook bridges the gap between manual quality assurance and AI automation by providing collaborative test execution runbooks. It allows engineering teams and autonomous AI agents to seamlessly execute, track, and validate software test cases together.",
+    "url": "https://www.producthunt.com/products/qarunbook",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "testing-qa",
+    "tags": [
+      "Testing",
+      "QA",
+      "AI Agents",
+      "Collaboration",
+      "Workflow"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "TestRail",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An innovative step forward for teams looking to blend human-driven exploratory testing with autonomous AI agent validation loops.",
+    "key_features": [
+      [
+        {
+          "title": "AI-Ready Test Cases",
+          "description": "Structured test plans formatted explicitly for AI agent consumption and execution."
+        },
+        {
+          "title": "Collaborative Execution",
+          "description": "Real-time tracking for both human testers and automated pipelines working on the same runbook."
+        },
+        {
+          "title": "Seamless Integration",
+          "description": "Easily connect your testing workflows with existing development and CI/CD pipelines."
+        }
+      ]
+    ],
+    "use_cases": [
+      "Delegating routine regression test suites to autonomous AI coding agents",
+      "Collaborative manual and automated test execution across distributed QA teams",
+      "Maintaining living documentation of test plans that evolve alongside AI capabilities"
+    ],
+    "pros": [
+      "Uniquely designed for dual human and AI agent workflow compatibility",
+      "Reduces manual QA overhead by offloading structured steps to AI",
+      "Clean interface that streamlines test execution tracking"
+    ],
+    "cons": [
+      "Relies on the capabilities and context window of connected AI agents",
+      "Newer platform with a growing ecosystem compared to legacy QA tools"
+    ],
+    "target_audience": "QA engineers and software development teams looking to integrate AI agents into their testing workflows.",
+    "comparison_vs_alt": "Unlike traditional static test management tools like TestRail, QArunbook is built from the ground up to let AI agents actively participate in executing and validating test suites.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  },
+  {
+    "id": "control-my-mac",
+    "name": "Control My Mac",
+    "tagline": "A dynamic shortcut deck for every Mac app, on your iOS device",
+    "summary": "Control My Mac transforms your iPhone or iPad into a contextual macro and shortcut pad tailored to whatever application is currently active on your desktop. It bridges the gap between touch devices and macOS power-user workflows, eliminating the need to memorize complex keybindings.",
+    "url": "https://www.producthunt.com/products/control-my-mac",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "macOS",
+      "iOS",
+      "Shortcuts",
+      "Productivity",
+      "Remote Control"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Stream Deck",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An exceptionally clever and cost-effective alternative to dedicated hardware macro pads for users who already own an iPad or iPhone. Highly recommended for power users looking to declutter their desk while supercharging their macOS workflow.",
+    "key_features": [
+      [
+        {
+          "title": "Context-Aware Layouts",
+          "description": "Automatically switches your iOS shortcut deck to match the currently active Mac application."
+        },
+        {
+          "title": "Custom Macro Builder",
+          "description": "Design personalized touch interfaces and complex command sequences tailored to your unique workflow."
+        },
+        {
+          "title": "Low-Latency Connection",
+          "description": "Engineered for real-time responsiveness over local network connections without perceptible lag."
+        }
+      ]
+    ],
+    "use_cases": [
+      "Triggering complex editing tools and timeline shortcuts in Final Cut Pro or Premiere from an iPad",
+      "Executing multi-step developer commands and terminal workflows without touching the keyboard",
+      "Managing audio mixing, track switching, and media controls remotely during presentations"
+    ],
+    "pros": [
+      [
+        "Leverages existing iOS hardware, eliminating the need to purchase dedicated physical macro pads",
+        "Dynamic switching adapts instantly to whichever app is in focus on macOS",
+        "Highly customizable interface layouts compared to rigid physical button grids"
+      ]
+    ],
+    "cons": [
+      [
+        "Requires both a Mac and an iOS device to be active on the same network",
+        "Lacks the tactile physical feedback provided by traditional hardware button decks"
+      ]
+    ],
+    "target_audience": "Mac power users, video editors, and developers who want a customizable macro deck without buying dedicated hardware.",
+    "comparison_vs_alt": "Unlike Elgato Stream Deck which requires dedicated physical hardware, Control My Mac utilizes the iOS devices you already own, offering greater portability and dynamic layout flexibility at a fraction of the cost.",
+    "install_command": null,
+    "date_added": "2026-10-05",
+    "featured": false
+  }
+]
