@@ -48,8 +48,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --staged --quiet; then
+          python -c "import json, datetime; json.dump({'updated_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}, open('site/src/data-timestamp.json', 'w', encoding='utf-8'), indent=2)"
+          git add data/ site/
+          if git diff --staged --quiet data/; then
             echo "No new tools found today. Working tree clean."
           else
             git commit -m "chore(data): auto-update daily tools $(date +'%Y-%m-%d')"
