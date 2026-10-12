@@ -1,0 +1,321 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { guidesData } from '../../data/guides';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Technical Guides & Software Evaluations - ToolsRadar",
+  "description": "In-depth technical guides, software architecture benchmarks, and self-hosting blueprints authored by the ToolsRadar editorial team.",
+  "url": "https://lordorange.top/guides"
+};
+---
+
+<Layout
+  title="Technical Guides & Software Evaluations"
+  description="In-depth developer guides, open-source comparisons, self-hosting blueprints, and software licensing deep-dives from the ToolsRadar editorial team."
+  canonicalUrl="https://lordorange.top/guides"
+  jsonLd={jsonLd}
+>
+  <div class="guides-hub-container">
+    <!-- Header -->
+    <header class="guides-hub-header">
+      <div class="guides-pill">
+        <span>📚 ToolsRadar Editorial Publication</span>
+      </div>
+      <h1 class="guides-hub-title">
+        Technical <span class="gradient-text">Guides & Evaluations</span>
+      </h1>
+      <p class="guides-hub-subtitle">
+        Deep architectural analyses, objective software benchmarks, and self-hosting blueprints to help you make informed engineering decisions.
+      </p>
+    </header>
+
+    <!-- Featured Guides Grid -->
+    <div class="guides-grid">
+      {guidesData.map((guide, idx) => (
+        <article class={`guide-card ${guide.featured ? 'featured' : ''}`}>
+          <div class="guide-card-top">
+            <div class="guide-meta-row">
+              <span class="guide-category-badge">{guide.category}</span>
+              <span class="guide-read-time">⏱️ {guide.readTime}</span>
+            </div>
+            
+            <h2 class="guide-title">
+              <a href={`/guides/${guide.slug}`}>
+                {guide.title}
+              </a>
+            </h2>
+
+            <p class="guide-tagline">
+              {guide.tagline}
+            </p>
+          </div>
+
+          <div class="guide-card-bottom">
+            <div class="guide-author-row">
+              <div class="author-avatar">{guide.author.avatar}</div>
+              <div class="author-info">
+                <span class="author-name">{guide.author.name}</span>
+                <span class="author-role">{guide.author.role}</span>
+              </div>
+            </div>
+
+            <a href={`/guides/${guide.slug}`} class="read-guide-btn">
+              <span>Read Guide</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Editorial Standards Banner -->
+    <section class="editorial-standards-banner">
+      <div class="standards-content">
+        <h3>Our Editorial Promise</h3>
+        <p>
+          Every guide published on ToolsRadar is independently researched and written by practicing software engineers. We do not accept sponsored content, paid rankings, or promotional copy.
+        </p>
+      </div>
+      <a href="/methodology" class="btn btn-secondary">
+        Review Methodology →
+      </a>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .guides-hub-container {
+    max-width: 1080px;
+    margin: 1.5rem auto 5rem;
+    padding: 0 0.5rem;
+  }
+
+  .guides-hub-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .guides-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    color: #c084fc;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .guides-hub-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .guides-hub-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .guides-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-card.featured:first-child {
+      grid-column: span 2;
+    }
+  }
+
+  .guide-card {
+    background: linear-gradient(180deg, rgba(22, 22, 28, 0.75) 0%, rgba(15, 15, 19, 0.88) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+
+  .guide-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.38);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(56, 189, 248, 0.15);
+  }
+
+  .guide-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .guide-category-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+  }
+
+  .guide-read-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .guide-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-card.featured:first-child .guide-title {
+    font-size: 1.7rem;
+  }
+
+  .guide-title a {
+    color: var(--text-primary);
+  }
+
+  .guide-title a:hover {
+    color: #38bdf8;
+  }
+
+  .guide-tagline {
+    font-size: 0.96rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .guide-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .guide-author-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .author-avatar {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #06080d;
+    font-size: 0.75rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .author-role {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .read-guide-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #38bdf8;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: all 0.15s ease;
+  }
+
+  .read-guide-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    color: #ffffff;
+    border-color: rgba(56, 189, 248, 0.5);
+  }
+
+  .editorial-standards-banner {
+    background: rgba(18, 18, 23, 0.8);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 680px) {
+    .editorial-standards-banner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .standards-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .standards-content p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 600px;
+  }
+</style>

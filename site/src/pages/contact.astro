@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Us - ToolsRadar",
+  "description": "Get in touch with the ToolsRadar editorial team, submit software corrections, report security issues, or inquire about partnerships.",
+  "url": "https://lordorange.top/contact"
+};
+---
+
+<Layout 
+  title="Contact Us - ToolsRadar"
+  description="Contact the ToolsRadar editorial and engineering team for tool reviews, corrections, security disclosures, and partnership inquiries."
+  canonicalUrl="https://lordorange.top/contact"
+  jsonLd={jsonLd}
+>
+  <div class="contact-container">
+    <header class="contact-header">
+      <div class="contact-pill">
+        <span>📬 Direct Editorial Channels</span>
+      </div>
+      <h1 class="contact-title">
+        Contact <span class="gradient-text">ToolsRadar</span>
+      </h1>
+      <p class="contact-subtitle">
+        Have feedback, an open-source project submission, or a documentation correction? We respond within 24–48 hours.
+      </p>
+    </header>
+
+    <div class="contact-grid">
+      <!-- Card 1: Editorial & General -->
+      <div class="contact-channel-card">
+        <div class="channel-icon">✉️</div>
+        <h2>Editorial Desk & Feedback</h2>
+        <p>
+          For general inquiries, editorial feedback on tool entries, guide suggestions, or general questions regarding our curation.
+        </p>
+        <a href="mailto:hello@lordorange.top" class="channel-action">
+          hello@lordorange.top
+        </a>
+      </div>
+
+      <!-- Card 2: Tool Submissions -->
+      <div class="contact-channel-card">
+        <div class="channel-icon">🚀</div>
+        <h2>Submit a New Tool</h2>
+        <p>
+          Are you the maintainer or creator of an indie developer utility, AI agent, or open-source software? Submit your project for review.
+        </p>
+        <a href="/submit" class="channel-action">
+          Go to Submission Portal →
+        </a>
+      </div>
+
+      <!-- Card 3: Maintainer Corrections -->
+      <div class="contact-channel-card">
+        <div class="channel-icon">🔄</div>
+        <h2>Maintainer Corrections & Updates</h2>
+        <p>
+          Has your tool released a major version, changed licensing models, or added Docker support? Let our verification team update your profile.
+        </p>
+        <a href="mailto:hello@lordorange.top?subject=Tool%20Update%20Request" class="channel-action">
+          Request Profile Update →
+        </a>
+      </div>
+
+      <!-- Card 4: Open Source Repository -->
+      <div class="contact-channel-card">
+        <div class="channel-icon">🐙</div>
+        <h2>GitHub & Public Discussions</h2>
+        <p>
+          ToolsRadar is built publicly on GitHub. Open an issue, propose directory features, or contribute improvements directly.
+        </p>
+        <a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer" class="channel-action">
+          github.com/cj1357/tools-radar ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Editorial SLA & Privacy Note -->
+    <div class="sla-notice-box">
+      <h3>Our Communication Commitment</h3>
+      <ul>
+        <li><strong>Response Time:</strong> Our editorial team monitors inquiries daily and typically responds within 24 to 48 business hours.</li>
+        <li><strong>Zero Spam Policy:</strong> Your email address and inquiry details are strictly confidential and will never be shared, sold, or used for unsolicited marketing.</li>
+        <li><strong>DMCA & Copyright Notices:</strong> If you believe content on ToolsRadar infringes your copyright or trademark, please email us with the URL and proof of ownership for expedited review within 24 hours.</li>
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .contact-container {
+    max-width: 860px;
+    margin: 1.5rem auto 5rem;
+    padding: 0 0.5rem;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .contact-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contact-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contact-channel-card {
+    background: linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(15, 15, 19, 0.85) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .contact-channel-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+
+  .channel-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-channel-card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-channel-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .channel-action {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 0.5rem 0.85rem;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+
+  .channel-action:hover {
+    background: rgba(56, 189, 248, 0.18);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #ffffff;
+  }
+
+  .sla-notice-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+  }
+
+  .sla-notice-box h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+  }
+
+  .sla-notice-box ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+</style>

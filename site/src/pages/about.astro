@@ -1,58 +1,416 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About ToolsRadar",
+  "description": "Learn about ToolsRadar, our independent curation methodology, and our mission to highlight the world's most innovative developer tools and open-source software.",
+  "url": "https://lordorange.top/about",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ToolsRadar",
+    "url": "https://lordorange.top",
+    "logo": "https://lordorange.top/favicon.svg"
+  }
+};
 ---
 
 <Layout 
-  title="About DailyRadar - Curated Daily Directory of New Tools"
-  description="Learn about DailyRadar, our automated curation methodology, and our mission to highlight indie software and open source projects."
+  title="About ToolsRadar - Independent Developer Software Curation & Tech Intelligence"
+  description="Learn about ToolsRadar, our independent curation methodology, and our mission to highlight indie software, developer speedups, and open-source alternatives."
   canonicalUrl="https://lordorange.top/about"
+  jsonLd={jsonLd}
 >
-  <div style="max-width: 750px; margin: 2rem auto; line-height: 1.8;">
-    <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1.5rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.75rem;">
-      About DailyRadar
-    </h1>
-
-    <section style="margin-bottom: 2rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
-        Our Mission
-      </h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-        Every single day, thousands of passionate independent creators, open source contributors, and innovative engineering teams launch incredible software tools across GitHub, Hacker News, and Product Hunt.
+  <div class="about-container">
+    <!-- Header -->
+    <header class="about-header">
+      <div class="about-pill">
+        <span>⚡ Independent Software Intelligence</span>
+      </div>
+      <h1 class="about-title">
+        About <span class="gradient-text">ToolsRadar</span>
+      </h1>
+      <p class="about-subtitle">
+        Curating the cutting edge of developer tools, autonomous AI systems, and privacy-respecting open-source software.
       </p>
-      <p style="color: var(--text-secondary);">
-        However, the internet is loud, and genuine breakthrough tools often get drowned out by massive ad-funded incumbent software. <strong>DailyRadar</strong> was built to solve this problem: an automated, noise-free directory providing daily curation of brand-new developer utilities, AI apps, and open-source alternatives.
+    </header>
+
+    <!-- Mission Statement -->
+    <section class="about-card">
+      <div class="card-icon-title">
+        <span class="section-icon">🎯</span>
+        <h2>Our Core Mission</h2>
+      </div>
+      <p>
+        Every single day, thousands of passionate independent creators, open-source maintainers, and engineering teams build revolutionary software utilities. From terminal speedups in Rust to autonomous agent frameworks and lightweight database engines, developer innovation has never moved faster.
+      </p>
+      <p>
+        However, the modern software discovery landscape is fundamentally broken. Mainstream search results and incumbent directory portals are heavily distorted by venture-backed advertising, pay-to-play review programs, and entrenched SaaS monopolies. Genuine breakthrough utilities often remain undiscovered.
+      </p>
+      <p class="highlight-callout">
+        <strong>ToolsRadar was founded to fix this:</strong> A high-signal, noise-free intelligence radar designed for developers, systems architects, and technical decision-makers who value engineering craftsmanship, transparent licensing, and data sovereignty.
       </p>
     </section>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
-        How It Works
-      </h2>
-      <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
-        <li><strong>Continuous Monitoring:</strong> Our automated crawlers scan GitHub Trending, Hacker News Show, and Product Hunt every 24 hours.</li>
-        <li><strong>Quality Filtering:</strong> We filter out low-effort spam, broken links, and duplicate marketing buzz to surface practical, usable software.</li>
-        <li><strong>Structured Organization:</strong> Each tool is cataloged by functional category, pricing tier, open-source status, and alternatives.</li>
+    <!-- 3 Pillars of Curation -->
+    <section class="pillars-section">
+      <h2 class="section-heading">How We Curation Differs</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-badge">01</div>
+          <h3>Continuous Automated Discovery</h3>
+          <p>
+            Our automated scrapers and ingestion pipelines continuously index GitHub Trending, Hacker News Show, and independent community hubs every 24 hours to capture raw release velocity as it happens.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-badge">02</div>
+          <h3>Rigorous Human & Algorithmic Filtering</h3>
+          <p>
+            We aggressively filter out empty marketing hype, abandoned forks, and deceptive spam. Each candidate tool undergoes automated health audits and editorial review before being cataloged.
+          </p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-badge">03</div>
+          <h3>Open Source & Privacy First</h3>
+          <p>
+            We celebrate self-hostability, open licensing (MIT, Apache, AGPL), and local-first architectures that protect user privacy and liberate developers from astronomical SaaS subscription sprawl.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Independence & Ethics -->
+    <section class="about-card">
+      <div class="card-icon-title">
+        <span class="section-icon">⚖️</span>
+        <h2>Editorial Independence & Transparency</h2>
+      </div>
+      <p>
+        ToolsRadar operates under strict editorial integrity standards:
+      </p>
+      <ul class="check-list">
+        <li><strong>Zero Pay-to-Rank:</strong> Software creators cannot buy ranking priority or positive reviews on our radar. Rankings are driven solely by objective utility, community traction, and technical merit.</li>
+        <li><strong>Transparent Disclosures:</strong> We clearly label software licensing models (Open Source, Free Tier, Freemium, Paid) and disclose any affiliate partnerships if present.</li>
+        <li><strong>Factual Benchmarking:</strong> Our reviews analyze real installation commands, self-hosting difficulty, Docker support, and genuine architectural pros and cons.</li>
       </ul>
+      <div style="margin-top: 1.25rem;">
+        <a href="/methodology" class="inline-link">
+          Read our complete 5-pillar Review Methodology →
+        </a>
+      </div>
     </section>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--accent);">
-        Contact & Feedback
-      </h2>
-      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
-        Have a question, feedback, partnership inquiry, or a tool you'd like to see featured? We'd love to hear from you.
+    <!-- Who We Are -->
+    <section class="about-card">
+      <div class="card-icon-title">
+        <span class="section-icon">👥</span>
+        <h2>The Editorial & Engineering Team</h2>
+      </div>
+      <p>
+        ToolsRadar is maintained by a global collective of software engineers, open-source maintainers, and developer tooling enthusiasts. We use these tools daily in production environments and share a passionate commitment to software craftsmanship, performance optimization, and privacy.
       </p>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
-        <a href="mailto:hello@lordorange.top" class="btn btn-primary">
-          ✉️ hello@lordorange.top
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="stat-number">450+</span>
+          <span class="stat-label">Curated Tools</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">24h</span>
+          <span class="stat-label">Daily Crawl Cycle</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Independent Review</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Community CTA -->
+    <section class="cta-card">
+      <h2>Join Our Community & Submit Tools</h2>
+      <p>
+        Have you built an innovative open-source tool, or spotted a high-potential developer utility that deserves recognition? We welcome community submissions and feedback.
+      </p>
+      <div class="cta-buttons">
+        <a href="/submit" class="btn btn-primary">
+          <span>+ Submit a Tool</span>
         </a>
-        <a href="/submit" class="btn btn-secondary">
-          + Submit a Tool
+        <a href="/contact" class="btn btn-secondary">
+          <span>Contact Editorial Team</span>
         </a>
-        <a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          GitHub Repo ↗
+        <a href="/guides" class="btn btn-secondary">
+          <span>Explore In-Depth Guides</span>
         </a>
       </div>
     </section>
   </div>
 </Layout>
+
+<style>
+  .about-container {
+    max-width: 860px;
+    margin: 1.5rem auto 4rem;
+    padding: 0 0.5rem;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .about-card {
+    background: linear-gradient(180deg, rgba(22, 22, 28, 0.7) 0%, rgba(15, 15, 19, 0.85) 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 2rem 2.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .about-card p {
+    margin-bottom: 1.2rem;
+    font-size: 1.02rem;
+  }
+
+  .about-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-icon-title h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+
+  .section-icon {
+    font-size: 1.4rem;
+  }
+
+  .highlight-callout {
+    background: rgba(56, 189, 248, 0.06);
+    border-left: 3px solid #38bdf8;
+    padding: 1rem 1.25rem;
+    border-radius: 0 10px 10px 0;
+    color: #e4e4e7;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .pillars-section {
+    margin: 3rem 0;
+  }
+
+  .section-heading {
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 720px) {
+    .pillars-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pillar-card {
+    background: rgba(18, 18, 24, 0.85);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pillar-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.35);
+  }
+
+  .pillar-badge {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 8px;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin-bottom: 1rem;
+  }
+
+  .pillar-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .pillar-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .check-list li {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+  }
+
+  .inline-link {
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .inline-link:hover {
+    text-decoration: underline;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #f4f4f5;
+    font-family: var(--font-mono);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-card {
+    background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, rgba(18, 18, 23, 0.9) 70%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-card h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-card p {
+    font-size: 1.02rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+</style>

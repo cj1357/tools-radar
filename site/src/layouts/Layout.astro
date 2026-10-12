@@ -672,7 +672,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       .footer {
         border-top: 1px solid var(--border-subtle);
         margin-top: auto;
-        padding: 3rem 1.25rem 2.5rem;
+        padding: 3.5rem 1.25rem 2.5rem;
         background-color: #060608;
         font-size: 0.875rem;
         color: var(--text-muted);
@@ -683,33 +683,94 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
-        text-align: center;
+        gap: 2.5rem;
       }
 
-      @media (min-width: 640px) {
+      @media (min-width: 860px) {
         .footer-container {
           flex-direction: row;
           justify-content: space-between;
-          text-align: left;
+          align-items: flex-start;
+          gap: 3rem;
         }
       }
 
-      .footer-links {
+      .footer-brand-col {
+        max-width: 380px;
+      }
+
+      .footer-brand-header {
         display: flex;
-        gap: 1.25rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 0.75rem;
       }
 
-      .footer-links a {
+      .footer-brand-title {
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: -0.03em;
+      }
+
+      .footer-desc {
         color: var(--text-secondary);
-        font-size: 0.85rem;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
       }
 
-      .footer-links a:hover {
-        color: var(--text-primary);
+      .footer-crawl-note {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        line-height: 1.5;
+        margin-bottom: 0.85rem;
+      }
+
+      .footer-copy {
+        color: #52525b;
+        font-size: 0.78rem;
+        font-family: var(--font-mono);
+      }
+
+      .footer-nav-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        flex: 1;
+      }
+
+      @media (min-width: 600px) {
+        .footer-nav-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .footer-col-title {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #f4f4f5;
+        margin-bottom: 0.85rem;
+      }
+
+      .footer-col-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      .footer-col-links a {
+        color: var(--text-secondary);
+        font-size: 0.84rem;
+        transition: color 0.15s ease;
+      }
+
+      .footer-col-links a:hover {
+        color: #38bdf8;
       }
     </style>
   </head>
@@ -754,8 +815,8 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         <!-- Desktop Navigation Links -->
         <ul class="nav-desktop-links">
           <li><a href="/">Radar</a></li>
+          <li><a href="/guides">Guides</a></li>
           <li><a href="/category/ai-agents">AI Agents</a></li>
-          <li><a href="/category/ai-tools">AI Tools</a></li>
           <li><a href="/category/developer-tools">DevTools</a></li>
           <li><a href="/category/open-source">Open Source</a></li>
           <li><a href="/about">About</a></li>
@@ -803,6 +864,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       <div class="mobile-drawer-inner">
         <div class="mobile-section-header">Core Navigation</div>
         <a href="/" class="mobile-nav-item">⚡ All Radar Feed</a>
+        <a href="/guides" class="mobile-nav-item" style="color: #c084fc; font-weight: 600;">📚 Technical Guides</a>
         <a href="/category/ai-agents" class="mobile-nav-item">🤖 AI Agents & Workflows</a>
         <a href="/category/ai-tools" class="mobile-nav-item">🧠 AI & Machine Learning</a>
         <a href="/category/developer-tools" class="mobile-nav-item">💻 DevTools & CLI</a>
@@ -816,10 +878,13 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         <a href="/category/testing-qa" class="mobile-nav-item">🧪 Testing & Benchmarks</a>
         <a href="/category/web-scraping-apis" class="mobile-nav-item">🌐 APIs & Web Scraping</a>
 
-        <div class="mobile-section-header" style="margin-top: 1.25rem;">Directory & Community</div>
+        <div class="mobile-section-header" style="margin-top: 1.25rem;">Trust & Editorial</div>
         <a href="/about" class="mobile-nav-item">ℹ️ About ToolsRadar</a>
+        <a href="/methodology" class="mobile-nav-item">🔬 Review Methodology</a>
         <a href="/submit" class="mobile-nav-item" style="color: var(--accent); font-weight: 600;">+ Submit a Tool</a>
+        <a href="/contact" class="mobile-nav-item">📬 Contact Us</a>
         <a href="/privacy" class="mobile-nav-item">📜 Privacy Policy</a>
+        <a href="/terms" class="mobile-nav-item">⚖️ Terms of Service</a>
         <a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">🐙 GitHub Source Code ↗</a>
       </div>
     </div>
@@ -830,8 +895,9 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
     <footer class="footer">
       <div class="footer-container">
-        <div>
-          <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.5rem;">
+        <!-- Brand & Mission Column -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-header">
             <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
               <rect width="48" height="48" rx="12" fill="#0c0e17" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2"/>
               <circle cx="24" cy="24" r="17" stroke="rgba(129, 140, 248, 0.25)" stroke-width="1.2"/>
@@ -839,20 +905,50 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
               <circle cx="24" cy="24" r="6" stroke="rgba(56, 189, 248, 0.75)" stroke-width="1.4"/>
               <circle cx="24" cy="24" r="2.5" fill="#38bdf8"/>
             </svg>
-            <span style="font-weight: 800; font-size: 1.1rem; letter-spacing: -0.03em;">
+            <span class="footer-brand-title">
               <span style="color: #ffffff;">Tools</span><span style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Radar</span>
             </span>
           </div>
-          <p style="font-weight: 500; color: #a1a1aa; font-size: 0.88rem;">© {new Date().getFullYear()} ToolsRadar — Curating the world's best new developer tools.</p>
-          <p style="margin-top: 0.25rem; color: #71717a; font-size: 0.82rem;">Automated daily crawling across GitHub Trending, Hacker News & Product Hunt.</p>
+          <p class="footer-desc">Independent developer software curation highlighting innovative utilities, autonomous AI agents, and open-source alternatives.</p>
+          <p class="footer-crawl-note">Automated multi-source indexing every 24 hours across GitHub Trending, Hacker News & Product Hunt.</p>
+          <p class="footer-copy">© {new Date().getFullYear()} ToolsRadar. All rights reserved.</p>
         </div>
-        <div class="footer-links">
-          <a href="/">All Tools</a>
-          <a href="/about">About</a>
-          <a href="/submit">Submit Tool</a>
-          <a href="mailto:hello@lordorange.top">Contact</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer">Source Code</a>
+
+        <!-- Links Columns Grid -->
+        <div class="footer-nav-grid">
+          <div class="footer-col">
+            <span class="footer-col-title">Radar Discovery</span>
+            <ul class="footer-col-links">
+              <li><a href="/">All Tools Feed</a></li>
+              <li><a href="/category/ai-agents">AI Agents & Workflows</a></li>
+              <li><a href="/category/developer-tools">DevTools & CLI</a></li>
+              <li><a href="/category/open-source">Open Source Alternatives</a></li>
+              <li><a href="/submit">+ Submit a Tool</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Editorial & Guides</span>
+            <ul class="footer-col-links">
+              <li><a href="/guides">Technical Guides Hub</a></li>
+              <li><a href="/guides/top-open-source-notion-alternatives-2026">Notion Alternatives 2026</a></li>
+              <li><a href="/guides/developer-guide-autonomous-ai-coding-agents">AI Coding Agents Guide</a></li>
+              <li><a href="/guides/self-hosting-developer-tools-docker-guide">Self-Hosting Docker 101</a></li>
+              <li><a href="/guides/open-source-software-licensing-guide">Software Licensing Guide</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Trust & Legal</span>
+            <ul class="footer-col-links">
+              <li><a href="/about">About ToolsRadar</a></li>
+              <li><a href="/methodology">Editorial Methodology</a></li>
+              <li><a href="/contact">Contact & Inquiries</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer">Source Code ↗</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
