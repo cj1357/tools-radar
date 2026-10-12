@@ -1,5 +1,1307 @@
 [
   {
+    "id": "gods-eye-view",
+    "name": "Gods Eye View",
+    "tagline": "Real-time spatial intelligence and 3D satellite simulator",
+    "summary": "Gods Eye View is an open-source spatial intelligence tool that renders live data on an interactive, photorealistic 3D globe right inside your browser. It transforms complex geospatial streams into an immersive visual experience reminiscent of high-end satellite surveillance systems.",
+    "url": "https://github.com/bilawalsidhu/gods-eye-view",
+    "github_url": "https://github.com/bilawalsidhu/gods-eye-view",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Spatial Intelligence",
+      "3D Globe",
+      "Geospatial",
+      "TypeScript",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 52037,
+    "primary_alternative": "Google Earth Enterprise",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An exceptional open-source playground for geospatial developers and spatial computing enthusiasts looking to visualize real-world datasets in 3D.",
+    "key_features": [
+      {
+        "title": "Photorealistic 3D Globe",
+        "description": "Renders high-fidelity global topography and terrain seamlessly in standard web browsers."
+      },
+      {
+        "title": "Live Spatial Intelligence",
+        "description": "Integrates and streams real-time geographical datasets directly onto the map interface."
+      },
+      {
+        "title": "Browser-Based Simulation",
+        "description": "Delivers spy-satellite-style visualization mechanics without requiring heavy native client installations."
+      }
+    ],
+    "use_cases": [
+      "Visualizing live global flight tracking and maritime traffic data",
+      "Prototyping defense or environmental monitoring geospatial dashboards",
+      "Exploring high-resolution spatial datasets in interactive 3D presentations"
+    ],
+    "pros": [
+      "Incredible visual fidelity powered by modern web graphics APIs",
+      "Completely open source with full transparency into data rendering pipelines",
+      "Zero friction startup experience directly in the browser with no signups"
+    ],
+    "cons": [
+      "Demands significant GPU and browser resources for smooth rendering",
+      "Requires custom backend integrations to feed meaningful real-time datasets"
+    ],
+    "target_audience": "Geospatial engineers, GIS developers, and technologists building interactive 3D mapping applications.",
+    "comparison_vs_alt": "Unlike proprietary enterprise GIS platforms, Gods Eye View offers an open-source codebase that developers can freely modify, self-host, and extend for custom spatial workflows.",
+    "install_command": "git clone https://github.com/bilawalsidhu/gods-eye-view.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 10420
+  },
+  {
+    "id": "airllm",
+    "name": "Airllm",
+    "tagline": "AirLLM 70B inference with single 4GB GPU",
+    "summary": "AirLLM 70B inference with single 4GB GPU",
+    "url": "https://github.com/lyogavin/airllm",
+    "github_url": "https://github.com/lyogavin/airllm",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "Jupyter Notebook"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 36676,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 93,
+    "verdict": "Airllm offers a streamlined developer-centric approach, making it an appealing option for teams valuing agility and low overhead.",
+    "key_features": [
+      {
+        "title": "Developer-First Architecture",
+        "description": "Airllm is built with modern developer workflows in mind, prioritizing low overhead and straightforward setup."
+      },
+      {
+        "title": "Extensible & Modular",
+        "description": "Easily adapts to existing toolchains and development environments with clean configuration interfaces."
+      }
+    ],
+    "use_cases": [
+      "Integrating Airllm into existing technical workflows for rapid prototyping",
+      "Streamlining day-to-day developer and engineering tasks",
+      "Reducing dependency on heavy commercial vendor suites"
+    ],
+    "pros": [
+      "100% Free & Open Source with full code auditability",
+      "Cloud-ready deployment with zero local maintenance",
+      "Clean, lightweight interface designed for developer focus"
+    ],
+    "cons": [
+      "Hosted service relies on external cloud infrastructure",
+      "Active open-source project with evolving documentation"
+    ],
+    "target_audience": "Engineers, builders, and technical teams looking for high-efficiency software utilities.",
+    "comparison_vs_alt": null,
+    "install_command": "git clone https://github.com/lyogavin/airllm.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 3823
+  },
+  {
+    "id": "apollo-11-agc",
+    "name": "Apollo 11 AGC",
+    "tagline": "Original Apollo 11 Guidance Computer source code for space exploration",
+    "summary": "This repository contains the original source code for the Apollo 11 Guidance Computer (AGC) used in both the command and lunar modules. It offers a fascinating historical look at the embedded assembly code that successfully guided humanity to the moon under extreme memory constraints.",
+    "url": "https://github.com/chrislgarry/Apollo-11",
+    "github_url": "https://github.com/chrislgarry/Apollo-11",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Assembly",
+      "Embedded Systems",
+      "History",
+      "Aerospace"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 74358,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 97,
+    "verdict": "An invaluable historical artifact and educational resource for systems programmers, historians, and embedded engineers curious about the roots of modern computing.",
+    "key_features": [
+      {
+        "title": "Authentic Source Code",
+        "description": "Original Luminary 099 and Colossus 2A assembly code for the Apollo Guidance Computer."
+      },
+      {
+        "title": "Historical Annotations",
+        "description": "Includes contemporary comments, notes, and marginalia from NASA programmers and MIT engineers."
+      },
+      {
+        "title": "Hardware Context",
+        "description": "Provides deep insight into software engineering for severely constrained, core-rope memory hardware."
+      }
+    ],
+    "use_cases": [
+      "Studying early embedded systems and real-time operating system architecture",
+      "Historical research into the 1969 lunar landing software architecture",
+      "Running simulations of the Apollo guidance algorithms using community emulators"
+    ],
+    "pros": [
+      "Completely authentic and historically verified transcriptions of original code",
+      "Zero commercial or licensing restrictions for educational exploration",
+      "Unique insights into mission-critical engineering under extreme hardware constraints"
+    ],
+    "cons": [
+      "Written in specialized assembly language targeting obsolete 1960s hardware",
+      "Not intended for modern production software development"
+    ],
+    "target_audience": "Embedded systems engineers, computer science historians, and developers fascinated by aerospace history.",
+    "comparison_vs_alt": null,
+    "install_command": "git clone https://github.com/chrislgarry/Apollo-11.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 8114
+  },
+  {
+    "id": "betterwispr",
+    "name": "BetterWispr",
+    "tagline": "Free, open-source AI-powered voice dictation for Mac",
+    "summary": "BetterWispr is a lightweight, open-source macOS dictation utility that leverages advanced speech-to-text models for lightning-fast voice typing. It solves the friction of clunky built-in dictation tools by offering local processing options and clean text transformation.",
+    "url": "https://betterwispr.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Mac",
+      "Open Source",
+      "Dictation",
+      "Speech-to-Text",
+      "AI"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 180,
+    "primary_alternative": "SuperWhisper",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An exceptional open-source alternative for Mac users seeking privacy-friendly, AI-driven voice dictation without recurring subscription fees.",
+    "key_features": [
+      {
+        "title": "Lightning-Fast Dictation",
+        "description": "Instantly convert spoken words into clean, formatted text anywhere on macOS."
+      },
+      {
+        "title": "Open Source & Private",
+        "description": "Full transparency with code availability and options for local model execution."
+      },
+      {
+        "title": "System-Wide Integration",
+        "description": "Works seamlessly across all Mac apps via global keyboard shortcuts."
+      }
+    ],
+    "use_cases": [
+      "Dictating long-form technical documentation or emails hands-free",
+      "Drafting code comments and commit messages using voice input",
+      "Transcribing rapid thoughts into markdown editors without latency"
+    ],
+    "pros": [
+      "Completely free and open-source with no software licenses required",
+      "Eliminates subscription fatigue common in commercial Mac dictation tools",
+      "Lightweight native macOS footprint with minimal system resource consumption"
+    ],
+    "cons": [
+      "Limited exclusively to macOS ecosystem at launch",
+      "Requires manual configuration or API keys depending on the chosen backend model"
+    ],
+    "target_audience": "Mac power users, developers, and writers looking for a customizable, free alternative to commercial voice dictation apps.",
+    "comparison_vs_alt": "Unlike SuperWhisper which relies on paid tiers and proprietary infrastructure, BetterWispr offers complete code transparency and free usage for privacy-conscious developers.",
+    "install_command": "brew install --cask betterwispr",
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "brainotes",
+    "name": "BraiNOTES",
+    "tagline": "Handwritten notes directly on lecture PDFs inside your browser tab",
+    "summary": "BraiNOTES is an open-source web application designed for students and educators to annotate lecture PDFs seamlessly using digital handwriting in the browser. It eliminates the friction of switching between external PDF readers and note-taking apps by embedding a smooth, touch-friendly canvas directly over documents.",
+    "url": "https://github.com/swimmingbrain/brainotes",
+    "github_url": "https://github.com/swimmingbrain/brainotes",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "PDF",
+      "Notes",
+      "Education",
+      "Canvas",
+      "TypeScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 10,
+    "primary_alternative": "GoodNotes",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 72,
+    "verdict": "An exceptionally handy tool for students who want a lightweight, cross-platform PDF annotation workflow without being locked into proprietary ecosystem apps.",
+    "key_features": [
+      [
+        {
+          "title": "Browser-Based PDF Annotation",
+          "description": "Render and mark up complex lecture PDF documents directly inside any modern web browser tab."
+        },
+        {
+          "title": "Digital Handwriting Canvas",
+          "description": "Smooth stylus and mouse drawing support optimized for taking natural handwritten study notes."
+        },
+        {
+          "title": "Zero Installation Friction",
+          "description": "Instantly open and annotate documents without needing to install heavy desktop reader suites."
+        }
+      ]
+    ],
+    "use_cases": [
+      "Annotating fast-paced university lecture slides during class using a tablet or 2-in-1 laptop",
+      "Reviewing and adding handwritten margin notes to technical documentation and research papers",
+      "Self-hosting a private digital notebook solution for educational environments"
+    ],
+    "pros": [
+      "Runs entirely client-side inside the browser with complete data privacy",
+      "Lightweight alternative to resource-heavy desktop PDF markup suites",
+      "Open-source codebase allowing for community-driven features and customizations"
+    ],
+    "cons": [
+      "Early-stage indie project with fewer advanced PDF management features than commercial giants",
+      "Relies heavily on browser performance for rendering large multipage textbooks"
+    ],
+    "target_audience": "University students, educators, and lifelong learners looking for a frictionless, browser-native way to handwrite notes on PDFs.",
+    "comparison_vs_alt": "Unlike proprietary apps like GoodNotes or Notability, BraiNOTES is fully open-source and runs right in your browser tab without requiring mandatory app store downloads or accounts.",
+    "install_command": "git clone https://github.com/swimmingbrain/brainotes.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 1
+  },
+  {
+    "id": "skills-hub",
+    "name": "Skills Hub",
+    "tagline": "A desktop app for managing AI agent skills and capabilities",
+    "summary": "Skills Hub provides a centralized desktop interface to organize, configure, and deploy custom skills for various AI agents. It solves the fragmentation problem of managing decentralized agent capabilities across different local development environments.",
+    "url": "https://github.com/qufei1993/skills-hub",
+    "github_url": "https://github.com/qufei1993/skills-hub",
+    "source": "hackernews",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Desktop App",
+      "Productivity",
+      "Developer Tools"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 1756,
+    "primary_alternative": "LangChain Hub",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 90,
+    "verdict": "An essential utility for developers building complex AI agent workflows who need a clean, local GUI to manage disparate agent skills. It stands out by offering a dedicated workspace for agent capabilities without cloud lock-in.",
+    "key_features": [
+      {
+        "title": "Centralized Skill Management",
+        "description": "Organize and catalog all custom AI agent skills and tools in a single unified interface."
+      },
+      {
+        "title": "Desktop Native Workspace",
+        "description": "A fast, distraction-free desktop application for configuring agent parameters locally."
+      },
+      {
+        "title": "Seamless Agent Integration",
+        "description": "Easily plug managed skills into your local or remote AI agent runtimes."
+      }
+    ],
+    "use_cases": [
+      "Managing a growing library of custom tools and functions for autonomous coding agents",
+      "Testing and configuring agent capabilities locally before production deployment",
+      "Organizing prompt-based skills and API toolsets for multi-agent systems"
+    ],
+    "pros": [
+      "Local-first desktop architecture keeps sensitive skill configurations private",
+      "Simplifies the cognitive overhead of tracking scattered agent tool definitions",
+      "Lightweight and straightforward open-source codebase for indie developers"
+    ],
+    "cons": [
+      "Early-stage project with a small community and limited ecosystem integrations so far",
+      "Lacks advanced cloud collaboration features found in enterprise agent platforms"
+    ],
+    "target_audience": "AI engineers, indie hackers, and developers building custom autonomous agents who need better organization for agent tools.",
+    "comparison_vs_alt": "Unlike cloud-centric prompt and skill registries like LangChain Hub, Skills Hub runs locally as a desktop app, giving developers complete privacy and offline control over their agent toolkit.",
+    "install_command": "git clone https://github.com/qufei1993/skills-hub.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 199
+  },
+  {
+    "id": "plimsoll",
+    "name": "Plimsoll",
+    "tagline": "Secure self-hosted sandbox for code written by your AI agents",
+    "summary": "Plimsoll is an open-source isolation environment designed to safely execute and test arbitrary code generated by AI coding agents. It protects your infrastructure from rogue scripts, infinite loops, and unintended system modifications during agent execution loops.",
+    "url": "https://github.com/plimsollmark/plimsoll",
+    "github_url": "https://github.com/plimsollmark/plimsoll",
+    "source": "hackernews",
+    "category": "security-devops",
+    "tags": [
+      "AI Agents",
+      "Sandboxing",
+      "Docker",
+      "Security",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 13,
+    "primary_alternative": "E2B",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 72,
+    "verdict": "An essential open-source utility for developers building autonomous AI agents who need robust infrastructure isolation without relying on closed-source cloud sandboxes.",
+    "key_features": [
+      {
+        "title": "Isolated Execution",
+        "description": "Runs agent-generated code inside secure, isolated containerized environments."
+      },
+      {
+        "title": "Self-Hosted Control",
+        "description": "Deploy entirely on your own infrastructure for maximum data privacy and zero cloud lock-in."
+      },
+      {
+        "title": "Agent Integration",
+        "description": "Easily integrates into existing agent workflows and orchestrators for dynamic code testing."
+      }
+    ],
+    "use_cases": [
+      "Safely executing Python or JavaScript scripts generated dynamically by LLM coding assistants",
+      "Running automated agent evaluation benchmarks and unit tests against untrusted code",
+      "Building custom autonomous software engineering agents that require a safe execution playground"
+    ],
+    "pros": [
+      "Complete data privacy through a self-hosted architecture",
+      "Eliminates dependency costs associated with proprietary hosted sandbox APIs",
+      "Lightweight and transparent setup tailored specifically for AI developer workflows"
+    ],
+    "cons": [
+      "Early-stage project with a small community and limited ecosystem integrations",
+      "Requires manual infrastructure management and security hardening compared to managed services"
+    ],
+    "target_audience": "AI engineers and developers building custom autonomous agents who require complete control over code execution infrastructure.",
+    "comparison_vs_alt": "Unlike managed alternatives like E2B, Plimsoll offers complete self-hosting and zero per-execution cloud fees, making it ideal for privacy-sensitive environments.",
+    "install_command": "git clone https://github.com/plimsollmark/plimsoll.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 1
+  },
+  {
+    "id": "mit-ocw-tv",
+    "name": "MIT OCW TV",
+    "tagline": "MIT OpenCourseWare reimagined as an old-school cable TV experience",
+    "summary": "MIT OCW TV transforms dense educational lectures from MIT OpenCourseWare into an entertaining, nostalgic cable television channel format. It solves the friction of traditional course browsing by curating continuous video streams that encourage serendipitous learning.",
+    "url": "https://rahulch.site/mitocwtv/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Education",
+      "Streaming",
+      "Nostalgia",
+      "Web App"
+    ],
+    "pricing_model": "Free",
+    "stars": 3,
+    "primary_alternative": "YouTube",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "A delightful, highly creative novelty web app that makes passive consumption of elite computer science and math lectures surprisingly addictive. Perfect for curious developers who enjoy casual learning without the friction of choosing playlists.",
+    "key_features": [
+      {
+        "title": "Continuous Channel Surfing",
+        "description": "Flip through different educational streams just like traditional cable television."
+      },
+      {
+        "title": "Curated MIT Content",
+        "description": "Seamlessly pulls high-level academic lectures directly from MIT's legendary OpenCourseWare library."
+      },
+      {
+        "title": "Zero Friction Discovery",
+        "description": "Eliminates decision fatigue by dropping you straight into ongoing lectures without setup."
+      }
+    ],
+    "use_cases": [
+      "Casual background viewing while coding or building side projects",
+      "Discovering advanced computer science topics through serendipitous lecture surfing",
+      "Experiencing a nostalgic retro television interface blended with elite academics"
+    ],
+    "pros": [
+      "Completely friction-free experience requiring zero sign-up or configuration",
+      "Brilliant nostalgic UI concept that reinvents how video archives are explored",
+      "Access to world-class MIT educational material in a low-stress format"
+    ],
+    "cons": [
+      "Lacks traditional course structure, progress tracking, or note-taking integrations",
+      "Relies entirely on external video hosting and existing OCW availability"
+    ],
+    "target_audience": "Curious developers, lifelong learners, and tech enthusiasts who enjoy casual background learning and nostalgic web toys.",
+    "comparison_vs_alt": "Unlike standard YouTube playlists or traditional learning platforms, MIT OCW TV removes the overhead of search and selection by forcing a nostalgic, linear television surfing dynamic.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "llmxray",
+    "name": "LLMxRay",
+    "tagline": "Open-source observability and tracing tool for LLM-powered applications",
+    "summary": "LLMxRay is an open-source observability platform designed to monitor, trace, and debug Large Language Model interactions. It addresses the lack of transparent, self-hostable monitoring by giving developers deep visibility into token usage, latency, and prompt execution chains.",
+    "url": "https://github.com/LogneBudo/llmxray",
+    "github_url": "https://github.com/LogneBudo/llmxray",
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "LLM",
+      "Observability",
+      "Open Source",
+      "Tracing",
+      "AI Agents"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 17,
+    "primary_alternative": "LangSmith",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 72,
+    "verdict": "An essential lightweight choice for developers building custom LLM applications who require complete data privacy and local telemetry tracking without vendor lock-in.",
+    "key_features": [
+      {
+        "title": "Prompt & Response Tracing",
+        "description": "Capture end-to-end execution paths of complex multi-step LLM chains."
+      },
+      {
+        "title": "Token & Cost Monitoring",
+        "description": "Track token consumption and API costs in real-time across different providers."
+      },
+      {
+        "title": "Self-Hosted Telemetry",
+        "description": "Keep all sensitive prompt data and user inputs strictly within your private infrastructure."
+      }
+    ],
+    "use_cases": [
+      "Debugging hallucinating prompt chains and unexpected agent behavior",
+      "Auditing production applications for token spend and latency bottlenecks",
+      "Ensuring enterprise compliance by keeping LLM traces on-premise"
+    ],
+    "pros": [
+      "Complete data ownership with a self-hosted architecture",
+      "Zero vendor lock-in compared to proprietary cloud observability platforms",
+      "Lightweight integration setup for custom Python and JS pipelines"
+    ],
+    "cons": [
+      "Early-stage open-source project with a smaller ecosystem and community",
+      "Lacks advanced analytics dashboards and automated evaluation suites found in mature SaaS options"
+    ],
+    "target_audience": "Backend engineers and AI developers building production LLM apps who need privacy-first monitoring.",
+    "comparison_vs_alt": "Unlike LangSmith which requires a cloud subscription and sends telemetry to external servers, LLMxRay lets you self-host your tracing data completely for free.",
+    "install_command": "git clone https://github.com/LogneBudo/llmxray.git",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 2
+  },
+  {
+    "id": "preloop",
+    "name": "Preloop",
+    "tagline": "Run GitHub Actions locally inside secure microVMs with SSH & pause",
+    "summary": "Preloop allows developers to execute GitHub Actions workflows locally inside isolated microVMs, eliminating the tedious commit-and-push debugging cycle. It features interactive debugging capabilities like pausing failed pipeline steps and directly SSHing into the execution environment.",
+    "url": "https://github.com/preloopdev/preloop",
+    "github_url": "https://github.com/preloopdev/preloop",
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "GitHub Actions",
+      "MicroVM",
+      "CI/CD",
+      "DevEx",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 188,
+    "primary_alternative": "Act",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 82,
+    "verdict": "An essential productivity booster for engineers tired of slow CI loops, offering unmatched workflow inspection capabilities.",
+    "key_features": [
+      {
+        "title": "MicroVM Isolation",
+        "description": "Executes workflows inside lightweight, secure microVMs mimicking cloud runners."
+      },
+      {
+        "title": "Interactive SSH & Pause",
+        "description": "Pauses failed workflow runs and lets you SSH straight into the container to troubleshoot."
+      },
+      {
+        "title": "Local CI/CD Testing",
+        "description": "Runs complex GitHub Actions right on your workstation without modifying remote repositories."
+      }
+    ],
+    "use_cases": [
+      "Debugging complex multi-stage GitHub Actions workflows without spamming git commit history",
+      "Isolating CI environment bugs locally on macOS or Linux before pushing code",
+      "Inspecting runner states and file systems immediately upon a build failure"
+    ],
+    "pros": [
+      "True microVM isolation provides high security and fidelity compared to standard Docker-based runners",
+      "Ability to SSH directly into failed actions drastically accelerates debugging time",
+      "Eliminates the cost and delay of remote CI runner minutes during development"
+    ],
+    "cons": [
+      "Early-stage project with an emerging ecosystem and potential edge-case compatibility issues",
+      "Requires hardware virtualization support locally to run microVMs efficiently"
+    ],
+    "target_audience": "Backend and DevOps engineers who spend significant time writing and debugging GitHub Actions workflows.",
+    "comparison_vs_alt": "Unlike standard Docker-based local runners like Act, Preloop uses lightweight microVMs for superior isolation and allows you to pause failures and SSH directly into the active state.",
+    "install_command": "cargo install preloop",
+    "date_added": "2026-10-12",
+    "featured": false,
+    "forks": 6
+  },
+  {
+    "id": "secubuzz",
+    "name": "SecuBuzz",
+    "tagline": "Factual 60-word cybersecurity briefs and CISA zero-day radar",
+    "summary": "SecuBuzz delivers concise, 60-word factual cybersecurity news briefs alongside an integrated CISA zero-day threat radar. It solves information fatigue for busy tech professionals by stripping away fluff to highlight critical infrastructure vulnerabilities instantly.",
+    "url": "https://secubuzz.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "cybersecurity-reverse",
+    "tags": [
+      "Cybersecurity",
+      "Threat Intelligence",
+      "CISA",
+      "Security Briefs"
+    ],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": "The Hacker News",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exceptionally efficient threat intel feed for engineers and security professionals who need zero-fluff vulnerability alerts.",
+    "key_features": [
+      {
+        "title": "60-Word Briefs",
+        "description": "Crisp, factual summaries that deliver core security incidents in under a minute."
+      },
+      {
+        "title": "CISA Zero-Day Radar",
+        "description": "Real-time tracking and alerts for critical actively exploited zero-day vulnerabilities."
+      },
+      {
+        "title": "No-Fluff Journalism",
+        "description": "Strict focus on verified facts, technical impacts, and actionable remediation steps."
+      }
+    ],
+    "use_cases": [
+      "Quickly catching up on critical zero-day vulnerabilities during morning standup",
+      "Filtering out media hype to get straight to CVE technical details",
+      "Staying informed on CISA advisories without reading lengthy PDF reports"
+    ],
+    "pros": [
+      "Ultra-fast read times designed specifically for busy developers and security engineers",
+      "Direct integration with official CISA zero-day warnings",
+      "Clean interface free of paywalls, pop-ups, and sensationalized reporting"
+    ],
+    "cons": [
+      "Lacks deep forensic analysis or long-form architectural breakdowns",
+      "Early-stage indie project with minimal community history"
+    ],
+    "target_audience": "Software engineers, DevOps leads, and security professionals who need rapid, noise-free threat intelligence.",
+    "comparison_vs_alt": "Unlike traditional security news outlets bogged down by commentary and ads, SecuBuzz focuses entirely on ultra-short, factual briefs and direct CISA tracking.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "seodatadev",
+    "name": "Seodata.dev",
+    "tagline": "Free real-time search data and engine APIs built for AI agents",
+    "summary": "Seodata.dev provides developer-friendly, free-tier search data endpoints designed specifically to feed live web context into LLMs and autonomous agents. It eliminates the friction of expensive, rate-limited commercial search APIs for prototyping and lightweight production agentic workflows.",
+    "url": "https://www.seodata.dev/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Search API",
+      "LLM",
+      "Data Pipelines",
+      "Web Scraping"
+    ],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": "Tavily AI",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An essential utility for indie hackers and developers building AI agents on a budget who need straightforward programmatic search access without hefty subscriptions.",
+    "key_features": [
+      {
+        "title": "Agent-Optimized Search",
+        "description": "Delivers clean, structured search results tailored for direct LLM ingestion and context window packing."
+      },
+      {
+        "title": "Zero-Cost Access",
+        "description": "Offers free-tier search data to facilitate cost-effective prototyping and agent development."
+      },
+      {
+        "title": "Simple API Integration",
+        "description": "Lightweight endpoints that easily integrate into custom LangChain, LlamaIndex, or raw Python agent loops."
+      }
+    ],
+    "use_cases": [
+      "Equipping local LLM agents with real-time web browsing capabilities",
+      "Building automated research assistants that query and synthesize web sources",
+      "Prototyping retrieval-augmented generation (RAG) pipelines without paid API overhead"
+    ],
+    "pros": [
+      "Completely free tier removes financial barriers for indie developers",
+      "Data payloads are optimized to minimize token waste in LLM prompts",
+      "Frictionless integration into existing agent frameworks"
+    ],
+    "cons": [
+      "Lacks the robust enterprise SLAs and historical scale of commercial search APIs",
+      "Early-stage project with limited community documentation and support channels"
+    ],
+    "target_audience": "AI engineers, indie hackers, and developers building autonomous agents or custom RAG search pipelines.",
+    "comparison_vs_alt": "Unlike Tavily or SerpAPI which quickly become expensive at scale, Seodata.dev provides a lean, free alternative ideal for bootstrapping and lightweight AI workflows.",
+    "install_command": "curl -X GET \"https://www.seodata.dev/api/search?q=query\"",
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "shpyrd",
+    "name": "Shpyrd",
+    "tagline": "A next-generation cloud platform built specifically for the AI era",
+    "summary": "Shpyrd is an emerging cloud infrastructure provider designed to abstract away the complexity of deploying and scaling modern AI workloads. It addresses the friction developers face with legacy hyperscalers by offering specialized primitives optimized for LLM deployment and AI agent execution.",
+    "url": "https://www.shpyrd.io",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "Cloud Infrastructure",
+      "AI Deployment",
+      "DevOps",
+      "Serverless"
+    ],
+    "pricing_model": "Free",
+    "stars": 7,
+    "primary_alternative": "AWS Bedrock",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "verdict": "An intriguing early-stage cloud challenger that warrants monitoring for teams seeking streamlined AI infrastructure away from traditional hyperscalers.",
+    "key_features": [
+      {
+        "title": "AI-Native Primitives",
+        "description": "Infrastructure blocks built from the ground up for models, inference, and agent workflows."
+      },
+      {
+        "title": "Simplified Deployment",
+        "description": "Streamlined developer experience designed to launch AI apps with minimal configuration."
+      },
+      {
+        "title": "Optimized Compute Scaling",
+        "description": "Dynamic resource allocation tailored for variable LLM and inference workloads."
+      }
+    ],
+    "use_cases": [
+      "Deploying custom LLM inference endpoints without managing Kubernetes clusters",
+      "Scaling autonomous AI agent backends with low-latency communication",
+      "Prototyping next-generation AI applications with dedicated cloud primitives"
+    ],
+    "pros": [
+      "Purpose-built infrastructure tailored exclusively for AI application requirements",
+      "Significantly lower configuration overhead compared to legacy cloud providers",
+      "Modern developer experience focused on fast iteration cycles"
+    ],
+    "cons": [
+      "Very early-stage project with limited community track record and ecosystem integrations",
+      "Lacks the vast compliance certifications and global edge network of established hyperscalers"
+    ],
+    "target_audience": "AI engineers and indie developers looking for specialized cloud infrastructure to deploy modern AI applications quickly.",
+    "comparison_vs_alt": "Unlike massive enterprise clouds like AWS Bedrock, Shpyrd aims to strip away legacy bloat to offer an agile, AI-first deployment workflow.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "poke-finder",
+    "name": "Poke Finder",
+    "tagline": "Catch Pokémon while you browse and complete your Pokédex",
+    "summary": "Poke Finder is a gamified browser extension that spawns wild Pokémon across your everyday web browsing sessions, allowing users to catch them and complete their Pokédex. It bridges casual web exploration with nostalgia-driven gaming without requiring dedicated gameplay time.",
+    "url": "https://www.producthunt.com/products/poke-finder-catch-em-on-the-web",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Browser Extension",
+      "Gaming",
+      "Gamification",
+      "Nostalgia",
+      "Chrome Extension"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Pokémon GO",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "A delightful distraction for web users and Pokémon fans looking to add a touch of gamification to their daily browsing routine.",
+    "key_features": [
+      {
+        "title": "Passive Spawns",
+        "description": "Wild Pokémon randomly appear on web pages as you browse the internet normally."
+      },
+      {
+        "title": "Interactive Catching",
+        "description": "Engage with mini-encounters directly in your browser viewport to capture them."
+      },
+      {
+        "title": "Pokédex Tracker",
+        "description": "Maintain a comprehensive internal collection log to track all your captured species."
+      }
+    ],
+    "use_cases": [
+      "Adding casual gamification elements to routine web research or reading",
+      "Nostalgic entertainment during short breaks between work tasks",
+      "Collecting rare virtual creatures passively while working online"
+    ],
+    "pros": [
+      "Requires zero dedicated gaming time since it integrates into regular web browsing",
+      "Lightweight extension footprint that runs smoothly in the background",
+      "Engaging nostalgic gameplay loop for web-heavy users"
+    ],
+    "cons": [
+      "Can occasionally distract from deep focus work or web reading",
+      "Lacks advanced multiplayer or trading mechanics found in official games"
+    ],
+    "target_audience": "Casual gamers, web power users, and Pokémon fans who spend significant time browsing the internet.",
+    "comparison_vs_alt": "Unlike Pokémon GO which requires physical movement outdoors, Poke Finder brings the catching experience directly to your desktop browser.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "simplespread",
+    "name": "SimpleSpread",
+    "tagline": "A native, open-source spreadsheet built specifically for macOS",
+    "summary": "SimpleSpread is a lightweight, high-performance native desktop spreadsheet application designed to offer a clean alternative to bloated web-based tools. It bridges the gap between raw CSV handling and full-scale office suites while keeping data entirely local and private.",
+    "url": "https://www.producthunt.com/products/simplespread",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "open-source",
+    "tags": [
+      "macOS",
+      "Swift",
+      "Spreadsheet",
+      "Open Source",
+      "Desktop"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 0,
+    "primary_alternative": "Microsoft Excel",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An excellent pick for macOS power users who value local data privacy, instant startup times, and native UI performance over heavy cloud-based bloat.",
+    "key_features": [
+      {
+        "title": "Native macOS Architecture",
+        "description": "Built using native Apple frameworks for lightning-fast rendering and low memory overhead."
+      },
+      {
+        "title": "Complete Data Privacy",
+        "description": "All spreadsheets remain locally stored on your device without forcing mandatory cloud synchronization."
+      },
+      {
+        "title": "Lightweight & Fast",
+        "description": "Instant launch times and responsive cell manipulation free from web browser lag."
+      }
+    ],
+    "use_cases": [
+      "Quickly parsing and filtering large local CSV files without spinning up a heavy browser tab",
+      "Managing offline personal finance or budgeting sheets securely on a Mac",
+      "Drafting tabular data calculations without telemetry or subscription paywalls"
+    ],
+    "pros": [
+      "Native Swift/AppKit or SwiftUI performance avoids Electron memory bloat",
+      "Zero risk of data telemetry or mandatory cloud account lock-in",
+      "Free and open source code allows for transparency and customization"
+    ],
+    "cons": [
+      "Lacks advanced macro automation and complex formula parity with Excel",
+      "Restricted solely to macOS without native Windows or Linux equivalents"
+    ],
+    "target_audience": "Mac users, developers, and privacy advocates looking for a fast, native spreadsheet client for local files.",
+    "comparison_vs_alt": "Unlike Microsoft Excel or Google Sheets, SimpleSpread avoids cloud subscriptions and telemetry, offering a distraction-free native desktop experience.",
+    "install_command": "brew install --cask simplespread",
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "ghost-core",
+    "name": "Ghost Core",
+    "tagline": "A personal AI computer that runs entirely on-device",
+    "summary": "Ghost Core is an on-device personal AI computer designed to execute intelligent workloads locally without relying on cloud infrastructure. By keeping data processing strictly on your hardware, it ensures absolute privacy while delivering snappy contextual AI assistance.",
+    "url": "https://www.producthunt.com/products/ghost-core",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Assistant",
+      "Edge AI",
+      "Privacy",
+      "Local LLM"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "OpenAI ChatGPT Plus",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An intriguing hardware-software solution for privacy purists who want powerful local AI capabilities without sending sensitive data to third-party cloud servers.",
+    "key_features": [
+      {
+        "title": "100% On-Device Processing",
+        "description": "Runs complex AI models locally on your hardware to eliminate cloud dependencies."
+      },
+      {
+        "title": "Absolute Data Privacy",
+        "description": "Keeps all personal context and generated data strictly contained on your device."
+      },
+      {
+        "title": "Local Context Integration",
+        "description": "Seamlessly indexes and interacts with your local files and workflows offline."
+      }
+    ],
+    "use_cases": [
+      "Drafting sensitive documents and code without leaking enterprise intellectual property to the cloud",
+      "Running a personal AI assistant while traveling completely offline",
+      "Managing local file search and summarization with zero network latency"
+    ],
+    "pros": [
+      "Complete data sovereignty with zero telemetry sent to cloud providers",
+      "Operational capability in offline or air-gapped environments",
+      "Eliminates recurrent subscription fees tied to cloud LLM usage"
+    ],
+    "cons": [
+      "Hardware-dependent performance limits maximum model size and speed",
+      "Lacks the vast real-time web knowledge retrieval of massive cloud models"
+    ],
+    "target_audience": "Privacy-conscious professionals, developers, and security researchers who require local AI execution.",
+    "comparison_vs_alt": "Unlike cloud-dependent alternatives like ChatGPT, Ghost Core trades off infinite model scaling for absolute data privacy and offline functionality.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "gboard-kurukuru",
+    "name": "Gboard Kurukuru",
+    "tagline": "Your fingers stay put. The keys come around.",
+    "summary": "An innovative experimental keyboard layout that reimagines mobile typing by keeping fingers stationary while rotating the keys toward you. It solves repetitive finger travel strain on mobile screens through a unique rotary mechanical interaction concept.",
+    "url": "https://www.producthunt.com/products/google",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Mobile",
+      "Keyboard",
+      "Experimental",
+      "UI/UX",
+      "Google"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Gboard",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "A fascinating and playful ergonomic experiment from Google that challenges traditional mobile typing paradigms, ideal for tech enthusiasts and UI researchers.",
+    "key_features": [
+      {
+        "title": "Rotary Key Movement",
+        "description": "Keys revolve around a fixed point so your fingers never have to leave their resting spot."
+      },
+      {
+        "title": "Ergonomic Experiment",
+        "description": "Reduces thumb travel distance across large mobile screen form factors."
+      },
+      {
+        "title": "Novel Input Paradigm",
+        "description": "Replaces standard QWERTY grid tapping with a circular continuous motion."
+      }
+    ],
+    "use_cases": [
+      "Testing out experimental mobile UI designs and ergonomic keyboard concepts",
+      "Typing on large phablets or foldables with minimal thumb movement",
+      "Showcasing unconventional software interactions and novelty app concepts"
+    ],
+    "pros": [
+      "Drastically reduces thumb strain and travel distance during typing",
+      "Engaging and novel user interaction design from a major tech lab",
+      "Completely free to try without accounts or setup required"
+    ],
+    "cons": [
+      "Steep learning curve compared to decades of muscle memory built on QWERTY",
+      "Not practical for high-speed professional typing or daily productivity"
+    ],
+    "target_audience": "Mobile UX designers, gadget enthusiasts, and developers interested in experimental human-computer interfaces.",
+    "comparison_vs_alt": "Unlike standard Gboard which relies on traditional linear grid layouts, Kurukuru swaps spatial tapping for rotational mechanics to rethink thumb ergonomics.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "karmaboard",
+    "name": "KarmaBoard",
+    "tagline": "Turn any TV into a vintage split-flap message board",
+    "summary": "KarmaBoard transforms standard TV displays into nostalgic, mechanical-style split-flap message boards for homes or offices. It bridges retro physical aesthetics with modern digital displays to show real-time announcements, schedules, and welcome messages.",
+    "url": "https://www.producthunt.com/products/karmaboard",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Digital Signage",
+      "TV Display",
+      "Retro",
+      "Productivity"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Dakboard",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "KarmaBoard delivers a delightful visual nostalgia trip for offices and smart homes wanting a break from sterile digital signage. It's a great choice for aesthetic-driven spaces, though limited in deep enterprise integrations.",
+    "key_features": [
+      {
+        "title": "Split-Flap Animation",
+        "description": "Authentic mechanical flip transitions that mimic vintage airport and train station boards."
+      },
+      {
+        "title": "TV Optimization",
+        "description": "Seamless casting and optimization for large-format displays and smart TVs."
+      },
+      {
+        "title": "Custom Messages",
+        "description": "Easily update displayed text and announcements remotely from your web browser."
+      }
+    ],
+    "use_cases": [
+      "Displaying welcoming messages in modern office lobbies and reception areas",
+      "Showing daily schedules, menus, or announcements in cafes and boutique hotels",
+      "Adding a retro aesthetic to a smart home dashboard or living room TV"
+    ],
+    "pros": [
+      "Stunning retro aesthetic that immediately catches attention",
+      "Extremely simple setup requiring only a web browser and a TV",
+      "Remote management capability for updating messages on the fly"
+    ],
+    "cons": [
+      "Lacks the deep data integration widgets found in comprehensive dashboard tools",
+      "Closed-source proprietary platform with limited automation hooks"
+    ],
+    "target_audience": "Office managers, small business owners, and design enthusiasts looking for unique digital signage.",
+    "comparison_vs_alt": "Unlike standard digital dashboard tools like Dakboard that focus on dense weather and calendar widgets, KarmaBoard prioritizes retro mechanical charm and bold typography.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "focuswrite",
+    "name": "FocusWrite",
+    "tagline": "A distraction-free, local-first writing app with immersive focus modes",
+    "summary": "FocusWrite is a privacy-first desktop writing application designed to eliminate digital distractions through minimalist interfaces and strict offline data storage. It solves the problem of context-switching and clutter in modern text editors by providing customizable focus environments for deep work.",
+    "url": "https://www.producthunt.com/products/focuswrite",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Markdown",
+      "Desktop App",
+      "Local-First",
+      "Privacy"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Ulysses",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An essential utility for writers and developers seeking absolute privacy and a zero-distraction sanctuary without cloud lock-in.",
+    "key_features": [
+      {
+        "title": "Local-First Storage",
+        "description": "All your documents are saved directly to your local file system with zero cloud dependency."
+      },
+      {
+        "title": "Immersive Focus Modes",
+        "description": "Block out UI clutter and peripheral notifications with typewriter scrolling and line-hiding."
+      },
+      {
+        "title": "Markdown Support",
+        "description": "Write seamlessly using lightweight formatting syntax for fast documentation and prose creation."
+      }
+    ],
+    "use_cases": [
+      "Drafting technical documentation and blog posts without internet distractions",
+      "Writing long-form prose and novels with absolute data ownership",
+      "Daily journaling and personal notes stored securely on a local disk"
+    ],
+    "pros": [
+      "Total data privacy with local-first file architecture",
+      "Zero account creation or subscription walls required to get started",
+      "Lightweight resource consumption compared to electron-heavy alternatives"
+    ],
+    "cons": [
+      "Lacks native multi-device cloud synchronization out of the box",
+      "Fills a niche space that competes with heavily entrenched markdown editors like Obsidian"
+    ],
+    "target_audience": "Writers, bloggers, and developers who prioritize privacy, local file ownership, and distraction-free writing environments.",
+    "comparison_vs_alt": "Unlike Ulysses which relies on subscription pricing and cloud syncing, FocusWrite provides a completely free, local-first sandbox for absolute privacy.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "hirekey",
+    "name": "HireKey",
+    "tagline": "Your recruiter-informed AI copilot for tech job search",
+    "summary": "HireKey is an AI-powered job search copilot built with insights from tech recruiters to optimize application materials. It bridges the gap between candidate resumes and applicant tracking systems by leveraging real hiring criteria.",
+    "url": "https://www.producthunt.com/products/hirekey",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Copilot",
+      "Job Search",
+      "Resume Optimization",
+      "Career"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Teal",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential tactical asset for software engineers and tech professionals looking to bypass ATS filters and align resumes with recruiter expectations.",
+    "key_features": [
+      {
+        "title": "Recruiter Insights Integration",
+        "description": "AI models trained on actual tech recruiter screening patterns and preferences."
+      },
+      {
+        "title": "Targeted Resume Tailoring",
+        "description": "Dynamically adjusts resume wording and metrics to match specific job descriptions."
+      },
+      {
+        "title": "Application Copilot",
+        "description": "Provides real-time guidance and suggestions throughout the job application process."
+      }
+    ],
+    "use_cases": [
+      "Tailoring technical resumes for senior software engineering roles to pass strict ATS filters",
+      "Optimizing bullet points to emphasize quantifiable impact and architecture choices",
+      "Drafting targeted responses for application screening questions"
+    ],
+    "pros": [
+      "Grounds AI generation in real-world tech recruiter methodologies",
+      "Significantly reduces manual resume-tweaking fatigue for high-volume applications",
+      "Improves alignment between developer skill sets and job requirements"
+    ],
+    "cons": [
+      "Relies on third-party AI accuracy which may occasionally require manual oversight",
+      "Closed-source proprietary platform limits custom workflow automation"
+    ],
+    "target_audience": "Tech professionals, software engineers, and product managers navigating competitive job markets.",
+    "comparison_vs_alt": "Unlike Teal which focuses primarily on job tracking and generic resume building, HireKey emphasizes recruiter-informed intelligence to specifically target tech hiring dynamics.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "kooler",
+    "name": "Kooler",
+    "tagline": "Discover custom cocktails you can make with what's in your bar",
+    "summary": "Kooler is a consumer application that solves the classic hosting dilemma of not knowing what drinks can be made with existing ingredients. By inputting your current home bar inventory, it instantly generates viable cocktail recipes to maximize utility and reduce waste.",
+    "url": "https://www.producthunt.com/products/kooler-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Cocktails",
+      "Lifestyle",
+      "Recipes",
+      "Mobile App"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Mixel",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "A fun and practical utility for home bartenders and party hosts looking to make the most of their existing liquor cabinet without extra grocery runs.",
+    "key_features": [
+      {
+        "title": "Inventory Management",
+        "description": "Log the exact spirits, mixers, and garnishes currently available in your home bar."
+      },
+      {
+        "title": "Smart Recipe Matching",
+        "description": "Instantly filter and discover cocktails you can make right now without missing ingredients."
+      },
+      {
+        "title": "Substitution Suggestions",
+        "description": "Get clever recommendations for swapping missing ingredients with what you already have."
+      }
+    ],
+    "use_cases": [
+      "Figuring out what drinks to make during an impromptu gathering with limited ingredients",
+      "Inventorying an aging liquor collection to find creative new drink combinations",
+      "Minimizing grocery store trips by checking recipe feasibility before shopping"
+    ],
+    "pros": [
+      "Instantly eliminates the guesswork of matching recipes to available ingredients",
+      "Reduces beverage waste by encouraging creative use of neglected bottles",
+      "Clean, intuitive interface tailored for quick reference while mixing drinks"
+    ],
+    "cons": [
+      "Lacks advanced customization for user-created custom recipes",
+      "Relies on manual inventory updates as bottles run empty"
+    ],
+    "target_audience": "Home mixology enthusiasts, party hosts, and casual drinkers looking to experiment with their existing bar inventory.",
+    "comparison_vs_alt": "Unlike massive database apps like Mixel, Kooler focuses specifically on quick inventory-to-recipe matching with a streamlined, zero-clutter interface.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "mepersona",
+    "name": "MePersona",
+    "tagline": "Answer every fan comment in your unique voice using AI",
+    "summary": "MePersona is an AI-powered tool designed for creators and public figures to automate fan engagement while maintaining their authentic voice. It analyzes past communication patterns to generate personalized replies across social media platforms at scale.",
+    "url": "https://www.producthunt.com/products/mepersona",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Social Media",
+      "Automation",
+      "Content Creators"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "FeedHive",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for high-follower creators struggling to maintain community connection without burning out on manual comment moderation.",
+    "key_features": [
+      {
+        "title": "Voice Cloning Engine",
+        "description": "Learns your specific tone, slang, and response style from historical posts and comments."
+      },
+      {
+        "title": "Multi-Platform Automation",
+        "description": "Seamlessly manages and replies to fan interactions across major social networks."
+      },
+      {
+        "title": "Contextual Sentiment Analysis",
+        "description": "Detects fan intent to ensure appropriate emotional resonance in every auto-generated reply."
+      }
+    ],
+    "use_cases": [
+      "Scaling community engagement for YouTube creators with thousands of video comments",
+      "Maintaining active social presence for influencers during content production sprints",
+      "Fostering deeper fan loyalty through personalized and timely interactions"
+    ],
+    "pros": [
+      "Significantly reduces the hours spent daily on manual comment replies",
+      "Maintains brand consistency and personal voice integrity",
+      "Handles high-volume influxes of engagement following viral posts"
+    ],
+    "cons": [
+      "Risk of occasional AI hallucinations or tone mismatches requiring human oversight",
+      "Lacks complete self-hosting options for privacy-sensitive public figures"
+    ],
+    "target_audience": "Content creators, influencers, and community managers overwhelmed by high-volume social media engagement.",
+    "comparison_vs_alt": "Unlike generic social media schedulers like FeedHive that rely on templated responses, MePersona deeply mimics individual creator voices for genuine fan connection.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
+    "id": "floorgen",
+    "name": "FloorGen",
+    "tagline": "Free AI-powered floor plan generator from drawings or prompts",
+    "summary": "FloorGen is an AI-driven architectural design tool that instantly generates professional floor plans from simple user sketches or natural language prompts. It streamlines the spatial planning process for real estate agents, interior designers, and homeowners without requiring complex CAD software.",
+    "url": "https://www.producthunt.com/products/floorgen",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI",
+      "Architecture",
+      "Design",
+      "Productivity"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "AutoCAD",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An accessible, zero-cost solution for rapid spatial ideation, though it lacks the advanced precision required for formal architectural blueprints.",
+    "key_features": [
+      {
+        "title": "Text-to-Floorplan",
+        "description": "Generate complete house layouts instantly by simply describing rooms and dimensions in plain English."
+      },
+      {
+        "title": "Sketch Translation",
+        "description": "Convert rough hand-drawn room outlines into clean, digital architectural floor plans."
+      },
+      {
+        "title": "Instant Customization",
+        "description": "Easily modify generated layouts, adjust room sizes, and iterate on designs in real time."
+      }
+    ],
+    "use_cases": [
+      "Rapidly brainstorming home renovation layouts before consulting a contractor",
+      "Real estate agents creating quick conceptual property sketches for listings",
+      "Interior designers visualizing spatial arrangements for client pitches"
+    ],
+    "pros": [
+      "Completely free to use for rapid prototyping and idea generation",
+      "Extremely low barrier to entry with natural language and sketch inputs",
+      "Saves hours of manual drawing compared to traditional CAD drafting tools"
+    ],
+    "cons": [
+      "Lacks the structural engineering accuracy and compliance checks of professional software",
+      "Limited export options and advanced customization for complex multi-story buildings"
+    ],
+    "target_audience": "Real estate professionals, interior designers, and homeowners looking for quick, hassle-free floor plan drafts.",
+    "comparison_vs_alt": "Unlike enterprise tools like AutoCAD which require extensive training and expensive licenses, FloorGen offers instant, prompt-driven floor plans for free.",
+    "install_command": null,
+    "date_added": "2026-10-12",
+    "featured": false
+  },
+  {
     "id": "readrare",
     "name": "ReadRare",
     "tagline": "Discover rare, obscure, and out-of-print tech books and documents",
@@ -72,7 +1374,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 179600,
+    "stars": 179834,
     "primary_alternative": "React Native",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -111,7 +1413,7 @@
     "install_command": "git clone https://github.com/flutter/flutter.git -b stable",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 33612
+    "forks": 33820
   },
   {
     "id": "ppt-master",
@@ -130,7 +1432,7 @@
       "Presentation"
     ],
     "pricing_model": "Open Source",
-    "stars": 59655,
+    "stars": 60530,
     "primary_alternative": "Gamma App",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -169,7 +1471,7 @@
     "install_command": "git clone https://github.com/hugohe3/ppt-master.git && cd ppt-master && npm install",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 4702
+    "forks": 4776
   },
   {
     "id": "pytorch",
@@ -188,7 +1490,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 104182,
+    "stars": 104600,
     "primary_alternative": "TensorFlow",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -227,7 +1529,7 @@
     "install_command": "pip install torch torchvision torchaudio",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 31959
+    "forks": 32166
   },
   {
     "id": "hangulink-rnn",
@@ -307,11 +1609,11 @@
       "Developer Tools"
     ],
     "pricing_model": "Open Source",
-    "stars": 49,
+    "stars": 124,
     "primary_alternative": "GitHub Pull Requests / Git diff tools",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 77,
+    "signal_score": 82,
     "verdict": "An exceptional utility for terminal-heavy developers and CLI power users who want semantic code understanding directly in their diff workflows.",
     "key_features": [
       {
@@ -346,7 +1648,7 @@
     "install_command": "cargo install diffle",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 2
+    "forks": 3
   },
   {
     "id": "littleguys",
@@ -422,11 +1724,11 @@
       "3D"
     ],
     "pricing_model": "Open Source",
-    "stars": 84,
+    "stars": 624,
     "primary_alternative": "Manim",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 77,
+    "signal_score": 82,
     "verdict": "An exciting, high-performance drop-in upgrade for educators and content creators frustrated by standard Manim render times, though still in its early developmental stages.",
     "key_features": [
       [
@@ -463,7 +1765,7 @@
     "install_command": "pip install manimgx",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 3
+    "forks": 38
   },
   {
     "id": "boardsy-led-calculators",
@@ -639,7 +1941,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 595,
+    "stars": 630,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
@@ -674,7 +1976,7 @@
     "install_command": "git clone https://github.com/franzenzenhofer/big-arrow-on-the-screen.git",
     "date_added": "2026-10-11",
     "featured": false,
-    "forks": 10
+    "forks": 15
   },
   {
     "id": "onepin",
@@ -1259,7 +2561,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 45919,
+    "stars": 46267,
     "primary_alternative": "GitHub Copilot Workspace",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -1298,7 +2600,7 @@
     "install_command": "docker run -d -p 8080:8080 alibaba/open-code-review",
     "date_added": "2026-10-10",
     "featured": false,
-    "forks": 3325
+    "forks": 3357
   },
   {
     "id": "litellm",
@@ -1317,7 +2619,7 @@
       "API Proxy"
     ],
     "pricing_model": "Open Source",
-    "stars": 60934,
+    "stars": 61001,
     "primary_alternative": "Portkey",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -1356,7 +2658,7 @@
     "install_command": "pip install litellm",
     "date_added": "2026-10-10",
     "featured": false,
-    "forks": 12217
+    "forks": 12237
   },
   {
     "id": "lingbot-map",
@@ -1375,7 +2677,7 @@
       "Streaming"
     ],
     "pricing_model": "Open Source",
-    "stars": 17965,
+    "stars": 18002,
     "primary_alternative": "NVIDIA Omniverse",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -1414,7 +2716,7 @@
     "install_command": "git clone https://github.com/Robbyant/lingbot-map.git",
     "date_added": "2026-10-10",
     "featured": false,
-    "forks": 1969
+    "forks": 1970
   },
   {
     "id": "carrier-explode",
@@ -1603,7 +2905,7 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 595,
+    "stars": 630,
     "primary_alternative": "Anthropic Computer Use",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -1642,7 +2944,7 @@
     "install_command": "git clone https://github.com/franzenzenhofer/big-arrow-on-the-screen.git",
     "date_added": "2026-10-10",
     "featured": false,
-    "forks": 10
+    "forks": 15
   },
   {
     "id": "tgv",
@@ -1832,7 +3134,7 @@
       "Audio"
     ],
     "pricing_model": "Open Source",
-    "stars": 33,
+    "stars": 39,
     "primary_alternative": "OpenAI Whisper API",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -1871,7 +3173,7 @@
     "install_command": "git clone https://github.com/tlack/babytalk.git",
     "date_added": "2026-10-10",
     "featured": false,
-    "forks": 7
+    "forks": 8
   },
   {
     "id": "programming-language-wars",
@@ -2551,7 +3853,7 @@
       "Plugins"
     ],
     "pricing_model": "Open Source",
-    "stars": 28893,
+    "stars": 29154,
     "primary_alternative": "OpenAI GPTs",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -2590,7 +3892,7 @@
     "install_command": "git clone https://github.com/anthropics/knowledge-work-plugins.git",
     "date_added": "2026-10-09",
     "featured": false,
-    "forks": 3284
+    "forks": 3309
   },
   {
     "id": "artcraft",
@@ -2609,7 +3911,7 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 14902,
+    "stars": 18670,
     "primary_alternative": "Adobe Creative Cloud",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -2666,7 +3968,7 @@
       "Documentation"
     ],
     "pricing_model": "Open Source",
-    "stars": 25728,
+    "stars": 25978,
     "primary_alternative": "ByteByteGo",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -2705,7 +4007,7 @@
     "install_command": "git clone https://github.com/liquidslr/system-design-notes.git",
     "date_added": "2026-10-09",
     "featured": false,
-    "forks": 4759
+    "forks": 4790
   },
   {
     "id": "flexible-led-filament-t-shirt",
@@ -2947,7 +4249,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 67,
+    "stars": 72,
     "primary_alternative": null,
     "is_self_hostable": false,
     "no_signup_required": false,
@@ -3107,7 +4409,7 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 64,
+    "stars": 65,
     "primary_alternative": "Notion",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -3165,7 +4467,7 @@
       "IoT"
     ],
     "pricing_model": "Open Source",
-    "stars": 8,
+    "stars": 9,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -3789,7 +5091,7 @@
       "Diagrams"
     ],
     "pricing_model": "Open Source",
-    "stars": 49150,
+    "stars": 50765,
     "primary_alternative": "Lucidchart",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -3828,7 +5130,7 @@
     "install_command": "git clone https://github.com/cathrynlavery/diagram-design.git",
     "date_added": "2026-10-08",
     "featured": false,
-    "forks": 3112
+    "forks": 3222
   },
   {
     "id": "raddebugger",
@@ -3847,7 +5149,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 8339,
+    "stars": 8411,
     "primary_alternative": "Visual Studio Debugger",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -3886,7 +5188,7 @@
     "install_command": "git clone https://github.com/EpicGames/raddebugger.git",
     "date_added": "2026-10-08",
     "featured": false,
-    "forks": 404
+    "forks": 405
   },
   {
     "id": "cmux",
@@ -3905,7 +5207,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 28089,
+    "stars": 28110,
     "primary_alternative": "Warp",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -3944,7 +5246,7 @@
     "install_command": "brew install --cask cmux",
     "date_added": "2026-10-08",
     "featured": false,
-    "forks": 2485
+    "forks": 2489
   },
   {
     "id": "cua",
@@ -3963,7 +5265,7 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 29304,
+    "stars": 29412,
     "primary_alternative": "Anthropic Computer Use",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -4002,7 +5304,7 @@
     "install_command": "pip install cua",
     "date_added": "2026-10-08",
     "featured": false,
-    "forks": 2079
+    "forks": 2090
   },
   {
     "id": "bigwordspage",
@@ -4247,7 +5549,7 @@
       "Distributed Systems"
     ],
     "pricing_model": "Open Source",
-    "stars": 195,
+    "stars": 202,
     "primary_alternative": "Cloudflare Durable Objects",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -4286,7 +5588,7 @@
     "install_command": "npm install durable-actors",
     "date_added": "2026-10-08",
     "featured": false,
-    "forks": 9
+    "forks": 10
   },
   {
     "id": "astrohelm",
@@ -4362,7 +5664,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 55,
+    "stars": 59,
     "primary_alternative": "htop",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -4536,7 +5838,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 47,
+    "stars": 50,
     "primary_alternative": "Standard Claude Code Prompts",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -5161,7 +6463,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 56334,
+    "stars": 56521,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -5200,7 +6502,7 @@
     "install_command": "git clone https://github.com/ayghri/i-have-adhd.git",
     "date_added": "2026-10-07",
     "featured": false,
-    "forks": 3223
+    "forks": 3238
   },
   {
     "id": "rea",
@@ -5219,7 +6521,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 77172,
+    "stars": 114849,
     "primary_alternative": "IDA Pro",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -5258,7 +6560,7 @@
     "install_command": "pip install rea-agents",
     "date_added": "2026-10-07",
     "featured": false,
-    "forks": 16504
+    "forks": 25753
   },
   {
     "id": "deepgemm",
@@ -5277,7 +6579,7 @@
       "High Performance"
     ],
     "pricing_model": "Open Source",
-    "stars": 8919,
+    "stars": 8937,
     "primary_alternative": "NVIDIA CUTLASS",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -5316,7 +6618,7 @@
     "install_command": "git clone https://github.com/deepseek-ai/DeepGEMM.git && cd DeepGEMM && pip install -e .",
     "date_added": "2026-10-07",
     "featured": false,
-    "forks": 1400
+    "forks": 1404
   },
   {
     "id": "agency-agents",
@@ -5335,7 +6637,7 @@
       "Shell"
     ],
     "pricing_model": "Open Source",
-    "stars": 158834,
+    "stars": 159195,
     "primary_alternative": "CrewAI",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -5374,7 +6676,7 @@
     "install_command": "git clone https://github.com/msitarzewski/agency-agents.git",
     "date_added": "2026-10-07",
     "featured": false,
-    "forks": 25640
+    "forks": 25722
   },
   {
     "id": "nanomuse",
@@ -5393,7 +6695,7 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 799,
+    "stars": 893,
     "primary_alternative": "Open Interpreter",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -5432,7 +6734,7 @@
     "install_command": "git clone https://github.com/nano-muse/nanoMuse.git",
     "date_added": "2026-10-07",
     "featured": false,
-    "forks": 82
+    "forks": 94
   },
   {
     "id": "darkplug",
@@ -6503,7 +7805,7 @@
       "Video Processing"
     ],
     "pricing_model": "Open Source",
-    "stars": 461,
+    "stars": 470,
     "primary_alternative": "Apple Photos Search",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -6542,7 +7844,7 @@
     "install_command": "git clone https://github.com/allenv0/SCM.git",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 32
+    "forks": 34
   },
   {
     "id": "pstack-claude",
@@ -6561,7 +7863,7 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 1782,
+    "stars": 1829,
     "primary_alternative": "Cursor IDE",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -6600,7 +7902,7 @@
     "install_command": "git clone https://github.com/michael-denyer/pstack-claude.git",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 191
+    "forks": 196
   },
   {
     "id": "anyps5",
@@ -6619,7 +7921,7 @@
       "Porting"
     ],
     "pricing_model": "Open Source",
-    "stars": 27329,
+    "stars": 30665,
     "primary_alternative": "Wine / Proton (for x86 compatibility translation)",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -6658,7 +7960,7 @@
     "install_command": "git clone https://github.com/boykopovar/AnyPS5.git",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 2298
+    "forks": 2639
   },
   {
     "id": "opengym",
@@ -6677,7 +7979,7 @@
       "Privacy"
     ],
     "pricing_model": "Open Source",
-    "stars": 9326,
+    "stars": 9899,
     "primary_alternative": "Hevy",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -6716,7 +8018,7 @@
     "install_command": "docker run -d -p 3000:3000 duartesantos/opengym",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 1151
+    "forks": 1224
   },
   {
     "id": "entombed-in-a-raycaster",
@@ -6791,7 +8093,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 127,
+    "stars": 128,
     "primary_alternative": "Adobe Bridge",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -6830,7 +8132,7 @@
     "install_command": "go install github.com/ahmetomerv/photoc@latest",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 5
+    "forks": 6
   },
   {
     "id": "nightwatch",
@@ -7012,7 +8314,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 180,
+    "stars": 186,
     "primary_alternative": "Neo4j",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -7051,7 +8353,7 @@
     "install_command": "cargo add minigraf",
     "date_added": "2026-10-06",
     "featured": false,
-    "forks": 12
+    "forks": 13
   },
   {
     "id": "headline-arena",
@@ -7919,7 +9221,7 @@
       "Mobile"
     ],
     "pricing_model": "Open Source",
-    "stars": 8771,
+    "stars": 9161,
     "primary_alternative": "Cypress",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -7958,7 +9260,7 @@
     "install_command": "npm install -g @tester-army/e2e",
     "date_added": "2026-10-05",
     "featured": false,
-    "forks": 425
+    "forks": 441
   },
   {
     "id": "text-to-cad",
@@ -7977,7 +9279,7 @@
       "Generative AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 19025,
+    "stars": 19365,
     "primary_alternative": "Autodesk Fusion 360",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -8016,7 +9318,7 @@
     "install_command": "npm install text-to-cad",
     "date_added": "2026-10-05",
     "featured": false,
-    "forks": 1877
+    "forks": 1908
   },
   {
     "id": "sentry",
@@ -8035,7 +9337,7 @@
       "Open Source"
     ],
     "pricing_model": "Freemium",
-    "stars": 45525,
+    "stars": 45533,
     "primary_alternative": "Datadog",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -8074,7 +9376,7 @@
     "install_command": "docker run --rm -it sentry/sentry",
     "date_added": "2026-10-05",
     "featured": false,
-    "forks": 4918
+    "forks": 4915
   },
   {
     "id": "openmontage",
@@ -8093,7 +9395,7 @@
       "Workflow"
     ],
     "pricing_model": "Open Source",
-    "stars": 66343,
+    "stars": 67098,
     "primary_alternative": "Runway Gen-2",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -8132,7 +9434,7 @@
     "install_command": "git clone https://github.com/calesthio/OpenMontage.git",
     "date_added": "2026-10-05",
     "featured": false,
-    "forks": 8452
+    "forks": 8550
   },
   {
     "id": "caddy",
@@ -8151,7 +9453,7 @@
       "DevOps"
     ],
     "pricing_model": "Open Source",
-    "stars": 77707,
+    "stars": 77795,
     "primary_alternative": "Nginx",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -8190,7 +9492,7 @@
     "install_command": "sudo apt install -debian-keyring debian-archive-keyring apt-transport-https && curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg",
     "date_added": "2026-10-05",
     "featured": false,
-    "forks": 5113
+    "forks": 5120
   },
   {
     "id": "ramen",
@@ -9075,7 +10377,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 336,
+    "stars": 345,
     "primary_alternative": "Bricklink Studio",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9114,7 +10416,7 @@
     "install_command": "git clone https://github.com/anteloc/ldraw-nova.git",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 28
+    "forks": 29
   },
   {
     "id": "ecc",
@@ -9133,7 +10435,7 @@
       "Productivity"
     ],
     "pricing_model": "Open Source",
-    "stars": 276612,
+    "stars": 277344,
     "primary_alternative": "Cursor AI",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9172,7 +10474,7 @@
     "install_command": "git clone https://github.com/affaan-m/ECC.git",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 41250
+    "forks": 41368
   },
   {
     "id": "effect",
@@ -9248,7 +10550,7 @@
       "Productivity"
     ],
     "pricing_model": "Open Source",
-    "stars": 26841,
+    "stars": 27040,
     "primary_alternative": "VS Code",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9287,7 +10589,7 @@
     "install_command": "npx t3code@latest",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 7040
+    "forks": 7100
   },
   {
     "id": "claude-mem",
@@ -9306,7 +10608,7 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 99339,
+    "stars": 99802,
     "primary_alternative": "Cursor Memory",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9347,7 +10649,7 @@
     "install_command": "npx @thedotmack/claude-mem install",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 8704
+    "forks": 8748
   },
   {
     "id": "cloudflare-os",
@@ -9366,7 +10668,7 @@
       "Knowledge Base"
     ],
     "pricing_model": "Open Source",
-    "stars": 11339,
+    "stars": 11357,
     "primary_alternative": "Notion AI",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -9405,7 +10707,7 @@
     "install_command": "git clone https://github.com/cloudflare/cloudflare-os.git",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 1352
+    "forks": 1359
   },
   {
     "id": "agent-skills",
@@ -9424,7 +10726,7 @@
       "Best Practices"
     ],
     "pricing_model": "Open Source",
-    "stars": 104574,
+    "stars": 105143,
     "primary_alternative": "Cursor Rules",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9463,7 +10765,7 @@
     "install_command": "git clone https://github.com/addyosmani/agent-skills.git",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 10914
+    "forks": 10980
   },
   {
     "id": "graphene",
@@ -9654,7 +10956,7 @@
       "Memory Optimization"
     ],
     "pricing_model": "Open Source",
-    "stars": 17316,
+    "stars": 17319,
     "primary_alternative": "GraphFrames",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -9695,7 +10997,7 @@
     "install_command": "pip install networkx pyarrow",
     "date_added": "2026-10-04",
     "featured": false,
-    "forks": 3634
+    "forks": 3635
   },
   {
     "id": "still-wet-art",
@@ -10449,7 +11751,7 @@
       "Automation"
     ],
     "pricing_model": "Open Source",
-    "stars": 95545,
+    "stars": 96160,
     "primary_alternative": "Apify",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -10488,7 +11790,7 @@
     "install_command": "git clone https://github.com/Panniantong/Agent-Reach.git",
     "date_added": "2026-10-03",
     "featured": false,
-    "forks": 8366
+    "forks": 8420
   },
   {
     "id": "caveman",
@@ -10507,7 +11809,7 @@
       "Go"
     ],
     "pricing_model": "Open Source",
-    "stars": 110947,
+    "stars": 111090,
     "primary_alternative": "Standard LLM Proxy APIs",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -10546,7 +11848,7 @@
     "install_command": "git clone https://github.com/JuliusBrussee/caveman.git",
     "date_added": "2026-10-03",
     "featured": false,
-    "forks": 6427
+    "forks": 6429
   },
   {
     "id": "impeccable",
@@ -10565,7 +11867,7 @@
       "Frontend"
     ],
     "pricing_model": "Open Source",
-    "stars": 79479,
+    "stars": 79951,
     "primary_alternative": "V0 by Vercel",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -10604,7 +11906,7 @@
     "install_command": "git clone https://github.com/pbakaus/impeccable.git",
     "date_added": "2026-10-03",
     "featured": false,
-    "forks": 4728
+    "forks": 4758
   },
   {
     "id": "marketingskills",
@@ -10623,7 +11925,7 @@
       "Growth"
     ],
     "pricing_model": "Open Source",
-    "stars": 54098,
+    "stars": 54254,
     "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -10662,7 +11964,7 @@
     "install_command": "git clone https://github.com/coreyhaines31/marketingskills.git",
     "date_added": "2026-10-03",
     "featured": false,
-    "forks": 8034
+    "forks": 8058
   },
   {
     "id": "audionaut",
@@ -11699,7 +13001,7 @@
       "Google Cloud"
     ],
     "pricing_model": "Free",
-    "stars": 6933,
+    "stars": 6952,
     "primary_alternative": "AWS Amplify for iOS",
     "is_self_hostable": false,
     "no_signup_required": false,
@@ -11738,7 +13040,7 @@
     "install_command": "pod 'Firebase'",
     "date_added": "2026-10-02",
     "featured": false,
-    "forks": 1818
+    "forks": 1819
   },
   {
     "id": "cursor-plugins",
@@ -11757,7 +13059,7 @@
       "Developer Tools"
     ],
     "pricing_model": "Open Source",
-    "stars": 10777,
+    "stars": 10928,
     "primary_alternative": "VS Code Extensions",
     "is_self_hostable": false,
     "no_signup_required": true,
@@ -11796,7 +13098,7 @@
     "install_command": "git clone https://github.com/cursor/plugins.git",
     "date_added": "2026-10-02",
     "featured": false,
-    "forks": 1027
+    "forks": 1054
   },
   {
     "id": "pi",
@@ -12757,7 +14059,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 26404,
+    "stars": 26723,
     "primary_alternative": "Cursor",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -12796,7 +14098,7 @@
     "install_command": "npx context-mode init",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 1901
+    "forks": 1918
   },
   {
     "id": "ponytail",
@@ -12815,7 +14117,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 160586,
+    "stars": 161242,
     "primary_alternative": "Cursor",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -12854,7 +14156,7 @@
     "install_command": "git clone https://github.com/DietrichGebert/ponytail.git",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 8637
+    "forks": 8700
   },
   {
     "id": "moneyprinterturbo",
@@ -12873,7 +14175,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 129511,
+    "stars": 129876,
     "primary_alternative": "InVideo AI",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -12912,7 +14214,7 @@
     "install_command": "git clone https://github.com/harry0703/MoneyPrinterTurbo.git",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 20294
+    "forks": 20352
   },
   {
     "id": "openclaw",
@@ -12931,7 +14233,7 @@
       "Desktop Automation"
     ],
     "pricing_model": "Open Source",
-    "stars": 391647,
+    "stars": 391716,
     "primary_alternative": "Anthropic Computer Use",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -12970,7 +14272,7 @@
     "install_command": "git clone https://github.com/openclaw/openclaw.git && cd openclaw && npm install",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 82332
+    "forks": 82367
   },
   {
     "id": "awesome-claude-skills",
@@ -12989,7 +14291,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 76829,
+    "stars": 76896,
     "primary_alternative": "OpenAI GPTs",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -13028,7 +14330,7 @@
     "install_command": "git clone https://github.com/ComposioHQ/awesome-claude-skills.git",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 9028
+    "forks": 9047
   },
   {
     "id": "hyperframes",
@@ -13047,7 +14349,7 @@
       "Rendering"
     ],
     "pricing_model": "Open Source",
-    "stars": 60430,
+    "stars": 61128,
     "primary_alternative": "Remotion",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -13086,7 +14388,7 @@
     "install_command": "git clone https://github.com/heygen-com/hyperframes.git",
     "date_added": "2026-10-01",
     "featured": false,
-    "forks": 5399
+    "forks": 5465
   },
   {
     "id": "yantra",
@@ -13505,7 +14807,7 @@
       "CLI"
     ],
     "pricing_model": "Open Source",
-    "stars": 5802,
+    "stars": 5808,
     "primary_alternative": "Calibre",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -14120,7 +15422,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 15751,
+    "stars": 15878,
     "primary_alternative": "Docker",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -14159,7 +15461,7 @@
     "install_command": "git clone https://github.com/NVIDIA/OpenShell.git",
     "date_added": "2026-09-30",
     "featured": false,
-    "forks": 1758
+    "forks": 1766
   },
   {
     "id": "dbx",
@@ -14178,7 +15480,7 @@
       "Docker"
     ],
     "pricing_model": "Open Source",
-    "stars": 25685,
+    "stars": 25873,
     "primary_alternative": "DBeaver",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -14217,7 +15519,7 @@
     "install_command": "docker run -d -p 8080:8080 t8y2/dbx",
     "date_added": "2026-09-30",
     "featured": false,
-    "forks": 2330
+    "forks": 2351
   },
   {
     "id": "openship",
@@ -14236,7 +15538,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 14668,
+    "stars": 14693,
     "primary_alternative": "Vercel",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -14275,7 +15577,7 @@
     "install_command": "docker run -d -p 8080:8080 openship/openship",
     "date_added": "2026-09-30",
     "featured": false,
-    "forks": 1309
+    "forks": 1312
   },
   {
     "id": "reclip",
@@ -14294,7 +15596,7 @@
       "Video"
     ],
     "pricing_model": "Open Source",
-    "stars": 10706,
+    "stars": 10715,
     "primary_alternative": "JDownloader",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -14333,7 +15635,7 @@
     "install_command": "docker run -d -p 3000:3000 averygan/reclip",
     "date_added": "2026-09-30",
     "featured": false,
-    "forks": 1592
+    "forks": 1594
   },
   {
     "id": "real-time-solar-system",
@@ -14465,7 +15767,7 @@
       "Neural Networks"
     ],
     "pricing_model": "Open Source",
-    "stars": 55,
+    "stars": 56,
     "primary_alternative": "PyTorch",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -16441,7 +17743,7 @@
       "Collaboration"
     ],
     "pricing_model": "Open Source",
-    "stars": 22533,
+    "stars": 22559,
     "primary_alternative": "Microsoft Office 365",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -16464,7 +17766,7 @@
     "comparison_vs_alt": "Unlike proprietary cloud office suites, Univer gives developers full source code access, local-first data control, and deep programmatic integration capabilities.",
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 1882,
+    "forks": 1883,
     "verdict": "An exceptional choice for enterprise teams needing custom, self-hosted spreadsheet and document editing capabilities without relying on third-party SaaS vendors.",
     "use_cases": [
       "Building custom in-app accounting and reporting dashboards with Excel-like functionality",
@@ -16556,7 +17858,7 @@
       "TypeScript"
     ],
     "pricing_model": "Open Source",
-    "stars": 99846,
+    "stars": 100480,
     "primary_alternative": "LangGraph Cloud",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -16579,7 +17881,7 @@
     "comparison_vs_alt": "Unlike managed alternatives like LangGraph Cloud, Paperclip gives engineering teams complete ownership and self-hosting freedom over their agent orchestration layer.",
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 16835,
+    "forks": 16917,
     "verdict": "An essential control plane for engineering teams deploying multiple autonomous agents that require strict governance and visibility. It transforms chaotic agent scripts into structured, manageable enterprise workflows.",
     "use_cases": [
       "Orchestrating a team of coding and testing agents for automated software development lifecycles",
@@ -16670,14 +17972,14 @@
       "Machine Learning"
     ],
     "pricing_model": "Open Source",
-    "stars": 66863,
+    "stars": 67617,
     "primary_alternative": "DeepLearning.AI",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 11713,
+    "forks": 11852,
     "verdict": "An exceptional resource for software engineers looking to transition into AI development without relying on bloated abstractions. It provides invaluable architectural clarity through hands-on implementation.",
     "key_features": [
       {
@@ -16728,7 +18030,7 @@
       "Developer Tools"
     ],
     "pricing_model": "Open Source",
-    "stars": 1103,
+    "stars": 1109,
     "primary_alternative": "Mermaid",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -16957,7 +18259,7 @@
       "Python"
     ],
     "pricing_model": "Open Source",
-    "stars": 57537,
+    "stars": 59064,
     "primary_alternative": "ElevenLabs",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -16980,7 +18282,7 @@
     "comparison_vs_alt": "Unlike ElevenLabs which charges heavily per character and processes data in the cloud, Voicestudio runs completely offline on your hardware for free, keeping all audio assets private.",
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 6446,
+    "forks": 6621,
     "verdict": "An exceptional tool for creators and developers seeking absolute privacy and zero-cost scaling for multi-language voice workloads. It provides a robust, locally runnable alternative to expensive commercial cloud voice APIs.",
     "use_cases": [
       "Dubbing localization videos into hundreds of languages without ongoing cloud transcription fees",
@@ -17015,7 +18317,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 6936,
+    "stars": 6943,
     "primary_alternative": "YouTube Premium",
     "is_self_hostable": false,
     "no_signup_required": true,
@@ -17073,7 +18375,7 @@
       "DevTools"
     ],
     "pricing_model": "Open Source",
-    "stars": 6006,
+    "stars": 6030,
     "primary_alternative": "Bash",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -17188,14 +18490,14 @@
       "FEX-Emu"
     ],
     "pricing_model": "Open Source",
-    "stars": 1965,
+    "stars": 2172,
     "primary_alternative": "Steam Link",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 293,
+    "forks": 299,
     "verdict": "An engineering marvel for enthusiasts pushing the limits of mobile hardware execution, though performance heavily depends on device thermals and translation overhead.",
     "key_features": [
       {
@@ -18777,7 +20079,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 26842,
+    "stars": 26867,
     "primary_alternative": "Commercial Keysight RF test equipment",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -18800,7 +20102,7 @@
     "comparison_vs_alt": "Unlike expensive commercial radar development kits from Keysight or Rohde & Schwarz, PLFM Radar offers full architectural transparency and costs a fraction of the price using commodity hardware.",
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 6045,
+    "forks": 6050,
     "verdict": "An exceptional open-source breakthrough for RF engineers, researchers, and hobbyists looking to experiment with phased array radar systems without expensive proprietary lab equipment.",
     "use_cases": [
       "Prototyping low-cost collision avoidance and object detection systems",
@@ -18835,7 +20137,7 @@
       "C"
     ],
     "pricing_model": "Open Source",
-    "stars": 3809,
+    "stars": 3817,
     "primary_alternative": "Canvas LMS",
     "is_self_hostable": true,
     "no_signup_required": false,
@@ -18893,7 +20195,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 68213,
+    "stars": 68320,
     "primary_alternative": "Notion",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -18916,7 +20218,7 @@
     "comparison_vs_alt": "Unlike generic productivity templates in Notion, Up is pre-populated with an expert-curated curriculum specifically tailored for modern tech and AI skill acquisition.",
     "date_added": "2026-09-28",
     "featured": false,
-    "forks": 6769,
+    "forks": 6788,
     "verdict": "An exceptional, community-driven resource for professionals looking to future-proof their skills and systematically master emerging tech landscapes.",
     "use_cases": [
       "Accelerating the adoption and mastery of artificial intelligence tools and workflows",
@@ -19176,7 +20478,7 @@
       "Canvas"
     ],
     "pricing_model": "Open Source",
-    "stars": 1103,
+    "stars": 1109,
     "primary_alternative": "Mermaid.js",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -19687,7 +20989,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 3096,
+    "stars": 3125,
     "primary_alternative": "Cursor",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -19857,14 +21159,14 @@
       "AI Optimization"
     ],
     "pricing_model": "Open Source",
-    "stars": 5264,
+    "stars": 5275,
     "primary_alternative": "Hugging Face Optimum",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 738,
+    "forks": 737,
     "verdict": "An essential toolkit for MLOps engineers and AI researchers aiming to drastically reduce inference latency and memory footprints on NVIDIA hardware.",
     "key_features": [
       {
@@ -19915,14 +21217,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 200770,
+    "stars": 200874,
     "primary_alternative": "PyTorch",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 78969,
+    "forks": 79185,
     "verdict": "An industry-standard pillar for production-grade deep learning, though PyTorch is often preferred for rapid research.",
     "key_features": [
       {
@@ -19973,14 +21275,14 @@
       "DevOps"
     ],
     "pricing_model": "Open Source",
-    "stars": 8378,
+    "stars": 8393,
     "primary_alternative": "HashiCorp Vault",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 623,
+    "forks": 624,
     "verdict": "An essential open-source alternative for organizations seeking enterprise-grade secrets management without the licensing constraints of commercial forks. It stands out as a reliable, community-owned guardian for modern cloud-native infrastructure.",
     "key_features": [
       {
@@ -20031,14 +21333,14 @@
       "Rust"
     ],
     "pricing_model": "Open Source",
-    "stars": 35829,
+    "stars": 35863,
     "primary_alternative": "Slack",
     "is_self_hostable": true,
     "no_signup_required": false,
     "signal_score": 99,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 4740,
+    "forks": 4745,
     "verdict": "An intriguing open-source collaboration platform for engineering teams looking to break free from traditional chat silos. It stands out for its decentralized architecture, though its adoption depends heavily on workflow migration friction.",
     "key_features": [
       {
@@ -20089,14 +21391,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 193536,
+    "stars": 193594,
     "primary_alternative": "JetBrains WebStorm",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 45012,
+    "forks": 45220,
     "verdict": "An essential tool for almost every software engineer, offering unmatched ecosystem breadth and deep customization capabilities.",
     "key_features": [
       {
@@ -20147,14 +21449,14 @@
       "CLI"
     ],
     "pricing_model": "Open Source",
-    "stars": 40750,
+    "stars": 41066,
     "primary_alternative": "Commercial Security Copilots",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-27",
     "featured": false,
-    "forks": 5737,
+    "forks": 5806,
     "verdict": "An exceptional open-source security assistant extension that bridges the gap between modern AI coding clients and advanced reverse engineering workflows.",
     "key_features": [
       {
@@ -20321,7 +21623,7 @@
       "Network"
     ],
     "pricing_model": "Open Source",
-    "stars": 44,
+    "stars": 47,
     "primary_alternative": "Bright Data",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -20891,14 +22193,14 @@
       "Workflow"
     ],
     "pricing_model": "Open Source",
-    "stars": 297297,
+    "stars": 297825,
     "primary_alternative": "Cursor AI",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-26",
     "featured": false,
-    "forks": 26536,
+    "forks": 26607,
     "verdict": "An essential framework for developers looking to enforce structure and reliability on AI coding assistants without sacrificing flexibility.",
     "key_features": [
       {
@@ -21005,14 +22307,14 @@
       "Extensions"
     ],
     "pricing_model": "Open Source",
-    "stars": 37641,
+    "stars": 37705,
     "primary_alternative": "GitHub Copilot Extensions",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-26",
     "featured": false,
-    "forks": 4237,
+    "forks": 4243,
     "verdict": "An essential registry for any developer utilizing Claude Code who wants to safely extend the assistant's capabilities into their specific local workflow.",
     "key_features": [
       {
@@ -21063,14 +22365,14 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 284755,
+    "stars": 286580,
     "primary_alternative": "Cursor Rules",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-26",
     "featured": false,
-    "forks": 23829,
+    "forks": 24043,
     "verdict": "An essential open-source repository for developers looking to inject battle-tested, high-context engineering standards directly into their autonomous coding workflows.",
     "key_features": [
       {
@@ -21172,14 +22474,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 2179,
+    "stars": 2242,
     "primary_alternative": "Wifite2",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-26",
     "featured": false,
-    "forks": 202,
+    "forks": 213,
     "verdict": "An essential utility for security engineers and penetration testers who need a reliable, automated Wi-Fi auditing workflow on non-Linux platforms via USB adapters.",
     "key_features": [
       {
@@ -21230,14 +22532,14 @@
       "Linux"
     ],
     "pricing_model": "Open Source",
-    "stars": 50344,
+    "stars": 50349,
     "primary_alternative": "Kubeadm",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-26",
     "featured": false,
-    "forks": 15932,
+    "forks": 15930,
     "verdict": "An essential rite of passage for infrastructure engineers and SREs who want to truly master Kubernetes internals rather than rely on opaque installer abstractions.",
     "key_features": [
       {
@@ -22137,14 +23439,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 39310,
+    "stars": 39424,
     "primary_alternative": "Stripe Connect",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-25",
     "featured": false,
-    "forks": 5576,
+    "forks": 5585,
     "verdict": "An essential open-source asset for engineering teams looking to modernize their financial software infrastructure and streamline regulatory or transaction workflows.",
     "key_features": [
       {
@@ -22195,7 +23497,7 @@
       "Workflow"
     ],
     "pricing_model": "Open Source",
-    "stars": 13423,
+    "stars": 13448,
     "primary_alternative": "LangChain",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -22822,14 +24124,14 @@
       "Social Media"
     ],
     "pricing_model": "Open Source",
-    "stars": 5699,
+    "stars": 5707,
     "primary_alternative": "FxTwitter",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-25",
     "featured": false,
-    "forks": 272,
+    "forks": 273,
     "verdict": "FxEmbed is a must-have utility for community server administrators and developers looking to restore rich media previews for modern social networks.",
     "key_features": [
       {
@@ -23051,14 +24353,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 94,
+    "stars": 144,
     "primary_alternative": "LangGraph",
     "is_self_hostable": true,
     "no_signup_required": true,
-    "signal_score": 77,
+    "signal_score": 82,
     "date_added": "2026-09-25",
     "featured": false,
-    "forks": 10,
+    "forks": 11,
     "verdict": "An essential tool for developers looking to move past brittle prompt chains and build production-grade, stateful agentic pipelines.",
     "key_features": [
       {
@@ -23737,7 +25039,7 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 65,
+    "stars": 66,
     "primary_alternative": "Intel OpenVINO",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -24024,14 +25326,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 32551,
+    "stars": 32571,
     "primary_alternative": "Cursor",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 99,
     "date_added": "2026-09-24",
     "featured": false,
-    "forks": 3745,
+    "forks": 3748,
     "verdict": "An essential utility for power users scaling their autonomous coding agent workflows who need structured configuration management.",
     "key_features": [
       {
@@ -24082,7 +25384,7 @@
       "AI"
     ],
     "pricing_model": "Open Source",
-    "stars": 7121,
+    "stars": 7122,
     "primary_alternative": "LangChain",
     "is_self_hostable": true,
     "no_signup_required": true,
@@ -24140,14 +25442,14 @@
       "Dashboard"
     ],
     "pricing_model": "Open Source",
-    "stars": 20002,
+    "stars": 20059,
     "primary_alternative": "TradingView",
     "is_self_hostable": true,
     "no_signup_required": false,
     "signal_score": 99,
     "date_added": "2026-09-24",
     "featured": false,
-    "forks": 2452,
+    "forks": 2454,
     "verdict": "An exceptional tool for retail investors and developers wanting free financial tracking without proprietary lock-in. It stands out for its community-driven ethos and transparent financial analytics architecture.",
     "key_features": [
       {
@@ -24198,14 +25500,14 @@
       "Orchestration"
     ],
     "pricing_model": "Open Source",
-    "stars": 4800,
+    "stars": 4883,
     "primary_alternative": "LangChain",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-24",
     "featured": false,
-    "forks": 543,
+    "forks": 550,
     "verdict": "An essential open-source building block for developers deploying production-grade AI agents that need sandboxed execution environments and strict safety boundaries.",
     "key_features": [
       {
@@ -24256,14 +25558,14 @@
       "Open Source"
     ],
     "pricing_model": "Open Source",
-    "stars": 8763,
+    "stars": 8774,
     "primary_alternative": "LangChain",
     "is_self_hostable": true,
     "no_signup_required": true,
     "signal_score": 93,
     "date_added": "2026-09-24",
     "featured": false,
-    "forks": 1353,
+    "forks": 1354,
     "verdict": "An essential toolkit for engineering teams looking to break free from vendor lock-in and build resilient, cloud-agnostic AI agent workflows.",
     "key_features": [
       {
