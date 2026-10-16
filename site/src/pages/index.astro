@@ -181,40 +181,50 @@ const searchIndex = allTools.map(t => ({
     </div>
 
     <!-- Category Carousel Bar -->
-    <div class="category-scroll-container">
-      <div class="category-chip-track" id="category-bar">
-        <button class="category-pill-btn active" data-category="all">
-          <span class="pill-icon">⚡</span>
-          <span class="pill-text">All Categories</span>
-          <span class="pill-count">{allTools.length}</span>
-        </button>
+    <div class="category-carousel-wrapper">
+      <button type="button" class="carousel-arrow-btn prev-arrow" id="cat-prev-btn" aria-label="Previous categories" title="Scroll left">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
 
-        {categoryCounts.map(cat => {
-          const iconMap: Record<string, string> = {
-            "ai-agents": "🤖",
-            "ai-tools": "🧠",
-            "developer-tools": "💻",
-            "open-source": "🔄",
-            "frameworks-libraries": "📦",
-            "database-storage": "🗄️",
-            "security-devops": "☁️",
-            "cybersecurity-reverse": "🛡️",
-            "productivity": "⚡",
-            "design-ui": "🎨",
-            "testing-qa": "🧪",
-            "web-scraping-apis": "🌐"
-          };
-          const catIcon = iconMap[cat.id] || "📁";
+      <div class="category-scroll-container" id="category-scroll-container">
+        <div class="category-chip-track" id="category-bar">
+          <button class="category-pill-btn active" data-category="all">
+            <span class="pill-icon">⚡</span>
+            <span class="pill-text">All Categories</span>
+            <span class="pill-count">{allTools.length}</span>
+          </button>
 
-          return (
-            <button class="category-pill-btn" data-category={cat.id}>
-              <span class="pill-icon">{catIcon}</span>
-              <span class="pill-text">{cat.name}</span>
-              <span class="pill-count">{cat.count}</span>
-            </button>
-          );
-        })}
+          {categoryCounts.map(cat => {
+            const iconMap: Record<string, string> = {
+              "ai-agents": "🤖",
+              "ai-tools": "🧠",
+              "developer-tools": "💻",
+              "open-source": "🔄",
+              "frameworks-libraries": "📦",
+              "database-storage": "🗄️",
+              "security-devops": "☁️",
+              "cybersecurity-reverse": "🛡️",
+              "productivity": "⚡",
+              "design-ui": "🎨",
+              "testing-qa": "🧪",
+              "web-scraping-apis": "🌐"
+            };
+            const catIcon = iconMap[cat.id] || "📁";
+
+            return (
+              <button class="category-pill-btn" data-category={cat.id}>
+                <span class="pill-icon">{catIcon}</span>
+                <span class="pill-text">{cat.name}</span>
+                <span class="pill-count">{cat.count}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
+
+      <button type="button" class="carousel-arrow-btn next-arrow" id="cat-next-btn" aria-label="Next categories" title="Scroll right">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
     </div>
 
     <!-- Filter Chips & Sort Controls Toolbar -->
@@ -813,6 +823,67 @@ const searchIndex = allTools.map(t => ({
       applyFilters();
     });
   }
+
+  // Category Carousel Controls: Chevrons, Mousewheel, and Drag-to-scroll
+  const categoryScroll = document.getElementById('category-scroll-container');
+  const catPrevBtn = document.getElementById('cat-prev-btn');
+  const catNextBtn = document.getElementById('cat-next-btn');
+
+  if (categoryScroll) {
+    if (catPrevBtn) {
+      catPrevBtn.addEventListener('click', () => {
+        categoryScroll.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+    }
+
+    if (catNextBtn) {
+      catNextBtn.addEventListener('click', () => {
+        categoryScroll.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+
+    // Horizontal mouse drag-to-scroll
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let dragged = false;
+
+    categoryScroll.addEventListener('mousedown', (e) => {
+      isDown = true;
+      dragged = false;
+      startX = e.pageX - categoryScroll.offsetLeft;
+      scrollLeft = categoryScroll.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    categoryScroll.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - categoryScroll.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 4) dragged = true;
+      categoryScroll.scrollLeft = scrollLeft - walk;
+    });
+
+    // Translate mouse wheel to horizontal carousel scroll
+    categoryScroll.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        categoryScroll.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+
+    // Suppress click on category pill if dragging was performed
+    categoryScroll.addEventListener('click', (e) => {
+      if (dragged) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  }
 </script>
 
 <style>
@@ -1329,13 +1400,73 @@ const searchIndex = allTools.map(t => ({
     border-radius: 8px;
   }
 
-  /* Category Scroll Bar */
+  /* Category Carousel Wrapper & Scroll Track */
+  .category-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    gap: 0.35rem;
+  }
+
   .category-scroll-container {
     overflow-x: auto;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
+    overflow-y: hidden;
+    padding: 0.35rem 0.25rem 0.5rem;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .category-scroll-container:active {
+    cursor: grabbing;
+  }
+
+  .category-scroll-container::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Carousel Nav Chevrons */
+  .carousel-arrow-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(18, 20, 29, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    z-index: 5;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-arrow-btn {
+      display: inline-flex;
+    }
+  }
+
+  .carousel-arrow-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #38bdf8;
+    transform: scale(1.08);
+  }
+
+  .carousel-arrow-btn:active {
+    transform: scale(0.95);
   }
 
   .category-chip-track {
