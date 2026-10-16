@@ -24,6 +24,11 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
     <!-- Canonical URL normalized to root domain for AdSense -->
     {canonicalUrl && <link rel="canonical" href={canonicalUrl.replace('https://tools.lordorange.top', 'https://lordorange.top')} />}
 
@@ -78,8 +83,25 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         --purple: #a855f7;
         --purple-glow: rgba(168, 85, 247, 0.2);
         --amber: #f59e0b;
-        --font-sans: -apple-system, BlinkMacSystemFont, "Geist", "Inter", "Segoe UI", Roboto, sans-serif;
-        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+
+      /* Lenis Smooth Scroll */
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
       }
 
       * {
@@ -984,6 +1006,26 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       if (desktopGithub && window.innerWidth >= 860) {
         desktopGithub.style.display = 'inline-flex';
       }
+
+      // Initialize Lenis Smooth Scroll
+      import('lenis').then(({ default: Lenis }) => {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerWidth > 768) {
+          const lenis = new Lenis({
+            duration: 1.1,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            smoothWheel: true,
+          });
+
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+        }
+      }).catch(() => {
+        // Fallback to native scrolling if lenis fails or in unsupported env
+      });
     </script>
   </body>
 </html>

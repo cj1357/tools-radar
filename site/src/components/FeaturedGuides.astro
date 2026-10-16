@@ -1,0 +1,268 @@
+---
+import { guidesData } from '../data/guides';
+
+// Take top 3 guides
+const featuredGuides = guidesData.slice(0, 3);
+---
+
+<section class="guides-showcase-wrapper">
+  <!-- Section Title -->
+  <div class="guides-showcase-header">
+    <div>
+      <div class="guides-showcase-pill">
+        <span>📚 TOOLS RADAR INTELLIGENCE REPORTS</span>
+      </div>
+      <h2 class="guides-showcase-title">
+        Long-Form Architectural <span class="gradient-text">Evaluations & Guides</span>
+      </h2>
+      <p class="guides-showcase-subtitle">
+        Deep-dive technical whitepapers and benchmark analyses written by practicing software engineers.
+      </p>
+    </div>
+    <a href="/guides" class="btn btn-secondary view-all-guides-btn">
+      <span>Explore All Guides ({guidesData.length})</span>
+      <span>→</span>
+    </a>
+  </div>
+
+  <!-- Guides Cards Grid -->
+  <div class="guides-showcase-grid">
+    {featuredGuides.map((guide, idx) => (
+      <article class="showcase-guide-card">
+        <div class="showcase-card-meta">
+          <span class="guide-cat-badge">{guide.category}</span>
+          <span class="guide-time-text">⏱️ {guide.readTime}</span>
+        </div>
+
+        <h3 class="guide-card-heading">
+          <a href={`/guides/${guide.slug}`}>
+            {guide.title}
+          </a>
+        </h3>
+
+        <p class="guide-card-summary">
+          {guide.tagline}
+        </p>
+
+        <div class="showcase-card-footer">
+          <div class="author-snippet">
+            <div class="author-circle">{guide.author.avatar}</div>
+            <div class="author-meta-text">
+              <span class="author-name-text">{guide.author.name}</span>
+              <span class="author-role-sub">{guide.author.role}</span>
+            </div>
+          </div>
+
+          <a href={`/guides/${guide.slug}`} class="read-whitepaper-link" aria-label={`Read ${guide.title}`}>
+            <span>Read Report</span>
+            <span>→</span>
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .guides-showcase-wrapper {
+    margin: 5rem 0 3.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .guides-showcase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .guides-showcase-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+    font-size: 0.76rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.85rem;
+  }
+
+  .guides-showcase-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .guides-showcase-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .view-all-guides-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+
+  /* Grid */
+  .guides-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .guides-showcase-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .showcase-guide-card {
+    background: linear-gradient(180deg, rgba(20, 22, 30, 0.75) 0%, rgba(13, 14, 20, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .showcase-guide-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px -4px rgba(56, 189, 248, 0.12);
+  }
+
+  .showcase-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .guide-cat-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+  }
+
+  .guide-time-text {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .guide-card-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-card-heading a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .guide-card-heading a:hover {
+    color: #38bdf8;
+  }
+
+  .guide-card-summary {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Footer */
+  .showcase-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+    gap: 0.75rem;
+  }
+
+  .author-snippet {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .author-circle {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    color: #06080d;
+    font-size: 0.72rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+  }
+
+  .author-meta-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .author-role-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .read-whitepaper-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .read-whitepaper-link:hover {
+    color: #7dd3fc;
+  }
+</style>

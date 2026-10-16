@@ -1,0 +1,673 @@
+---
+interface Props {
+  tools: any[];
+}
+
+const { tools } = Astro.props;
+
+// Filter top high-signal tools for radar plotting (diverse across categories)
+const candidateTools = tools
+  .filter(t => (t.signal_score || 0) >= 60 || (t.stars || 0) >= 500 || t.primary_alternative)
+  .slice(0, 36);
+
+// Deterministically assign angles and radius
+const radarBlips = candidateTools.map((t, idx) => {
+  // Hash tool ID to deterministic angle
+  let hash = 0;
+  for (let i = 0; i < t.id.length; i++) {
+    hash = (hash << 5) - hash + t.id.charCodeAt(i);
+    hash |= 0;
+  }
+  const angle = ((Math.abs(hash) % 360) * Math.PI) / 180;
+  // Radius inversely proportional to signal score: higher signal = closer to center core
+  const normalizedScore = Math.min(100, Math.max(50, t.signal_score || 70));
+  const radiusRatio = 0.22 + (1 - (normalizedScore - 50) / 50) * 0.65; // 0.22 to 0.87
+
+  let color = "#38bdf8"; // default cyan
+  if (t.category === "ai-agents" || t.category === "ai-tools") color = "#c084fc"; // purple
+  else if (t.category === "open-source") color = "#34d399"; // emerald
+  else if (t.signal_score >= 88) color = "#fbbf24"; // amber
+
+  return {
+    id: t.id,
+    name: t.name,
+    tagline: t.tagline,
+    category: t.category,
+    stars: t.stars || 0,
+    signal: t.signal_score || 75,
+    alt: t.primary_alternative || null,
+    pricing: t.pricing_model || "Free",
+    angle,
+    radiusRatio,
+    color
+  };
+});
+---
+
+<div class="radar-scope-wrapper">
+  <!-- HUD Top Bar -->
+  <div class="radar-hud-header">
+    <div class="hud-status-line">
+      <span class="hud-pulse-dot"></span>
+      <span class="hud-label">RADAR TELEMETRY // ACTIVE SCAN</span>
+    </div>
+    <div class="hud-coords-readout">
+      <span id="radar-sweep-deg">000.0°</span>
+      <span class="hud-divider">|</span>
+      <span>TARGETS: {radarBlips.length}</span>
+    </div>
+  </div>
+
+  <!-- Radar Stage (Canvas + Overlay Card) -->
+  <div class="radar-stage" id="radar-stage">
+    <canvas id="radar-canvas" class="radar-canvas"></canvas>
+
+    <!-- Interactive HUD Telemetry Card (Visible on Hover/Click) -->
+    <div id="radar-hud-card" class="radar-hud-card" style="display: none;">
+      <div class="hud-card-header">
+        <div class="hud-badge-target">TARGET ACQUIRED</div>
+        <span id="hud-card-signal" class="hud-signal-pill">⚡ 94</span>
+      </div>
+
+      <h4 id="hud-card-name" class="hud-card-title">Tool Name</h4>
+      <p id="hud-card-tagline" class="hud-card-tagline">Brief tool description goes here.</p>
+
+      <div class="hud-card-specs">
+        <div class="spec-row">
+          <span class="spec-label">ALT TO:</span>
+          <span id="hud-card-alt" class="spec-val accent-val">-</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">STARS:</span>
+          <span id="hud-card-stars" class="spec-val stars-val">-</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">LICENSE:</span>
+          <span id="hud-card-license" class="spec-val">-</span>
+        </div>
+      </div>
+
+      <a id="hud-card-link" href="#" class="hud-card-btn">
+        <span>Inspect Target Dossier</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- Center Radar Reticle -->
+    <div class="radar-center-reticle" aria-hidden="true">
+      <div class="reticle-dot"></div>
+      <span class="reticle-label">CORE</span>
+    </div>
+  </div>
+
+  <!-- Category Filter Pills -->
+  <div class="radar-controls">
+    <button class="radar-filter-btn active" data-cat="all">All Targets</button>
+    <button class="radar-filter-btn" data-cat="ai">AI Agents</button>
+    <button class="radar-filter-btn" data-cat="dev">DevTools</button>
+    <button class="radar-filter-btn" data-cat="oss">Open Source</button>
+  </div>
+</div>
+
+<script define:vars={{ radarBlips }}>
+  const canvas = document.getElementById('radar-canvas');
+  const stage = document.getElementById('radar-stage');
+  const degReadout = document.getElementById('radar-sweep-deg');
+  const hudCard = document.getElementById('radar-hud-card');
+  const hudName = document.getElementById('hud-card-name');
+  const hudTagline = document.getElementById('hud-card-tagline');
+  const hudSignal = document.getElementById('hud-card-signal');
+  const hudAlt = document.getElementById('hud-card-alt');
+  const hudStars = document.getElementById('hud-card-stars');
+  const hudLicense = document.getElementById('hud-card-license');
+  const hudLink = document.getElementById('hud-card-link');
+
+  if (canvas && stage) {
+    const ctx = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let centerX = 0;
+    let centerY = 0;
+    let maxRadius = 0;
+    let sweepAngle = 0;
+    let activeFilter = 'all';
+    let hoveredBlip = null;
+    let isPaused = false;
+    let animationFrameId = null;
+
+    // Shockwave pulse rings array
+    const pulses = [];
+
+    function resize() {
+      const rect = stage.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = rect.width;
+      height = rect.height;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+      centerX = width / 2;
+      centerY = height / 2;
+      maxRadius = Math.min(centerX, centerY) * 0.92;
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Filter blips
+    function getFilteredBlips() {
+      if (activeFilter === 'ai') {
+        return radarBlips.filter(b => b.category.includes('ai'));
+      }
+      if (activeFilter === 'dev') {
+        return radarBlips.filter(b => b.category.includes('developer') || b.category.includes('devops'));
+      }
+      if (activeFilter === 'oss') {
+        return radarBlips.filter(b => b.category === 'open-source' || b.pricing === 'Open Source');
+      }
+      return radarBlips;
+    }
+
+    // Main Draw Loop
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      // 1. Draw Polar Grid Rings
+      ctx.lineWidth = 1;
+      const ringSteps = [0.28, 0.52, 0.76, 1.0];
+      ringSteps.forEach((step, idx) => {
+        const r = maxRadius * step;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
+        ctx.strokeStyle = idx === ringSteps.length - 1 ? 'rgba(56, 189, 248, 0.35)' : 'rgba(255, 255, 255, 0.08)';
+        ctx.stroke();
+
+        // Ring distance annotations
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+        ctx.font = '10px ui-monospace, "JetBrains Mono", monospace';
+        ctx.fillText(`${Math.round((1 - step) * 100 + 50)} SIG`, centerX + 6, centerY - r + 12);
+      });
+
+      // 2. Crosshairs & Angle Ticks
+      ctx.beginPath();
+      ctx.moveTo(centerX - maxRadius, centerY);
+      ctx.lineTo(centerX + maxRadius, centerY);
+      ctx.moveTo(centerX, centerY - maxRadius);
+      ctx.lineTo(centerX, centerY + maxRadius);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.07)';
+      ctx.stroke();
+
+      // Cardinal labels
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
+      ctx.font = '10px ui-monospace, "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('000° N', centerX, centerY - maxRadius - 10);
+      ctx.fillText('090° E', centerX + maxRadius + 16, centerY);
+      ctx.fillText('180° S', centerX, centerY + maxRadius + 12);
+      ctx.fillText('270° W', centerX - maxRadius - 16, centerY);
+
+      // 3. Sweeping Radar Beam (Conic Gradient Simulation)
+      if (!isPaused) {
+        sweepAngle = (sweepAngle + 0.018) % (Math.PI * 2);
+        if (degReadout) {
+          const deg = ((sweepAngle * 180) / Math.PI).toFixed(1).padStart(5, '0');
+          degReadout.textContent = `${deg}°`;
+        }
+      }
+
+      // Draw Beam sector
+      const beamSector = Math.PI / 6; // 30 degrees
+      const beamGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, maxRadius);
+      beamGradient.addColorStop(0, 'rgba(56, 189, 248, 0.45)');
+      beamGradient.addColorStop(0.7, 'rgba(56, 189, 248, 0.15)');
+      beamGradient.addColorStop(1, 'rgba(56, 189, 248, 0.0)');
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.arc(centerX, centerY, maxRadius, sweepAngle - beamSector, sweepAngle, false);
+      ctx.closePath();
+      ctx.fillStyle = beamGradient;
+      ctx.fill();
+
+      // Lead line of beam
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(centerX + Math.cos(sweepAngle) * maxRadius, centerY + Math.sin(sweepAngle) * maxRadius);
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 1.6;
+      ctx.shadowColor = '#38bdf8';
+      ctx.shadowBlur = 8;
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. Update and Draw Shockwave Pulses
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.r += 0.8;
+        p.alpha -= 0.025;
+        if (p.alpha <= 0) {
+          pulses.splice(i, 1);
+          continue;
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(56, 189, 248, ${p.alpha})`;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+      }
+
+      // 5. Draw Blips
+      const currentBlips = getFilteredBlips();
+      currentBlips.forEach(b => {
+        const blipR = b.radiusRatio * maxRadius;
+        const x = centerX + Math.cos(b.angle) * blipR;
+        const y = centerY + Math.sin(b.angle) * blipR;
+
+        // Check angle proximity to trigger shockwave ping
+        let angleDiff = sweepAngle - b.angle;
+        while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+        while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+
+        if (Math.abs(angleDiff) < 0.03 && (!b.lastPing || Date.now() - b.lastPing > 1200)) {
+          b.lastPing = Date.now();
+          pulses.push({ x, y, r: 4, alpha: 0.8 });
+        }
+
+        const isHovered = hoveredBlip && hoveredBlip.id === b.id;
+
+        // Draw outer glow if hovered or recently swept
+        if (isHovered) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(x, y, 12, 0, Math.PI * 2);
+          ctx.strokeStyle = '#38bdf8';
+          ctx.lineWidth = 1.5;
+          ctx.shadowColor = '#38bdf8';
+          ctx.shadowBlur = 14;
+          ctx.stroke();
+
+          // Reticle brackets [ ]
+          const s = 10;
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1.2;
+          ctx.strokeRect(x - s, y - s, s * 2, s * 2);
+          ctx.restore();
+        }
+
+        // Draw core blip dot
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(x, y, isHovered ? 5.5 : 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = isHovered ? '#ffffff' : b.color;
+        ctx.shadowColor = b.color;
+        ctx.shadowBlur = isHovered ? 12 : 6;
+        ctx.fill();
+        ctx.restore();
+
+        // Label for hovered or high traction blip
+        if (isHovered || b.signal >= 90) {
+          ctx.fillStyle = isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.6)';
+          ctx.font = isHovered ? 'bold 11px var(--font-sans)' : '10px var(--font-sans)';
+          ctx.textAlign = 'left';
+          ctx.fillText(b.name, x + 8, y + 3);
+        }
+      });
+
+      animationFrameId = requestAnimationFrame(draw);
+    }
+
+    // Start loop if not reduced motion
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw();
+    } else {
+      // Static single draw
+      sweepAngle = Math.PI / 4;
+      draw();
+      cancelAnimationFrame(animationFrameId);
+    }
+
+    // Mouse Interaction on Radar
+    function checkHit(e) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      let found = null;
+      const currentBlips = getFilteredBlips();
+
+      for (const b of currentBlips) {
+        const blipR = b.radiusRatio * maxRadius;
+        const x = centerX + Math.cos(b.angle) * blipR;
+        const y = centerY + Math.sin(b.angle) * blipR;
+        const dist = Math.hypot(mouseX - x, mouseY - y);
+
+        if (dist <= 16) {
+          found = b;
+          break;
+        }
+      }
+
+      if (found) {
+        hoveredBlip = found;
+        isPaused = true;
+        canvas.style.cursor = 'pointer';
+
+        // Update and show HUD card
+        hudName.textContent = found.name;
+        hudTagline.textContent = found.tagline;
+        hudSignal.textContent = `⚡ ${found.signal}/100`;
+        hudAlt.textContent = found.alt || 'Independent Tool';
+        hudStars.textContent = found.stars > 0 ? `★ ${found.stars.toLocaleString()}` : 'Indie Pick';
+        hudLicense.textContent = found.pricing;
+        hudLink.href = `/tool/${found.id}`;
+        hudCard.style.display = 'block';
+      } else {
+        hoveredBlip = null;
+        isPaused = false;
+        canvas.style.cursor = 'default';
+      }
+    }
+
+    canvas.addEventListener('mousemove', checkHit);
+    canvas.addEventListener('mouseleave', () => {
+      hoveredBlip = null;
+      isPaused = false;
+      hudCard.style.display = 'none';
+    });
+
+    canvas.addEventListener('click', () => {
+      if (hoveredBlip) {
+        window.location.href = `/tool/${hoveredBlip.id}`;
+      }
+    });
+
+    // Category Filter Buttons
+    document.querySelectorAll('.radar-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.radar-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-cat') || 'all';
+      });
+    });
+  }
+</script>
+
+<style>
+  .radar-scope-wrapper {
+    background: linear-gradient(180deg, rgba(14, 15, 22, 0.9) 0%, rgba(8, 9, 13, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 24px;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 30px -8px rgba(56, 189, 248, 0.15);
+    overflow: hidden;
+  }
+
+  .radar-scope-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* HUD Header */
+  .radar-hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.85rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+  }
+
+  .hud-status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #38bdf8;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+  }
+
+  .hud-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    animation: radarBlink 1.4s infinite ease-in-out;
+  }
+
+  @keyframes radarBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  .hud-coords-readout {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  .hud-divider {
+    color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Radar Stage */
+  .radar-stage {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 640px) {
+    .radar-stage {
+      height: 300px;
+    }
+  }
+
+  .radar-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .radar-center-reticle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reticle-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+  }
+
+  .reticle-label {
+    font-size: 8px;
+    font-family: var(--font-mono);
+    color: rgba(56, 189, 248, 0.6);
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+
+  /* HUD Target Card */
+  .radar-hud-card {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 250px;
+    background: rgba(10, 11, 16, 0.94);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.2);
+    z-index: 10;
+    pointer-events: auto;
+    animation: hudFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes hudFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 500px) {
+    .radar-hud-card {
+      width: calc(100% - 24px);
+      left: 12px;
+      right: 12px;
+    }
+  }
+
+  .hud-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .hud-badge-target {
+    font-size: 0.65rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    color: #38bdf8;
+    letter-spacing: 0.06em;
+  }
+
+  .hud-signal-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.12);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
+
+  .hud-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+  }
+
+  .hud-card-tagline {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hud-card-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .spec-label {
+    color: var(--text-muted);
+  }
+
+  .spec-val {
+    color: var(--text-secondary);
+  }
+
+  .accent-val {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  .stars-val {
+    color: #fbbf24;
+  }
+
+  .hud-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .hud-card-btn:hover {
+    background: rgba(56, 189, 248, 0.22);
+    color: #ffffff;
+    border-color: rgba(56, 189, 248, 0.5);
+  }
+
+  /* Radar Filter Buttons */
+  .radar-controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .radar-filter-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .radar-filter-btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .radar-filter-btn.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: #38bdf8;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,366 @@
+---
+interface Props {
+  allTools: any[];
+}
+
+const { allTools } = Astro.props;
+
+// 1. Notion / Airtable Alternatives Battleground
+const workspaceTools = allTools
+  .filter(t => 
+    (t.primary_alternative && (t.primary_alternative.includes("Notion") || t.primary_alternative.includes("Airtable") || t.primary_alternative.includes("Excel"))) ||
+    ["appflowy", "affine", "nocodb", "baserow", "focalboard", "outline", "simplespread", "brainotes"].includes(t.id)
+  )
+  .slice(0, 4);
+
+// 2. Modern Terminal Velocity Battleground
+const terminalTools = allTools
+  .filter(t => 
+    t.category === "developer-tools" &&
+    (t.tagline.toLowerCase().includes("cli") || t.tagline.toLowerCase().includes("terminal") || t.tagline.toLowerCase().includes("rust") || t.tagline.toLowerCase().includes("git") || t.is_self_hostable)
+  )
+  .slice(0, 4);
+
+// 3. Autonomous AI Coding Agents Battleground
+const aiAgentTools = allTools
+  .filter(t => 
+    t.category === "ai-agents" || 
+    (t.tagline.toLowerCase().includes("agent") || t.tagline.toLowerCase().includes("llm") || t.name.toLowerCase().includes("agent"))
+  )
+  .slice(0, 4);
+---
+
+<section class="battleground-section-wrapper">
+  <!-- Section Title -->
+  <div class="battleground-header">
+    <div class="battleground-pill">
+      <span>⚔️ CURATED THEMATIC BATTLEGROUNDS</span>
+    </div>
+    <h2 class="battleground-title">
+      High-Intent Software <span class="gradient-text">Battleground Matrices</span>
+    </h2>
+    <p class="battleground-subtitle">
+      Hand-picked software rivalries and technological shifts solving real developer headaches.
+    </p>
+  </div>
+
+  <!-- 3 Battleground Cards Grid -->
+  <div class="battleground-grid">
+    <!-- Battleground 1: Notion / Airtable Resistance -->
+    <div class="battle-card">
+      <div class="battle-card-top">
+        <div class="battle-meta">
+          <span class="battle-tag notion-tag">WORKSPACE SOVEREIGNTY</span>
+          <span class="battle-count">{workspaceTools.length} Contenders</span>
+        </div>
+        <h3 class="battle-heading">The Notion & Airtable Resistance</h3>
+        <p class="battle-desc">
+          Escape $30/user/mo SaaS fees and proprietary block lock-in with local-first, CRDT-synchronized open-source workspaces.
+        </p>
+      </div>
+
+      <div class="battle-tools-list">
+        {workspaceTools.map(tool => (
+          <a href={`/tool/${tool.id}`} class="battle-tool-row">
+            <div class="tool-brief">
+              <span class="tool-name-text">{tool.name}</span>
+              <span class="tool-alt-sub">vs {tool.primary_alternative || "Notion"}</span>
+            </div>
+            <div class="tool-stats">
+              {tool.is_self_hostable && <span class="mini-chip">🐳 Docker</span>}
+              <span class="tool-sig">⚡{tool.signal_score || 80}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="battle-footer">
+        <a href="/guides/top-open-source-notion-alternatives-2026" class="battle-guide-link">
+          <span>Read In-Depth Architecture Comparison</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Battleground 2: Modern Terminal Velocity -->
+    <div class="battle-card">
+      <div class="battle-card-top">
+        <div class="battle-meta">
+          <span class="battle-tag terminal-tag">TERMINAL SPEEDUPS</span>
+          <span class="battle-count">{terminalTools.length} Contenders</span>
+        </div>
+        <h3 class="battle-heading">Rust & Go Modern CLI Suite</h3>
+        <p class="battle-desc">
+          Replacing sluggish 1970s Unix utilities with memory-safe, multi-threaded command line tools designed for NVMe SSDs.
+        </p>
+      </div>
+
+      <div class="battle-tools-list">
+        {terminalTools.map(tool => (
+          <a href={`/tool/${tool.id}`} class="battle-tool-row">
+            <div class="tool-brief">
+              <span class="tool-name-text">{tool.name}</span>
+              <span class="tool-alt-sub">{tool.category.replace("-", " ")}</span>
+            </div>
+            <div class="tool-stats">
+              <span class="mini-chip">⚡ Rust/Go</span>
+              <span class="tool-sig">★ {tool.stars > 999 ? `${(tool.stars/1000).toFixed(1)}k` : tool.stars}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="battle-footer">
+        <a href="/guides/next-gen-cli-tools-modern-terminal" class="battle-guide-link">
+          <span>Read Terminal Velocity Benchmarks</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Battleground 3: Autonomous AI Coding Agents -->
+    <div class="battle-card">
+      <div class="battle-card-top">
+        <div class="battle-meta">
+          <span class="battle-tag ai-tag">AUTONOMOUS LOOPS</span>
+          <span class="battle-count">{aiAgentTools.length} Contenders</span>
+        </div>
+        <h3 class="battle-heading">Autonomous AI Coding Agents</h3>
+        <p class="battle-desc">
+          Beyond single-token autocomplete: multi-turn agentic loops reading ASTs, running test suites, and committing code.
+        </p>
+      </div>
+
+      <div class="battle-tools-list">
+        {aiAgentTools.map(tool => (
+          <a href={`/tool/${tool.id}`} class="battle-tool-row">
+            <div class="tool-brief">
+              <span class="tool-name-text">{tool.name}</span>
+              <span class="tool-alt-sub">{tool.pricing_model}</span>
+            </div>
+            <div class="tool-stats">
+              <span class="mini-chip">🤖 SWE Loop</span>
+              <span class="tool-sig">⚡{tool.signal_score || 85}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="battle-footer">
+        <a href="/guides/developer-guide-autonomous-ai-coding-agents" class="battle-guide-link">
+          <span>Read SWE-Bench Evaluation Guide</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .battleground-section-wrapper {
+    margin: 5rem 0 3.5rem;
+  }
+
+  .battleground-header {
+    text-align: center;
+    margin-bottom: 2.75rem;
+  }
+
+  .battleground-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    color: #c084fc;
+    font-size: 0.76rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .battleground-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 0.65rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #a855f7 60%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .battleground-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Grid Layout */
+  .battleground-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .battleground-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .battle-card {
+    background: linear-gradient(180deg, rgba(20, 22, 30, 0.75) 0%, rgba(13, 14, 20, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .battle-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px -4px rgba(56, 189, 248, 0.12);
+  }
+
+  .battle-card-top {
+    margin-bottom: 1.25rem;
+  }
+
+  .battle-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .battle-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .notion-tag { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); }
+  .terminal-tag { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); }
+  .ai-tag { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); }
+
+  .battle-count {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .battle-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .battle-desc {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Contender Rows */
+  .battle-tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .battle-tool-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 0.65rem 0.85rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .battle-tool-row:hover {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.25);
+    transform: translateX(2px);
+  }
+
+  .tool-brief {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tool-name-text {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .tool-alt-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .tool-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .mini-chip {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+  }
+
+  .tool-sig {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    color: #fbbf24;
+    font-weight: 700;
+  }
+
+  /* Battle Footer */
+  .battle-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1rem;
+  }
+
+  .battle-guide-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .battle-guide-link:hover {
+    color: #7dd3fc;
+  }
+</style>

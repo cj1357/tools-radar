@@ -1,0 +1,486 @@
+---
+import { getToolIcon } from '../utils/favicon';
+
+interface Props {
+  tool: any;
+}
+
+const { tool } = Astro.props;
+
+const iconUrl = getToolIcon(tool.url, tool.github_url);
+const initial = tool.name.charAt(0);
+
+// Scorecard values
+const setupScore = tool.no_signup_required 
+  ? 9.6 
+  : (tool.install_command ? 8.9 : (tool.is_self_hostable ? 8.4 : 8.6));
+
+const auditScore = tool.pricing_model === 'Open Source' 
+  ? 9.9 
+  : (tool.github_url ? 9.1 : 7.8);
+
+const vitalityScore = Math.min(9.8, Math.max(7.5, Number((7.2 + ((tool.signal_score || 50) / 100) * 2.6).toFixed(1))));
+
+const valueScore = tool.pricing_model === 'Open Source' 
+  ? 10.0 
+  : (tool.pricing_model === 'Free' ? 9.2 : 8.5);
+
+const overallScore = Number(((setupScore + auditScore + vitalityScore + valueScore) / 4).toFixed(1));
+
+// Quickstart snippet fallback
+let quickstartSnippet = tool.install_command || '';
+if (!quickstartSnippet && tool.github_url) {
+  const repo = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
+  const repoName = repo.split('/')[1] || tool.id;
+  quickstartSnippet = tool.is_self_hostable 
+    ? `git clone https://github.com/${repo}.git\ncd ${repoName} && docker compose up -d`
+    : `git clone https://github.com/${repo}.git\ncd ${repoName} && npm install && npm run dev`;
+}
+---
+
+<section class="spotlight-card-wrapper">
+  <!-- Glowing Atmospheric Background -->
+  <div class="spotlight-glow-layer"></div>
+
+  <div class="spotlight-card-inner">
+    <!-- Top Meta Strip -->
+    <div class="spotlight-top-strip">
+      <div class="spotlight-badge">
+        <span class="spotlight-star">★</span>
+        <span>TODAY'S RADAR SPOTLIGHT // BREAKTHROUGH TARGET</span>
+      </div>
+      <div class="spotlight-overall-score">
+        <span class="score-label">RATING</span>
+        <span class="score-number">{overallScore}</span>
+        <span class="score-max">/10</span>
+      </div>
+    </div>
+
+    <!-- Main Content Split: Left Info, Right Scorecard & Quickstart -->
+    <div class="spotlight-grid">
+      <!-- Left Column: Tool Identity & Editorial Take -->
+      <div class="spotlight-info-col">
+        <div class="spotlight-title-row">
+          <div class="spotlight-icon-box">
+            {iconUrl ? (
+              <img 
+                src={iconUrl} 
+                alt={`${tool.name} icon`} 
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="spotlight-fallback-initial" style="display: none;">
+                {initial}
+              </div>
+            ) : (
+              <div class="spotlight-fallback-initial">
+                {initial}
+              </div>
+            )}
+          </div>
+
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+              <h3 class="spotlight-name">{tool.name}</h3>
+              <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+                {tool.pricing_model}
+              </span>
+              {tool.primary_alternative && (
+                <span class="alt-pill">
+                  🔄 Alt to {tool.primary_alternative}
+                </span>
+              )}
+            </div>
+            <p class="spotlight-tagline">{tool.tagline}</p>
+          </div>
+        </div>
+
+        <!-- Editorial Review Quote -->
+        <div class="spotlight-editorial-quote">
+          <div class="quote-header">
+            <span class="quote-icon">💡</span>
+            <span class="quote-title">Editorial Intelligence Take</span>
+          </div>
+          <p class="quote-text">
+            {tool.verdict || tool.summary || "A major leap forward in developer software craftsmanship, engineered for high velocity, data sovereignty, and zero subscription tax."}
+          </p>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="spotlight-actions-row">
+          <a href={`/tool/${tool.id}`} class="btn btn-primary" style="padding: 0.65rem 1.4rem;">
+            <span>Read Full Dossier & Benchmarks</span>
+            <span>→</span>
+          </a>
+          <a href={tool.url} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-secondary">
+            <span>Launch Official Site ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 4-Dimension Metric Bars + Quickstart Box -->
+      <div class="spotlight-metrics-col">
+        <!-- 4-Dimension Mini-Scorecard -->
+        <div class="mini-scorecard-box">
+          <div class="mini-metric-item">
+            <div class="mini-metric-top">
+              <span>🚀 Setup & Onboarding</span>
+              <span class="val-num">{setupScore}/10</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill cyan-fill" style={`width: ${setupScore * 10}%;`}></div>
+            </div>
+          </div>
+
+          <div class="mini-metric-item">
+            <div class="mini-metric-top">
+              <span>🛡️ Code & Auditability</span>
+              <span class="val-num">{auditScore}/10</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill emerald-fill" style={`width: ${auditScore * 10}%;`}></div>
+            </div>
+          </div>
+
+          <div class="mini-metric-item">
+            <div class="mini-metric-top">
+              <span>👥 Maintenance & Vitality</span>
+              <span class="val-num">{vitalityScore}/10</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill amber-fill" style={`width: ${vitalityScore * 10}%;`}></div>
+            </div>
+          </div>
+
+          <div class="mini-metric-item">
+            <div class="mini-metric-top">
+              <span>💰 Cost / Value Advantage</span>
+              <span class="val-num">{valueScore}/10</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill purple-fill" style={`width: ${valueScore * 10}%;`}></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini Quickstart Box -->
+        {quickstartSnippet && (
+          <div class="spotlight-quickstart-box">
+            <div class="quickstart-top">
+              <span class="quickstart-title">⚡ Quick Run Recipe</span>
+              <button id="spotlight-copy-btn" class="quickstart-copy" data-cmd={quickstartSnippet}>
+                📋 Copy
+              </button>
+            </div>
+            <pre class="quickstart-code-view"><code>{quickstartSnippet}</code></pre>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const copyBtn = document.getElementById('spotlight-copy-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const cmd = copyBtn.getAttribute('data-cmd');
+      if (cmd) {
+        try {
+          await navigator.clipboard.writeText(cmd);
+          const orig = copyBtn.textContent;
+          copyBtn.textContent = '✓ Copied!';
+          setTimeout(() => { copyBtn.textContent = orig; }, 2000);
+        } catch (_) {}
+      }
+    });
+  }
+</script>
+
+<style>
+  .spotlight-card-wrapper {
+    position: relative;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(20, 22, 32, 0.85) 0%, rgba(12, 13, 19, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px -8px rgba(56, 189, 248, 0.14);
+    margin: 3.5rem 0;
+    overflow: hidden;
+  }
+
+  .spotlight-glow-layer {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), transparent);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+  }
+
+  .spotlight-card-inner {
+    padding: 2.25rem 2.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .spotlight-card-inner {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+
+  /* Top Strip */
+  .spotlight-top-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .spotlight-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #fbbf24;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+  }
+
+  .spotlight-star {
+    font-size: 0.9rem;
+  }
+
+  .spotlight-overall-score {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+  }
+
+  .score-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .score-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+
+  .score-max {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  /* Grid Layout */
+  .spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 860px) {
+    .spotlight-grid {
+      grid-template-columns: 1.25fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .spotlight-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .spotlight-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: #181922;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .spotlight-icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .spotlight-fallback-initial {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #e4e4e7;
+  }
+
+  .spotlight-name {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.025em;
+  }
+
+  .alt-pill {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.18rem 0.55rem;
+    border-radius: 6px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+  }
+
+  .spotlight-tagline {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-top: 0.35rem;
+  }
+
+  /* Editorial Quote */
+  .spotlight-editorial-quote {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 3px solid #818cf8;
+    border-radius: 0 12px 12px 0;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .quote-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    margin-bottom: 0.4rem;
+    font-family: var(--font-mono);
+  }
+
+  .quote-text {
+    font-size: 0.92rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .spotlight-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  /* Right Column: Scorecard & Quickstart */
+  .mini-scorecard-box {
+    background: rgba(14, 15, 20, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .mini-metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .mini-metric-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .val-num {
+    font-family: var(--font-mono);
+    color: #f4f4f5;
+    font-weight: 700;
+  }
+
+  .bar-track {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+  }
+
+  .cyan-fill { background: linear-gradient(90deg, #38bdf8, #818cf8); }
+  .emerald-fill { background: linear-gradient(90deg, #10b981, #34d399); }
+  .amber-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .purple-fill { background: linear-gradient(90deg, #a855f7, #c084fc); }
+
+  .spotlight-quickstart-box {
+    background: #090a0f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+  }
+
+  .quickstart-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .quickstart-title {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  .quickstart-copy {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    padding: 0.15rem 0.45rem;
+    cursor: pointer;
+    font-family: var(--font-mono);
+  }
+
+  .quickstart-copy:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .quickstart-code-view {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.45;
+  }
+</style>
