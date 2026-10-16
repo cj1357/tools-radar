@@ -55,6 +55,18 @@ def slugify(text: str) -> str:
     text = re.sub(r"[\s_-]+", "-", text)
     return text.strip("-")[:60]
 
+def flatten_list(val):
+    """Recursively flattens nested lists and removes empty/falsy elements."""
+    if not isinstance(val, list):
+        return []
+    res = []
+    for item in val:
+        if isinstance(item, list):
+            res.extend(flatten_list(item))
+        elif item:
+            res.append(item)
+    return res
+
 def fetch_github_trending(limit=10):
     print("Fetching GitHub Trending...")
     items = []
@@ -507,10 +519,18 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
             no_signup = bool(ai_data.get("no_signup_required", False))
 
             verdict = ai_data.get("verdict")
-            key_features = ai_data.get("key_features") or []
-            use_cases = ai_data.get("use_cases") or []
-            pros = ai_data.get("pros") or []
-            cons = ai_data.get("cons") or []
+            raw_feats = flatten_list(ai_data.get("key_features"))
+            key_features = []
+            for f in raw_feats:
+                if isinstance(f, dict) and f.get("title"):
+                    key_features.append(f)
+                elif isinstance(f, str) and f.strip():
+                    key_features.append({"title": f.strip(), "description": ""})
+
+            use_cases = [str(x) for x in flatten_list(ai_data.get("use_cases")) if x]
+            pros = [str(x) for x in flatten_list(ai_data.get("pros")) if x]
+            cons = [str(x) for x in flatten_list(ai_data.get("cons")) if x]
+            tags = [str(x) for x in flatten_list(tags) if x]
             target_audience = ai_data.get("target_audience")
             comparison_vs_alt = ai_data.get("comparison_vs_alt")
             install_command = ai_data.get("install_command")

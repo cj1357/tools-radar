@@ -57,8 +57,23 @@ if (!quickstartCommand) {
   }
 }
 
+// Robust array unwrapping helper
+const flattenList = (val: any): any[] => {
+  if (!Array.isArray(val)) return [];
+  const res: any[] = [];
+  for (const item of val) {
+    if (Array.isArray(item)) {
+      res.push(...flattenList(item));
+    } else if (item !== null && item !== undefined) {
+      res.push(item);
+    }
+  }
+  return res;
+};
+
 // Tailored Pros & Cons: Use tailored AI-extracted insights when available, with fallback
-const displayPros = (tool.pros && tool.pros.length > 0) ? tool.pros : [
+const rawPros = flattenList(tool.pros).filter(Boolean).map(String);
+const displayPros = (rawPros.length > 0) ? rawPros : [
   tool.pricing_model === 'Open Source' 
     ? '100% Free & Open Source with full code auditability and no recurring fees' 
     : 'Generous free access tier with zero upfront credit card requirement',
@@ -73,7 +88,8 @@ const displayPros = (tool.pros && tool.pros.length > 0) ? tool.pros : [
     : 'Native team collaboration and multi-user permissions'
 ];
 
-const displayCons = (tool.cons && tool.cons.length > 0) ? tool.cons : [
+const rawCons = flattenList(tool.cons).filter(Boolean).map(String);
+const displayCons = (rawCons.length > 0) ? rawCons : [
   tool.is_self_hostable 
     ? 'Self-hosting requires basic server management and backup routines' 
     : 'Hosted service depends on third-party cloud availability and terms',
@@ -81,6 +97,53 @@ const displayCons = (tool.cons && tool.cons.length > 0) ? tool.cons : [
     ? `Ecosystem plugins may be newer than entrenched giants like ${tool.primary_alternative}` 
     : 'Relatively fresh project — documentation is expanding rapidly',
   'Fast development velocity — recommend following release notes for major updates'
+];
+
+// Core Architecture & Key Capabilities normalization
+const rawFeatures = flattenList(tool.key_features).filter(Boolean);
+const displayFeatures: Array<{ title: string; description: string }> = rawFeatures.map((feat: any) => {
+  if (typeof feat === 'string') {
+    return {
+      title: feat,
+      description: `${tool.name} delivers built-in capabilities designed for production reliability.`
+    };
+  }
+  if (typeof feat === 'object' && feat !== null) {
+    return {
+      title: feat.title || feat.name || '',
+      description: feat.description || feat.desc || feat.summary || ''
+    };
+  }
+  return null;
+}).filter((feat): feat is { title: string; description: string } => Boolean(feat && feat.title));
+
+if (displayFeatures.length === 0) {
+  displayFeatures.push(
+    {
+      title: tool.pricing_model === 'Open Source' ? 'Open Architecture & Transparent Core' : 'Developer-First Modular Architecture',
+      description: `${tool.name} is architected for clean integration and low maintenance overhead, prioritizing fast local execution.`
+    },
+    {
+      title: tool.is_self_hostable ? 'Self-Contained Local Execution' : 'Streamlined Cloud Interoperability',
+      description: tool.is_self_hostable
+        ? 'Operate with total data sovereignty and privacy without depending on external telemetry or third-party servers.'
+        : 'Access instant capabilities with zero complex infrastructure setup or machine dependencies.'
+    },
+    {
+      title: tool.primary_alternative ? `Zero-Lock-in Alternative to ${tool.primary_alternative}` : 'Modern Automated Workflows',
+      description: tool.primary_alternative
+        ? `Delivers the core power and flexibility of ${tool.primary_alternative} with cleaner ergonomics and zero licensing penalties.`
+        : 'Designed specifically to eliminate friction and automate repetitive engineering patterns.'
+    }
+  );
+}
+
+// Practical Applications & High-Value Use Cases normalization
+const rawUseCases = flattenList(tool.use_cases).filter(Boolean).map(String);
+const displayUseCases = rawUseCases.length > 0 ? rawUseCases : [
+  `Integrating ${tool.name} into automated developer pipelines to reduce repetitive manual overhead`,
+  `Deploying as a lightweight, privacy-conscious utility for team-wide productivity and local operations`,
+  `Evaluating as an independent alternative to reduce vendor lock-in and monthly recurring software costs`
 ];
 
 let domainName = '';
@@ -493,13 +556,13 @@ const jsonLd = {
     </div>
 
     <!-- Key Capabilities / Feature Highlights -->
-    {tool.key_features && tool.key_features.length > 0 && (
+    {displayFeatures && displayFeatures.length > 0 && (
       <div class="section-card">
         <h2 class="card-section-title">
           <span style="color: #f59e0b;">⚡</span> Core Architecture & Key Capabilities
         </h2>
         <div class="features-grid">
-          {tool.key_features.map((feat: any, idx: number) => (
+          {displayFeatures.map((feat: any, idx: number) => (
             <div class="feature-card">
               <div class="feature-card-header">
                 <span class="feature-index">0{idx + 1}</span>
@@ -515,13 +578,13 @@ const jsonLd = {
     )}
 
     <!-- Practical Applications & High-Value Use Cases -->
-    {tool.use_cases && tool.use_cases.length > 0 && (
+    {displayUseCases && displayUseCases.length > 0 && (
       <div class="section-card">
         <h2 class="card-section-title">
           <span style="color: #6366f1;">🎯</span> Practical Applications & High-Value Use Cases
         </h2>
         <div class="use-cases-grid">
-          {tool.use_cases.map((uc: string, idx: number) => (
+          {displayUseCases.map((uc: string, idx: number) => (
             <div class="use-case-item">
               <span class="use-case-index">Scenario 0{idx + 1}</span>
               <p class="use-case-text">{uc}</p>

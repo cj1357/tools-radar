@@ -19,6 +19,17 @@ if hasattr(sys.stdout, "reconfigure"):
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
 MASTER_FILE = os.path.join(DATA_DIR, "all_tools.json")
 
+def flatten_list(val):
+    if not isinstance(val, list):
+        return []
+    res = []
+    for item in val:
+        if isinstance(item, list):
+            res.extend(flatten_list(item))
+        elif item:
+            res.append(item)
+    return res
+
 def backfill(limit: int | None = None, force: bool = False, delay: float = 4.2):
     load_dotenv()
     
@@ -86,16 +97,24 @@ def backfill(limit: int | None = None, force: bool = False, delay: float = 4.2):
             tool["tagline"] = enriched.get("tagline") or tool["tagline"]
             tool["summary"] = enriched.get("summary") or tool["summary"]
             tool["category"] = enriched.get("category") or tool["category"]
-            tool["tags"] = enriched.get("tags") or tool["tags"]
+            raw_feats = flatten_list(enriched.get("key_features") or tool.get("key_features", []))
+            clean_feats = []
+            for f in raw_feats:
+                if isinstance(f, dict) and f.get("title"):
+                    clean_feats.append(f)
+                elif isinstance(f, str) and f.strip():
+                    clean_feats.append({"title": f.strip(), "description": ""})
+
+            tool["tags"] = [str(x) for x in flatten_list(enriched.get("tags") or tool.get("tags", [])) if x]
             tool["pricing_model"] = enriched.get("pricing_model") or tool["pricing_model"]
             tool["primary_alternative"] = enriched.get("primary_alternative")
             tool["is_self_hostable"] = enriched.get("is_self_hostable", tool.get("is_self_hostable", False))
             tool["no_signup_required"] = enriched.get("no_signup_required", tool.get("no_signup_required", False))
             tool["verdict"] = enriched.get("verdict")
-            tool["key_features"] = enriched.get("key_features") or tool.get("key_features", [])
-            tool["use_cases"] = enriched.get("use_cases") or tool.get("use_cases", [])
-            tool["pros"] = enriched.get("pros") or tool.get("pros", [])
-            tool["cons"] = enriched.get("cons") or tool.get("cons", [])
+            tool["key_features"] = clean_feats
+            tool["use_cases"] = [str(x) for x in flatten_list(enriched.get("use_cases") or tool.get("use_cases", [])) if x]
+            tool["pros"] = [str(x) for x in flatten_list(enriched.get("pros") or tool.get("pros", [])) if x]
+            tool["cons"] = [str(x) for x in flatten_list(enriched.get("cons") or tool.get("cons", [])) if x]
             tool["target_audience"] = enriched.get("target_audience")
             tool["comparison_vs_alt"] = enriched.get("comparison_vs_alt")
             tool["install_command"] = enriched.get("install_command")
