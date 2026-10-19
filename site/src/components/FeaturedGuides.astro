@@ -265,4 +265,27 @@ const featuredGuides = guidesData.slice(0, 3);
   .read-whitepaper-link:hover {
     color: #7dd3fc;
   }
+
+  @media (max-width: 640px) {
+    .guides-showcase-wrapper {
+      margin: 3rem 0 2rem;
+      padding-top: 2rem;
+    }
+    .guides-showcase-title {
+      font-size: 1.75rem;
+    }
+    .guides-showcase-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .view-all-guides-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .showcase-guide-card {
+      padding: 1.25rem 1rem;
+    }
+  }
 </style>

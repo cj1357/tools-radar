@@ -113,6 +113,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 72px;
         -webkit-text-size-adjust: 100%;
       }
 
@@ -184,13 +185,16 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
       /* Navbar */
       .navbar {
         border-bottom: 1px solid var(--border-subtle);
-        background-color: rgba(9, 10, 15, 0.94);
+        background-color: #08090d;
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         position: sticky;
         top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
         z-index: 100;
-        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7);
         transition: border-color 0.2s ease;
       }
 
@@ -201,6 +205,12 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         padding: 0.75rem 1.25rem;
         max-width: 1180px;
         margin: 0 auto;
+      }
+
+      @media (max-width: 640px) {
+        .nav-container {
+          padding: 0.65rem 0.85rem;
+        }
       }
 
       .nav-brand {

@@ -78,17 +78,19 @@ if (!quickstartSnippet && tool.github_url) {
             )}
           </div>
 
-          <div>
-            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+          <div class="spotlight-header-meta">
+            <div class="spotlight-name-badges-row">
               <h3 class="spotlight-name">{tool.name}</h3>
-              <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
-                {tool.pricing_model}
-              </span>
-              {tool.primary_alternative && (
-                <span class="alt-pill">
-                  🔄 Alt to {tool.primary_alternative}
+              <div class="spotlight-badges-group">
+                <span class={tool.pricing_model === "Open Source" ? "badge badge-oss" : "badge badge-free"}>
+                  {tool.pricing_model}
                 </span>
-              )}
+                {tool.primary_alternative && (
+                  <span class="alt-pill">
+                    🔄 Alt to {tool.primary_alternative}
+                  </span>
+                )}
+              </div>
             </div>
             <p class="spotlight-tagline">{tool.tagline}</p>
           </div>
@@ -222,8 +224,12 @@ if (!quickstartSnippet && tool.github_url) {
   }
 
   @media (max-width: 640px) {
+    .spotlight-card-wrapper {
+      margin: 2.25rem 0 2rem;
+      border-radius: 18px;
+    }
     .spotlight-card-inner {
-      padding: 1.5rem 1.25rem;
+      padding: 1.25rem 1rem;
     }
   }
 
@@ -285,15 +291,20 @@ if (!quickstartSnippet && tool.github_url) {
   /* Grid Layout */
   .spotlight-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
 
   @media (min-width: 860px) {
     .spotlight-grid {
-      grid-template-columns: 1.25fr 1fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
       align-items: center;
     }
+  }
+
+  .spotlight-info-col {
+    min-width: 0;
+    width: 100%;
   }
 
   .spotlight-title-row {
@@ -329,11 +340,32 @@ if (!quickstartSnippet && tool.github_url) {
     color: #e4e4e7;
   }
 
+  .spotlight-header-meta {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .spotlight-name-badges-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  .spotlight-badges-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
   .spotlight-name {
-    font-size: 1.6rem;
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.025em;
+    word-break: break-word;
   }
 
   .alt-pill {
@@ -344,13 +376,15 @@ if (!quickstartSnippet && tool.github_url) {
     background: rgba(56, 189, 248, 0.1);
     border: 1px solid rgba(56, 189, 248, 0.25);
     color: #38bdf8;
+    white-space: nowrap;
   }
 
   .spotlight-tagline {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
-    line-height: 1.55;
+    line-height: 1.5;
     margin-top: 0.35rem;
+    word-break: break-word;
   }
 
   /* Editorial Quote */
@@ -361,6 +395,9 @@ if (!quickstartSnippet && tool.github_url) {
     border-radius: 0 12px 12px 0;
     padding: 1.1rem 1.25rem;
     margin-bottom: 1.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .quote-header {
@@ -380,12 +417,33 @@ if (!quickstartSnippet && tool.github_url) {
     line-height: 1.6;
     margin: 0;
     font-style: italic;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .spotlight-actions-row {
     display: flex;
     flex-wrap: wrap;
     gap: 0.85rem;
+  }
+
+  @media (max-width: 640px) {
+    .spotlight-title-row {
+      gap: 0.75rem;
+    }
+    .spotlight-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+    }
+    .spotlight-actions-row {
+      flex-direction: column;
+      width: 100%;
+    }
+    .spotlight-actions-row .btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* Right Column: Scorecard & Quickstart */

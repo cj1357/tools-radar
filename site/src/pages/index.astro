@@ -255,11 +255,16 @@ const searchIndex = allTools.map(t => ({
       <!-- Sort Dropdown -->
       <div class="sort-control-wrap">
         <span class="sort-caption">SORT BY:</span>
-        <select id="sort-select" class="sort-dropdown-select" aria-label="Sort tools">
-          <option value="signal" selected>⚡ Highest Traction Score</option>
-          <option value="stars">★ Most GitHub Stars</option>
-          <option value="newest">🆕 Recently Added</option>
-        </select>
+        <div class="sort-select-container">
+          <select id="sort-select" class="sort-dropdown-select" aria-label="Sort tools">
+            <option value="signal" selected>⚡ Highest Traction Score</option>
+            <option value="stars">★ Most GitHub Stars</option>
+            <option value="newest">🆕 Recently Added</option>
+          </select>
+          <svg class="sort-chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -938,7 +943,7 @@ const searchIndex = allTools.map(t => ({
   }
 
   .hero-main-title {
-    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+    font-size: clamp(1.85rem, 5.5vw, 3.6rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.035em;
@@ -1013,6 +1018,34 @@ const searchIndex = allTools.map(t => ({
     line-height: 22px;
     text-align: center;
     border-radius: 6px;
+  }
+
+  @media (max-width: 640px) {
+    .hero-master-section {
+      padding: 1.75rem 0 1.5rem;
+    }
+    .hero-main-title {
+      margin-bottom: 0.85rem;
+    }
+    .hero-lead-text {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .search-command-wrapper {
+      margin-bottom: 1.5rem;
+    }
+    .search-command-input {
+      padding: 0.85rem 1.25rem 0.85rem 2.75rem;
+      font-size: 0.88rem;
+    }
+    .search-lens-icon {
+      left: 0.95rem;
+      width: 17px;
+      height: 17px;
+    }
+    .search-key-badge {
+      display: none;
+    }
   }
 
   /* Instant Raycast Dropdown */
@@ -1356,6 +1389,14 @@ const searchIndex = allTools.map(t => ({
     margin: 5rem 0 3.5rem;
     padding-top: 3.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    scroll-margin-top: 75px;
+  }
+
+  @media (max-width: 640px) {
+    .radar-feed-master-section {
+      margin: 3rem 0 2rem;
+      padding-top: 2rem;
+    }
   }
 
   .feed-section-header {
@@ -1365,6 +1406,15 @@ const searchIndex = allTools.map(t => ({
     margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .feed-section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
   }
 
   .feed-section-pill {
@@ -1388,6 +1438,12 @@ const searchIndex = allTools.map(t => ({
     color: var(--text-primary);
     letter-spacing: -0.03em;
     margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .feed-section-title {
+      font-size: 1.75rem;
+    }
   }
 
   .feed-counter-badge {
@@ -1569,25 +1625,115 @@ const searchIndex = allTools.map(t => ({
   .sort-control-wrap {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .sort-caption {
     font-size: 0.72rem;
     font-family: var(--font-mono);
     color: var(--text-muted);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .sort-select-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
   }
 
   .sort-dropdown-select {
-    background: rgba(18, 19, 26, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(18, 20, 28, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     color: var(--text-primary);
-    padding: 0.4rem 0.85rem;
-    border-radius: 8px;
+    padding: 0.42rem 2.2rem 0.42rem 0.85rem;
+    border-radius: 10px;
     font-size: 0.82rem;
     font-family: var(--font-sans);
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .sort-dropdown-select:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(24, 26, 36, 0.95);
+    color: #ffffff;
+  }
+
+  .sort-dropdown-select:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  }
+
+  .sort-chevron-icon {
+    position: absolute;
+    right: 0.75rem;
+    pointer-events: none;
+    color: var(--accent);
+    transition: transform 0.2s ease;
+  }
+
+  @media (max-width: 768px) {
+    .feed-toolbar-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quick-filters-group {
+      overflow-x: auto;
+      overflow-y: hidden;
+      flex-wrap: nowrap;
+      padding-bottom: 0.35rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      width: 100%;
+    }
+
+    .quick-filters-group::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-toggle-chip {
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+    }
+
+    .sort-control-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 0.45rem 0.75rem;
+      box-sizing: border-box;
+    }
+
+    .sort-select-container {
+      flex: 1;
+      max-width: 250px;
+      display: flex;
+    }
+
+    .sort-dropdown-select {
+      width: 100%;
+      padding: 0.4rem 2rem 0.4rem 0.75rem;
+      font-size: 0.8rem;
+    }
   }
 
   /* Empty Results */
