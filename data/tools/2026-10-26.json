@@ -1,232 +1,1710 @@
 [
   {
-    "id": "hypergsc",
-    "name": "HyperGSC",
-    "tagline": "Google Search Console data for AI assistants via hosted read-only MCP",
-    "summary": "HyperGSC connects Google Search Console directly to AI assistants like Claude, ChatGPT, and Cursor through a hosted, read-only Model Context Protocol (MCP) server. It enables conversational analysis of organic clicks, impressions, query trends, and indexing status without manual CSV exports.",
-    "url": "https://hypergsc.com",
-    "github_url": null,
-    "source": "submission",
+    "id": "cindy",
+    "name": "Cindy",
+    "tagline": "The open-source AI agent that works out of the box",
+    "summary": "Cindy is an open-source AI agent designed to execute complex multi-step tasks right out of the box without requiring tedious configuration. It bridges the gap between conversational prompts and practical automation by offering an extensible agentic architecture.",
+    "url": "https://github.com/makecindy/cindy",
+    "github_url": "https://github.com/makecindy/cindy",
+    "source": "github_trending",
     "category": "ai-agents",
     "tags": [
-      "MCP",
-      "Google Search Console",
-      "SEO",
-      "AI Assistant",
-      "Cursor",
-      "Claude"
+      "AI Agents",
+      "Open Source",
+      "Automation",
+      "TypeScript",
+      "LLM"
     ],
-    "pricing_model": "Freemium",
-    "stars": 0,
-    "primary_alternative": "Manual GSC CSV Export",
-    "is_self_hostable": false,
+    "pricing_model": "Open Source",
+    "stars": 5107,
+    "primary_alternative": "AutoGPT",
+    "is_self_hostable": true,
     "no_signup_required": false,
-    "signal_score": 88,
-    "verdict": "A game-changing MCP integration for SEO professionals and technical founders who want their AI coding assistants to audit organic search performance and indexing issues directly in-context.",
+    "signal_score": 93,
+    "verdict": "Cindy is an exciting open-source contender for developers looking to deploy local or self-hosted AI agents without the boilerplate overhead. Its out-of-the-box readiness makes it a strong choice for rapid automation prototyping.",
     "key_features": [
       {
-        "title": "Hosted Read-Only MCP Server",
-        "description": "Seamlessly integrates with Cursor, Claude Desktop, and ChatGPT using the open Model Context Protocol standard."
+        "title": "Out-of-the-Box Execution",
+        "description": "Pre-configured agent workflows allow you to start executing tasks immediately with minimal setup."
       },
       {
-        "title": "Search Analytics On-Demand",
-        "description": "Query impressions, clicks, click-through rates, and average positions for specific landing pages and queries via natural language."
+        "title": "Extensible Architecture",
+        "description": "Easily plug in custom tools, APIs, and LLM backends to tailor the agent to your exact workflow."
       },
       {
-        "title": "Zero-Risk OAuth Access",
-        "description": "Scoped to read-only access with granular per-property authorization to safeguard sensitive Search Console credentials."
+        "title": "Open Source Control",
+        "description": "Fully transparent codebase giving you complete data privacy and freedom to self-host."
       }
     ],
     "use_cases": [
-      "Asking Claude or Cursor to analyze which blog posts lost ranking after an algorithm update",
-      "Troubleshooting indexing bottlenecks and coverage drops conversationally",
-      "Automating weekly organic traffic summary reports inside AI developer environments"
+      "Automating multi-step developer workflows and file management tasks",
+      "Executing deep research and compiling structured reports autonomously",
+      "Integrating custom AI agent behaviors into internal team tools"
     ],
     "pros": [
-      "Eliminates repetitive manual spreadsheet exports and pivot tables",
-      "Strictly read-only OAuth architecture prevents unintended configuration changes",
-      "Generous free tier covering single-property auditing for solo developers"
+      "Ready to run immediately without complex initial scaffolding",
+      "Full source code availability allows deep customization and zero vendor lock-in",
+      "Active open-source community driving rapid iteration and feature additions"
     ],
     "cons": [
-      "Paid subscription required for multi-domain agency portfolios and extended historical lookbacks",
-      "Currently depends on Model Context Protocol client support (e.g. Claude Desktop, Cursor)"
+      "Agent reliability can still vary depending on the underlying LLM capabilities",
+      "Documentation and ecosystem maturity may lag behind heavily funded commercial agent platforms"
     ],
-    "target_audience": "SEO specialists, technical marketers, indie founders, and engineers using AI IDEs to monitor site traffic.",
-    "comparison_vs_alt": "Unlike static spreadsheet exports or heavy enterprise SEO suites like Ahrefs, HyperGSC brings real-time search performance telemetry straight into interactive AI chat prompts.",
-    "install_command": null,
-    "date_added": "2026-10-26",
-    "featured": true
+    "target_audience": "Developers and tech enthusiasts looking for a flexible, self-hostable AI agent framework to automate everyday tasks.",
+    "comparison_vs_alt": "Unlike rigid commercial wrappers or overly complex agent frameworks, Cindy focuses on a streamlined out-of-the-box experience with full open-source autonomy.",
+    "install_command": "git clone https://github.com/makecindy/cindy.git && cd cindy",
+    "date_added": "2026-10-25",
+    "featured": false,
+    "forks": 600
   },
   {
-    "id": "soundclean",
-    "name": "SoundClean",
-    "tagline": "AI-powered background noise removal for audio and video recordings",
-    "summary": "SoundClean is an AI utility engineered to strip ambient noise, electrical hum, reverberation, and background disturbances from audio and video recordings. Users can upload recordings, test an instant 10-second cleaned preview for free, and export crystal-clear media for podcasts, interviews, and courses.",
-    "url": "https://soundclean.app/",
-    "github_url": null,
-    "source": "submission",
+    "id": "hallmark",
+    "name": "Hallmark",
+    "tagline": "Anti-AI-slop design skill for Claude Code and Cursor",
+    "summary": "Hallmark injects human-grade design constraints into popular AI coding assistants to eradicate generic, low-effort UI outputs. It ensures generated frontends adhere to modern design engineering standards rather than relying on cliché AI aesthetics.",
+    "url": "https://github.com/Nutlope/hallmark",
+    "github_url": "https://github.com/Nutlope/hallmark",
+    "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI Audio",
-      "Noise Reduction",
-      "Podcast",
-      "Video Editing",
-      "Speech Enhancement"
+      "AI Tools",
+      "Design Engineering",
+      "Claude Code",
+      "Cursor",
+      "Frontend"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 34166,
+    "primary_alternative": "Standard AI Code Prompts",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential workflow upgrade for engineers tired of cleaning up generic, cookie-cutter AI-generated UIs. It bridges the gap between raw LLM code generation and polished production-ready aesthetics.",
+    "key_features": [
+      {
+        "title": "Design Skill Injection",
+        "description": "Seamlessly integrates advanced design guidelines into AI coding assistants like Claude Code and Cursor."
+      },
+      {
+        "title": "Anti-Slop Filters",
+        "description": "Actively prevents the generation of clichéd gradients, generic layouts, and overused AI UI patterns."
+      },
+      {
+        "title": "Modern Standards",
+        "description": "Forces AI models to output accessible, visually sophisticated, and human-crafted frontend code."
+      }
+    ],
+    "use_cases": [
+      "Generating high-fidelity SaaS landing pages with Cursor without looking like generic AI templates",
+      "Building production-ready frontend components using Claude Code that follow strict design systems",
+      "Eliminating repetitive manual CSS overrides for generic AI-generated layouts"
+    ],
+    "pros": [
+      "Dramatically improves the aesthetic quality of code generated by LLMs",
+      "Easily integrates into existing developer workflows via popular coding assistants",
+      "Saves hours of design cleanup and frontend refactoring"
+    ],
+    "cons": [
+      "Relies on the underlying LLM's capacity to follow complex stylistic instructions",
+      "May occasionally conflict with specific custom design systems without fine-tuning"
+    ],
+    "target_audience": "Frontend engineers and full-stack developers who rely heavily on AI coding tools but demand high-end design quality.",
+    "comparison_vs_alt": "Unlike standard vanilla prompts that frequently result in repetitive boilerplate layouts, Hallmark provides a structured, reusable design skill framework that consistently enforces modern aesthetics.",
+    "install_command": "git clone https://github.com/Nutlope/hallmark.git",
+    "date_added": "2026-10-25",
+    "featured": false,
+    "forks": 1657
+  },
+  {
+    "id": "voicestudio",
+    "name": "Voicestudio",
+    "tagline": "Comprehensive, self-hosted voice AI for cloning, dubbing, and transcription",
+    "summary": "Voicestudio is an all-in-one offline voice AI platform that handles voice cloning, video dubbing, transcription, and audiobook creation across 646 languages. By running entirely locally, it eliminates third-party API costs and ensures absolute data privacy for sensitive audio workloads.",
+    "url": "https://github.com/debpalash/VoiceStudio",
+    "github_url": "https://github.com/debpalash/VoiceStudio",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Voice Cloning",
+      "AI",
+      "Self-Hosted",
+      "Audio",
+      "Python"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 87124,
+    "primary_alternative": "ElevenLabs",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "key_features": [
+      {
+        "title": "Multi-Language Support",
+        "description": "Seamlessly process and generate speech, transcription, and dubbing across 646 different languages."
+      },
+      {
+        "title": "Offline Voice Cloning",
+        "description": "Clone voices accurately using local compute without leaking sensitive audio data to third-party servers."
+      },
+      {
+        "title": "End-to-End Audio Suite",
+        "description": "Cover all bases from video dubbing and automated transcription to long-form audiobook creation in one app."
+      }
+    ],
+    "target_audience": "AI engineers, creators, and privacy-conscious organizations looking to self-host advanced voice cloning and dubbing workflows.",
+    "comparison_vs_alt": "Unlike ElevenLabs which charges heavily per character and processes data in the cloud, Voicestudio runs completely offline on your hardware for free, keeping all audio assets private.",
+    "date_added": "2026-09-28",
+    "featured": false,
+    "forks": 9423,
+    "verdict": "An exceptional tool for creators and developers seeking absolute privacy and zero-cost scaling for multi-language voice workloads. It provides a robust, locally runnable alternative to expensive commercial cloud voice APIs.",
+    "use_cases": [
+      "Dubbing localization videos into hundreds of languages without ongoing cloud transcription fees",
+      "Creating custom proprietary voice clones for privacy-focused enterprise applications",
+      "Generating automated transcriptions and audiobooks locally on secure offline infrastructure"
+    ],
+    "pros": [
+      "Zero usage costs and complete independence from rate-limited or expensive cloud APIs",
+      "Absolute data privacy through local, self-hosted execution",
+      "Massive linguistic reach supporting over 600 languages"
+    ],
+    "cons": [
+      "Requires significant local GPU hardware resources to achieve reasonable inference speeds",
+      "Setup and dependency management for complex local audio models can be steep for non-technical users"
+    ],
+    "install_command": "git clone https://github.com/debpalash/VoiceStudio.git"
+  },
+  {
+    "id": "impeccable",
+    "name": "Impeccable",
+    "tagline": "The design language that makes your AI harness better at design",
+    "summary": "Impeccable is a specialized design system and prompt language engineered to guide LLMs and AI coding assistants toward producing visually stunning, professional UI components. It solves the common problem of generic, unpolished AI-generated interfaces by injecting strict design rules and aesthetic patterns directly into the prompt context.",
+    "url": "https://github.com/pbakaus/impeccable",
+    "github_url": "https://github.com/pbakaus/impeccable",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "Design System",
+      "AI Prompts",
+      "UI/UX",
+      "Generative AI",
+      "Frontend"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 87909,
+    "primary_alternative": "V0 by Vercel",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential toolkit for developers who use AI code assistants and want to bridge the gap between functional code and elite visual design without manually tweaking CSS.",
+    "key_features": [
+      {
+        "title": "Design Language Injection",
+        "description": "Provides structured design tokens and rules that drastically improve AI output aesthetics."
+      },
+      {
+        "title": "Framework Agnostic",
+        "description": "Works seamlessly across React, Vue, Svelte, or vanilla CSS setups."
+      },
+      {
+        "title": "Curated Aesthetic Rules",
+        "description": "Encodes best practices for typography, spacing, color theory, and micro-interactions into promptable guidelines."
+      }
+    ],
+    "use_cases": [
+      "Generating high-fidelity SaaS dashboard UIs using AI coding assistants",
+      "Standardizing the visual output of multi-agent coding workflows",
+      "Rapid prototyping production-ready frontends without relying on generic bootstrap templates"
+    ],
+    "pros": [
+      "Dramatically reduces the generic 'AI look' in generated user interfaces",
+      "Improves typography and spacing consistency across disparate AI-generated components",
+      "Completely open-source and customizable for team-specific design tokens"
+    ],
+    "cons": [
+      "Requires proper prompt integration into your existing AI workflow or IDE extension",
+      "Results can still vary depending on the underlying foundational LLM's capability"
+    ],
+    "target_audience": "Frontend developers and product engineers who frequently use LLMs to build user interfaces and want superior visual quality.",
+    "comparison_vs_alt": "Unlike closed cloud UI generators like v0, Impeccable gives you an open design language you can run locally and integrate directly into any AI assistant or codebase.",
+    "install_command": "git clone https://github.com/pbakaus/impeccable.git",
+    "date_added": "2026-10-03",
+    "featured": false,
+    "forks": 5163
+  },
+  {
+    "id": "microduck",
+    "name": "Microduck",
+    "tagline": "An open-source tiny bipedal duck robot for robotics experimentation",
+    "summary": "Microduck is an ultra-compact, open-source bipedal robot designed for rapid prototyping of walking gaits and embedded control algorithms. It bridges the gap between software simulation and physical hardware by providing an affordable, highly accessible robotic platform.",
+    "url": "https://github.com/pollen-robotics/microduck",
+    "github_url": "https://github.com/pollen-robotics/microduck",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "Robotics",
+      "Hardware",
+      "Python",
+      "Embedded Systems",
+      "3D Printing"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 11801,
+    "primary_alternative": "Boston Dynamics Spot Mini-puppers",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An exceptionally fun and educational open-source hardware project that makes bipedal robotics accessible to hobbyists and researchers alike.",
+    "key_features": [
+      {
+        "title": "Compact Bipedal Design",
+        "description": "Miniaturized mechanical layout specifically engineered for stable bipedal locomotion."
+      },
+      {
+        "title": "Open Source Hardware",
+        "description": "Fully 3D-printable CAD models and open schematics for effortless replication and modification."
+      },
+      {
+        "title": "Embedded Control",
+        "description": "Lightweight microcontroller-based software stack for real-time motor control and balance."
+      }
+    ],
+    "use_cases": [
+      "Prototyping reinforcement learning walking policies on physical hardware",
+      "Educational STEM workshops for robotics and embedded programming",
+      "Affordable research testbed for bipedal locomotion dynamics"
+    ],
+    "pros": [
+      "Inexpensive to fabricate using standard 3D printers and hobbyist servos",
+      "Fully open-source ecosystem encouraging community modifications",
+      "Small footprint allows safe indoor testing and desk deployment"
+    ],
+    "cons": [
+      "Limited payload capacity due to micro-servo actuators",
+      "Requires manual assembly, soldering, and mechanical calibration"
+    ],
+    "target_audience": "Robotics engineers, hobbyists, and educators looking for an affordable bipedal hardware platform.",
+    "comparison_vs_alt": "Unlike commercial quadruped or biped research kits costing thousands of dollars, Microduck provides a fully open-source physical robot achievable with consumer 3D printers.",
+    "install_command": "git clone https://github.com/pollen-robotics/microduck.git",
+    "date_added": "2026-10-25",
+    "featured": false,
+    "forks": 1417
+  },
+  {
+    "id": "tradingagents",
+    "name": "TradingAgents",
+    "tagline": "Multi-Agent LLM framework for automated financial trading and analysis",
+    "summary": "TradingAgents is a powerful multi-agent system designed to simulate and execute financial trading strategies using Large Language Models. It solves the complexity of quantitative trading by orchestrating specialized AI personas like risk managers, market analysts, and traders to collaborate on financial decisions.",
+    "url": "https://github.com/TauricResearch/TradingAgents",
+    "github_url": "https://github.com/TauricResearch/TradingAgents",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "Python",
+      "AI Agents",
+      "Finance",
+      "LLM",
+      "Trading"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 114798,
+    "primary_alternative": "Bloomberg Terminal",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 95,
+    "verdict": "An exceptional open-source sandbox for quantitative developers and researchers looking to leverage LLM swarm intelligence for financial forecasting.",
+    "key_features": [
+      {
+        "title": "Multi-Agent Collaboration",
+        "description": "Simulates financial ecosystems by deploying specialized AI agents for analysis, risk assessment, and execution."
+      },
+      {
+        "title": "LLM Integration",
+        "description": "Seamlessly plugs into leading LLM providers and local models for flexible, cost-effective reasoning."
+      },
+      {
+        "title": "Strategy Backtesting",
+        "description": "Evaluates complex multi-agent trading strategies against historical market data with robust simulation tools."
+      }
+    ],
+    "use_cases": [
+      "Building automated algorithmic trading bots driven by sentiment and technical analysis",
+      "Backtesting collaborative LLM investment strategies on historical stock and crypto data",
+      "Researching multi-agent coordination dynamics in chaotic financial markets"
+    ],
+    "pros": [
+      "Highly modular architecture allows easy swapping of agent behaviors and LLM backends",
+      "Brings collaborative reasoning to financial analysis rather than single-prompt dependency",
+      "Completely open-source with full data privacy for self-hosted quantitative models"
+    ],
+    "cons": [
+      "High computational and API token costs when running extensive multi-agent simulations",
+      "Financial markets are inherently noisy; agent outputs require strict risk guardrails before real capital deployment"
+    ],
+    "target_audience": "Quantitative developers, algorithmic traders, and AI researchers exploring autonomous financial workflows.",
+    "comparison_vs_alt": "Unlike proprietary enterprise financial terminals, TradingAgents offers a programmable, open-source multi-agent framework that puts you in complete control of your AI strategy pipeline.",
+    "install_command": "git clone https://github.com/TauricResearch/TradingAgents.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "ziwei-doushu",
+    "name": "Ziwei Doushu",
+    "tagline": "Open-source Ziwei Doushu charting engine based on traditional texts",
+    "summary": "An open-source astrology charting engine based on Ni Haiha's 'Tianji' system, featuring complete horoscope calculation algorithms, transformation systems, and ancient text databases. It provides developers with programmatic access to complex traditional Chinese metaphysical computations and structured knowledge bases.",
+    "url": "https://github.com/Renhuai123/ziwei-doushu",
+    "github_url": "https://github.com/Renhuai123/ziwei-doushu",
+    "source": "github_trending",
+    "category": "open-source",
+    "tags": [
+      "TypeScript",
+      "Astrology",
+      "Open Source",
+      "Algorithm",
+      "Knowledge Base"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 7811,
+    "primary_alternative": null,
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 90,
+    "verdict": "An exceptional resource for developers and researchers building cultural or metaphysical applications that require precise, programmatic traditional Chinese astrology calculations.",
+    "key_features": [
+      {
+        "title": "Complete Charting Algorithm",
+        "description": "Accurately calculates astrological charts based on complex traditional calendars and formulas."
+      },
+      {
+        "title": "Transformation System",
+        "description": "Implements the intricate Si Hua (Four Transformations) logic fundamental to horoscope interpretation."
+      },
+      {
+        "title": "Ancient Text Database",
+        "description": "Includes embedded classical source texts and structured pattern knowledge bases for deep analysis."
+      }
+    ],
+    "use_cases": [
+      "Building modern web or mobile applications for traditional Chinese astrology",
+      "Automating the generation of complex astrological charts and reports",
+      "Researching and analyzing metaphysical patterns programmatically"
+    ],
+    "pros": [
+      "Faithful implementation of Ni Haiha's renowned 'Tianji' methodology",
+      "Comprehensive built-in dataset of ancient classical texts and pattern libraries",
+      "Permissive open-source license enabling custom localized modifications"
+    ],
+    "cons": [
+      "Documentation and codebase comments are primarily in Chinese",
+      "Requires domain knowledge in traditional Chinese metaphysics to utilize effectively"
+    ],
+    "target_audience": "Developers, researchers, and enthusiasts building applications around traditional Chinese astrology and metaphysics.",
+    "comparison_vs_alt": "Unlike closed commercial divination software, this fully open-source engine allows complete data ownership, local execution, and custom algorithmic extensions.",
+    "install_command": "git clone https://github.com/Renhuai123/ziwei-doushu.git",
+    "date_added": "2026-10-24",
+    "featured": false,
+    "forks": 1497
+  },
+  {
+    "id": "thinkrail",
+    "name": "Thinkrail",
+    "tagline": "Vibe code with pi in a lightweight, real IDE from JetBrains",
+    "summary": "Thinkrail is a lightweight, adaptable IDE developed by JetBrains that dynamically customizes itself around your specific workflow. It integrates advanced AI agentic capabilities for seamless 'vibe coding' inside a robust development environment.",
+    "url": "https://github.com/JetBrains/thinkrail",
+    "github_url": "https://github.com/JetBrains/thinkrail",
+    "source": "github_trending",
+    "category": "developer-tools",
+    "tags": [
+      "IDE",
+      "JetBrains",
+      "AI Assistant",
+      "TypeScript",
+      "Vibe Coding"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 1941,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 88,
+    "verdict": "An exciting lightweight entry from JetBrains that bridges the gap between AI-driven 'vibe coding' and a professional, reliable IDE experience. It's a must-try for developers looking for Cursor alternatives backed by robust IDE heritage.",
+    "key_features": [
+      {
+        "title": "Dynamic IDE Customization",
+        "description": "The interface and environment adapt automatically to match your exact working patterns and preferences."
+      },
+      {
+        "title": "Lightweight Architecture",
+        "description": "Built for speed and minimal resource usage without sacrificing powerful IDE capabilities."
+      },
+      {
+        "title": "Pi AI Integration",
+        "description": "Embedded AI assistant designed for fluid, context-aware vibe coding and rapid prototyping."
+      }
+    ],
+    "use_cases": [
+      "Rapidly prototyping full-stack applications using conversational AI workflows",
+      "Writing and refactoring code in a lightweight environment with deep language intelligence",
+      "Customizing IDE layouts and behavior on-the-fly to suit specialized development tasks"
+    ],
+    "pros": [
+      "Backed by JetBrains' decades of expertise in building world-class developer IDEs",
+      "Significantly more lightweight than traditional heavy IDE setups",
+      "Tailors its layout and tooling dynamically to fit individual developer workflows"
+    ],
+    "cons": [
+      "Relatively new open-source project with an evolving ecosystem and plugin catalog",
+      "May require a learning curve for developers accustomed to VS Code or standard JetBrains IDEs"
+    ],
+    "target_audience": "Modern software engineers and indie hackers who want a lightweight, AI-native IDE experience backed by JetBrains engineering.",
+    "comparison_vs_alt": "Unlike Cursor which is built on VS Code, Thinkrail brings JetBrains' legendary IDE foundations into the lightweight, AI-driven coding space.",
+    "install_command": "git clone https://github.com/JetBrains/thinkrail.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "coolify",
+    "name": "Coolify",
+    "tagline": "An open-source, self-hostable Heroku and Vercel alternative",
+    "summary": "Coolify is an all-in-one, self-hostable Platform as a Service that simplifies the deployment and management of applications, databases, and services on any Linux server. It eliminates vendor lock-in and high cloud hosting markups by giving developers an intuitive UI to automate Docker-based infrastructure.",
+    "url": "https://github.com/coollabsio/coolify",
+    "github_url": "https://github.com/coollabsio/coolify",
+    "source": "github_trending",
+    "category": "security-devops",
+    "tags": [
+      "PaaS",
+      "Docker",
+      "Self-Hosted",
+      "DevOps",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 64529,
+    "primary_alternative": "Heroku",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 95,
+    "verdict": "Coolify is an absolute game-changer for indie hackers, startups, and developers looking to escape escalating cloud bills without dealing with raw Kubernetes configurations.",
+    "key_features": [
+      {
+        "title": "One-Click Deployments",
+        "description": "Seamlessly deploy static sites, full-stack apps, and microservices from any Git provider."
+      },
+      {
+        "title": "Built-in Database Management",
+        "description": "Easily provision and manage databases like PostgreSQL, MySQL, Redis, and MongoDB with automatic backups."
+      },
+      {
+        "title": "360+ One-Click Services",
+        "description": "Instantly spin up popular open-source software and tools directly on your own infrastructure."
+      }
+    ],
+    "use_cases": [
+      "Hosting full-stack web applications and APIs on a cheap VPS like Hetzner or DigitalOcean",
+      "Managing staging and production environments for multi-developer teams without complex CI/CD setups",
+      "Self-hosting internal developer tools and databases with automated SSL and domain routing"
+    ],
+    "pros": [
+      "Significantly cheaper than commercial PaaS providers like Vercel or Heroku for equivalent workloads",
+      "Complete data sovereignty and infrastructure ownership using your own cloud servers",
+      "Active open-source community with rapid release cycles and extensive service catalogs"
+    ],
+    "cons": [
+      "You are responsible for server maintenance, security patching, and infrastructure scaling",
+      "Less out-of-the-box edge computing infrastructure compared to proprietary global CDNs like Vercel"
+    ],
+    "target_audience": "Full-stack developers, indie hackers, and small engineering teams who want simple app deployment without cloud vendor lock-in.",
+    "comparison_vs_alt": "Unlike Heroku or Vercel which charge steep per-seat and usage-based markups, Coolify runs on your own raw infrastructure, giving you unlimited scale for a fraction of the cost.",
+    "install_command": "wget -q https://cdn.coolify.io/coolify.sh && bash coolify.sh",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "security-audit-skill",
+    "name": "Security Audit Skill",
+    "tagline": "AI coding-agent skill for multi-phase security audits",
+    "summary": "Security Audit Skill is an open-source framework by Cloudflare that equips AI coding agents to execute rigorous, multi-phase code security reviews. It structures vulnerability assessment into distinct investigative phases, yielding independently verified, machine-readable findings that reduce false positives.",
+    "url": "https://github.com/cloudflare/security-audit-skill",
+    "github_url": "https://github.com/cloudflare/security-audit-skill",
+    "source": "github_trending",
+    "category": "security-devops",
+    "tags": [
+      "Security",
+      "AI Agents",
+      "Code Audit",
+      "Vulnerability Scanning",
+      "Cloudflare"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 47177,
+    "primary_alternative": "GitHub Advanced Security",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential extension for developers leveraging AI agents who need systematic, verifiable security analysis rather than superficial code generation reviews.",
+    "key_features": [
+      {
+        "title": "Multi-Phase Audits",
+        "description": "Structures code reviews into sequential investigative stages for comprehensive vulnerability coverage."
+      },
+      {
+        "title": "Machine-Readable Findings",
+        "description": "Outputs structured, verifiable data that can be parsed directly by CI/CD pipelines and downstream agents."
+      },
+      {
+        "title": "Agentic Integration",
+        "description": "Designed specifically as a plug-and-play skill to elevate the security awareness of existing coding agents."
+      }
+    ],
+    "use_cases": [
+      "Automating deep security reviews inside LLM-driven developer workflows",
+      "Generating standardized security audit reports for pull requests",
+      "Scanning complex codebases for logic vulnerabilities before production deployments"
+    ],
+    "pros": [
+      "Reduces hallucinations and false positives through structured multi-phase verification",
+      "Backed by Cloudflare's deep security expertise and open-source standards",
+      "Outputs machine-readable data enabling automated remediation loops"
+    ],
+    "cons": [
+      "Requires a compatible LLM coding agent framework to function effectively",
+      "Can add significant token overhead and latency due to multi-phase analysis"
+    ],
+    "target_audience": "Software engineers and security teams integrating AI coding agents into secure software development lifecycles.",
+    "comparison_vs_alt": "Unlike monolithic enterprise SaaS scanners like GitHub Advanced Security, this tool integrates directly into developer-facing AI coding loops for active, context-aware remediation.",
+    "install_command": "git clone https://github.com/cloudflare/security-audit-skill.git",
+    "date_added": "2026-10-21",
+    "featured": false,
+    "forks": 2783
+  },
+  {
+    "id": "titleart",
+    "name": "TitleArt",
+    "tagline": "Recreate nostalgic 90s WordArt typography instantly in your browser",
+    "summary": "TitleArt is a lightweight web utility that resurrects iconic 1990s retro word processor text styling for modern web design and meme creation. It solves the problem of manual graphic design by instantly rendering customizable, bevel-heavy, rainbow-gradient text artifacts reminiscent of early Windows software.",
+    "url": "https://titleart.dvy.io/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "design-ui",
+    "tags": [
+      "Typography",
+      "Nostalgia",
+      "Web Tools",
+      "Retro",
+      "Canvas"
+    ],
+    "pricing_model": "Free",
+    "stars": 16,
+    "primary_alternative": "Canva",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "A delightful and hyper-specific creative utility that hits the nostalgia sweet spot for web developers and designers looking for retro 90s aesthetics without firing up Photoshop.",
+    "key_features": [
+      {
+        "title": "Instant 90s WordArt Rendering",
+        "description": "Transforms plain text into classic skewed, bevel-styled, and gradient-filled retro typography on the fly."
+      },
+      {
+        "title": "Browser-Based Customization",
+        "description": "Allows live tweaking of fonts, colors, rotations, and shadow depths directly within a clean web interface."
+      },
+      {
+        "title": "Zero Friction Export",
+        "description": "Enables instant saving and downloading of generated title art graphics without requiring any account creation."
+      }
+    ],
+    "use_cases": [
+      "Generating authentic 90s-themed headers for retro web projects or indie games",
+      "Creating ironic, nostalgic marketing banners and social media memes",
+      "Designing throwback presentation slides or event flyers with maximum visual flair"
+    ],
+    "pros": [
+      "Instant zero-friction usability with no signup or installation hurdles",
+      "Pinpoint aesthetic accuracy reproducing vintage Windows text art effects",
+      "Lightweight client-side implementation ensuring snappy performance"
+    ],
+    "cons": [
+      "Extremely niche utility with limited application outside of retro design aesthetics",
+      "Lacks advanced vector export formats for professional print design workflows"
+    ],
+    "target_audience": "Indie developers, web designers, and content creators looking to inject authentic 90s retro typography into their projects.",
+    "comparison_vs_alt": "Unlike heavy general-purpose design suites like Canva, TitleArt is hyper-focused solely on recreating vintage 90s text effects instantly in the browser.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "keybytes",
+    "name": "Keybytes",
+    "tagline": "A truly modular, open-source mechanical keyboard architecture",
+    "summary": "Keybytes is an open-source hardware and software project designed to let builders create truly modular mechanical keyboards. It addresses the rigidity of traditional PCB layouts by introducing flexible architectural components for custom input devices.",
+    "url": "https://github.com/notaroomba/keybytes",
+    "github_url": "https://github.com/notaroomba/keybytes",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Hardware",
+      "Open Source",
+      "Keyboard",
+      "Embedded Systems",
+      "Modular"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 15,
+    "primary_alternative": "ZSA Moonlander",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exciting niche project for hardware enthusiasts and custom keyboard builders looking for deep modularity and open-source flexibility. It stands out for its ground-up approach to layout freedom, though it requires soldering and hardware assembly skills.",
+    "key_features": [
+      {
+        "title": "Modular Architecture",
+        "description": "Break away from fixed-matrix layouts with freely combinable hardware blocks."
+      },
+      {
+        "title": "Open Source Hardware",
+        "description": "Full access to schematics, PCB designs, and firmware source files."
+      },
+      {
+        "title": "Custom Firmware Support",
+        "description": "Easily program and customize your key mappings and layout behavior."
+      }
+    ],
+    "use_cases": [
+      "Designing and fabricating a custom split or ergonomic keyboard layout from scratch",
+      "Experimenting with novel macro-pads and input peripheral form factors",
+      "Learning embedded hardware design and custom PCB prototyping"
+    ],
+    "pros": [
+      "Complete ownership and customization over hardware and firmware",
+      "Infinite layout variations unconstrained by standard PCB footprints",
+      "Active open-source ethos welcoming community contributions"
+    ],
+    "cons": [
+      "Requires physical hardware assembly, soldering, and component sourcing",
+      "Steeper learning curve compared to off-the-shelf programmable keyboards"
+    ],
+    "target_audience": "Hardware hackers, mechanical keyboard enthusiasts, and makers looking to design custom input devices.",
+    "comparison_vs_alt": "Unlike commercial pre-built ergonomic keyboards like the Moonlander, Keybytes offers ultimate customizability and hardware-level control at the expense of requiring DIY assembly.",
+    "install_command": "git clone https://github.com/notaroomba/keybytes.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "adrs-for-ai",
+    "name": "ADRs for AI",
+    "tagline": "Version-controlled deliberation records for human-AI collaboration",
+    "summary": "ADRs for AI provides a structured framework for capturing and versioning the rationale behind human-AI collaborative decisions directly in Git. It solves the auditability gap in AI-driven workflows by maintaining explicit records of prompts, context, and trade-offs.",
+    "url": "https://adrs.systems",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "Git",
+      "AI Workflow",
+      "Documentation",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 13,
+    "primary_alternative": "Confluence",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An essential lightweight protocol for engineering teams seeking to maintain strict accountability and context tracking in AI-heavy development workflows.",
+    "key_features": [
+      {
+        "title": "Git-Native Version Control",
+        "description": "Store all AI deliberation and architectural decision records alongside your codebase."
+      },
+      {
+        "title": "Human-AI Audit Trail",
+        "description": "Track the precise context, constraints, and prompts that led to AI-generated code decisions."
+      },
+      {
+        "title": "Structured Deliberation",
+        "description": "Enforce a consistent template for evaluating trade-offs during AI-assisted engineering."
+      }
+    ],
+    "use_cases": [
+      "Documenting why an LLM was used to refactor a critical core module",
+      "Maintaining compliance and explainability logs for AI-assisted systems",
+      "Onboarding engineers to context-heavy AI workflows in legacy codebases"
+    ],
+    "pros": [
+      "Brings enterprise-grade governance to ad-hoc AI coding sessions",
+      "Zero reliance on third-party SaaS since records live in your repository",
+      "Seamlessly integrates into existing pull request and code review rituals"
+    ],
+    "cons": [
+      "Adds overhead to the development process by requiring manual or semi-automated logging",
+      "Adoption depends heavily on team discipline and workflow enforcement"
+    ],
+    "target_audience": "Software engineering teams and tech leads integrating AI coding assistants who need strict audit trails and architectural oversight.",
+    "comparison_vs_alt": "Unlike centralized documentation tools like Confluence, ADRs for AI keeps context coupled directly to code changes in Git, ensuring documentation doesn't rot away from the source code.",
+    "install_command": "git clone https://github.com/adrs-systems/adrs.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "nodecode",
+    "name": "Nodecode",
+    "tagline": "An open-source living AI agent in Lisp that rewrites itself",
+    "summary": "Nodecode is a self-modifying open-source agent built in Lisp designed to dynamically rewrite its own codebase based on runtime execution and goals. It bridges the gap between static prompt-based agent frameworks and autonomous self-improving software architectures.",
+    "url": "https://github.com/nodecode-ai/nodecode",
+    "github_url": "https://github.com/nodecode-ai/nodecode",
+    "source": "hackernews",
+    "category": "ai-agents",
+    "tags": [
+      "Lisp",
+      "AI Agents",
+      "Self-Modifying",
+      "Open Source",
+      "Autonomous"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2,
+    "primary_alternative": "LangChain",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An intriguing experimental project for researchers and Lisp enthusiasts pushing the boundaries of self-modifying code, though not yet ready for production enterprise systems.",
+    "key_features": [
+      {
+        "title": "Self-Rewriting Lisp Core",
+        "description": "Leverages Lisp's homoiconicity to allow the agent to inspect and mutate its own source code dynamically."
+      },
+      {
+        "title": "Living Agent Architecture",
+        "description": "Continuously adapts its execution logic rather than relying on static, pre-defined prompt graphs."
+      },
+      {
+        "title": "Open Source Foundation",
+        "description": "Fully inspectable and hackable repository for developers experimenting with autonomous software evolution."
+      }
+    ],
+    "use_cases": [
+      "Experimenting with self-modifying AI software architectures in research environments",
+      "Prototyping dynamic code generation loops that execute and refactor autonomously",
+      "Exploring homoiconic language capabilities for advanced agent reasoning paths"
+    ],
+    "pros": [
+      "Leverages Lisp's code-as-data paradigm for native self-modification capabilities",
+      "Completely open-source with full local control and zero vendor lock-in",
+      "Provides a unique architectural approach compared to mainstream Python agent frameworks"
+    ],
+    "cons": [
+      "Extremely early-stage project with minimal community validation or documentation",
+      "Steep learning curve requiring familiarity with Lisp and complex runtime meta-programming"
+    ],
+    "target_audience": "Lisp hackers, AI researchers, and adventurous developers exploring autonomous self-modifying code architectures.",
+    "comparison_vs_alt": "Unlike mainstream Python frameworks like LangChain that rely on static graph definitions, Nodecode embraces Lisp's homoiconicity to dynamically rewrite its own implementation during runtime.",
+    "install_command": "git clone https://github.com/nodecode-ai/nodecode.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "drint-mcp",
+    "name": "Drint MCP",
+    "tagline": "Packaging dielines and 3D box mockups as an MCP server",
+    "summary": "Drint exposes packaging dielines and 3D box mockups directly to AI models through the Model Context Protocol. It bridges the gap between text-based AI assistance and physical packaging design assets.",
+    "url": "https://drint.io/help/mcp",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "MCP",
+      "3D Mockups",
+      "Packaging",
+      "AI Agents"
+    ],
+    "pricing_model": "Free",
+    "stars": 2,
+    "primary_alternative": "Adobe Dimension",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An innovative tool for developers and designers experimenting with MCP to generate physical product mockups straight from LLM chats.",
+    "key_features": [
+      {
+        "title": "MCP Protocol Integration",
+        "description": "Seamlessly connects packaging capabilities directly to Claude and other MCP-compatible clients."
+      },
+      {
+        "title": "Automated Dielines",
+        "description": "Generate accurate vector dielines for custom box dimensions via natural language."
+      },
+      {
+        "title": "3D Box Visualization",
+        "description": "Render interactive 3D box mockups on demand within your AI-assisted workflow."
+      }
+    ],
+    "use_cases": [
+      "Generating rapid prototype box packaging specs during product ideation sessions",
+      "Creating custom dieline layouts for e-commerce products using conversational AI",
+      "Visualizing 3D box mockups directly inside LLM chat interfaces"
+    ],
+    "pros": [
+      "Brings specialized CAD-like packaging tasks directly into AI chat interfaces",
+      "Leverages the emerging Model Context Protocol for seamless tool calling",
+      "Reduces friction between conceptual product design and physical packaging layout"
+    ],
+    "cons": [
+      "Niche application specifically tailored for packaging and box design",
+      "Dependent on the stability and feature set of the growing MCP ecosystem"
+    ],
+    "target_audience": "Product designers and developers experimenting with the Model Context Protocol who need automated packaging mockups.",
+    "comparison_vs_alt": "Unlike traditional software like Adobe Dimension, Drint integrates directly into LLM workflows via MCP to automate the generation process.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "hurston-1",
+    "name": "Hurston-1",
+    "tagline": "Open-source text-to-speech for Southern American and Afro-English accents",
+    "summary": "Hurston-1 is a specialized open-source text-to-speech model fine-tuned to authentically synthesize Southern American and Afro-English vernacular. It bridges the critical cultural and linguistic gap in modern voice AI by providing accurate representation for under-represented dialects.",
+    "url": "https://huggingface.co/destined/hurston-1",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "TTS",
+      "Speech Synthesis",
+      "Audio",
+      "Open Source",
+      "AI"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 54,
+    "primary_alternative": "ElevenLabs",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 76,
+    "verdict": "An essential open-source asset for developers and creators needing culturally authentic voice synthesis that mainstream models often fail to capture accurately.",
+    "key_features": [
+      {
+        "title": "Dialect-Specific Synthesis",
+        "description": "Generates natural-sounding speech tailored specifically to Southern American and Afro-English speech patterns."
+      },
+      {
+        "title": "Open Source Weights",
+        "description": "Fully accessible model weights available via Hugging Face for custom deployment and fine-tuning."
+      },
+      {
+        "title": "Cultural Representation",
+        "description": "Addresses historical bias in mainstream TTS models by prioritizing linguistic diversity."
+      }
+    ],
+    "use_cases": [
+      "Synthesizing authentic dialogue for indie video games and indie film production",
+      "Building localized conversational voice bots that reflect diverse community voices",
+      "Creating accessible audiobooks and educational material with accurate regional accents"
+    ],
+    "pros": [
+      "Fills a major gap in voice AI by accurately capturing non-standard American dialects",
+      "Open-source availability allows for self-hosting, privacy, and community-driven improvements",
+      "Offers a high degree of cultural authenticity compared to generic commercial TTS engines"
+    ],
+    "cons": [
+      "Niche application focus means it may lack the multi-lingual breadth of generalized commercial tools",
+      "Early-stage open-source project requiring manual setup and integration via Hugging Face"
+    ],
+    "target_audience": "Indie game developers, content creators, and AI engineers looking for culturally authentic voice synthesis.",
+    "comparison_vs_alt": "Unlike mainstream commercial alternatives like ElevenLabs which often struggle with specific regional vernacular, Hurston-1 is purpose-built for authentic Southern and Afro-English dialects with complete open-source control.",
+    "install_command": "pip install transformers torch",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "rainbowsay",
+    "name": "RainbowSay",
+    "tagline": "Learn and teach languages live using your favorite TV shows",
+    "summary": "RainbowSay is an interactive language-learning platform that leverages popular media and shows to facilitate live, immersive education and research. It bridges the gap between passive media consumption and active bilingual engagement for students and tutors alike.",
+    "url": "https://rainbowsay.ai/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Language Learning",
+      "Education",
+      "Streaming",
+      "Live Interactive"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 5,
+    "primary_alternative": "Lingopie",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 71,
+    "verdict": "RainbowSay offers a refreshing, media-driven approach for language learners who find traditional textbooks dry and unengaging. It stands out by turning mainstream entertainment into an active collaborative classroom.",
+    "key_features": [
+      {
+        "title": "Live Show Synchronization",
+        "description": "Watch and interact with real TV shows and video content in real-time with other users."
+      },
+      {
+        "title": "Interactive Tutoring",
+        "description": "Connect with native speakers and teachers to study grammar and slang embedded in media."
+      },
+      {
+        "title": "Linguistic Research Tools",
+        "description": "Extract subtitles, phrases, and usage patterns for deep language analysis and flashcards."
+      }
+    ],
+    "use_cases": [
+      "Practicing conversational fluency by discussing plot points of a favorite foreign series with a tutor",
+      "Conducting sociolinguistic research on modern slang and colloquialisms through popular media",
+      "Hosting virtual language exchange meetups centered around synchronized video viewing"
+    ],
+    "pros": [
+      "Utilizes authentic native media rather than artificial educational dialogues",
+      "Combines entertainment and social interaction to improve retention",
+      "Useful for both casual learners and serious linguistics researchers"
+    ],
+    "cons": [
+      "Content availability may be restricted due to licensing and streaming constraints",
+      "Early-stage indie project with a smaller community user base compared to established giants"
+    ],
+    "target_audience": "Language learners, bilingual educators, and media researchers looking for an immersive, context-rich study method.",
+    "comparison_vs_alt": "Unlike Lingopie which focuses primarily on solitary viewing with interactive subtitles, RainbowSay heavily emphasizes the social, live, and teaching aspects of learning through shows.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "god",
+    "name": "God",
+    "tagline": "Real-time control room for multi-agent LLM societies",
+    "summary": "God provides an interactive dashboard and orchestration engine designed to monitor, debug, and govern complex societies of multi-agent LLM systems in real time. It solves the observability black-box problem of multi-agent interactions, enabling developers to intervene, steer, and audit agent behavior dynamically.",
+    "url": "https://github.com/XiaoLuoLYG/GOD",
+    "github_url": "https://github.com/XiaoLuoLYG/GOD",
+    "source": "hackernews",
+    "category": "ai-agents",
+    "tags": [
+      "LLM Agents",
+      "Observability",
+      "Real-time",
+      "Python",
+      "Dashboard"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 2,
+    "primary_alternative": "LangSmith",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An intriguing research-grade control room for multi-agent workflows that researchers and AI engineers should evaluate for real-time agent observability.",
+    "key_features": [
+      {
+        "title": "Real-Time Monitoring",
+        "description": "Live visualization of agent communications, state transitions, and decision paths."
+      },
+      {
+        "title": "Interactive Intervention",
+        "description": "Ability to inject prompts, pause, or alter agent states mid-execution."
+      },
+      {
+        "title": "Society Topology Mapping",
+        "description": "Graphical layout representation of multi-agent networks and hierarchies."
+      }
+    ],
+    "use_cases": [
+      "Debugging complex multi-agent simulation loops and reasoning deadlocks",
+      "Auditing agentic workflows for safety, compliance, and unexpected loops",
+      "Demonstrating and presenting multi-agent research and benchmarks interactively"
+    ],
+    "pros": [
+      "Provides granular, real-time visibility into multi-agent conversational states",
+      "Enables active intervention instead of post-hoc log analysis",
+      "Open-source nature allows deep customization for custom agent frameworks"
+    ],
+    "cons": [
+      "Early-stage research project with limited production hardening",
+      "Steeper learning curve for integration with arbitrary proprietary agent frameworks"
+    ],
+    "target_audience": "AI researchers and developers building complex multi-agent LLM systems who need real-time visualization and control.",
+    "comparison_vs_alt": "Unlike LangSmith which focuses heavily on tracing and evaluation logging, God leans into live control room capabilities for active agent societies.",
+    "install_command": "git clone https://github.com/XiaoLuoLYG/GOD.git",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "freehire",
+    "name": "Freehire",
+    "tagline": "Open-source search engine aggregating 3M+ direct tech jobs",
+    "summary": "Freehire is an open-source job aggregator that scrapes and indexes over 3 million tech jobs directly from primary company career boards. It bypasses traditional middleman job boards to connect developers straight to source listings with zero hidden fees.",
+    "url": "https://freehire.me/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Job Board",
+      "Open Source",
+      "Web Scraping",
+      "Tech Careers",
+      "Search Engine"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 4,
+    "primary_alternative": "LinkedIn Jobs",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An essential tool for job seekers wanting to bypass recruiter-heavy platforms and source direct listings straight from primary company boards.",
+    "key_features": [
+      {
+        "title": "Direct Career Board Scraping",
+        "description": "Indexes over 3 million tech jobs harvested directly from primary company career sites."
+      },
+      {
+        "title": "Open-Source Transparency",
+        "description": "Entirely open-source architecture enabling community inspection and customization."
+      },
+      {
+        "title": "No-Noise Search",
+        "description": "Clean search interface dedicated specifically to engineering and tech roles without spam."
+      }
+    ],
+    "use_cases": [
+      "Software engineers searching exclusively for direct-to-company job openings",
+      "Developers looking to bypass recruiter-heavy or paywalled job platforms",
+      "Data enthusiasts wanting to analyze macro tech hiring trends via open data"
+    ],
+    "pros": [
+      "Sources listings directly from company ATS and career boards rather than recycled feeds",
+      "Fully open-source code allows developers to inspect and self-host the platform",
+      "Completely free to use with no hidden signup walls or recruiter friction"
+    ],
+    "cons": [
+      "Early-stage project with a nascent community and limited ecosystem maturity",
+      "Lacks advanced enterprise features like automated application tracking or CRM sync"
+    ],
+    "target_audience": "Software engineers and tech professionals looking for a clean, direct alternative to commercial job boards.",
+    "comparison_vs_alt": "Unlike commercial giants like LinkedIn or Indeed that monetize applicant data and feature recycled postings, Freehire provides a transparent, direct pipeline to original company career boards.",
+    "install_command": "git clone https://github.com/freehire/freehire.me",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "sketchagent",
+    "name": "SketchAgent",
+    "tagline": "A 3D mesh playground built for coding agents",
+    "summary": "SketchAgent is a specialized 3D mesh playground combining Three.js and manifold-3d designed specifically for coding agents to generate, manipulate, and test 3D geometry programmatically. It bridges the gap between text-to-code AI agents and spatial CAD environments by providing an instant execution sandbox for 3D assets.",
+    "url": "https://sketchagent.dev/s/yfYU6LhT",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "ai-tools",
+    "tags": [
+      "Three.js",
+      "3D Modeling",
+      "AI Agents",
+      "CAD",
+      "TypeScript"
+    ],
+    "pricing_model": "Free",
+    "stars": 4,
+    "primary_alternative": "Blender Python API",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exciting niche playground that unlocks spatial reasoning and programmatic generation workflows for modern coding agents.",
+    "key_features": [
+      {
+        "title": "Three.js Rendering Engine",
+        "description": "High-performance web-based rendering for complex 3D meshes in real-time."
+      },
+      {
+        "title": "Manifold-3d Integration",
+        "description": "Robust geometric operations and solid modeling guarantees for programmatic CSG."
+      },
+      {
+        "title": "Agent-Friendly Interface",
+        "description": "Structured execution context tailored for LLMs and coding assistants to manipulate 3D space."
+      }
+    ],
+    "use_cases": [
+      "Prompting coding agents to autonomously design mechanical parts or 3D assets",
+      "Rapid prototyping of generative 3D modeling scripts using natural language",
+      "Visualizing programmatic CAD geometry directly in the browser"
+    ],
+    "pros": [
+      "Seamless integration of CSG operations via manifold-3d in a web environment",
+      "Zero-friction browser sandbox tailored specifically for autonomous AI agents",
+      "Leverages standard Three.js ecosystem for extensibility and rendering"
+    ],
+    "cons": [
+      "Very early-stage project with limited documentation and community ecosystem",
+      "Lacks advanced non-manifold editing tools found in traditional DCC software"
+    ],
+    "target_audience": "AI engineers and developers experimenting with generative 3D design workflows and autonomous coding agents.",
+    "comparison_vs_alt": "Unlike heavy desktop solutions like Blender or traditional CAD software, SketchAgent provides a lightweight, web-first playground optimized for programmatic execution by AI agents.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "mrraudit",
+    "name": "MRRaudit",
+    "tagline": "Reconcile subscription billing data and understand MRR discrepancies",
+    "summary": "MRRaudit helps subscription-based businesses analyze and reconcile discrepancies in their Monthly Recurring Revenue data across billing systems. It provides deep analytical visibility to ensure founders and finance teams can rely on their core metrics.",
+    "url": "https://www.producthunt.com/products/mrraudit",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "SaaS",
+      "Finance",
+      "Analytics",
+      "Billing",
+      "Revenue"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "ChartMogul",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for growing SaaS businesses struggling with data discrepancies between payment gateways and analytics tools, offering trusted financial clarity.",
+    "key_features": [
+      {
+        "title": "MRR Reconciliation",
+        "description": "Automatically cross-references your billing platform data to identify and explain discrepancies."
+      },
+      {
+        "title": "Discrepancy Breakdown",
+        "description": "Pinpoints exact customer accounts and transactions causing your recurring revenue to drift."
+      },
+      {
+        "title": "Trusted Reporting",
+        "description": "Delivers unified financial numbers you can confidently present to investors and stakeholders."
+      }
+    ],
+    "use_cases": [
+      "Auditing monthly recurring revenue figures before a board meeting or investor update",
+      "Troubleshooting unexpected drops or spikes in reported SaaS metrics",
+      "Reconciling Stripe and billing provider ledgers against analytics dashboards"
+    ],
+    "pros": [
+      "Eliminates guesswork in subscription financial reporting",
+      "Saves hours of manual spreadsheet auditing for finance teams",
+      "Provides granular transaction-level visibility into revenue movement"
+    ],
+    "cons": [
+      "Niche application specifically tailored for subscription revenue reconciliation",
+      "Relies heavily on accurate API integrations with existing billing providers"
+    ],
+    "target_audience": "SaaS founders, CFOs, and finance operators who need accurate, audit-ready subscription metrics.",
+    "comparison_vs_alt": "Unlike broader subscription analytics dashboards like ChartMogul, MRRaudit specifically focuses on diagnosing and reconciling the underlying root causes of metric variance.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "moli",
+    "name": "Moli",
+    "tagline": "The fastest headless browser for agents and harnesses",
+    "summary": "Moli is a high-performance headless browser purpose-built for AI agents and test harnesses, eliminating the bloat of traditional automation tools. It delivers lightning-fast page rendering and DOM interaction specifically engineered to reduce latency in agentic workflows.",
+    "url": "https://www.producthunt.com/products/lexmount-browser",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "Headless Browser",
+      "AI Agents",
+      "Web Automation",
+      "Performance"
     ],
     "pricing_model": "Freemium",
     "stars": 0,
-    "primary_alternative": "Adobe Podcast AI",
+    "primary_alternative": "Browserbase",
     "is_self_hostable": false,
-    "no_signup_required": true,
-    "signal_score": 84,
-    "verdict": "A fast, pay-as-you-go audio enhancement utility that delivers studio-quality speech clarity without requiring expensive DAW subscriptions or complex audio engineering skills.",
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential upgrade for AI agent developers looking to slash execution time and resource consumption compared to bloated legacy browser automation stacks.",
     "key_features": [
       {
-        "title": "Dual Audio & Video Processing",
-        "description": "Cleans background audio across all common media formats including MP3, WAV, M4A, MP4, and MOV up to 500 MB."
+        "title": "Ultra-Low Latency",
+        "description": "Engineered from the ground up for minimal overhead during agentic web interaction cycles."
       },
       {
-        "title": "Instant 10s A/B Comparison",
-        "description": "Hear side-by-side original and cleaned audio samples before committing to a paid render."
+        "title": "Agent-Optimized DOM",
+        "description": "Streamlined page processing and element extraction designed specifically for LLM consumption."
       },
       {
-        "title": "Flexible Pay-Per-File or Subscriptions",
-        "description": "Full file downloads start at just $0.50 per track with monthly tiers for high-volume creators."
+        "title": "Harness Integration",
+        "description": "Seamlessly plugs into popular agent frameworks and automated testing pipelines."
       }
     ],
     "use_cases": [
-      "Rescuing noisy field interview audio recorded on mobile phones or in windy environments",
-      "Cleaning voiceover tracks for YouTube video essays and online educational courses",
-      "Polishing podcast recordings plagued by air conditioner buzz or room echo"
+      "Powering autonomous web-browsing AI agents with real-time feedback loops",
+      "Executing high-throughput web scraping and data extraction at scale",
+      "Running end-to-end test suites faster than traditional Selenium or Playwright setups"
     ],
     "pros": [
-      "Free 10-second preview lets you verify acoustic results before spending a penny",
-      "Micro-transaction pricing ($0.50/file) avoids forced recurring monthly subscriptions",
-      "Supports video container inputs directly without needing separate audio demuxing"
+      "Significantly faster execution speeds than standard Puppeteer or Playwright instances",
+      "Reduces token costs and latency bottlenecks in LLM-driven web agents",
+      "Designed specifically for programmatic automation rather than human emulation bloat"
     ],
     "cons": [
-      "File upload cap at 500 MB limits multi-hour 4K raw video ingestion",
-      "Cloud-based processing is not suitable for air-gapped or confidential legal recordings"
+      "Ecosystem and community plugins are less mature than Playwright or Selenium",
+      "May require adjustments for sites with advanced bot-detection mechanisms"
     ],
-    "target_audience": "Podcasters, video creators, journalists, educators, and remote workers recording voice notes.",
-    "comparison_vs_alt": "Unlike Adobe Podcast which requires a Creative Cloud ecosystem or heavy subscriptions, SoundClean offers single-asset on-demand cleaning starting at fifty cents.",
+    "target_audience": "AI engineers and software developers building autonomous agents, web scrapers, and automated test harnesses.",
+    "comparison_vs_alt": "Unlike heavy cloud browser alternatives, Moli focuses ruthlessly on raw speed and minimal overhead tailored explicitly for AI agents rather than general remote desktop streaming.",
+    "install_command": "npm install @lexmount/moli",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "clips-by-plastic",
+    "name": "Clips by Plastic",
+    "tagline": "Automatic beat-synced lyric video ads for musicians",
+    "summary": "Clips by Plastic is an automated video creation tool that generates engaging lyric video advertisements synchronized directly to the beat of any song. It solves the distribution and marketing bottleneck for independent artists by turning audio tracks into high-converting social media promos.",
+    "url": "https://www.producthunt.com/products/clips-by-plastic",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Video Generation",
+      "Music Marketing",
+      "Social Media",
+      "Automation"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "CapCut",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential marketing accelerator for independent musicians and labels looking to automate short-form video creation for TikTok, Instagram Reels, and YouTube Shorts.",
+    "key_features": [
+      {
+        "title": "Beat Synchronization",
+        "description": "Automatically aligns lyric animations and visual transitions with the track's rhythm."
+      },
+      {
+        "title": "Multi-Segment Creation",
+        "description": "Generates distinct ad variations for every hook, verse, and drop of your song."
+      },
+      {
+        "title": "Ready-to-Publish Formats",
+        "description": "Exports clips in optimal vertical aspect ratios designed for major short-form video platforms."
+      }
+    ],
+    "use_cases": [
+      "Promoting a new single release across TikTok and Instagram Reels with high-frequency teaser clips",
+      "Creating dynamic lyric videos for every highlight section of an album to drive pre-saves",
+      "Scaling ad variations for music marketing campaigns without spending hours in traditional video editors"
+    ],
+    "pros": [
+      "Saves hours of manual timeline cutting and keyframing in traditional NLE software",
+      "Algorithmically targets the most engaging parts of a track for promotional hooks",
+      "Lowers the barrier to entry for professional music video ad campaigns"
+    ],
+    "cons": [
+      "Limited customization depth for artists wanting fully bespoke hand-crafted animations",
+      "Relies on automated lyric transcription and timing which may require manual tweaks"
+    ],
+    "target_audience": "Independent musicians, music producers, and artist managers looking to scale social media video marketing effortlessly.",
+    "comparison_vs_alt": "Unlike generic video editors like CapCut that require manual beat-matching and timeline assembly, Clips by Plastic automates the entire music-to-promo workflow specifically for songs.",
     "install_command": null,
     "date_added": "2026-10-26",
     "featured": false
   },
   {
-    "id": "askoure-business-tool-chooser",
-    "name": "Askoure Business Tool Chooser",
-    "tagline": "Arabic-first four-question wizard to match marketing and lead capture tools",
-    "summary": "Askoure Business Tool Chooser is a free, Arabic-first interactive decision wizard created to guide solo entrepreneurs and small businesses toward the right digital marketing and conversion software. Through a streamlined four-question assessment, it cuts through software directory noise to recommend proven landing page and lead-generation stacks.",
-    "url": "https://askoure-systems.floot.app/tools/choose-business-tool",
-    "github_url": "https://github.com/zongsm-cmyk/zongsm-cmyk/tree/main/resources/affiliate-ai-studio/offer-matcher",
-    "source": "submission",
+    "id": "yourcast",
+    "name": "Yourcast",
+    "tagline": "AI podcast summaries with tap-to-jump timestamps in Telegram",
+    "summary": "Yourcast 2.0 delivers intelligent podcast summaries with exact tap-to-jump timestamps directly inside Telegram. It solves the information overload of long-form audio by letting users digest key insights and instantly jump to specific segments.",
+    "url": "https://www.producthunt.com/products/yourcast",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Summaries",
+      "Telegram",
+      "Podcasts",
+      "Audio",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Snipd",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An exceptionally convenient tool for podcast enthusiasts who live inside Telegram and want actionable takeaways without listening to entire episodes.",
+    "key_features": [
+      {
+        "title": "Telegram Native",
+        "description": "Receive podcast breakdowns and interact completely within your Telegram chat interface."
+      },
+      {
+        "title": "Tap-to-Jump Timestamps",
+        "description": "Click any summary timestamp to instantly skip to that exact moment in the audio player."
+      },
+      {
+        "title": "AI-Powered Insights",
+        "description": "Leverages advanced language models to extract concise, high-value bullet points from long audio."
+      }
+    ],
+    "use_cases": [
+      "Quickly reviewing tech or business podcast episodes during a busy workday",
+      "Finding exact discussion points in interviews without scrubbing through the timeline",
+      "Sharing structured podcast takeaways with colleagues inside a Telegram group chat"
+    ],
+    "pros": [
+      "Zero extra apps required if you are already a heavy Telegram user",
+      "Precise timestamp linking saves considerable time during deep-dives",
+      "Clean, readable summary formatting optimized for mobile chat"
+    ],
+    "cons": [
+      "Ecosystem locked entirely within Telegram",
+      "Dependent on third-party AI processing quality for audio transcription accuracy"
+    ],
+    "target_audience": "Busy professionals, developers, and avid podcast listeners who use Telegram as their primary hub.",
+    "comparison_vs_alt": "Unlike dedicated standalone apps like Snipd, Yourcast brings the entire AI podcast summarization experience directly into Telegram without requiring a separate mobile client installation.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "how-it-spread",
+    "name": "How It Spread",
+    "tagline": "Trace the exact viral origin and timeline of viral content",
+    "summary": "How It Spread is an analytical web app that lets users track the chronological timeline and origin of viral trends, posts, and internet moments starting from their very first appearance. It solves the problem of decentralized tracking by aggregating historical social data to map out how reach cascades across platforms over time.",
+    "url": "https://www.producthunt.com/products/how-it-spread",
+    "github_url": null,
+    "source": "producthunt",
     "category": "productivity",
     "tags": [
-      "Arabic-First",
-      "Business Tools",
-      "Lead Capture",
-      "Interactive Wizard",
-      "RTL"
+      "Analytics",
+      "Social Media",
+      "Viral",
+      "Research"
     ],
     "pricing_model": "Free",
     "stars": 0,
-    "primary_alternative": "G2 / Capterra",
+    "primary_alternative": "BuzzSumo",
     "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 80,
-    "verdict": "A refreshing, zero-friction tool discovery wizard that tailors digital marketing recommendations specifically for emerging MENA region entrepreneurs with native RTL support.",
+    "signal_score": 65,
+    "verdict": "An engaging tool for digital marketers, researchers, and content creators looking to reverse-engineer viral distribution patterns without digging manually through archives.",
     "key_features": [
       {
-        "title": "Arabic-First & RTL Optimization",
-        "description": "Crafted natively for Arabic-speaking business owners navigating English-dominated software ecosystems."
+        "title": "Origin Tracing",
+        "description": "Pinpoint the exact initial post or catalyst that sparked a viral wave."
       },
       {
-        "title": "Four-Question Needs Screening",
-        "description": "Replaces hours of catalog browsing with a focused decision tree evaluating business size, budget, and channel focus."
+        "title": "Chronological Timelines",
+        "description": "Visualize step-by-step how a trend migrated across different platforms and communities."
       },
       {
-        "title": "Open Architecture Prototype",
-        "description": "Technical decision logic and matching rules are openly published on GitHub for verification."
+        "title": "Spread Analytics",
+        "description": "Understand the acceleration points and key inflection moments of digital phenomena."
       }
     ],
     "use_cases": [
-      "Helping non-technical regional agencies pick the best lead capture platform for local clients",
-      "Guiding freelancers in the MENA region to select budget-conscious digital marketing stacks",
-      "Serving as a lightweight interactive qualification funnel for SaaS advisory"
+      "Analyzing the lifecycle and initial catalyst of a viral marketing campaign",
+      "Researching the origin of internet memes and cultural trends for content strategy",
+      "Investigating the spread timeline of breaking news or viral stories across social networks"
     ],
     "pros": [
-      "Completely free with no registration or credit card wall required to view matches",
-      "Native RTL layout caters directly to underserved Arabic digital commerce markets",
-      "Transparent technical prototype open-sourced on GitHub for community audit"
+      "Instantly satisfies curiosity about digital virality without manual deep-dives",
+      "Clean visual representation of complex multi-platform content cascades",
+      "No initial login wall required for quick ad-hoc lookups"
     ],
     "cons": [
-      "Narrow focus primarily oriented around lead capture and marketing stacks",
-      "Lightweight wizard format does not provide deep enterprise matrix comparisons"
+      "Dependent on public social media metadata which may miss closed-loop or dark social shares",
+      "Lacks deep enterprise-grade export and reporting capabilities found in paid market research suites"
     ],
-    "target_audience": "Arab-world small business owners, freelancers, digital agency leads, and growth marketers.",
-    "comparison_vs_alt": "Unlike cluttered aggregators like Capterra with thousands of sponsored listings, Askoure offers an opinionated, 60-second questionnaire tailored to regional operational needs.",
+    "target_audience": "Content creators, digital marketers, social media researchers, and internet historians curious about the mechanics of online virality.",
+    "comparison_vs_alt": "Unlike enterprise tools like BuzzSumo which focus heavily on SEO and broad content monitoring, How It Spread zeroes in specifically on the narrative timeline of how individual phenomena cascade from day zero.",
     "install_command": null,
     "date_added": "2026-10-26",
     "featured": false
   },
   {
-    "id": "gh-pull",
-    "name": "gh-pull",
-    "tagline": "Local multi-repo GitHub pull-request dashboard as a CLI extension",
-    "summary": "gh-pull is an open-source GitHub CLI extension that renders a consolidated, interactive pull-request review dashboard in your terminal. Designed for engineers managing PR reviews across multiple repositories, it provides saved review filters, stacked PR dependency lanes, CI statuses, and unread discussion thread counters.",
-    "url": "https://github.com/shiqicao/gh-pull",
-    "github_url": "https://github.com/shiqicao/gh-pull",
-    "source": "submission",
-    "category": "developer-tools",
+    "id": "pawl",
+    "name": "Pawl",
+    "tagline": "A tiny Mac focus timer you start by pulling a paw",
+    "summary": "Pawl is a delightful, lightweight menu bar focus timer for macOS that introduces a unique physical-feel interaction model. It helps users combat distraction and maintain deep work sessions through minimalist design and charming tactile engagement.",
+    "url": "https://www.producthunt.com/products/pawl",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
     "tags": [
-      "GitHub CLI",
-      "DevTools",
-      "Pull Requests",
-      "Code Review",
-      "Terminal",
-      "Open Source"
+      "macOS",
+      "Focus",
+      "Timer",
+      "Menu Bar",
+      "Productivity"
     ],
     "pricing_model": "Free",
-    "stars": 45,
-    "primary_alternative": "GitHub Web PR Dashboard",
-    "is_self_hostable": true,
+    "stars": 0,
+    "primary_alternative": "Forest",
+    "is_self_hostable": false,
     "no_signup_required": true,
-    "signal_score": 92,
-    "verdict": "An indispensable CLI superpower for tech leads and open-source maintainers who find GitHub's web PR navigation fragmented when reviewing across dozens of repositories.",
+    "signal_score": 65,
+    "verdict": "An exceptionally charming niche productivity app that adds joy to deep work routines without bloat. It's a must-try for Mac users who love delightful micro-interactions and minimalist focus utilities.",
     "key_features": [
       {
-        "title": "Unified Multi-Repo Overview",
-        "description": "Consolidates all PRs assigned to you or awaiting your review across personal and organization repos into a single pane."
+        "title": "Tactile Pull Interaction",
+        "description": "Start your countdown sessions by uniquely pulling a virtual paw right from your menu bar."
       },
       {
-        "title": "Stacked PR Dependency Lanes",
-        "description": "Visually graphs pull request chains and dependency branches to prevent merge order conflicts."
+        "title": "Minimalist Menu Bar Presence",
+        "description": "Stays completely out of your way while keeping your current focus state subtly visible."
       },
       {
-        "title": "Native GitHub CLI Integration",
-        "description": "Installs with a single command via 'gh extension install shiqicao/gh-pull' and runs with 'gh pull'."
+        "title": "Distraction-Free Design",
+        "description": "Zero complex configurations or accounts required, letting you jump straight into deep work."
       }
     ],
     "use_cases": [
-      "Triage daily pull request queues in seconds without opening dozens of browser tabs",
-      "Reviewing stacked PR diffs and CI test statuses directly from the terminal",
-      "Tracking unresolved review threads and approval statuses across microservice repositories"
+      "Quickly triggering 25-minute Pomodoro sprints between coding tasks",
+      "Maintaining daily writing or deep work focus without heavy app distraction",
+      "Adding a touch of playful personality to a macOS development environment"
     ],
     "pros": [
-      "100% Free and open-source under the permissive MIT license",
-      "Keyboard-first navigation with sticky headers for rapid triage",
-      "Cross-platform support across macOS, Linux, and Windows terminal environments"
+      "Incredibly lightweight native macOS menu bar footprint",
+      "Engaging, whimsical user interaction model that stands out from standard timers",
+      "Zero friction, onboarding, or sign-up walls"
     ],
     "cons": [
-      "Requires GitHub CLI (gh) installed and authenticated on the local machine",
-      "Tailored specifically for engineers comfortable with terminal-first workflows"
+      "Limited to macOS platform only",
+      "Lacks advanced time-tracking analytics or cross-device syncing"
     ],
-    "target_audience": "Staff engineers, open-source maintainers, DevOps engineers, and developers reviewing pull requests across multiple repositories.",
-    "comparison_vs_alt": "While the default GitHub web UI requires hopping between separate repository tabs, gh-pull creates a unified, real-time command-center view directly inside your terminal.",
-    "install_command": "gh extension install shiqicao/gh-pull\ngh pull",
+    "target_audience": "Mac-using developers, writers, and designers who appreciate minimalist utilities and delightful design details.",
+    "comparison_vs_alt": "Unlike heavy gamified focus apps like Forest, Pawl focuses purely on an instant, friction-free local menu bar experience built specifically for macOS.",
+    "install_command": null,
     "date_added": "2026-10-26",
-    "featured": true
+    "featured": false
+  },
+  {
+    "id": "papermark",
+    "name": "Papermark",
+    "tagline": "Secure data rooms your AI agents can run",
+    "summary": "Papermark Data Rooms provide secure document sharing capabilities specifically engineered for AI agent integration and rapid deployment. It solves the friction of traditional data rooms by offering API-first workflows that let automated systems manage document access and tracking.",
+    "url": "https://www.producthunt.com/products/papermark-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "Data Rooms",
+      "AI Agents",
+      "Security",
+      "Document Sharing",
+      "API-first"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "DocSend",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential tool for modern founders and sales teams looking to automate document workflows and empower AI agents with secure data room interactions.",
+    "key_features": [
+      {
+        "title": "AI Agent Integration",
+        "description": "Built-in capabilities allowing autonomous AI agents to manage, update, and monitor data rooms."
+      },
+      {
+        "title": "Instant Deployment",
+        "description": "Set up a fully branded and secure data room in under 60 seconds."
+      },
+      {
+        "title": "Advanced Analytics",
+        "description": "Granular tracking of document engagement, view durations, and visitor interactions."
+      }
+    ],
+    "use_cases": [
+      "Automating startup fundraising document distribution via autonomous agents",
+      "Streamlining enterprise sales collateral sharing with real-time engagement analytics",
+      "Managing confidential client design or architectural portfolios securely"
+    ],
+    "pros": [
+      "Uniquely optimized for API control and AI agent orchestration",
+      "Frictionless setup process taking less than a minute",
+      "Enhanced security controls for sensitive document exchange"
+    ],
+    "cons": [
+      "Less feature-heavy for traditional enterprise legal workflows compared to legacy giants",
+      "Requires technical configuration to fully leverage AI agent capabilities"
+    ],
+    "target_audience": "Startup founders, modern sales teams, and developers building AI-driven workflows around sensitive documents.",
+    "comparison_vs_alt": "Unlike DocSend which is built strictly for human-centric sales workflows, Papermark provides an API-first approach designed natively for AI agent execution and automation.",
+    "install_command": "npx papermark-cli init",
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "openstatus-incident-management",
+    "name": "Openstatus Incident Management",
+    "tagline": "Streamlined incident management and status pages for small engineering teams",
+    "summary": "Openstatus Incident Management provides a streamlined platform to track outages, communicate status updates, and manage downtime workflows. It eliminates the overhead of complex enterprise tooling by offering lightweight, developer-focused incident response capabilities.",
+    "url": "https://www.producthunt.com/products/openstatus-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "security-devops",
+    "tags": [
+      "DevOps",
+      "Status Page",
+      "Incident Management",
+      "Monitoring"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "PagerDuty",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential lightweight utility for lean development teams needing reliable status communication without enterprise bloat.",
+    "key_features": [
+      {
+        "title": "Real-time Status Pages",
+        "description": "Public and private status pages to transparently communicate system health to users and stakeholders."
+      },
+      {
+        "title": "Incident Workflows",
+        "description": "Streamlined processes to acknowledge, investigate, and resolve service disruptions quickly."
+      },
+      {
+        "title": "Team Alerts",
+        "description": "Instant notifications dispatched to team channels when system anomalies or outages are detected."
+      }
+    ],
+    "use_cases": [
+      "Communicating scheduled maintenance windows and unexpected outages to end users",
+      "Coordinating incident response triage and resolution across small engineering teams",
+      "Tracking historical uptime metrics and system reliability over time"
+    ],
+    "pros": [
+      "Designed specifically for the velocity and simplicity required by small teams",
+      "Clean and modern user interface that minimizes operational overhead",
+      "Bridges monitoring data directly into clear stakeholder communication"
+    ],
+    "cons": [
+      "Lacks the deep multi-team routing and advanced escalation policies of PagerDuty",
+      "Fewer native third-party integrations compared to legacy enterprise alternatives"
+    ],
+    "target_audience": "Developers, startup founders, and small DevOps teams looking for hassle-free status pages and incident tracking.",
+    "comparison_vs_alt": "Unlike PagerDuty's heavy, enterprise-grade incident orchestration suite, Openstatus focuses on a minimalist approach that gets status pages and basic incident workflows up and running in minutes.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "agentgrid",
+    "name": "AgentGrid",
+    "tagline": "Shared workspace for humans and autonomous AI agents",
+    "summary": "AgentGrid provides a collaborative environment where humans and AI agents can work together in real-time. It bridges the gap between autonomous task execution and human oversight, enabling seamless interaction and workflow management.",
+    "url": "https://www.producthunt.com/products/agentgrid-io",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Collaboration",
+      "Workspace",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "CrewAI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential platform for teams looking to orchestrate multi-agent workflows with human-in-the-loop governance. It transforms isolated agent scripts into cooperative workspace teams.",
+    "key_features": [
+      {
+        "title": "Unified Workspace",
+        "description": "A shared canvas where both humans and AI agents collaborate on documents and tasks."
+      },
+      {
+        "title": "Agent Orchestration",
+        "description": "Manage and monitor multiple autonomous agents running parallel workflows."
+      },
+      {
+        "title": "Human-in-the-Loop",
+        "description": "Easily approve, edit, or reject agent actions directly within the collaborative stream."
+      }
+    ],
+    "use_cases": [
+      "Co-authoring technical documentation with specialized writing agents",
+      "Managing customer support escalation pipelines involving AI and human reps",
+      "Running automated software development sprints with agentic code reviewers"
+    ],
+    "pros": [
+      "Bridges the gap between asynchronous agent execution and real-time collaboration",
+      "Intuitive workspace interface designed for mixed human-AI teams",
+      "Streamlines human-in-the-loop approvals for agentic workflows"
+    ],
+    "cons": [
+      "Cloud-dependent architecture limits local-only offline execution",
+      "Early stage ecosystem with developing third-party integrations"
+    ],
+    "target_audience": "Engineering managers and product teams building or deploying multi-agent AI systems requiring human oversight.",
+    "comparison_vs_alt": "Unlike standard orchestration frameworks like CrewAI which focus purely on backend execution, AgentGrid provides a visual, shared workspace interface for human interaction.",
+    "install_command": null,
+    "date_added": "2026-10-26",
+    "featured": false
+  },
+  {
+    "id": "specsight",
+    "name": "Specsight",
+    "tagline": "Product observability for teams shipping fast with AI",
+    "summary": "Specsight provides specialized product observability designed specifically for modern teams building and shipping applications rapidly with AI. It bridges the gap between traditional software analytics and LLM-driven feature performance to help engineering and product teams track real user behavior.",
+    "url": "https://www.producthunt.com/products/specsight",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "Product Analytics",
+      "AI",
+      "Observability",
+      "Telemetry"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "PostHog",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for fast-moving AI product teams that need granular insight into how users interact with AI-generated or LLM-powered features.",
+    "key_features": [
+      {
+        "title": "AI Feature Telemetry",
+        "description": "Track precise interaction metrics and latency for LLM-powered application features."
+      },
+      {
+        "title": "User Journey Tracking",
+        "description": "Visualize how users navigate and derive value from dynamic AI workflows."
+      },
+      {
+        "title": "Performance Insights",
+        "description": "Correlate backend AI response times directly with front-end user retention and engagement."
+      }
+    ],
+    "use_cases": [
+      "Analyzing drop-off rates in multi-step AI generation workflows",
+      "Monitoring user feedback and satisfaction metrics for newly deployed AI features",
+      "Tracking token usage and cost efficiency relative to user engagement"
+    ],
+    "pros": [
+      "Built natively for the unique behavioral patterns of AI-powered applications",
+      "Combines traditional product analytics with AI operational insights",
+      "Helps prioritize engineering backlog based on actual AI feature utilization"
+    ],
+    "cons": [
+      "Relatively new tool compared to legacy general-purpose analytics platforms",
+      "Requires SDK integration into existing front-end and back-end pipelines"
+    ],
+    "target_audience": "Product managers and software engineers building AI-native applications who need deep behavioral telemetry.",
+    "comparison_vs_alt": "Unlike general-purpose analytics tools like PostHog, Specsight is tailored directly around the unique challenges and telemetry needs of AI-driven products.",
+    "install_command": "npm install @specsight/sdk",
+    "date_added": "2026-10-26",
+    "featured": false
   }
 ]
