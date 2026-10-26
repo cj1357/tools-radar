@@ -27,33 +27,38 @@ const iconUrl = getToolIcon(tool.url, tool.github_url);
 const initial = tool.name.charAt(0);
 
 const pageTitle = tool.primary_alternative 
-  ? `${tool.name} - Free Open-Source Alternative to ${tool.primary_alternative}`
+  ? (tool.pricing_model === 'Open Source'
+      ? `${tool.name} - Free Open-Source Alternative to ${tool.primary_alternative}`
+      : `${tool.name} - Free Alternative to ${tool.primary_alternative}`)
   : `${tool.name} - Review, Pricing & Key Features`;
 
-// Quickstart command: prioritize authentic AI install command, fallback to git/docker/curl
+// Quickstart command: prioritize authentic install command, fallback only for valid root git repos
 let quickstartCommand = tool.install_command || '';
 let quickstartLabel = tool.install_command ? 'Quick Installation / Run' : 'Quick Start Command';
 
 if (!quickstartCommand) {
-  if (tool.github_url) {
-    const repo = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
-    const repoName = repo.split('/')[1] || tool.id;
+  const isSubfolder = tool.github_url && tool.github_url.includes('/tree/');
+  const isActualRepo = tool.github_url && !isSubfolder && (tool.is_self_hostable || tool.pricing_model === 'Open Source');
+
+  if (isActualRepo) {
+    const cleanGithub = tool.github_url.replace(/^https?:\/\/(www\.)?github\.com\//, '').replace(/\/$/, '');
+    const parts = cleanGithub.split('/');
+    const repoPath = `${parts[0]}/${parts[1]}`;
+    const repoName = parts[1] || tool.id;
+
     if (tool.is_self_hostable) {
-      quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\ndocker compose up -d`;
+      quickstartCommand = `git clone https://github.com/${repoPath}.git\ncd ${repoName}\ndocker compose up -d`;
       quickstartLabel = 'Docker / Compose Self-Host';
     } else {
-      quickstartCommand = `git clone https://github.com/${repo}.git\ncd ${repoName}\nnpm install && npm run dev`;
+      quickstartCommand = `git clone https://github.com/${repoPath}.git\ncd ${repoName}\nnpm install && npm run dev`;
       quickstartLabel = 'Local Git Setup';
     }
+  } else if (isSubfolder) {
+    quickstartCommand = `# Open web application directly in browser:\nopen "${tool.url}"\n\n# Or inspect public prototype files:\n# ${tool.github_url}`;
+    quickstartLabel = 'Direct Web Access';
   } else {
-    try {
-      const host = new URL(tool.url).hostname;
-      quickstartCommand = `curl -sL https://${host} | head -n 25`;
-      quickstartLabel = 'Quick Web Inspection';
-    } catch (_) {
-      quickstartCommand = `# Visit official web application\nopen ${tool.url}`;
-      quickstartLabel = 'Web Application Access';
-    }
+    quickstartCommand = `# Open web application directly in browser:\nopen "${tool.url}"`;
+    quickstartLabel = 'Direct Web Access';
   }
 }
 
@@ -147,10 +152,14 @@ const displayUseCases = rawUseCases.length > 0 ? rawUseCases : [
 ];
 
 let domainName = '';
+let displayUrlBar = '';
 try {
-  domainName = new URL(tool.url).hostname;
+  const parsed = new URL(tool.url);
+  domainName = parsed.hostname;
+  displayUrlBar = parsed.hostname + (parsed.pathname && parsed.pathname !== '/' ? parsed.pathname : '');
 } catch (_) {
   domainName = tool.name.toLowerCase().replace(/[^a-z0-9]/g, '') + '.com';
+  displayUrlBar = tool.url.replace(/^https?:\/\//, '');
 }
 
 // 4-Dimension Hands-on Scorecard (0 - 10)
@@ -170,6 +179,10 @@ const valueScore = tool.pricing_model === 'Open Source'
 
 const overallScore = Number(((setupScore + auditScore + vitalityScore + valueScore) / 4).toFixed(1));
 
+const altPhrase = tool.primary_alternative 
+  ? `Discover this ${tool.pricing_model === 'Open Source' ? 'open-source ' : ''}alternative to ${tool.primary_alternative}.` 
+  : '';
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -188,7 +201,7 @@ const jsonLd = {
 
 <Layout 
   title={pageTitle}
-  description={`${tool.name}: ${tool.tagline}. ${tool.primary_alternative ? `Discover this open-source alternative to ${tool.primary_alternative}.` : ''} Read in-depth overview, pricing model, key features, and compare alternatives on ToolsRadar.`}
+  description={`${tool.name}: ${tool.tagline}. ${altPhrase} Read in-depth overview, pricing model, key features, and compare alternatives on ToolsRadar.`}
   canonicalUrl={`https://lordorange.top/tool/${tool.id}`}
   jsonLd={jsonLd}
 >
@@ -252,7 +265,7 @@ const jsonLd = {
               <span class="badge-feature no-signup">🔓 No Sign-up</span>
             )}
             {tool.signal_score && (
-              <span class="badge-feature traction">⚡ Traction Score: {tool.signal_score}/100</span>
+              <span class="badge-feature traction">⚡ Editorial Signal: {tool.signal_score}/100</span>
             )}
             {tool.stars > 0 && (
               <span class="stars-badge">
@@ -344,9 +357,9 @@ const jsonLd = {
         <h2 class="scorecard-heading">ToolsRadar Evaluation Scorecard</h2>
       </div>
       <div class="scorecard-overall-badge">
-        <span class="overall-label">Overall Rating</span>
+        <span class="overall-label">Editorial Benchmark</span>
         <span class="overall-score">{overallScore} <span class="score-max">/ 10</span></span>
-        <span class="overall-status">Editorial Verified</span>
+        <span class="overall-status">Internal Editorial Score</span>
       </div>
     </div>
 
@@ -409,9 +422,14 @@ const jsonLd = {
         <span class="audience-label">Best Suited For:</span>
         <span class="audience-text">{tool.target_audience || `${categoryInfo.name} engineers and teams seeking modern developer efficiency.`}</span>
       </div>
-      <a href="/methodology" class="methodology-scorecard-link">
-        Learn how we score tools →
-      </a>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem;">
+        <a href="/methodology" class="methodology-scorecard-link">
+          Learn how we score tools →
+        </a>
+        <span style="font-size: 0.72rem; color: var(--text-muted); text-align: right;">
+          *Internal editorial benchmark, not vendor-reported financial or buyer statistics
+        </span>
+      </div>
     </div>
   </section>
 
@@ -425,7 +443,7 @@ const jsonLd = {
       </div>
       <div class="browser-address-bar">
         <span style="font-size: 0.72rem; color: #10b981;">🔒</span>
-        <span class="browser-url-text">https://{domainName}</span>
+        <span class="browser-url-text">https://{displayUrlBar}</span>
       </div>
       <a 
         href={tool.url} 
