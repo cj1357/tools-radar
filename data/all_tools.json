@@ -58,6 +58,64 @@
     "featured": false
   },
   {
+    "id": "mangatranslate",
+    "name": "MangaTranslate",
+    "tagline": "AI-powered manga and comic translation for images and PDFs with editable typesetting",
+    "summary": "MangaTranslate is a specialized multimodal AI utility engineered to detect, OCR, translate, and re-typeset dialogue within manga, comics, and graphic PDFs. Featuring source-to-target language pairing, automated text balloon inpainting, and an interactive browser-based canvas editor for manual font adjustments and dialogue repositioning, it streamlines comic localization for scanlation teams and international readers.",
+    "url": "https://www.mangatranslate.com/",
+    "github_url": null,
+    "source": "github_issue",
+    "category": "ai-tools",
+    "tags": [
+      "Manga Translation",
+      "Comic OCR",
+      "AI Vision",
+      "Typesetting",
+      "Image Translation",
+      "PDF"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Manual OCR & Photoshop Typesetting",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 85,
+    "verdict": "A remarkably well-executed vertical AI translation application that solves the notoriously difficult scanlation workflow by pairing vision OCR with automatic balloon inpainting and an editable canvas typesetter.",
+    "key_features": [
+      {
+        "title": "Automated Manga OCR & Inpainting",
+        "description": "Detects vertical and horizontal dialogue bubbles, removes original Japanese/Korean/Chinese text, and inpaints backgrounds."
+      },
+      {
+        "title": "Interactive Typesetting Canvas",
+        "description": "Drag-and-drop web editor allowing manual dialogue tweaks, font resizing, line wrapping, and balloon repositioning before export."
+      },
+      {
+        "title": "Batch Image & PDF Pipeline",
+        "description": "Process whole chapters in bulk across multiple source and target language pairs with developer API integration."
+      }
+    ],
+    "use_cases": [
+      "Localizing manga chapters and independent webtoons from Japanese/Korean into English or Spanish",
+      "Translating technical graphic documentation and illustrated guides in PDF format",
+      "Accelerating community scanlation workflows by automating the tedious bubble cleaning and typesetting phases"
+    ],
+    "pros": [
+      "5 Free daily credits for guests without requiring account creation",
+      "Built-in interactive canvas editor avoids needing external editing tools like Photoshop",
+      "Supports both image batches and multi-page PDF documents"
+    ],
+    "cons": [
+      "Complex hand-lettered SFX (sound effects) outside speech bubbles may require manual retouching",
+      "High-volume batch translation requires paid subscription or API credits"
+    ],
+    "target_audience": "Manga readers, webtoon creators, digital comic publishers, scanlation groups, and localization teams.",
+    "comparison_vs_alt": "Unlike generic machine translators that only return raw text, MangaTranslate handles the end-to-end comic localization loop, from bubble segmentation to automated typographic redrawing.",
+    "install_command": null,
+    "date_added": "2026-10-28",
+    "featured": false
+  },
+  {
     "id": "titleart",
     "name": "TitleArt",
     "tagline": "Recreate glorious 1997 web typography and WordArt instantly",
