@@ -50,9 +50,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           python -c "import json, datetime; json.dump({'updated_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}, open('site/src/data-timestamp.json', 'w', encoding='utf-8'), indent=2)"
           git add data/ site/
-          if git diff --staged --quiet data/; then
-            echo "No new tools found today. Working tree clean."
+          if git diff --staged --quiet; then
+            echo "Working tree clean. No updates today."
           else
-            git commit -m "chore(data): auto-update daily tools $(date +'%Y-%m-%d')"
+            git commit -m "chore(data): auto-update daily tools & spotlight $(date +'%Y-%m-%d')"
             git push origin main
           fi

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import allTools from '../../../data/all_tools.json';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -115,7 +116,7 @@ const jsonLd = {
       </p>
       <div class="stats-row">
         <div class="stat-box">
-          <span class="stat-number">450+</span>
+          <span class="stat-number">{allTools.length}+</span>
           <span class="stat-label">Curated Tools</span>
         </div>
         <div class="stat-box">

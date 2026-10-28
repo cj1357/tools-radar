@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { guidesData, type GuideArticle } from '../../data/guides';
+import allTools from '../../../../data/all_tools.json';
 
 export function getStaticPaths() {
   return guidesData.map((guide) => ({
@@ -136,7 +137,7 @@ const jsonLd = {
 
           <div class="sidebar-cta-box">
             <h4>Explore the Tool Radar</h4>
-            <p>Discover 450+ vetted developer tools updated daily.</p>
+            <p>Discover {allTools.length}+ vetted developer tools updated daily.</p>
             <a href="/" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.85rem;">
               ⚡ Open Live Radar
             </a>

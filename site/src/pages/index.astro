@@ -20,10 +20,27 @@ const noSignupCount = allTools.filter(t => t.no_signup_required).length;
 const altCount = allTools.filter(t => t.primary_alternative).length;
 const highSignalCount = allTools.filter(t => (t.signal_score || 0) >= 80).length;
 
-// Choose breakout spotlight tool
-const spotlightTool = allTools.find(t => t.id === 'free-claude-code') ||
-  allTools.find(t => (t.signal_score || 0) >= 95 && t.primary_alternative) ||
-  allTools[0];
+// Dynamic daily breakout spotlight selection
+const todayStr = new Date().toISOString().split('T')[0];
+
+// 1. High-signal breakthrough releases added on current date
+const todayBreakthroughs = allTools
+  .filter(t => t.date_added === todayStr && (t.signal_score || 0) >= 80 && t.primary_alternative)
+  .sort((a, b) => (b.signal_score || 0) - (a.signal_score || 0));
+
+// 2. Evergreen high-signal champion pool (score >= 90 or featured, with rich metadata)
+const evergreenBreakthroughs = allTools
+  .filter(t => ((t.signal_score || 0) >= 90 || t.featured) && t.primary_alternative && t.tagline)
+  .sort((a, b) => a.id.localeCompare(b.id));
+
+// 3. Deterministic day rotation (advances by 1 every day)
+const epochDays = Math.floor(new Date(todayStr).getTime() / 86400000);
+const dailyEvergreen = evergreenBreakthroughs.length > 0 
+  ? evergreenBreakthroughs[epochDays % evergreenBreakthroughs.length] 
+  : allTools[0];
+
+// Breakout priority: today's highest-signal release if available, otherwise daily rotating evergreen champion
+const spotlightTool = (todayBreakthroughs.length > 0 ? todayBreakthroughs[0] : dailyEvergreen) || allTools[0];
 
 // Initial render slice for sub-50ms SSR
 const PAGE_SIZE = 24;
@@ -86,7 +103,7 @@ const searchIndex = allTools.map(t => ({
             type="text" 
             id="tool-search" 
             class="search-command-input" 
-            placeholder="Search 550+ tools, alternatives (Notion, Cursor, Redis), or CLI..." 
+            placeholder={`Search ${allTools.length}+ tools, alternatives (Notion, Cursor, Redis), or CLI...`}
             autocomplete="off"
             aria-label="Search tools"
           />
