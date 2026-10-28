@@ -1767,7 +1767,7 @@
     "id": "fastrelease",
     "name": "Fastrelease",
     "tagline": "Commercial Node.js codebase for building self-hosted, multi-tenant SaaS",
-    "summary": "Fastrelease is a production-grade commercial Node.js SaaS starter kit engineered for developers building self-hosted web applications. It packages user authentication, multi-tenant workspace isolation, Stripe subscription billing, PostgreSQL persistence, and Docker orchestration into a unified architecture, eliminating months of boilerplate setup.",
+    "summary": "Fastrelease is a commercial Node.js codebase engineered for developers building self-hosted, multi-tenant SaaS web applications. It packages user authentication, multi-tenant workspace isolation, Stripe subscription billing, PostgreSQL persistence, and Docker orchestration into a unified architecture, eliminating months of boilerplate infrastructure setup.",
     "url": "https://fastrelease.net/",
     "github_url": null,
     "source": "submission",
@@ -1797,8 +1797,8 @@
         "description": "Full containerized environment with data isolation across organizations and teams using PostgreSQL."
       },
       {
-        "title": "Complete Codebase Ownership",
-        "description": "Full commercial source code access provided upon purchase with zero vendor lock-in."
+        "title": "Commercial Source Code License",
+        "description": "Access to commercial source code under license terms for self-hosted deployment on your own infrastructure."
       }
     ],
     "use_cases": [
@@ -1807,19 +1807,20 @@
       "Skipping repetitive auth, database schema, and payment infrastructure engineering"
     ],
     "pros": [
+      "Single-project perpetual license option ($199) or annual unlimited-project tiers ($249/yr, $299/yr)",
       "Comprehensive multi-tenancy and Dockerized setup ready for production VPS deployments",
-      "Clean Node.js architecture with mature PostgreSQL backing",
-      "One-time purchase license options without recurring starter kit subscription fees"
+      "Clean Node.js architecture with mature PostgreSQL backing and Stripe billing"
     ],
     "cons": [
-      "Commercial closed codebase provided only post-purchase (not open source)",
+      "Commercial licensed codebase (no free tier or trial license; unlimited projects require active annual license)",
       "Requires Node.js and Docker server operational familiarity"
     ],
     "target_audience": "Indie hackers, technical solopreneurs, and backend engineers launching commercial SaaS products.",
     "comparison_vs_alt": "Unlike lightweight frontend-only starters like ShipFast, Fastrelease provides deep backend architecture with true multi-tenancy, Docker support, and robust PostgreSQL schemas.",
     "install_command": null,
     "date_added": "2026-10-27",
-    "featured": false
+    "featured": false,
+    "starting_price": "199"
   },
   {
     "id": "mkclip",

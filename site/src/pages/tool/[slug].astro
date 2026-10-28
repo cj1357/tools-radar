@@ -183,6 +183,10 @@ const altPhrase = tool.primary_alternative
   ? `Discover this ${tool.pricing_model === 'Open Source' ? 'open-source ' : ''}alternative to ${tool.primary_alternative}.` 
   : '';
 
+const priceValue = (tool.pricing_model === 'Paid' || tool.pricing_model === 'Usage-based')
+  ? (tool.starting_price || (tool.id === 'fastrelease' ? '199' : '1'))
+  : '0';
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -192,7 +196,7 @@ const jsonLd = {
   "operatingSystem": "All",
   "offers": {
     "@type": "Offer",
-    "price": "0",
+    "price": priceValue,
     "priceCurrency": "USD"
   },
   "url": tool.url
@@ -352,7 +356,7 @@ const jsonLd = {
     <div class="scorecard-header-row">
       <div class="scorecard-title-group">
         <div class="scorecard-pill">
-          <span>🔬 Hands-on Benchmark</span>
+          <span>📋 Editorial Architecture Analysis</span>
         </div>
         <h2 class="scorecard-heading">ToolsRadar Evaluation Scorecard</h2>
       </div>
@@ -399,7 +403,7 @@ const jsonLd = {
           <div class="metric-progress-bar bar-vitality" style={`width: ${vitalityScore * 10}%;`}></div>
         </div>
         <span class="metric-subtext">
-          {tool.signal_score >= 80 ? "High ecosystem traction with frequent community releases." : "Steady release pace and active maintenance."}
+          {tool.pricing_model === 'Open Source' ? (tool.signal_score >= 80 ? "High open-source community velocity and active releases." : "Steady release pace and active maintenance.") : "Active project maintenance and verified public documentation."}
         </span>
       </div>
 
@@ -412,7 +416,7 @@ const jsonLd = {
           <div class="metric-progress-bar bar-value" style={`width: ${valueScore * 10}%;`}></div>
         </div>
         <span class="metric-subtext">
-          {tool.pricing_model === 'Open Source' ? "Zero licensing fees with unlimited self-hosting capabilities." : "Accessible free usage tier without mandatory subscription."}
+          {tool.pricing_model === 'Open Source' ? "Zero licensing fees with unlimited self-hosting capabilities." : (tool.pricing_model === 'Paid' ? "Commercial software licensing terms for project-based deployments." : (tool.pricing_model === 'Usage-based' ? "Usage-based consumption billing based on actual API/job volume." : "Accessible free usage tier without mandatory subscription."))}
         </span>
       </div>
     </div>
