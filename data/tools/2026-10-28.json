@@ -1,0 +1,60 @@
+[
+  {
+    "id": "neatbo-svg-pattern-generator",
+    "name": "Neatbo SVG Pattern Generator",
+    "tagline": "Generate customizable repeating SVG background tiles directly in your browser",
+    "summary": "Neatbo SVG Pattern Generator is a frictionless, browser-based design utility for creating lightweight repeating SVG background textures. Designers and frontend developers can rapidly select dot, grid, or diagonal motifs, tweak tile dimensions, customize color schemes, and export clean SVG tile assets with zero account registration.",
+    "url": "https://neatbo.com/color/svg-pattern-generator",
+    "github_url": null,
+    "source": "submission",
+    "category": "design-ui",
+    "tags": [
+      "SVG",
+      "Pattern Generator",
+      "Backgrounds",
+      "Design Tools",
+      "Frontend",
+      "Vector Graphics"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Hero Patterns",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 82,
+    "verdict": "A delightfully straightforward, zero-friction SVG pattern generator that solves the exact micro-need of crafting repeating geometric background textures without bloat or mandatory logins.",
+    "key_features": [
+      {
+        "title": "Geometric Pattern Presets",
+        "description": "Quickly switch between clean dots, architectural grids, and dynamic diagonal line textures."
+      },
+      {
+        "title": "Real-Time Color & Scale Tweak",
+        "description": "Interactively adjust tile proportions, stroke weights, and foreground/background hex colors."
+      },
+      {
+        "title": "Frictionless Instant Export",
+        "description": "Download clean, lightweight SVG tiles ready to embed into CSS background-image declarations."
+      }
+    ],
+    "use_cases": [
+      "Adding subtle decorative SVG mesh patterns to landing page hero sections",
+      "Creating lightweight vector background tiles for dark-mode web applications",
+      "Prototyping UI card textures without opening heavy graphic software like Figma"
+    ],
+    "pros": [
+      "100% Free with zero registration or email sign-up required",
+      "Generates ultra-lightweight vector SVG code with near-zero page weight impact",
+      "Instant live preview reflects color and scaling tweaks in real-time"
+    ],
+    "cons": [
+      "Focused specifically on repeating patterns rather than complex organic illustrations",
+      "Closed-core web tool without an open-source self-hostable repository"
+    ],
+    "target_audience": "Frontend engineers, web designers, UI developers, and makers building modern websites.",
+    "comparison_vs_alt": "Unlike heavy graphic suites or paywalled pattern libraries, Neatbo delivers an unbloated, single-purpose workflow to grab repeating SVG tiles in seconds.",
+    "install_command": null,
+    "date_added": "2026-10-28",
+    "featured": false
+  }
+]
