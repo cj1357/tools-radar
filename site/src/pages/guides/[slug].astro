@@ -202,7 +202,7 @@ const jsonLd = {
 
   .breadcrumb-current {
     color: var(--text-primary);
-    max-width: 450px;
+    max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -337,17 +337,48 @@ const jsonLd = {
   /* Article Grid */
   .article-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
+    min-width: 0;
   }
 
   @media (min-width: 900px) {
     .article-grid {
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: minmax(0, 1fr) 280px;
     }
   }
 
   /* Main Column Prose */
+
+  .article-body-col {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .article-sidebar-col {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .article-prose {
+    min-width: 0;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .article-prose :global(table) {
+    width: 100%;
+    min-width: 480px;
+  }
+
+  .article-prose :global(.table-responsive) {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
   .article-prose {
     line-height: 1.85;
     font-size: 1.05rem;

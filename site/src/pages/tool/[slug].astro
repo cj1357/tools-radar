@@ -794,7 +794,7 @@ const jsonLd = {
   
   <!-- Head-to-Head Comparison Callout Banner -->
   {comparisonPairSlug && (
-    <section class="head-to-head-banner" style="margin-top: 2.5rem; background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%); border: 1px solid rgba(56, 189, 248, 0.28); border-radius: 14px; padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+    <section class="head-to-head-banner">
       <div style="max-width: 650px;">
         <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; color: #38bdf8; margin-bottom: 0.35rem;">
           <span>⚡ HEAD-TO-HEAD MATRIX</span>
@@ -813,7 +813,7 @@ const jsonLd = {
   )}
 
   <!-- Official ToolsRadar Verification Badge Card -->
-  <section class="official-badge-card" style="margin-top: 2.5rem; background: #0c1018; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 1.75rem;">
+  <section class="official-badge-card">
     <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
       <span style="font-size: 1.25rem;">🏅</span>
       <h3 style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin: 0;">
@@ -824,7 +824,7 @@ const jsonLd = {
       Maintainers of <strong>{tool.name}</strong> and community advocates can display this real-time verification badge in your GitHub README, official documentation, or landing page.
     </p>
 
-    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px;">
+    <div class="badge-preview-box">
       <div>
         <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: #64748b; display: block; margin-bottom: 0.35rem;">LIVE BADGE PREVIEW</span>
         <img 
@@ -855,7 +855,7 @@ const jsonLd = {
             Copy Markdown
           </button>
         </div>
-        <pre style="margin: 0; padding: 0.75rem 1rem; background: #05070c; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #38bdf8; overflow-x: auto;"><code>{`[![Featured on ToolsRadar](https://lordorange.top/badge/${tool.id}.svg)](https://lordorange.top/tool/${tool.id})`}</code></pre>
+        <pre class="badge-snippet-pre"><code>{`[![Featured on ToolsRadar](https://lordorange.top/badge/${tool.id}.svg)](https://lordorange.top/tool/${tool.id})`}</code></pre>
       </div>
 
       <div>
@@ -869,7 +869,7 @@ const jsonLd = {
             Copy HTML
           </button>
         </div>
-        <pre style="margin: 0; padding: 0.75rem 1rem; background: #05070c; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94a3b8; overflow-x: auto;"><code>{`<a href="https://lordorange.top/tool/${tool.id}" target="_blank"><img src="https://lordorange.top/badge/${tool.id}.svg" alt="Featured on ToolsRadar" /></a>`}</code></pre>
+        <pre class="badge-snippet-pre html-snippet"><code>{`<a href="https://lordorange.top/tool/${tool.id}" target="_blank"><img src="https://lordorange.top/badge/${tool.id}.svg" alt="Featured on ToolsRadar" /></a>`}</code></pre>
       </div>
     </div>
   </section>
@@ -950,6 +950,132 @@ const jsonLd = {
 
   <!-- Detail Page Scoped Styles -->
   <style>
+    /* Official Badge & Head-to-Head Banner Responsive Styles */
+    .official-badge-card {
+      margin-top: 2.5rem;
+      background: #0c1018;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.75rem;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .official-badge-card {
+        padding: 1.25rem 0.85rem;
+      }
+    }
+
+    .badge-preview-box {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+      .badge-preview-box {
+        padding: 0.85rem 0.75rem;
+        gap: 1rem;
+      }
+    }
+
+    .badge-snippet-pre {
+      margin: 0;
+      padding: 0.75rem 1rem;
+      background: #05070c;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+      box-sizing: border-box;
+      white-space: pre;
+    }
+
+    .badge-snippet-pre.html-snippet {
+      color: #94a3b8;
+    }
+
+    .head-to-head-banner {
+      margin-top: 2.5rem;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+      .head-to-head-banner {
+        padding: 1.25rem 0.85rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .head-to-head-banner .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-actions-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+      }
+      .primary-links-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .primary-links-group .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .interactive-social-group {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+        gap: 0.4rem;
+      }
+      .social-btn {
+        justify-content: center;
+        padding: 0.45rem 0.35rem;
+        font-size: 0.78rem;
+      }
+      .browser-mockup-header {
+        padding: 0.6rem 0.75rem;
+        gap: 0.5rem;
+      }
+      .traffic-lights {
+        display: none;
+      }
+      .browser-address-bar {
+        min-width: 0;
+        width: 100%;
+      }
+    }
+
     .breadcrumb-nav {
       display: flex;
       flex-wrap: wrap;
@@ -1059,6 +1185,8 @@ const jsonLd = {
     }
 
     .hero-tool-name {
+      word-break: break-word;
+      overflow-wrap: break-word;
       font-size: clamp(1.8rem, 4vw, 2.4rem);
       font-weight: 800;
       letter-spacing: -0.03em;

@@ -105,7 +105,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         pointer-events: none;
       }
 
-      * {
+      *, *::before, *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
@@ -115,9 +115,15 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         scroll-behavior: smooth;
         scroll-padding-top: 72px;
         -webkit-text-size-adjust: 100%;
+        overflow-x: hidden;
+        max-width: 100vw;
+        width: 100%;
       }
 
       body {
+        overflow-x: hidden;
+        max-width: 100vw;
+        width: 100%;
         font-family: var(--font-sans);
         background-color: var(--bg-main);
         color: var(--text-primary);
@@ -147,17 +153,30 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         color: #7dd3fc;
       }
 
+      
+      img, svg, video, canvas {
+        max-width: 100%;
+      }
+
+      pre, code {
+        max-width: 100%;
+      }
       .container {
         max-width: 1180px;
         margin: 0 auto;
         padding: 2rem 1.25rem;
         width: 100%;
         flex: 1;
+        min-width: 0;
+        box-sizing: border-box;
       }
 
       @media (max-width: 640px) {
         .container {
           padding: 1.25rem 0.85rem;
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
         }
       }
 
@@ -207,9 +226,44 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         margin: 0 auto;
       }
 
+      #desktop-github-link {
+        display: none !important;
+        padding: 0.35rem 0.65rem;
+        font-size: 0.8rem;
+        border-radius: 7px;
+      }
+
+      @media (min-width: 860px) {
+        #desktop-github-link {
+          display: inline-flex !important;
+        }
+      }
+
       @media (max-width: 640px) {
         .nav-container {
-          padding: 0.65rem 0.85rem;
+          padding: 0.55rem 0.75rem;
+        }
+        .nav-brand {
+          gap: 0.5rem;
+        }
+        .nav-brand-logo {
+          width: 30px;
+          height: 30px;
+        }
+        .nav-brand-text {
+          font-size: 1.1rem;
+        }
+        .nav-actions {
+          gap: 0.4rem;
+        }
+        .nav-submit-btn {
+          padding: 0.3rem 0.55rem;
+          font-size: 0.78rem;
+          gap: 0.25rem;
+        }
+        .mobile-toggle-btn {
+          width: 34px;
+          height: 34px;
         }
       }
 
@@ -891,7 +945,6 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
             target="_blank" 
             rel="noopener noreferrer"
             class="btn btn-secondary"
-            style="display: none; padding: 0.35rem 0.65rem; font-size: 0.8rem; border-radius: 7px;"
             id="desktop-github-link"
           >
             <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
@@ -1040,11 +1093,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         });
       }
 
-      // Check desktop github button display
-      const desktopGithub = document.getElementById('desktop-github-link');
-      if (desktopGithub && window.innerWidth >= 860) {
-        desktopGithub.style.display = 'inline-flex';
-      }
+
 
       // Initialize Lenis Smooth Scroll
       import('lenis').then(({ default: Lenis }) => {
