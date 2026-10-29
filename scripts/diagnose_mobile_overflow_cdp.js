@@ -110,7 +110,7 @@ async function runDiagnosis() {
 
     // Emulate iPhone SE (375x667, dpr=2, mobile=true)
     await sendCommand('Emulation.setDeviceMetricsOverride', {
-      width: 360,
+      width: 375,
       height: 667,
       deviceScaleFactor: 2,
       mobile: true,
@@ -121,7 +121,7 @@ async function runDiagnosis() {
     });
 
     console.log('\n======================================================');
-    console.log('DIAGNOSING MOBILE VIEWPORT OVERFLOW AT 360px (iPhone SE)');
+    console.log('DIAGNOSING MOBILE VIEWPORT OVERFLOW AT 375px (iPhone SE)');
     console.log('======================================================\n');
 
     for (const route of routes) {

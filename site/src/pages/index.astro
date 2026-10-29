@@ -4,6 +4,7 @@ import RadarScope from '../components/RadarScope.astro';
 import SpotlightCard from '../components/SpotlightCard.astro';
 import BattlegroundSection from '../components/BattlegroundSection.astro';
 import FeaturedGuides from '../components/FeaturedGuides.astro';
+import RadarAICopilot from '../components/RadarAICopilot.astro';
 import allTools from '../../../data/all_tools.json';
 import categories from '../../../data/categories.json';
 import { getToolIcon } from '../utils/favicon';
@@ -167,6 +168,9 @@ const searchIndex = allTools.map(t => ({
       </div>
     </div>
   </section>
+
+  <!-- ==================== TIER 1.5: RADAR AI ARCHITECTURAL COPILOT (ZERO-COST CLIENT INFERENCE) ==================== -->
+  <RadarAICopilot allTools={allTools} />
 
   <!-- ==================== TIER 2: TODAY'S RADAR SPOTLIGHT ==================== -->
   <SpotlightCard tool={spotlightTool} />
