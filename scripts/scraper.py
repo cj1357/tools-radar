@@ -22,6 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
 TOOLS_DIR = os.path.join(DATA_DIR, "tools")
 os.makedirs(TOOLS_DIR, exist_ok=True)
+EDITORIAL_REVIEWS_FILE = os.path.join(DATA_DIR, "editorial_reviews.json")
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
@@ -583,6 +584,91 @@ def classify_and_structure_ai(raw_item: dict) -> dict | None:
 
     return None
 
+def generate_editorial_review_ai(tool: dict) -> dict | None:
+    """Uses LLM to generate an authoritative in-depth 4-chapter engineering dossier (~850 words)."""
+    api_key = os.environ.get("AI_API_KEY", "").strip() or os.environ.get("OPENAI_API_KEY", "").strip() or os.environ.get("GEMINI_API_KEY", "").strip()
+    if not api_key:
+        return None
+
+    api_base = os.environ.get("AI_API_BASE", "").strip() or "https://api.openai.com/v1"
+    model = os.environ.get("AI_MODEL", "google/gemini-3.5-flash-lite").strip()
+
+    base = api_base.rstrip("/")
+    endpoint = f"{base}/chat/completions" if base.endswith("/v1") else f"{base}/v1/chat/completions"
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    tool_name = tool.get("name", "")
+    tagline = tool.get("tagline", "")
+    summary = tool.get("summary", "")
+    category = tool.get("category", "")
+    pricing = tool.get("pricing_model", "")
+    alt = tool.get("primary_alternative")
+    is_self_host = tool.get("is_self_hostable", False)
+    github_url = tool.get("github_url")
+    verdict = tool.get("verdict", "")
+
+    system_prompt = (
+        "You are the Lead Technology Editor & Principal Software Architect at ToolsRadar.\n"
+        "Your task is to write an authoritative, in-depth technical dossier (~800 to 950 words total across 4 distinct chapters) evaluating the software tool provided.\n"
+        "Your tone must be objective, deeply technical, nuanced, and analytical (Wirecutter/TechRadar meets ACM Queue style).\n"
+        "Avoid generic filler or fluffy marketing buzzwords. Focus on real architecture, developer experience, trade-offs, and economics.\n\n"
+        "Return ONLY a valid JSON object matching the exact schema below:\n"
+        "{\n"
+        f'  "article_title": "{tool_name} Architecture & Engineering Dossier: Evaluating [Specific Superpower/Niche]",\n'
+        '  "reading_time": "4 min read • ~880 words",\n'
+        '  "section1_architecture": "Chapter 1 (~180-220 words): Deep dive into technical underpinnings, stack architecture, runtime responsibilities, database/persistence choices, state management, protocols, and security boundaries.",\n'
+        '  "section2_ergonomics": "Chapter 2 (~180-220 words): Detailed developer experience (DX), day-to-day workflow velocity, setup/onboarding friction, configuration ergonomics, and operational maintenance trade-offs.",\n'
+        '  "section3_licensing_tco": "Chapter 3 (~180-220 words): Total cost of ownership (TCO), software licensing model analysis, developer hour opportunity costs vs building in-house, and direct economic comparison against commercial alternatives.",\n'
+        '  "section4_verdict": "Chapter 4 (~180-220 words): Production readiness assessment, target team profile (who should adopt vs who should avoid), and ToolsRadar editorial conviction.",\n'
+        '  "editorial_verdict_callout": "1 punchy, authoritative summary sentence encapsulating the core architectural bottom line"\n'
+        "}\n\n"
+        "Constraints:\n"
+        "- Pure JSON output only, no markdown code block fences."
+    )
+
+    user_prompt = (
+        f"Product: {tool_name}\n"
+        f"Tagline: {tagline}\n"
+        f"Category: {category}\n"
+        f"Pricing: {pricing}\n"
+        f"Alternative: {alt or 'N/A'}\n"
+        f"Self-Hostable: {'Yes' if is_self_host else 'No'}\n"
+        f"GitHub: {github_url or 'N/A'}\n"
+        f"Summary: {summary}\n"
+        f"Initial Verdict: {verdict}"
+    )
+
+    payload = {
+        "model": model,
+        "temperature": 0.3,
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+    }
+
+    try:
+        resp = requests.post(endpoint, json=payload, headers=headers, timeout=45)
+        if resp.status_code == 200:
+            content = resp.json()["choices"][0]["message"]["content"].strip()
+            if content.startswith("```json"): content = content[7:]
+            if content.startswith("```"): content = content[3:]
+            if content.endswith("```"): content = content[:-3]
+            review_data = json.loads(content.strip())
+            review_data["tool_id"] = tool["id"]
+            review_data["model_used"] = model
+            review_data["generated_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+            return review_data
+        else:
+            print(f"    [AI Review Error] HTTP {resp.status_code}: {resp.text[:120]}")
+    except Exception as e:
+        print(f"    [AI Review Exception]: {e}")
+    return None
+
 def run_scraper():
     print("=" * 60)
     print(f"Tools Radar Scraper - Starting at {datetime.datetime.now().isoformat()}")
@@ -602,6 +688,17 @@ def run_scraper():
             master_data = {}
 
     print(f"Database currently holds {len(master_data)} existing tools.")
+
+    # 1.1 Load Editorial Reviews
+    editorial_reviews = {}
+    if os.path.exists(EDITORIAL_REVIEWS_FILE):
+        try:
+            with open(EDITORIAL_REVIEWS_FILE, "r", encoding="utf-8") as rf:
+                editorial_reviews = json.load(rf)
+        except Exception as e:
+            print(f"Warning: Failed to load editorial reviews: {e}")
+            editorial_reviews = {}
+    print(f"Editorial dossier database currently holds {len(editorial_reviews)} reviews.")
 
     # 2. Check AI Configuration
     api_key = os.environ.get("AI_API_KEY", "").strip() or os.environ.get("OPENAI_API_KEY", "").strip()
@@ -667,6 +764,18 @@ def run_scraper():
         if len(structured["name"]) < 2 or len(structured["summary"]) < 10:
             continue
             
+        # Generate in-depth 4-chapter AI editorial dossier for newly ingested tool
+        if use_ai and structured["id"] not in editorial_reviews:
+            print(f"{prefix} -> Generating AI Editorial Dossier for {structured['name']}...")
+            review = generate_editorial_review_ai(structured)
+            if review:
+                editorial_reviews[structured["id"]] = review
+                structured["editorial_review"] = review
+                with open(EDITORIAL_REVIEWS_FILE, "w", encoding="utf-8") as rf:
+                    json.dump(editorial_reviews, rf, indent=2, ensure_ascii=False)
+                print(f"{prefix} -> AI Editorial Dossier successfully saved!")
+                time.sleep(4.2)
+
         seen_slugs.add(structured["id"])
         structured_tools.append(structured)
         src = structured["source"]
@@ -697,6 +806,10 @@ def run_scraper():
         json.dump(sorted_tools, f, indent=2, ensure_ascii=False)
         
     print(f"Master index updated: {len(sorted_tools)} total unique tools recorded.")
+
+    with open(EDITORIAL_REVIEWS_FILE, "w", encoding="utf-8") as rf:
+        json.dump(editorial_reviews, rf, indent=2, ensure_ascii=False)
+    print(f"Editorial reviews saved: {len(editorial_reviews)} total dossiers in master dataset.")
     print("Done!")
 
 if __name__ == "__main__":

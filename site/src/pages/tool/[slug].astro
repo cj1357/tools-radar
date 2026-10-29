@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import allTools from '../../../../data/all_tools.json';
 import categories from '../../../../data/categories.json';
+import editorialReviews from '../../../../data/editorial_reviews.json';
 import { getToolIcon } from '../../utils/favicon';
 
 export function getStaticPaths() {
@@ -238,6 +239,15 @@ const faqList = (tool.faqs && Array.isArray(tool.faqs) && tool.faqs.length > 0)
 // Long-Form Technical Editorial Synthesis (~800 words prose)
 // Elevates tool pages from parameter sheets to authoritative reviews
 // -------------------------------------------------------------
+const aiEditorialReview = (editorialReviews as Record<string, any>)[tool.id] || (tool as any).editorial_review;
+const isAiGenerated = Boolean(aiEditorialReview?.section1_architecture);
+
+const articleTitle = aiEditorialReview?.article_title 
+  || `Hands-on Review: How ${tool.name} Performs in Modern Engineering Workflows`;
+
+const readingTime = aiEditorialReview?.reading_time 
+  || `~850 words • Verified Technical Analysis`;
+
 const altSubject = tool.primary_alternative || 'entrenched commercial platforms';
 const isOss = tool.pricing_model === 'Open Source';
 const deploymentModel = tool.is_self_hostable 
@@ -252,13 +262,17 @@ const featureProse = featureTitles.length > 0
 const prosSample = displayPros.slice(0, 2).join(' Furthermore, ');
 const consSample = displayCons.slice(0, 2).join(' Additionally, ');
 
-const reviewSection1 = `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from heavy legacy dependencies, it provides engineering teams with an agile footprint that integrates smoothly into existing CI/CD automation and developer tooling setups.`;
+const reviewSection1 = aiEditorialReview?.section1_architecture || `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from heavy legacy dependencies, it provides engineering teams with an agile footprint that integrates smoothly into existing CI/CD automation and developer tooling setups.`;
 
-const reviewSection2 = `From a developer onboarding standpoint, evaluating new utilities often introduces unwanted configuration friction. ${tool.name} counters this by optimizing early workflow velocity. ${tool.no_signup_required ? 'Developers can experiment with core features immediately without gating access behind mandatory account registration or corporate credit cards.' : 'The onboarding process is structured to establish secure authentication and administrative access in minimal time.'} In day-to-day engineering routines, ${prosSample}. However, production teams must also account for practical operational trade-offs: ${consSample}. Engineering leads should assess whether their operational staffing aligns with these considerations before enterprise rollouts.`;
+const reviewSection2 = aiEditorialReview?.section2_ergonomics || `From a developer onboarding standpoint, evaluating new utilities often introduces unwanted configuration friction. ${tool.no_signup_required ? 'Developers can experiment with core features immediately without gating access behind mandatory account registration or corporate credit cards.' : 'The onboarding process is structured to establish secure authentication and administrative access in minimal time.'} In day-to-day engineering routines, ${prosSample}. However, production teams must also account for practical operational trade-offs: ${consSample}. Engineering leads should assess whether their operational staffing aligns with these considerations before enterprise rollouts.`;
 
-const reviewSection3 = `Evaluating software economics requires looking beyond baseline sticker prices to total cost of ownership (TCO). As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring subscription seat licensing, API vendor lock-in, and unpredictable per-user billing spikes' : 'delivers a predictable commercial model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} provides developers with much clearer visibility into their data persistence, infrastructure boundaries, and computational dependencies. Teams migrating away from monolithic commercial vendors can substantially reduce recurring SaaS operational expenditure while retaining control over their developer tooling pipeline.`;
+const reviewSection3 = aiEditorialReview?.section3_licensing_tco || `Evaluating software economics requires looking beyond baseline sticker prices to total cost of ownership (TCO). As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring subscription seat licensing, API vendor lock-in, and unpredictable per-user billing spikes' : 'delivers a predictable commercial model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} provides developers with much clearer visibility into their data persistence, infrastructure boundaries, and computational dependencies. Teams migrating away from monolithic commercial vendors can substantially reduce recurring SaaS operational expenditure while retaining control over their developer tooling pipeline.`;
 
-const reviewSection4 = `With an internal ToolsRadar Editorial Signal Score of ${tool.signal_score || 85}/100, ${tool.name} demonstrates solid architectural coherence and real-world utility. ${tool.verdict || `${tool.name} is a high-conviction recommendation for developers and technical founders seeking modular developer ergonomics.`} For solo engineers and agile startups, it provides immediate leverage with low overhead. For larger engineering organizations, its clean boundaries simplify proof-of-concept validation and auditability. ToolsRadar's editorial staff recommends evaluating ${tool.name} for modern production workflows that prioritize architectural autonomy and cost efficiency.`;
+const reviewSection4 = aiEditorialReview?.section4_verdict || `With an internal ToolsRadar Editorial Signal Score of ${tool.signal_score || 85}/100, ${tool.name} demonstrates solid architectural coherence and real-world utility. ${tool.verdict || `${tool.name} is a high-conviction recommendation for developers and technical founders seeking modular developer ergonomics.`} For solo engineers and agile startups, it provides immediate leverage with low overhead. For larger engineering organizations, its clean boundaries simplify proof-of-concept validation and auditability. ToolsRadar's editorial staff recommends evaluating ${tool.name} for modern production workflows that prioritize architectural autonomy and cost efficiency.`;
+
+const verdictCallout = aiEditorialReview?.editorial_verdict_callout 
+  || tool.verdict 
+  || `${tool.name} delivers genuine architectural autonomy and clean operational ergonomics for modern engineering stacks.`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -771,14 +785,19 @@ const jsonLd = {
     <article class="editorial-longform-card">
       <div class="editorial-article-header">
         <div class="article-meta-badge-row">
-          <span class="badge-longform-label">📖 IN-DEPTH EDITORIAL DOSSIER</span>
-          <span class="badge-longform-time">~850 words • Verified Technical Analysis</span>
+          <span class={isAiGenerated ? "badge-longform-label badge-ai-mode" : "badge-longform-label"}>
+            {isAiGenerated ? "🤖 AI EDITORIAL DOSSIER" : "📖 IN-DEPTH EDITORIAL DOSSIER"}
+          </span>
+          <span class="badge-longform-time">{readingTime}</span>
+          {isAiGenerated && (
+            <span class="badge-ai-model-tag">⚡ Deep Analysis</span>
+          )}
         </div>
         <h2 class="editorial-article-title">
-          Hands-on Review: How {tool.name} Performs in Modern Engineering Workflows
+          {articleTitle}
         </h2>
         <div class="editorial-byline-row">
-          <span>By <strong>ToolsRadar Technical Staff</strong></span>
+          <span>By <strong>ToolsRadar Technical Staff & AI Research</strong></span>
           <span class="byline-dot">•</span>
           <span>5-Pillar Evaluation Framework</span>
           <span class="byline-dot">•</span>
@@ -808,7 +827,7 @@ const jsonLd = {
           <div class="article-verdict-callout">
             <span class="verdict-callout-icon">💡</span>
             <div class="verdict-callout-body">
-              <strong>Architectural Bottom Line:</strong> {tool.verdict || `${tool.name} delivers genuine architectural autonomy and clean operational ergonomics for modern engineering stacks.`}
+              <strong>Architectural Bottom Line:</strong> {verdictCallout}
             </div>
           </div>
         </section>
@@ -1069,7 +1088,23 @@ const jsonLd = {
       margin-bottom: 0.75rem;
     }
 
-    .badge-longform-label {
+    .badge-ai-mode {
+    background: rgba(16, 185, 129, 0.15) !important;
+    color: #34d399 !important;
+    border-color: rgba(16, 185, 129, 0.35) !important;
+  }
+  .badge-ai-model-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+  }
+  .badge-longform-label {
       font-size: 0.74rem;
       font-weight: 800;
       letter-spacing: 0.08em;
