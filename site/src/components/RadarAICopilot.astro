@@ -273,16 +273,20 @@ const clientToolsIndex = allTools.map(t => ({
       // Typewriter streaming effect (ultra-realistic, 0 cost)
       let charIdx = 0;
       streamText.innerHTML = '';
+      function formatMarkdown(str) {
+        let s = str.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #38bdf8;">$1</strong>');
+        return s.replace(/\*\*([^*]*)$/, '<strong style="color: #38bdf8;">$1</strong>');
+      }
+
       streamTimer = setInterval(() => {
         if (charIdx < analysisText.length) {
-          const nextChar = analysisText.charAt(charIdx);
-          streamText.innerHTML = analysisText.slice(0, charIdx + 1).replace(/\*\*(.*?)\*\*/g, '<strong style="color: #38bdf8;">$1</strong>');
-          charIdx += 3; // stream 3 chars per tick for smooth natural speed
+          streamText.innerHTML = formatMarkdown(analysisText.slice(0, charIdx + 1));
+          charIdx += 4;
         } else {
           clearInterval(streamTimer);
-          streamText.innerHTML = analysisText.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #38bdf8;">$1</strong>');
+          streamText.innerHTML = formatMarkdown(analysisText);
         }
-      }, 15);
+      }, 12);
 
       // Render cards
       grid.innerHTML = '';
@@ -342,7 +346,7 @@ const clientToolsIndex = allTools.map(t => ({
   });
 </script>
 
-<style>
+<style is:global>
   .copilot-master-container {
     margin: 2rem 0 3.5rem;
     position: relative;
@@ -749,20 +753,33 @@ const clientToolsIndex = allTools.map(t => ({
   }
 
   .btn-dossier {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
   }
 
   .btn-dossier:hover {
-    text-decoration: underline;
+    background: #38bdf8;
+    color: #080c16;
+    border-color: #38bdf8;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+    transform: translateY(-1px);
   }
 
   .btn-inspect {
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: #94a3b8;
     text-decoration: none;
+    transition: color 0.15s ease;
   }
 
   .btn-inspect:hover {
