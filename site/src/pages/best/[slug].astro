@@ -1,0 +1,722 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { bestTopics, getRankedToolsForTopic, type BestTopic } from '../../data/best_topics';
+import { getToolIcon } from '../../utils/favicon';
+
+export function getStaticPaths() {
+  return bestTopics.map((topic) => ({
+    params: { slug: topic.slug },
+    props: { topic },
+  }));
+}
+
+interface Props {
+  topic: BestTopic;
+}
+
+const { topic } = Astro.props;
+const rankedTools = getRankedToolsForTopic(topic, 10);
+
+const canonical = `https://lordorange.top/best/${topic.slug}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "@id": `${canonical}#itemlist`,
+      "name": topic.title,
+      "description": topic.metaDesc,
+      "itemListElement": rankedTools.map((t, idx) => ({
+        "@type": "ListItem",
+        "position": idx + 1,
+        "name": t.name,
+        "url": `https://lordorange.top/tool/${t.id}`
+      }))
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      "mainEntity": topic.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<Layout
+  title={`${topic.title} | ToolsRadar`}
+  description={topic.metaDesc}
+  canonicalUrl={canonical}
+  jsonLd={jsonLd}
+>
+  <div class="best-container">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumb-nav">
+      <a href="/">Home</a>
+      <span class="bc-sep">/</span>
+      <a href="/best">Rankings</a>
+      <span class="bc-sep">/</span>
+      <span class="bc-current">{topic.h1}</span>
+    </nav>
+
+    <!-- Header Hero -->
+    <header class="best-hero">
+      <div class="best-pill">
+        <span>🏆 TOOLS-RADAR CURATED RANKING // 2026</span>
+      </div>
+      <h1 class="best-title">{topic.h1}</h1>
+      <p class="best-subtitle">{topic.tagline}</p>
+
+      <!-- Value Metrics Bar -->
+      <div class="value-metrics-bar">
+        <div class="metric-item">
+          <span class="metric-label">Estimated TCO Savings</span>
+          <span class="metric-value highlight">{topic.annualSavingsEstimate}</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-label">Vetted Tools</span>
+          <span class="metric-value">{rankedTools.length} Handpicked Projects</span>
+        </div>
+        <div class="metric-divider"></div>
+        <div class="metric-item">
+          <span class="metric-label">Audit Standards</span>
+          <span class="metric-value">100% Independent Editorial</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Editorial Intro Card -->
+    <section class="editorial-intro-card">
+      <div class="intro-header">
+        <span class="intro-icon">💡</span>
+        <h2>Why This Stack Matters in 2026</h2>
+      </div>
+      <p class="intro-text">{topic.editorialIntro}</p>
+
+      <div class="criteria-box">
+        <h3>How We Evaluated This Ranking:</h3>
+        <ul class="criteria-list">
+          {topic.keyEvaluationCriteria.map(c => (
+            <li><span class="check-icon">✓</span> {c}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Ranked Tools List -->
+    <section class="ranked-list-section">
+      <h2 class="ranked-section-heading">Top 10 Ranked Solutions</h2>
+
+      <div class="ranked-items-stack">
+        {rankedTools.map((tool, idx) => {
+          const icon = getToolIcon(tool.url, tool.github_url);
+          const initial = tool.name.charAt(0);
+          const rankNum = idx + 1;
+
+          return (
+            <article class="ranked-card">
+              <div class="rank-badge-col">
+                <div class={`rank-number-box rank-${rankNum}`}>
+                  #{rankNum}
+                </div>
+              </div>
+
+              <div class="ranked-content-col">
+                <div class="ranked-header-row">
+                  <div class="ranked-identity">
+                    <div class="tool-icon-wrap">
+                      {icon ? (
+                        <img src={icon} alt={`${tool.name} icon`} loading="lazy" />
+                      ) : (
+                        <div class="tool-icon-fallback">{initial}</div>
+                      )}
+                    </div>
+                    <div>
+                      <h3 class="ranked-tool-title">
+                        <a href={`/tool/${tool.id}`}>{tool.name}</a>
+                      </h3>
+                      <p class="ranked-tagline">{tool.tagline}</p>
+                    </div>
+                  </div>
+
+                  <div class="ranked-badges">
+                    <span class="signal-score-pill">
+                      Signal {tool.signal_score || 95}/100
+                    </span>
+                    <span class="model-pill">
+                      {tool.pricing_model}
+                    </span>
+                    {tool.stars > 0 && (
+                      <span class="stars-pill">
+                        ★ {tool.stars > 999 ? `${(tool.stars / 1000).toFixed(1)}k` : tool.stars}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <p class="ranked-summary">{tool.summary}</p>
+
+                {tool.key_features && tool.key_features.length > 0 && (
+                  <div class="ranked-features-row">
+                    <span class="features-label">Core Capabilities:</span>
+                    <ul class="features-chips">
+                      {tool.key_features.slice(0, 3).map((f: string) => (
+                        <li>{f}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div class="ranked-footer-row">
+                  <div class="alt-note">
+                    {tool.primary_alternative && (
+                      <span>
+                        Replaces: <strong>{tool.primary_alternative}</strong>
+                      </span>
+                    )}
+                  </div>
+
+                  <div class="ranked-actions">
+                    <a href={`/tool/${tool.id}`} class="btn btn-secondary">
+                      Full Dossier & Specs →
+                    </a>
+                    {tool.url && (
+                      <a href={tool.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        Official Site ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Structured FAQ Section -->
+    <section class="editorial-intro-card faq-card">
+      <div class="intro-header">
+        <span class="intro-icon">❓</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        {topic.faqs.map(faq => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>{faq.q}</span>
+              <span class="faq-chevron">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="best-footer-cta">
+      <h3>Looking for More Developer Alternatives?</h3>
+      <p>Explore our database of 800+ audited developer utilities or compare software head-to-head.</p>
+      <div class="cta-links">
+        <a href="/vs" class="btn btn-primary">Browse All Head-to-Head Comparisons →</a>
+        <a href="/" class="btn btn-secondary">Explore Live Radar Feed</a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .best-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 5rem;
+    }
+
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      color: #38bdf8;
+    }
+    .bc-sep {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .bc-current {
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    /* Hero */
+    .best-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .best-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #facc15;
+      margin-bottom: 1.25rem;
+    }
+    .best-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .best-subtitle {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .value-metrics-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      text-align: left;
+    }
+    .metric-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #64748b;
+    }
+    .metric-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .metric-value.highlight {
+      color: #38bdf8;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+    .metric-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Editorial Intro */
+    .editorial-intro-card {
+      background: #0c1018;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2.25rem;
+      margin-bottom: 3rem;
+    }
+    .intro-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+    .intro-icon {
+      font-size: 1.35rem;
+    }
+    .intro-header h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+    }
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .criteria-box {
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.04);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+    .criteria-box h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #38bdf8;
+      margin: 0 0 0.75rem;
+    }
+    .criteria-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+    }
+    .check-icon {
+      color: #4ade80;
+      font-weight: 800;
+      margin-right: 0.4rem;
+    }
+
+    /* Ranked Items */
+    .ranked-section-heading {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+    .ranked-items-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .ranked-card {
+      display: flex;
+      gap: 1.5rem;
+      background: linear-gradient(180deg, #0e121b 0%, #090c13 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.2s ease;
+    }
+    .ranked-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+    .rank-badge-col {
+      flex-shrink: 0;
+    }
+    .rank-number-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: #141a27;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+    }
+    .rank-number-box.rank-1 {
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.2) 0%, rgba(202, 138, 4, 0.1) 100%);
+      border-color: #facc15;
+      color: #facc15;
+      box-shadow: 0 0 16px rgba(234, 179, 8, 0.2);
+    }
+    .rank-number-box.rank-2 {
+      background: linear-gradient(135deg, rgba(148, 163, 184, 0.2) 0%, rgba(100, 116, 139, 0.1) 100%);
+      border-color: #cbd5e1;
+      color: #f1f5f9;
+    }
+    .rank-number-box.rank-3 {
+      background: linear-gradient(135deg, rgba(180, 83, 9, 0.2) 0%, rgba(146, 64, 14, 0.1) 100%);
+      border-color: #d97706;
+      color: #fbbf24;
+    }
+
+    .ranked-content-col {
+      flex: 1;
+    }
+    .ranked-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .ranked-identity {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .tool-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: #05070c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .tool-icon-wrap img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
+    .tool-icon-fallback {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .ranked-tool-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    .ranked-tool-title a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .ranked-tool-title a:hover {
+      color: #38bdf8;
+    }
+    .ranked-tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin: 0.2rem 0 0;
+    }
+    .ranked-badges {
+      display: flex;
+      gap: 0.45rem;
+      align-items: center;
+    }
+    .signal-score-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .model-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(34, 197, 94, 0.1);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+    .stars-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #facc15;
+    }
+
+    .ranked-summary {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .ranked-features-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .features-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .features-chips {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .features-chips li {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .ranked-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .alt-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .alt-note strong {
+      color: #38bdf8;
+    }
+    .ranked-actions {
+      display: flex;
+      gap: 0.65rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary {
+      background: #38bdf8;
+      color: #040812;
+    }
+    .btn-secondary:hover {
+      background: #7dd3fc;
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .faq-item {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.85rem 1.1rem;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-chevron {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Bottom CTA */
+    .best-footer-cta {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.06) 0%, rgba(168, 85, 247, 0.06) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .best-footer-cta h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 0.5rem;
+    }
+    .best-footer-cta p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin: 0 0 1.5rem;
+    }
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #38bdf8;
+      color: #040812;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.9rem;
+    }
+    .btn-primary:hover {
+      background: #7dd3fc;
+    }
+
+    @media (max-width: 640px) {
+      .best-title {
+        font-size: 2rem;
+      }
+      .criteria-list {
+        grid-template-columns: 1fr;
+      }
+      .ranked-card {
+        flex-direction: column;
+      }
+      .value-metrics-bar {
+        gap: 1rem;
+      }
+      .metric-divider {
+        display: none;
+      }
+    }
+  </style>
+</Layout>

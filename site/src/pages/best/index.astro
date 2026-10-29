@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { bestTopics } from '../../data/best_topics';
+
+const pageTitle = "Curated Developer Rankings & Best Software Lists (2026) | ToolsRadar";
+const metaDesc = "Explore handpicked rankings of the best open-source developer utilities, self-hostable SaaS alternatives, autonomous AI coding agents, and privacy-first analytics.";
+const canonical = "https://lordorange.top/best";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Curated Developer Software Rankings - ToolsRadar",
+  "description": metaDesc,
+  "url": canonical
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={metaDesc}
+  canonicalUrl={canonical}
+  jsonLd={jsonLd}
+>
+  <div class="best-hub-container">
+    <header class="hub-header">
+      <div class="hub-pill">
+        <span>🏆 TOOLS-RADAR EDITORIAL RANKINGS</span>
+      </div>
+      <h1 class="hub-title">
+        The Best <span class="gradient-text">Developer Software of 2026</span>
+      </h1>
+      <p class="hub-subtitle">
+        Curated, benchmarked, and ranked by software architects. Independent evaluations focusing on open-source sovereignty, data ownership, and zero subscription taxes.
+      </p>
+    </header>
+
+    <div class="topics-grid">
+      {bestTopics.map(topic => (
+        <article class="topic-card">
+          <div class="topic-card-top">
+            <span class="savings-badge">Estimated TCO Savings: {topic.annualSavingsEstimate}</span>
+            <h2 class="topic-title">
+              <a href={`/best/${topic.slug}`}>{topic.h1}</a>
+            </h2>
+            <p class="topic-tagline">{topic.tagline}</p>
+          </div>
+
+          <div class="topic-card-bottom">
+            <div class="criteria-preview">
+              <span class="criteria-label">Key Focus:</span>
+              <p class="criteria-text">{topic.keyEvaluationCriteria[0]}</p>
+            </div>
+            <a href={`/best/${topic.slug}`} class="explore-btn">
+              <span>View Full Top 10 Ranking</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .best-hub-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 6rem;
+    }
+
+    .hub-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .hub-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #facc15;
+      margin-bottom: 1.25rem;
+    }
+    .hub-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hub-subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+    }
+    .topic-card {
+      background: linear-gradient(180deg, #0e121c 0%, #080b11 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .topic-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.08);
+    }
+    .savings-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .topic-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin: 0 0 0.75rem;
+    }
+    .topic-title a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .topic-title a:hover {
+      color: #38bdf8;
+    }
+    .topic-tagline {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .topic-card-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.25rem;
+    }
+    .criteria-preview {
+      margin-bottom: 1.25rem;
+    }
+    .criteria-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+    }
+    .criteria-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin: 0.25rem 0 0;
+      line-height: 1.4;
+    }
+    .explore-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .explore-btn:hover {
+      background: #38bdf8;
+      color: #040812;
+      border-color: #38bdf8;
+    }
+    .arrow {
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .explore-btn:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 640px) {
+      .hub-title {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</Layout>

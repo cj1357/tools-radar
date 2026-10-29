@@ -1,0 +1,913 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { comparisonPairs, type ComparisonPair } from '../../data/comparisons';
+import categories from '../../../../data/categories.json';
+import { getToolIcon } from '../../utils/favicon';
+
+export function getStaticPaths() {
+  return comparisonPairs.map((pair) => ({
+    params: { pair: pair.slug },
+    props: { comparison: pair },
+  }));
+}
+
+interface Props {
+  comparison: ComparisonPair;
+}
+
+const { comparison } = Astro.props;
+const { toolA, toolBName, toolB, slug, comparisonText, verdictA, verdictB } = comparison;
+
+const categoryInfo = categories.find(c => c.id === toolA.category) || {
+  id: toolA.category,
+  name: toolA.category,
+  description: ""
+};
+
+const iconA = getToolIcon(toolA.url, toolA.github_url);
+const iconB = toolB ? getToolIcon(toolB.url, toolB.github_url) : null;
+
+const scoreA = toolA.signal_score || 95;
+const scoreB = toolB ? (toolB.signal_score || 90) : 88;
+
+const isOssA = toolA.pricing_model === 'Open Source';
+const isOssB = toolB ? toolB.pricing_model === 'Open Source' : false;
+
+const isSelfHostA = Boolean(toolA.is_self_hostable);
+const isSelfHostB = toolB ? Boolean(toolB.is_self_hostable) : false;
+
+const pageTitle = `${toolA.name} vs ${toolBName} (2026) - In-Depth Comparison & Architectural Analysis`;
+const metaDesc = `Unbiased 2026 comparison between ${toolA.name} and ${toolBName}. Compare pricing tiers, open-source sovereignty, Docker self-hosting, and real-world developer trade-offs.`;
+const canonical = `https://lordorange.top/vs/${slug}`;
+
+// Dynamic comparison FAQs
+const faqs = [
+  {
+    q: `What is the primary difference between ${toolA.name} and ${toolBName}?`,
+    a: `${comparisonText} In summary, ${toolA.name} focuses on developer control, data sovereignty, and transparent licensing, whereas ${toolBName} represents an established commercial service model.`
+  },
+  {
+    q: `Is ${toolA.name} truly free and open source?`,
+    a: isOssA 
+      ? `Yes. ${toolA.name} is licensed under an open-source license with publicly inspectable code on GitHub (${(toolA.stars || 0).toLocaleString()} stars). You can run it on your own hardware or cloud server without paying subscription licensing fees.`
+      : `${toolA.name} offers a ${toolA.pricing_model} model. Review their official repository and terms for specific usage allowances and production tiers.`
+  },
+  {
+    q: `Can I migrate existing data or workflows from ${toolBName} to ${toolA.name}?`,
+    a: `Most modern developers migrate by exporting core configuration files, schemas, or API keys and configuring ${toolA.name} as a direct drop-in replacement or parallel service. Check ${toolA.name}'s official repository documentation for specialized migration guides.`
+  },
+  {
+    q: `Which option should I choose for production applications in 2026?`,
+    a: `${verdictA} Alternatively, ${verdictB}`
+  }
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": `${canonical}#article`,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://lordorange.top/#website",
+        "name": "ToolsRadar",
+        "url": "https://lordorange.top"
+      },
+      "headline": pageTitle,
+      "description": metaDesc,
+      "datePublished": "2026-01-15T00:00:00Z",
+      "dateModified": new Date().toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "ToolsRadar Editorial Team",
+        "url": "https://lordorange.top/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ToolsRadar",
+        "url": "https://lordorange.top",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lordorange.top/favicon.svg"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={metaDesc}
+  canonicalUrl={canonical}
+  jsonLd={jsonLd}
+>
+  <div class="vs-container">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumbs">
+      <a href="/">Home</a>
+      <span class="bc-sep">/</span>
+      <a href="/vs">Comparisons</a>
+      <span class="bc-sep">/</span>
+      <a href={`/category/${toolA.category}`}>{categoryInfo.name}</a>
+      <span class="bc-sep">/</span>
+      <span class="bc-current">{toolA.name} vs {toolBName}</span>
+    </nav>
+
+    <!-- Header Hero -->
+    <header class="vs-hero">
+      <div class="vs-badge-pill">
+        <span class="radar-dot"></span>
+        <span>HEAD-TO-HEAD BENCHMARK // 2026 EDITION</span>
+      </div>
+
+      <h1 class="vs-title">
+        {toolA.name} <span class="gradient-vs">vs</span> {toolBName}
+      </h1>
+
+      <p class="vs-subtitle">
+        Architectural analysis, pricing breakdown, and sovereignty trade-offs between two prominent {categoryInfo.name.toLowerCase()} solutions.
+      </p>
+
+      <!-- Head to Head Tool Cards Mini Hero -->
+      <div class="tools-matchup-grid">
+        <!-- Tool A Box -->
+        <div class="matchup-box tool-a-box">
+          <div class="matchup-header">
+            <div class="tool-icon-wrapper">
+              {iconA ? (
+                <img src={iconA} alt={`${toolA.name} icon`} class="tool-icon-img" loading="lazy" />
+              ) : (
+                <div class="tool-icon-fallback">{toolA.name.charAt(0)}</div>
+              )}
+            </div>
+            <div>
+              <span class="challenger-label">CHALLENGER // FEATURED</span>
+              <h2 class="tool-box-name">
+                <a href={`/tool/${toolA.id}`}>{toolA.name}</a>
+              </h2>
+            </div>
+          </div>
+          <p class="tool-box-tagline">{toolA.tagline}</p>
+          <div class="matchup-metrics">
+            <span class="metric-pill">
+              <span class="metric-key">Signal Score:</span>
+              <span class="metric-val highlight">{scoreA}/100</span>
+            </span>
+            <span class="metric-pill">
+              <span class="metric-key">License:</span>
+              <span class="metric-val">{toolA.pricing_model}</span>
+            </span>
+            {toolA.stars && toolA.stars > 0 && (
+              <span class="metric-pill">
+                <span class="metric-key">GitHub:</span>
+                <span class="metric-val">★ {toolA.stars > 999 ? `${(toolA.stars / 1000).toFixed(1)}k` : toolA.stars}</span>
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div class="matchup-vs-circle">VS</div>
+
+        <!-- Tool B Box -->
+        <div class="matchup-box tool-b-box">
+          <div class="matchup-header">
+            <div class="tool-icon-wrapper">
+              {iconB ? (
+                <img src={iconB} alt={`${toolBName} icon`} class="tool-icon-img" loading="lazy" />
+              ) : (
+                <div class="tool-icon-fallback default-b">{toolBName.charAt(0)}</div>
+              )}
+            </div>
+            <div>
+              <span class="challenger-label">{toolB ? 'COMMUNITY PEER' : 'BENCHMARK LEADER'}</span>
+              <h2 class="tool-box-name">
+                {toolB ? (
+                  <a href={`/tool/${toolB.id}`}>{toolB.name}</a>
+                ) : (
+                  <span>{toolBName}</span>
+                )}
+              </h2>
+            </div>
+          </div>
+          <p class="tool-box-tagline">
+            {toolB ? toolB.tagline : `Industry standard reference in the ${categoryInfo.name.toLowerCase()} category.`}
+          </p>
+          <div class="matchup-metrics">
+            <span class="metric-pill">
+              <span class="metric-key">Signal Score:</span>
+              <span class="metric-val">{scoreB}/100</span>
+            </span>
+            <span class="metric-pill">
+              <span class="metric-key">Model:</span>
+              <span class="metric-val">{toolB ? toolB.pricing_model : 'Commercial Cloud'}</span>
+            </span>
+            <span class="metric-pill">
+              <span class="metric-key">Hosting:</span>
+              <span class="metric-val">{toolB && isSelfHostB ? 'Self-Hostable' : 'Vendor Cloud'}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Executive Verdict Box -->
+    <section class="section-card verdict-section">
+      <div class="section-header">
+        <span class="section-icon">⚖️</span>
+        <h2 class="section-title">Executive Selection Verdict</h2>
+      </div>
+      <div class="verdict-grid">
+        <div class="verdict-col verdict-col-a">
+          <div class="verdict-badge">WHEN TO CHOOSE {toolA.name.toUpperCase()}</div>
+          <p class="verdict-text">{verdictA}</p>
+          <ul class="verdict-bullets">
+            <li>✅ Zero vendor subscription lock-in</li>
+            <li>✅ Full data sovereignty and privacy</li>
+            <li>✅ Inspectable and customizable codebase</li>
+          </ul>
+        </div>
+        <div class="verdict-col verdict-col-b">
+          <div class="verdict-badge alt-badge">WHEN TO CHOOSE {toolBName.toUpperCase()}</div>
+          <p class="verdict-text">{verdictB}</p>
+          <ul class="verdict-bullets">
+            <li>🔹 Turnkey managed cloud infrastructure</li>
+            <li>🔹 Zero local server maintenance requirements</li>
+            <li>🔹 Broad commercial third-party integrations</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-Dimensional Metric Comparison Table -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <h2 class="section-title">Architectural & Metric Comparison</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Evaluation Dimension</th>
+              <th style="width: 36%;">{toolA.name}</th>
+              <th style="width: 36%;">{toolBName}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Licensing & Source</strong></td>
+              <td>
+                <span class={isOssA ? 'table-badge oss' : 'table-badge prop'}>
+                  {toolA.pricing_model}
+                </span>
+                {toolA.github_url && <span class="subtext">Auditable on GitHub</span>}
+              </td>
+              <td>
+                <span class={isOssB ? 'table-badge oss' : 'table-badge prop'}>
+                  {toolB ? toolB.pricing_model : 'Proprietary Commercial'}
+                </span>
+                <span class="subtext">{toolB?.github_url ? 'Public Repo' : 'Closed Source'}</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Deployment Freedom</strong></td>
+              <td>
+                <span class={isSelfHostA ? 'status-tag positive' : 'status-tag'}>
+                  {isSelfHostA ? '✓ Self-Hostable (Docker / Bare Metal)' : 'Cloud Managed'}
+                </span>
+              </td>
+              <td>
+                <span class={isSelfHostB ? 'status-tag positive' : 'status-tag neutral'}>
+                  {isSelfHostB ? '✓ Self-Hostable' : 'Vendor Cloud Only (SaaS)'}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Data Sovereignty</strong></td>
+              <td>
+                <span class="status-tag positive">✓ 100% On-Premise / Sovereign</span>
+              </td>
+              <td>
+                <span class="status-tag neutral">
+                  {toolB && isSelfHostB ? '✓ User Controlled' : '⚠ Third-Party Cloud Hosted'}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Estimated TCO (Annual)</strong></td>
+              <td>
+                <strong class="cost-free">{isOssA ? '$0 (Infrastructure Only)' : 'Competitive Pricing'}</strong>
+                <span class="subtext">Zero recurring per-seat tax</span>
+              </td>
+              <td>
+                <strong>{toolB ? toolB.pricing_model : '$120 - $1,200+ / Year'}</strong>
+                <span class="subtext">Recurring monthly subscription tiers</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sign-up Friction</strong></td>
+              <td>
+                <span>{toolA.no_signup_required ? '✓ No Account Required' : 'Standard Setup'}</span>
+              </td>
+              <td>
+                <span>{toolB?.no_signup_required ? '✓ No Account Required' : 'Mandatory Account & Billing'}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Deep Editorial Breakdown -->
+    <section class="section-card editorial-deepdive">
+      <div class="section-header">
+        <span class="section-icon">🔬</span>
+        <h2 class="section-title">Editorial Analysis & Engineering Trade-offs</h2>
+      </div>
+
+      <div class="deepdive-prose">
+        <h3>1. The Core Architectural Philosophy</h3>
+        <p>{comparisonText}</p>
+        <p>
+          When choosing between <strong>{toolA.name}</strong> and <strong>{toolBName}</strong>, the fundamental decision comes down to the balance between <em>developer sovereignty</em> and <em>managed convenience</em>. {toolA.name} is engineered for teams and creators who insist on inspecting their data pipeline, custom scripting, and avoiding artificial software lock-in.
+        </p>
+
+        <h3>2. Total Cost of Ownership & Long-Term Scaling</h3>
+        <p>
+          Commercial SaaS solutions like {toolBName} often offer convenient onboarding, but can quickly escalate in cost as team headcount or request volumes grow. With {toolA.name}, infrastructure expenses stay tied strictly to raw compute costs rather than arbitrary per-seat paywalls. For high-volume development environments, this difference frequently results in thousands of dollars saved annually.
+        </p>
+
+        <h3>3. Community Vitality & Extensibility</h3>
+        <p>
+          {toolA.name} benefits from rapid developer iteration and transparent public release cycles. Users can file issues directly on GitHub, inspect bug fixes in commit history, and even fork the software if specific business logic requires customized internal patches.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quickstart Box -->
+    {toolA.install_command && (
+      <section class="section-card quickstart-card">
+        <div class="section-header">
+          <span class="section-icon">⚡</span>
+          <h2 class="section-title">Quickstart with {toolA.name}</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+          Get started immediately with the official installation command:
+        </p>
+        <div class="terminal-box">
+          <div class="terminal-bar">
+            <span class="term-btn term-red"></span>
+            <span class="term-btn term-yellow"></span>
+            <span class="term-btn term-green"></span>
+            <span class="term-title">bash</span>
+          </div>
+          <pre class="terminal-code"><code>{toolA.install_command}</code></pre>
+        </div>
+      </section>
+    )}
+
+    <!-- Frequently Asked Questions -->
+    <section class="section-card faq-section">
+      <div class="section-header">
+        <span class="section-icon">❓</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>{faq.q}</span>
+              <span class="faq-chevron">▾</span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom Action CTA -->
+    <div class="vs-bottom-cta">
+      <div class="cta-content">
+        <h3>Explore the Full Dossier for {toolA.name}</h3>
+        <p>Review detailed feature breakdowns, community ratings, pros & cons, and related utilities.</p>
+      </div>
+      <div class="cta-actions">
+        <a href={`/tool/${toolA.id}`} class="btn btn-primary">
+          View {toolA.name} Dossier →
+        </a>
+        <a href="/vs" class="btn btn-secondary">
+          Explore All Comparisons
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .vs-container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 5rem;
+    }
+
+    .breadcrumb-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      color: var(--text-primary);
+    }
+    .bc-sep {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .bc-current {
+      color: #38bdf8;
+      font-weight: 500;
+    }
+
+    /* Hero */
+    .vs-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .vs-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 1.25rem;
+    }
+    .radar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
+    }
+
+    .vs-title {
+      font-size: 2.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .gradient-vs {
+      background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 0 0.35rem;
+    }
+    .vs-subtitle {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Matchup Cards Grid */
+    .tools-matchup-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .matchup-box {
+      background: linear-gradient(180deg, rgba(22, 27, 38, 0.85) 0%, rgba(13, 17, 25, 0.85) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: left;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .tool-a-box {
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.06);
+    }
+    .tool-b-box {
+      border-color: rgba(168, 85, 247, 0.2);
+    }
+    .matchup-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .tool-icon-wrapper {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #0f131c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .tool-icon-img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+    .tool-icon-fallback {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .tool-icon-fallback.default-b {
+      color: #a855f7;
+    }
+    .challenger-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .tool-box-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 0;
+      color: #ffffff;
+    }
+    .tool-box-name a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .tool-box-name a:hover {
+      color: #38bdf8;
+    }
+    .tool-box-tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      min-height: 2.6rem;
+    }
+    .matchup-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .metric-pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .metric-key {
+      color: var(--text-muted);
+      margin-right: 0.35rem;
+    }
+    .metric-val.highlight {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .matchup-vs-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+    }
+
+    /* Sections */
+    .section-card {
+      background: #0c1019;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+    .section-icon {
+      font-size: 1.35rem;
+    }
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    /* Verdict */
+    .verdict-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .verdict-col {
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .verdict-col-a {
+      border-left: 3px solid #38bdf8;
+    }
+    .verdict-col-b {
+      border-left: 3px solid #a855f7;
+    }
+    .verdict-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      margin-bottom: 0.75rem;
+    }
+    .verdict-badge.alt-badge {
+      color: #a855f7;
+    }
+    .verdict-text {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .verdict-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Table */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .comparison-table th {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .table-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+    .table-badge.oss {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+    .table-badge.prop {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+    .status-tag.positive {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .status-tag.neutral {
+      color: #94a3b8;
+    }
+    .subtext {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    .cost-free {
+      color: #38bdf8;
+    }
+
+    /* Editorial Prose */
+    .deepdive-prose h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .deepdive-prose p {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    /* Terminal */
+    .terminal-box {
+      background: #05070c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.5rem 0.85rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .term-btn {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .term-red { background: #ef4444; }
+    .term-yellow { background: #eab308; }
+    .term-green { background: #22c55e; }
+    .term-title {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-left: 0.5rem;
+      font-family: monospace;
+    }
+    .terminal-code {
+      padding: 1.2rem;
+      margin: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: #38bdf8;
+      overflow-x: auto;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .faq-item {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.85rem 1.1rem;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.98rem;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-chevron {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease;
+    }
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Bottom CTA */
+    .vs-bottom-cta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.25rem;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 16px;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .cta-content h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 0.4rem;
+    }
+    .cta-content p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: #38bdf8;
+      color: #040812;
+    }
+    .btn-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .vs-title {
+        font-size: 2rem;
+      }
+      .tools-matchup-grid {
+        grid-template-columns: 1fr;
+      }
+      .matchup-vs-circle {
+        margin: 0 auto;
+      }
+      .verdict-grid {
+        grid-template-columns: 1fr;
+      }
+      .vs-bottom-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</Layout>
