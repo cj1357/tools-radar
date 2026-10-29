@@ -38,7 +38,7 @@ const pageTitle = tool.primary_alternative
 
 // Quickstart command: prioritize authentic install command, fallback only for valid root git repos
 let quickstartCommand = tool.install_command || '';
-let quickstartLabel = tool.install_command ? 'Quick Installation / Run' : 'Quick Start Command';
+let quickstartLabel = (tool.id === 'fastrelease') ? 'Post-Purchase Repository Setup' : (tool.install_command ? 'Quick Installation / Run' : 'Quick Start Command');
 
 if (!quickstartCommand) {
   const isSubfolder = tool.github_url && tool.github_url.includes('/tree/');
@@ -192,40 +192,46 @@ const priceValue = (tool.pricing_model === 'Paid' || tool.pricing_model === 'Usa
   : '0';
 
 // Structured FAQ dataset tailored for this tool (satisfies Google FAQPage Schema & kills thin content)
-const faqList = [
+const defaultFaqList = [
   {
     q: `Is ${tool.name} completely free or does it require a paid subscription?`,
     a: tool.pricing_model === 'Open Source'
-      ? `${tool.name} is 100% free and open-source under an open software license. There are no mandatory monthly subscription fees or per-seat licensing penalties, and you can freely inspect the source code or self-host the application on your private infrastructure.`
+      ? `${tool.name} is 100% free and open-source under an open software license. There are no mandatory monthly subscription fees to access the source code or run it locally.`
       : (tool.pricing_model === 'Free'
-          ? `${tool.name} is available completely free of charge. Developers can access its core features without upfront costs or required credit card registration.`
+          ? `${tool.name} is available completely free of charge. Developers can access its core features without payment.`
           : (tool.pricing_model === 'Paid'
               ? `${tool.name} is a commercial developer product with transparent project-based or usage-based pricing designed for professional teams.`
-              : `${tool.name} provides an accessible free tier or trial alongside paid upgrades for high-volume enterprise production needs.`))
+              : `${tool.name} provides an accessible free tier or trial alongside paid upgrades for high-volume production use.`))
   },
   {
-    q: `How does ${tool.name} compare to ${tool.primary_alternative || 'competing proprietary alternatives'}?`,
-    a: tool.comparison_vs_alt || `Compared to closed proprietary solutions like ${tool.primary_alternative || 'legacy SaaS software'}, ${tool.name} emphasizes developer ergonomics, high execution velocity, transparent data control, and low operational overhead without vendor lock-in.`
+    q: `How does ${tool.name} compare to alternative solutions?`,
+    a: tool.comparison_vs_alt || `Compared to alternative solutions, ${tool.name} offers distinct developer flexibility, streamlined workflows, and focused features.`
   },
   {
     q: `Can I self-host ${tool.name} on private servers or Docker?`,
     a: tool.is_self_hostable
-      ? `Yes. ${tool.name} is architected for self-hosting via Docker or direct binary builds. Deploying on your own VPS or private cloud guarantees 100% data sovereignty, eliminates third-party telemetry, and ensures air-gapped security for proprietary codebases.`
-      : `${tool.name} is delivered primarily as a cloud-hosted web application or managed API endpoint, providing instantaneous zero-maintenance access directly in the browser or via standard HTTP/SDK clients.`
+      ? `Yes. ${tool.name} is designed for self-hosting via Docker or direct server deployment. Running on your own infrastructure allows you to maintain direct control over your local compute, database storage, and operational environment.`
+      : `${tool.name} is delivered primarily as a cloud-hosted web application or managed API endpoint, providing turnkey infrastructure without requiring dedicated server management.`
   },
   {
     q: `Do I need to create an account or provide a credit card to try ${tool.name}?`,
-    a: tool.no_signup_required
-      ? `No account creation or credit card is required to evaluate ${tool.name}. You can immediately access and test its capabilities with zero registration barriers.`
-      : `An account registration is standard to provision secure API keys, manage persistent configurations, and coordinate team access.`
+    a: tool.pricing_model === 'Paid'
+      ? `${tool.name} is a commercial developer product acquired directly under official license terms. No free trial account or public evaluation tier is provided.`
+      : (tool.no_signup_required
+          ? `No account creation or credit card is required to evaluate ${tool.name}. You can immediately access core features or run it locally without onboarding friction.`
+          : `An account registration is standard to provision access credentials, manage configurations, and coordinate team access.`)
   },
   {
     q: `What is the recommended quickstart workflow for ${tool.name}?`,
     a: quickstartCommand
-      ? `You can launch or test ${tool.name} quickly using the following command:\n\n${quickstartCommand}\n\nVisit the official portal at ${tool.url} for comprehensive configuration flags and environment guides.`
-      : `Navigate to the official portal at ${tool.url} to review live interactive documentation, guides, and SDK reference materials.`
+      ? `You can launch or test ${tool.name} quickly using the following command:\n\n${quickstartCommand}\n\nVisit the official portal at ${tool.url} for documentation and guides.`
+      : `Navigate to the official portal at ${tool.url} to review documentation, guides, and setup requirements.`
   }
 ];
+
+const faqList = (tool.faqs && Array.isArray(tool.faqs) && tool.faqs.length > 0)
+  ? tool.faqs
+  : defaultFaqList;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -714,7 +720,7 @@ const jsonLd = {
           <div class="arch-badge-item">
             <span class="arch-badge-label">Data Sovereignty:</span>
             <span class="arch-badge-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #38bdf8;"}>
-              {tool.is_self_hostable ? "100% Private (On-Premises / Docker)" : "Managed Cloud (Zero-Ops)"}
+              {tool.is_self_hostable ? "Self-Hosted (Buyer Infrastructure)" : "Managed Cloud"}
             </span>
           </div>
           <div class="arch-badge-item">

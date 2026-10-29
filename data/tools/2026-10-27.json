@@ -1782,7 +1782,7 @@
     ],
     "pricing_model": "Paid",
     "stars": 0,
-    "primary_alternative": "ShipFast",
+    "primary_alternative": null,
     "is_self_hostable": true,
     "no_signup_required": false,
     "signal_score": 83,
@@ -1816,11 +1816,33 @@
       "Requires Node.js and Docker server operational familiarity"
     ],
     "target_audience": "Indie hackers, technical solopreneurs, and backend engineers launching commercial SaaS products.",
-    "comparison_vs_alt": "Unlike lightweight frontend-only starters like ShipFast, Fastrelease provides deep backend architecture with true multi-tenancy, Docker support, and robust PostgreSQL schemas.",
-    "install_command": null,
+    "comparison_vs_alt": null,
+    "install_command": "# 1. Purchase commercial license on fastrelease.net to receive repository access\n# 2. Clone your licensed repository & configure environment variables (Stripe, PostgreSQL, Mailgun)\ncp .env.example .env\ndocker compose up -d",
     "date_added": "2026-10-27",
     "featured": false,
-    "starting_price": "199"
+    "starting_price": "199",
+    "faqs": [
+      {
+        "q": "How is Fastrelease licensed and delivered?",
+        "a": "Fastrelease is a commercial Node.js codebase. After purchasing a single-project perpetual license ($199) or annual unlimited-project tier ($249/yr, $299/yr), the buyer receives repository access to the complete source code under commercial license terms."
+      },
+      {
+        "q": "What external integrations are required to run Fastrelease?",
+        "a": "Fastrelease is configured directly by the buyer. It is pre-wired for external service integrations including Stripe for payment processing and Mailgun for transactional emails, backed by a self-managed PostgreSQL database and Docker orchestration."
+      },
+      {
+        "q": "Does Fastrelease offer an API-key trial or online product demo?",
+        "a": "No. Fastrelease does not offer an online demo, API-key trial, or free tier. Opening the homepage allows buyers to purchase a license, after which source code repository access is granted."
+      },
+      {
+        "q": "What level of technical expertise is required to deploy Fastrelease?",
+        "a": "Because Fastrelease is purchased source code rather than a managed SaaS, buyers are responsible for configuring environment variables, running Docker Compose, and deploying to their own VPS or server infrastructure."
+      },
+      {
+        "q": "Has Fastrelease undergone an independent third-party security audit?",
+        "a": "No third-party code audit has been supplied. Fastrelease provides the source code for buyers to configure, audit, and host within their own environments according to their organizational standards."
+      }
+    ]
   },
   {
     "id": "mkclip",
