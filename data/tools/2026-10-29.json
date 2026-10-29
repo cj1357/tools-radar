@@ -1,118 +1,1705 @@
 [
   {
-    "id": "agentweb",
-    "name": "AgentWeb",
-    "tagline": "Structured business and web data for AI agents over REST and hosted MCP",
-    "summary": "AgentWeb delivers structured business directories, live web search, and place research specifically engineered for autonomous AI agents and developer workflows. Featuring a hosted Model Context Protocol (MCP) server alongside standard REST endpoints, it allows LLMs and agents to query over 130 million businesses, local venues, weather, and travel data without signup walls or credit card requirements.",
-    "url": "https://agentweb.live",
-    "github_url": null,
-    "source": "submission",
-    "category": "ai-agents",
+    "id": "thinkrail",
+    "name": "Thinkrail",
+    "tagline": "Vibe code with pi in a lightweight, real IDE from JetBrains",
+    "summary": "Thinkrail is a lightweight, adaptable IDE developed by JetBrains that dynamically customizes itself around your specific workflow. It integrates advanced AI agentic capabilities for seamless 'vibe coding' inside a robust development environment.",
+    "url": "https://github.com/JetBrains/thinkrail",
+    "github_url": "https://github.com/JetBrains/thinkrail",
+    "source": "github_trending",
+    "category": "developer-tools",
     "tags": [
-      "MCP",
-      "Model Context Protocol",
-      "AI Agents",
-      "Business Data",
-      "Web Search",
-      "REST API",
-      "Developer Tools"
+      "IDE",
+      "JetBrains",
+      "AI Assistant",
+      "TypeScript",
+      "Vibe Coding"
     ],
-    "pricing_model": "Free",
-    "stars": 0,
-    "primary_alternative": "Tavily",
-    "is_self_hostable": false,
-    "no_signup_required": true,
-    "signal_score": 86,
-    "verdict": "A remarkably agent-friendly data layer combining traditional REST endpoints with hosted Model Context Protocol (MCP) support, enabling AI assistants to query 130M+ verified businesses with zero credit card friction.",
+    "pricing_model": "Open Source",
+    "stars": 5280,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 93,
+    "verdict": "An exciting lightweight entry from JetBrains that bridges the gap between AI-driven 'vibe coding' and a professional, reliable IDE experience. It's a must-try for developers looking for Cursor alternatives backed by robust IDE heritage.",
     "key_features": [
       {
-        "title": "Hosted Model Context Protocol (MCP)",
-        "description": "Native hosted MCP endpoint at api.agentweb.live/mcp, seamlessly connecting into Claude Desktop, Cursor, and custom agent runtimes."
+        "title": "Dynamic IDE Customization",
+        "description": "The interface and environment adapt automatically to match your exact working patterns and preferences."
       },
       {
-        "title": "130M+ Business Directory & Search",
-        "description": "Structured business queries, web search, page retrieval, local places, weather, and travel queries optimized for agent tooling."
+        "title": "Lightweight Architecture",
+        "description": "Built for speed and minimal resource usage without sacrificing powerful IDE capabilities."
       },
       {
-        "title": "Zero-Signup Interactive Sandbox",
-        "description": "Runnable Node.js examples and open test endpoints allowing developers to inspect live data before provisioning API keys."
+        "title": "Pi AI Integration",
+        "description": "Embedded AI assistant designed for fluid, context-aware vibe coding and rapid prototyping."
       }
     ],
     "use_cases": [
-      "Equipping autonomous sales and market research agents with verified business directory information",
-      "Integrating local venue and business lookups directly into Claude Desktop or Cursor via hosted MCP",
-      "Automating travel, weather, and location-aware workflows inside multi-agent software pipelines"
+      "Rapidly prototyping full-stack applications using conversational AI workflows",
+      "Writing and refactoring code in a lightweight environment with deep language intelligence",
+      "Customizing IDE layouts and behavior on-the-fly to suit specialized development tasks"
     ],
     "pros": [
-      "Native hosted Model Context Protocol (MCP) support simplifies LLM tool integration",
-      "Free tier available with no credit card required to get an API key",
-      "Runnable Node.js sample scripts and direct API documentation for rapid prototyping"
+      "Backed by JetBrains' decades of expertise in building world-class developer IDEs",
+      "Significantly more lightweight than traditional heavy IDE setups",
+      "Tailors its layout and tooling dynamically to fit individual developer workflows"
     ],
     "cons": [
-      "Hosted proprietary data service; underlying pipeline is not open source",
-      "Coverage and caching freshness vary by regional business registry source"
+      "Relatively new open-source project with an evolving ecosystem and plugin catalog",
+      "May require a learning curve for developers accustomed to VS Code or standard JetBrains IDEs"
     ],
-    "target_audience": "AI agent engineers, fullstack developers, and automation builders integrating real-world commercial data.",
-    "comparison_vs_alt": "Unlike general search APIs like Tavily or Serper, AgentWeb focuses specifically on structured business entity intelligence and provides a native hosted Model Context Protocol (MCP) endpoint.",
-    "install_command": "npx -y @modelcontextprotocol/inspector https://api.agentweb.live/mcp",
+    "target_audience": "Modern software engineers and indie hackers who want a lightweight, AI-native IDE experience backed by JetBrains engineering.",
+    "comparison_vs_alt": "Unlike Cursor which is built on VS Code, Thinkrail brings JetBrains' legendary IDE foundations into the lightweight, AI-driven coding space.",
+    "install_command": "git clone https://github.com/JetBrains/thinkrail.git",
+    "date_added": "2026-10-26",
+    "featured": false,
+    "forks": 224
+  },
+  {
+    "id": "ai-design-skills",
+    "name": "AI Design Skills",
+    "tagline": "Curated resources and tutorials to master design using AI tools",
+    "summary": "AI Design Skills is an open-source repository that aggregates top-tier resources, prompts, and tutorials for leveraging artificial intelligence in design workflows. It bridges the gap between traditional design principles and modern generative AI tools to accelerate creative output.",
+    "url": "https://github.com/elayadesign/ai-design-skills",
+    "github_url": "https://github.com/elayadesign/ai-design-skills",
+    "source": "github_trending",
+    "category": "design-ui",
+    "tags": [
+      "Design",
+      "Generative AI",
+      "UI/UX",
+      "Resources",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 11336,
+    "primary_alternative": "Figma AI",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 89,
+    "verdict": "An essential, community-driven bookmark repository for designers looking to integrate generative AI effectively into their daily workflow without paying for expensive courses.",
+    "key_features": [
+      {
+        "title": "Curated Tooling Directory",
+        "description": "A comprehensive list of top generative AI design applications and platforms."
+      },
+      {
+        "title": "Prompt Engineering Guides",
+        "description": "Practical guides and examples for generating accurate UI layouts and graphics."
+      },
+      {
+        "title": "Workflow Integration",
+        "description": "Step-by-step tutorials on blending AI outputs into standard design suites like Figma."
+      }
+    ],
+    "use_cases": [
+      "Accelerating wireframing and initial concept generation for product designers",
+      "Learning prompt engineering techniques tailored specifically for visual aesthetics",
+      "Discovering emerging open-source AI tools for graphic and UI design"
+    ],
+    "pros": [
+      "Completely free and open-source community knowledge base",
+      "Regularly updated with the latest generative design techniques",
+      "Saves hours of research by curating the absolute best tutorials and tools"
+    ],
+    "cons": [
+      "Relies on external links which may occasionally become outdated",
+      "Not an execution tool itself, but rather a reference repository"
+    ],
+    "target_audience": "Product designers, UI/UX engineers, and creators looking to upgrade their skillset with AI-driven workflows.",
+    "comparison_vs_alt": "Unlike proprietary suites like Figma AI that lock you into a single ecosystem, AI Design Skills provides a platform-agnostic, open roadmap to mastering diverse generative tools.",
+    "install_command": "git clone https://github.com/elayadesign/ai-design-skills.git",
+    "date_added": "2026-10-28",
+    "featured": false,
+    "forks": 692
+  },
+  {
+    "id": "superpowers",
+    "name": "Superpowers",
+    "tagline": "An agentic skills framework for reliable AI software development",
+    "summary": "Superpowers bridges the gap between raw LLM outputs and structured engineering workflows by providing modular behavioral patterns and methodologies. It equips AI coding assistants with rigorous development disciplines to build software more reliably and effectively.",
+    "url": "https://github.com/obra/superpowers",
+    "github_url": "https://github.com/obra/superpowers",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Developer Tools",
+      "Methodology",
+      "LLM",
+      "Workflow"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 307594,
+    "primary_alternative": "Cursor AI",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "date_added": "2026-09-26",
+    "featured": false,
+    "forks": 27292,
+    "verdict": "An essential framework for developers looking to enforce structure and reliability on AI coding assistants without sacrificing flexibility.",
+    "key_features": [
+      {
+        "title": "Agentic Skills Framework",
+        "description": "Provides modular behavioral patterns designed specifically to guide LLM coding assistants."
+      },
+      {
+        "title": "Structured Engineering Workflows",
+        "description": "Translates chaotic raw LLM outputs into methodical, repeatable software development steps."
+      },
+      {
+        "title": "Reliability Enforcement",
+        "description": "Reduces hallucinations and drift by anchoring AI actions to proven software development methodologies."
+      }
+    ],
+    "use_cases": [
+      "Guiding LLM coding assistants through complex multi-file feature implementation",
+      "Standardizing AI coding behavior across an engineering team",
+      "Enforcing test-driven development workflows with AI agents"
+    ],
+    "pros": [
+      "Brings rigorous engineering discipline to stochastic LLM outputs",
+      "Modular behavioral patterns adapt easily to various coding assistants",
+      "Fully open-source framework with complete control over agent workflows"
+    ],
+    "cons": [
+      "Requires developers to adapt to specific framework methodologies",
+      "Effectiveness depends heavily on the underlying LLM's instruction-following capability"
+    ],
+    "target_audience": "Software engineers and teams leveraging AI coding assistants who want predictable, production-ready code generation.",
+    "comparison_vs_alt": "Unlike standard IDE-bound AI assistants like Cursor, Superpowers offers an explicit, modular behavioral framework that can be adapted across multiple tools and workflows.",
+    "install_command": "git clone https://github.com/obra/superpowers.git"
+  },
+  {
+    "id": "deeptutor",
+    "name": "DeepTutor",
+    "tagline": "Lifelong personalized AI tutoring powered by advanced open-source agents",
+    "summary": "DeepTutor is an advanced open-source framework designed for lifelong personalized tutoring, adapting continuously to a student's learning pace and history. It bridges the gap in standard AI educational tools by providing deeply contextualized, curriculum-aware, and long-term adaptive instruction.",
+    "url": "https://github.com/HKUDS/DeepTutor",
+    "github_url": "https://github.com/HKUDS/DeepTutor",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Education",
+      "Lifelong Learning",
+      "Python",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 48398,
+    "primary_alternative": "Khanmigo",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An exceptional open-source agentic platform for educators and developers looking to build deeply personalized, state-of-the-art AI tutors with full data control.",
+    "key_features": [
+      {
+        "title": "Lifelong Adaptation",
+        "description": "Continuously tracks and adapts to student progress, memory, and knowledge gaps over extended periods."
+      },
+      {
+        "title": "Curriculum-Aware Agents",
+        "description": "Leverages multi-agent architectures to align pedagogical strategies with structured educational curricula."
+      },
+      {
+        "title": "Open-Source Extensibility",
+        "description": "Fully self-hostable codebase allowing fine-grained customization of prompt engineering and knowledge graphs."
+      }
+    ],
+    "use_cases": [
+      "Building custom AI tutoring systems for universities or K-12 schools",
+      "Developing personalized lifelong learning assistants for self-taught engineers",
+      "Researching multi-agent educational methodologies and adaptive cognitive modeling"
+    ],
+    "pros": [
+      "Full data privacy and ownership through self-hosting capabilities",
+      "Advanced long-term memory architecture tailored specifically for educational contexts",
+      "Robust multi-agent framework capable of handling complex pedagogical roles"
+    ],
+    "cons": [
+      "Requires substantial compute and API resources to run effectively at scale",
+      "Steeper implementation curve compared to plug-and-play proprietary SaaS tutors"
+    ],
+    "target_audience": "EdTech developers, AI researchers, and institutions aiming to deploy customized, privacy-respecting AI tutoring agents.",
+    "comparison_vs_alt": "Unlike proprietary alternatives like Khanmigo, DeepTutor is fully open-source and self-hostable, giving institutions complete control over student data and model customization.",
+    "install_command": "git clone https://github.com/HKUDS/DeepTutor.git",
+    "date_added": "2026-10-28",
+    "featured": false,
+    "forks": 5798
+  },
+  {
+    "id": "macro",
+    "name": "Macro",
+    "tagline": "The unified AI workspace uniting email, chat, docs, tasks, and CRM",
+    "summary": "Macro is an all-in-one team workspace that replaces fragmented collaboration silos by connecting email, chat, docs, tasks, agents, calls, and CRM. It uses @-linking and a shared AI memory layer to bridge context across all team workflows and communications.",
+    "url": "https://github.com/macro-inc/macro",
+    "github_url": "https://github.com/macro-inc/macro",
+    "source": "github_trending",
+    "category": "productivity",
+    "tags": [
+      "Workspace",
+      "AI Memory",
+      "Collaboration",
+      "CRM",
+      "Email"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 5509,
+    "primary_alternative": "Notion",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
+    "verdict": "Macro stands out for teams drowning in app fatigue by baking persistent AI memory directly into an integrated workspace. It is an ideal upgrade for fast-moving startups looking to ditch fragmented tool stacks.",
+    "key_features": [
+      {
+        "title": "Unified Workspace",
+        "description": "Seamlessly integrates email, chat, docs, tasks, calls, and CRM into a single application."
+      },
+      {
+        "title": "Contextual @-Linking",
+        "description": "Connects disparate data points, documents, and conversations effortlessly with a universal reference system."
+      },
+      {
+        "title": "Shared AI Memory",
+        "description": "Empowers integrated AI agents with cross-app context to automate complex workflows and answer queries accurately."
+      }
+    ],
+    "use_cases": [
+      "Consolidating internal team chat, project management, and customer CRM into a single source of truth",
+      "Automating multi-step administrative workflows using persistent AI agents with full workspace context",
+      "Streamlining client communication by linking email threads directly to shared docs and tasks"
+    ],
+    "pros": [
+      "Dramatically reduces context-switching by combining communication and execution layers",
+      "Shared AI memory provides deeper contextual awareness than siloed LLM assistants",
+      "Fluid @-linking makes cross-referencing information intuitive and fast"
+    ],
+    "cons": [
+      "Migrating an entire team from entrenched tools like Slack, Notion, and Jira requires significant effort",
+      "Ecosystem lock-in due to the deeply integrated nature of the platform's native modules"
+    ],
+    "target_audience": "Remote-first engineering and product teams looking to eliminate app bloat and harness unified AI context.",
+    "comparison_vs_alt": "Unlike Notion which focuses primarily on docs and databases, Macro provides native real-time chat, email, and calling layers alongside a deeply integrated AI memory engine.",
+    "install_command": null,
     "date_added": "2026-10-29",
     "featured": false
   },
   {
-    "id": "uncensoredlabs",
-    "name": "UncensoredLabs",
-    "tagline": "Uncensored and abliterated AI models through an OpenAI-compatible API",
-    "summary": "UncensoredLabs provides unaligned, uncensored, and abliterated AI LLM endpoints for developers building chatbots, coding assistants, and autonomous agents without safety filter refusals. Existing OpenAI-compatible clients and frameworks can seamlessly connect simply by swapping the API base URL.",
-    "url": "https://uncensoredlabs.dev/",
-    "github_url": null,
-    "source": "submission",
+    "id": "hallmark",
+    "name": "Hallmark",
+    "tagline": "Anti-AI-slop design skill for Claude Code and Cursor",
+    "summary": "Hallmark injects human-grade design constraints into popular AI coding assistants to eradicate generic, low-effort UI outputs. It ensures generated frontends adhere to modern design engineering standards rather than relying on cliché AI aesthetics.",
+    "url": "https://github.com/Nutlope/hallmark",
+    "github_url": "https://github.com/Nutlope/hallmark",
+    "source": "github_trending",
     "category": "ai-tools",
     "tags": [
-      "AI Models",
-      "Uncensored AI",
-      "OpenAI Compatible",
-      "LLM API",
-      "Developer Tools",
-      "Abliterated Models"
+      "AI Tools",
+      "Design Engineering",
+      "Claude Code",
+      "Cursor",
+      "Frontend"
     ],
-    "pricing_model": "Paid",
-    "stars": 0,
-    "primary_alternative": "OpenRouter",
-    "is_self_hostable": false,
-    "no_signup_required": false,
-    "signal_score": 84,
-    "verdict": "An unopinionated OpenAI-compatible API gateway designed for developers requiring uncensored and abliterated open-weight models without corporate safety filter refusals.",
+    "pricing_model": "Open Source",
+    "stars": 40963,
+    "primary_alternative": "Standard AI Code Prompts",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential workflow upgrade for engineers tired of cleaning up generic, cookie-cutter AI-generated UIs. It bridges the gap between raw LLM code generation and polished production-ready aesthetics.",
     "key_features": [
       {
-        "title": "OpenAI-Compatible Streaming API",
-        "description": "Drop-in replacement for OpenAI endpoints with full streaming chat completions support across popular AI clients."
+        "title": "Design Skill Injection",
+        "description": "Seamlessly integrates advanced design guidelines into AI coding assistants like Claude Code and Cursor."
       },
       {
-        "title": "Abliterated & Uncensored Models",
-        "description": "Inference endpoints powered by fine-tuned models stripped of refusal guardrails for unrestricted development and research."
+        "title": "Anti-Slop Filters",
+        "description": "Actively prevents the generation of clichéd gradients, generic layouts, and overused AI UI patterns."
       },
       {
-        "title": "Spending Limits & Model Allowlists",
-        "description": "Granular budget controls and API-key spending limits with prepaid token billing and transparent per-request usage tracking."
+        "title": "Modern Standards",
+        "description": "Forces AI models to output accessible, visually sophisticated, and human-crafted frontend code."
       }
     ],
     "use_cases": [
-      "Building cybersecurity analysis agents that must inspect and refactor raw malware samples without safety refusals",
-      "Powering unconstrained creative writing, roleplay, and uncensored synthetic data generation workflows",
-      "Connecting uncensored models into third-party desktop clients like LibreChat, Open WebUI, and NextChat"
+      "Generating high-fidelity SaaS landing pages with Cursor without looking like generic AI templates",
+      "Building production-ready frontend components using Claude Code that follow strict design systems",
+      "Eliminating repetitive manual CSS overrides for generic AI-generated layouts"
     ],
     "pros": [
-      "Zero-refusal completions on abliterated open-weight LLMs",
-      "100% OpenAI SDK compatibility makes integration a one-line config change",
-      "Transparent prepaid pay-as-you-go billing with no monthly subscription lock-in"
+      "Dramatically improves the aesthetic quality of code generated by LLMs",
+      "Easily integrates into existing developer workflows via popular coding assistants",
+      "Saves hours of design cleanup and frontend refactoring"
     ],
     "cons": [
-      "Closed-source commercial hosted infrastructure",
-      "No permanent free tier; requires prepaid account balance"
+      "Relies on the underlying LLM's capacity to follow complex stylistic instructions",
+      "May occasionally conflict with specific custom design systems without fine-tuning"
     ],
-    "target_audience": "Developers, cybersecurity researchers, and AI builders requiring unaligned and unconstrained model inferences.",
-    "comparison_vs_alt": "Unlike mainstream providers like OpenAI or Anthropic that enforce strict safety refusals, UncensoredLabs provides raw, unaligned completions with drop-in OpenAI SDK compatibility.",
-    "install_command": "curl -X POST https://api.uncensoredlabs.dev/v1/chat/completions -H \"Authorization: Bearer $UNCENSOREDLABS_API_KEY\"",
+    "target_audience": "Frontend engineers and full-stack developers who rely heavily on AI coding tools but demand high-end design quality.",
+    "comparison_vs_alt": "Unlike standard vanilla prompts that frequently result in repetitive boilerplate layouts, Hallmark provides a structured, reusable design skill framework that consistently enforces modern aesthetics.",
+    "install_command": "git clone https://github.com/Nutlope/hallmark.git",
+    "date_added": "2026-10-25",
+    "featured": false,
+    "forks": 2053
+  },
+  {
+    "id": "impeccable",
+    "name": "Impeccable",
+    "tagline": "The design language that makes your AI harness better at design",
+    "summary": "Impeccable is a specialized design system and prompt language engineered to guide LLMs and AI coding assistants toward producing visually stunning, professional UI components. It solves the common problem of generic, unpolished AI-generated interfaces by injecting strict design rules and aesthetic patterns directly into the prompt context.",
+    "url": "https://github.com/pbakaus/impeccable",
+    "github_url": "https://github.com/pbakaus/impeccable",
+    "source": "github_trending",
+    "category": "ai-tools",
+    "tags": [
+      "Design System",
+      "AI Prompts",
+      "UI/UX",
+      "Generative AI",
+      "Frontend"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 93223,
+    "primary_alternative": "V0 by Vercel",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 99,
+    "verdict": "An essential toolkit for developers who use AI code assistants and want to bridge the gap between functional code and elite visual design without manually tweaking CSS.",
+    "key_features": [
+      {
+        "title": "Design Language Injection",
+        "description": "Provides structured design tokens and rules that drastically improve AI output aesthetics."
+      },
+      {
+        "title": "Framework Agnostic",
+        "description": "Works seamlessly across React, Vue, Svelte, or vanilla CSS setups."
+      },
+      {
+        "title": "Curated Aesthetic Rules",
+        "description": "Encodes best practices for typography, spacing, color theory, and micro-interactions into promptable guidelines."
+      }
+    ],
+    "use_cases": [
+      "Generating high-fidelity SaaS dashboard UIs using AI coding assistants",
+      "Standardizing the visual output of multi-agent coding workflows",
+      "Rapid prototyping production-ready frontends without relying on generic bootstrap templates"
+    ],
+    "pros": [
+      "Dramatically reduces the generic 'AI look' in generated user interfaces",
+      "Improves typography and spacing consistency across disparate AI-generated components",
+      "Completely open-source and customizable for team-specific design tokens"
+    ],
+    "cons": [
+      "Requires proper prompt integration into your existing AI workflow or IDE extension",
+      "Results can still vary depending on the underlying foundational LLM's capability"
+    ],
+    "target_audience": "Frontend developers and product engineers who frequently use LLMs to build user interfaces and want superior visual quality.",
+    "comparison_vs_alt": "Unlike closed cloud UI generators like v0, Impeccable gives you an open design language you can run locally and integrate directly into any AI assistant or codebase.",
+    "install_command": "git clone https://github.com/pbakaus/impeccable.git",
+    "date_added": "2026-10-03",
+    "featured": false,
+    "forks": 5386
+  },
+  {
+    "id": "cindy",
+    "name": "Cindy",
+    "tagline": "The open-source AI agent that works out of the box",
+    "summary": "Cindy is an open-source AI agent designed to execute complex multi-step tasks right out of the box without requiring tedious configuration. It bridges the gap between conversational prompts and practical automation by offering an extensible agentic architecture.",
+    "url": "https://github.com/makecindy/cindy",
+    "github_url": "https://github.com/makecindy/cindy",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Open Source",
+      "Automation",
+      "TypeScript",
+      "LLM"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 8244,
+    "primary_alternative": "AutoGPT",
+    "is_self_hostable": true,
+    "no_signup_required": false,
+    "signal_score": 93,
+    "verdict": "Cindy is an exciting open-source contender for developers looking to deploy local or self-hosted AI agents without the boilerplate overhead. Its out-of-the-box readiness makes it a strong choice for rapid automation prototyping.",
+    "key_features": [
+      {
+        "title": "Out-of-the-Box Execution",
+        "description": "Pre-configured agent workflows allow you to start executing tasks immediately with minimal setup."
+      },
+      {
+        "title": "Extensible Architecture",
+        "description": "Easily plug in custom tools, APIs, and LLM backends to tailor the agent to your exact workflow."
+      },
+      {
+        "title": "Open Source Control",
+        "description": "Fully transparent codebase giving you complete data privacy and freedom to self-host."
+      }
+    ],
+    "use_cases": [
+      "Automating multi-step developer workflows and file management tasks",
+      "Executing deep research and compiling structured reports autonomously",
+      "Integrating custom AI agent behaviors into internal team tools"
+    ],
+    "pros": [
+      "Ready to run immediately without complex initial scaffolding",
+      "Full source code availability allows deep customization and zero vendor lock-in",
+      "Active open-source community driving rapid iteration and feature additions"
+    ],
+    "cons": [
+      "Agent reliability can still vary depending on the underlying LLM capabilities",
+      "Documentation and ecosystem maturity may lag behind heavily funded commercial agent platforms"
+    ],
+    "target_audience": "Developers and tech enthusiasts looking for a flexible, self-hostable AI agent framework to automate everyday tasks.",
+    "comparison_vs_alt": "Unlike rigid commercial wrappers or overly complex agent frameworks, Cindy focuses on a streamlined out-of-the-box experience with full open-source autonomy.",
+    "install_command": "git clone https://github.com/makecindy/cindy.git && cd cindy",
+    "date_added": "2026-10-25",
+    "featured": false,
+    "forks": 905
+  },
+  {
+    "id": "openbot",
+    "name": "Openbot",
+    "tagline": "Local-first desktop workspace for persistent AI teammates",
+    "summary": "Openbot is a local-first desktop application designed to run persistent AI models like Codex, Claude, and Grok with dedicated workspaces. It bridges the gap between chat interfaces and autonomous engineering agents by offering task queues, shared files, browser control, and agent-to-agent collaboration.",
+    "url": "https://github.com/nightly-labs/openbot",
+    "github_url": "https://github.com/nightly-labs/openbot",
+    "source": "github_trending",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Desktop App",
+      "Local-First",
+      "Productivity",
+      "TypeScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3391,
+    "primary_alternative": "Cursor",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "verdict": "Openbot is an essential desktop utility for developers looking to orchestrate multiple local and cloud-based AI agents without sacrificing data privacy or workflow continuity. Its emphasis on persistent workspaces and task queues makes complex, multi-agent automation genuinely practical.",
+    "key_features": [
+      {
+        "title": "Persistent Workspaces",
+        "description": "Maintain dedicated environments and context for your AI teammates across sessions."
+      },
+      {
+        "title": "Agent-to-Agent Collaboration",
+        "description": "Enable different AI models like Claude and Grok to coordinate and delegate tasks directly."
+      },
+      {
+        "title": "Integrated Browser Control",
+        "description": "Empower your AI agents to interact directly with web applications and local testing servers."
+      }
+    ],
+    "use_cases": [
+      "Automating multi-step code refactoring across large repositories using concurrent AI agents",
+      "Executing local web scraping and data aggregation workflows with headless browser control",
+      "Running persistent background task queues for continuous bug triaging and testing"
+    ],
+    "pros": [
+      "Local-first architecture guarantees full code and file privacy on your machine",
+      "Native support for multiple leading AI models within a single unified workspace",
+      "Robust task queuing and agent orchestration capabilities out-of-the-box"
+    ],
+    "cons": [
+      "Requires managing your own API keys for various LLM providers",
+      "Heavy resource consumption when running multiple local or browser-driven agent instances concurrently"
+    ],
+    "target_audience": "Full-stack developers and power users who want to orchestrate autonomous AI agents locally with complete privacy.",
+    "comparison_vs_alt": "Unlike cloud-locked IDE extensions like Cursor, Openbot is a dedicated, local-first desktop workspace built specifically for multi-agent persistence, file sharing, and agent-to-agent collaboration.",
+    "install_command": "git clone https://github.com/nightly-labs/openbot.git && cd openbot && npm install",
+    "date_added": "2026-10-27",
+    "featured": false
+  },
+  {
+    "id": "jailbreaks",
+    "name": "Jailbreaks",
+    "tagline": "A comprehensive open-source repository of LLM security bypass prompts",
+    "summary": "Jailbreaks provides an extensive, curated collection of adversarial prompts and techniques designed to test and evaluate large language model safety alignment. Security researchers and AI developers utilize this repository to stress-test guardrails and understand vulnerabilities in commercial foundation models.",
+    "url": "https://github.com/togg53192-cmd/jailbreaks",
+    "github_url": "https://github.com/togg53192-cmd/jailbreaks",
+    "source": "github_trending",
+    "category": "cybersecurity-reverse",
+    "tags": [
+      "AI Safety",
+      "Security",
+      "LLM",
+      "Adversarial"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 7414,
+    "primary_alternative": "Commercial AI Red Teaming Platforms",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "verdict": "An essential reference repository for AI security engineers and red-teamers looking to thoroughly evaluate the robustness of LLM guardrails against advanced prompt injection vectors.",
+    "key_features": [
+      {
+        "title": "Comprehensive Prompt Collection",
+        "description": "Aggregates a wide variety of historical and novel LLM jailbreak techniques."
+      },
+      {
+        "title": "Open Source Research",
+        "description": "Freely accessible repository allowing community contributions and security analysis."
+      },
+      {
+        "title": "Vulnerability Assessment",
+        "description": "Enables systematic testing of commercial and open-weight model safety filters."
+      }
+    ],
+    "use_cases": [
+      "Red-teaming proprietary and open-source large language models prior to deployment",
+      "Studying adversarial machine learning patterns and prompt injection mechanics",
+      "Developing more robust defense mechanisms and automated safety alignment guardrails"
+    ],
+    "pros": [
+      "Direct insight into real-world adversarial prompt techniques used against modern models",
+      "Constantly updated community-driven database of security bypass strategies",
+      "Completely open-source and free to analyze for defensive engineering research"
+    ],
+    "cons": [
+      "Can be misused for generating harmful content if safety guidelines are ignored",
+      "Requires manual testing or custom tooling to automate evaluations against specific LLMs"
+    ],
+    "target_audience": "AI safety researchers, LLM application security engineers, and red-teaming professionals.",
+    "comparison_vs_alt": "Unlike expensive automated red-teaming SaaS tools, Jailbreaks offers a raw, community-curated archive of prompt vectors for direct hands-on security research and model hardening.",
+    "install_command": "git clone https://github.com/togg53192-cmd/jailbreaks.git",
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "slidebyside",
+    "name": "SlideBySide",
+    "tagline": "Present slides natively without ever sharing your screen",
+    "summary": "SlideBySide revolutionizes remote presentations by syncing your slide deck directly to your audience's browser via a secure link. It eliminates clunky screen sharing, ensuring high-frame-rate rendering, pristine text clarity, and seamless remote control.",
+    "url": "https://slidebyside.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Presentation",
+      "Remote Work",
+      "WebRTC",
+      "Browser",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 65,
+    "primary_alternative": "Zoom Screen Share",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "A clever solution to the perennial pain point of blurry screen sharing in video calls, ideal for remote presenters who demand crisp visuals.",
+    "key_features": [
+      {
+        "title": "Direct-to-Browser Sync",
+        "description": "Audience members view slides locally in their browser for crystal-clear quality without bandwidth bottlenecks."
+      },
+      {
+        "title": "Instant Room Creation",
+        "description": "Spin up a presentation session in seconds with a simple shareable link requiring zero software installation for viewers."
+      },
+      {
+        "title": "Presenter Notes & Control",
+        "description": "Keep your speaker notes, timer, and slide controls private while seamlessly advancing the public deck."
+      }
+    ],
+    "use_cases": [
+      "Hosting high-stakes investor pitches over Zoom or Google Meet without pixelated text",
+      "Delivering technical workshops where code snippets and diagrams need to remain razor-sharp",
+      "Presenting to bandwidth-constrained attendees who suffer from choppy video feeds"
+    ],
+    "pros": [
+      "Bypasses video compression artifacts inherent to traditional screen sharing",
+      "Lightweight web app approach requires no plugin or client download for audience members",
+      "Preserves presenter privacy by decoupling speaker notes from the public view"
+    ],
+    "cons": [
+      "Requires audience members to have an active internet connection and secondary browser tab open",
+      "Dependent on external network synchronization for ultra-precise slide transitions"
+    ],
+    "target_audience": "Remote founders, educators, and technical speakers who frequently present over video conferencing software.",
+    "comparison_vs_alt": "Unlike standard video conferencing screen share which compresses slides into a lossy video stream, SlideBySide renders vector graphics locally on the viewer's machine for flawless fidelity.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "yavashark-ive-built-a-javascript-engine-every-day-for-950-da",
+    "name": "Yavashark: I've Built a JavaScript Engine Every Day for 950 Days",
+    "tagline": "Yavashark: I've Built a JavaScript Engine Every Day for 950 Days — newly launched project showcased by indie c...",
+    "summary": "Yavashark: I've Built a JavaScript Engine Every Day for 950 Days — newly launched project showcased by indie creators on Hacker News with 23 community upvotes.",
+    "url": "https://yavashark.dev/blog/announcing-yavashark/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "design-ui",
+    "tags": [
+      "Design"
+    ],
+    "pricing_model": "Free",
+    "stars": 23,
+    "primary_alternative": null,
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 76,
+    "verdict": "Yavashark: I've Built a JavaScript Engine Every Day for 950 Days offers a streamlined developer-centric approach, making it an appealing option for teams valuing agility and low overhead.",
+    "key_features": [
+      {
+        "title": "Developer-First Architecture",
+        "description": "Yavashark: I've Built a JavaScript Engine Every Day for 950 Days is built with modern developer workflows in mind, prioritizing low overhead and straightforward setup."
+      },
+      {
+        "title": "Extensible & Modular",
+        "description": "Easily adapts to existing toolchains and development environments with clean configuration interfaces."
+      }
+    ],
+    "use_cases": [
+      "Integrating Yavashark: I've Built a JavaScript Engine Every Day for 950 Days into existing technical workflows for rapid prototyping",
+      "Streamlining day-to-day developer and engineering tasks",
+      "Reducing dependency on heavy commercial vendor suites"
+    ],
+    "pros": [
+      "Generous free tier with frictionless access",
+      "Cloud-ready deployment with zero local maintenance",
+      "Clean, lightweight interface designed for developer focus"
+    ],
+    "cons": [
+      "Hosted service relies on external cloud infrastructure",
+      "Active open-source project with evolving documentation"
+    ],
+    "target_audience": "Engineers, builders, and technical teams looking for high-efficiency software utilities.",
+    "comparison_vs_alt": null,
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "squishy-3d-helpers",
+    "name": "Squishy 3D Helpers",
+    "tagline": "Interactive soft-body physics and squishy 3D animations in Three.js",
+    "summary": "Squishy 3D Helpers is a specialized toolkit built on top of Three.js that enables developers to add realistic soft-body deformation and tactile interactions to web graphics. It solves the complexity of custom vertex manipulation and physics integration, giving web animations a satisfying, bouncy tactile edge.",
+    "url": "https://prathje.github.io/plushies/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "design-ui",
+    "tags": [
+      "Three.js",
+      "3D Animation",
+      "WebGL",
+      "Physics",
+      "JavaScript"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 12,
+    "primary_alternative": "Cannon.js",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "A delightful niche library for frontend developers looking to inject playful, tactile physics into Three.js scenes without heavy physics engines.",
+    "key_features": [
+      {
+        "title": "Soft-Body Deformations",
+        "description": "Real-time vertex displacement simulating squishy, elastic physical materials."
+      },
+      {
+        "title": "Three.js Integration",
+        "description": "Seamlessly drops into existing Three.js pipelines as custom mesh helpers."
+      },
+      {
+        "title": "Interactive Physics",
+        "description": "Responds dynamically to mouse hovering, clicks, and cursor velocity."
+      }
+    ],
+    "use_cases": [
+      "Building playful interactive hero sections for modern web portfolios",
+      "Creating tactile UI elements and buttons inside WebGL experiences",
+      "Simulating squishy characters or organic assets in browser games"
+    ],
+    "pros": [
+      "Lightweight alternative to full-featured 3D physics engines for soft bodies",
+      "Immediate visual feedback with simple declarative setup",
+      "Built natively for Three.js rendering pipelines"
+    ],
+    "cons": [
+      "Limited documentation and community ecosystem as a newly launched indie project",
+      "Not suited for complex rigid-body multi-object simulations"
+    ],
+    "target_audience": "Creative developers and Three.js enthusiasts building immersive, playful web experiences.",
+    "comparison_vs_alt": "Unlike heavy-weight physics wrappers, Squishy 3D focuses exclusively on lightweight, delightful soft-body deformations optimized for web visuals.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "cpython-315-c11-port",
+    "name": "CPython 3.15 C11 Port",
+    "tagline": "A lightweight, minimalist C11 implementation of Python 3.15 in 25k LoC",
+    "summary": "This is a clean-room or ultra-compact implementation of the Python 3.15 specification written entirely in concise C11. It slashes the massive codebase footprint of standard CPython down to just 25,000 lines of code while maintaining modern language compatibility.",
+    "url": "https://news.ycombinator.com/item?id=50281226",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Python",
+      "C11",
+      "Runtime",
+      "Embedded",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 3,
+    "primary_alternative": "CPython",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An impressive engineering feat for systems programmers and embedded developers looking for a transparent, auditable Python runtime without CPython's massive historical bloat.",
+    "key_features": [
+      {
+        "title": "Ultra-Compact Footprint",
+        "description": "Implements the complex Python 3.15 standard in a mere 25,000 lines of readable C11 code."
+      },
+      {
+        "title": "Minimal Dependencies",
+        "description": "Designed with a lightweight architectural approach that drastically reduces compilation times and binary size."
+      },
+      {
+        "title": "Modern Language Support",
+        "description": "Targets the cutting-edge Python 3.15 feature set within a micro-runtime environment."
+      }
+    ],
+    "use_cases": [
+      "Embedding modern Python scripting capabilities into resource-constrained microcontrollers and IoT devices",
+      "Auditing and security analysis of the Python runtime behavior at the lowest system levels",
+      "Serving as an educational sandbox for understanding modern interpreter design and implementation"
+    ],
+    "pros": [
+      "Extremely small code footprint makes static analysis and security auditing tractable",
+      "Pure C11 implementation ensures maximum portability across diverse embedded architectures",
+      "Lightning-fast build and compilation times compared to the official CPython repository"
+    ],
+    "cons": [
+      "Likely lacks extensive C-extension ecosystem compatibility (like NumPy or heavy C-based libraries) initially",
+      "Early-stage indie project carrying risks around edge-case spec compliance and optimization"
+    ],
+    "target_audience": "Embedded systems engineers, compiler hackers, and systems architects seeking an ultra-lightweight Python runtime.",
+    "comparison_vs_alt": "Unlike the official CPython codebase which spans hundreds of thousands of lines and decades of legacy baggage, this implementation offers a radical minimalist alternative written in clean C11.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "nasscad",
+    "name": "Nasscad",
+    "tagline": "Local-first 3D CAD software for your browser and Windows desktop",
+    "summary": "Nasscad is a local-first 3D computer-aided design application available natively on Windows and directly within the browser. It prioritizes user privacy and high performance by executing heavy computations locally without relying heavily on cloud infrastructure.",
+    "url": "https://www.nasscad.com/NASSCAD_V4_7_0.htm",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "design-ui",
+    "tags": [
+      "3D CAD",
+      "Local-First",
+      "Windows",
+      "Browser",
+      "Engineering"
+    ],
+    "pricing_model": "Free",
+    "stars": 24,
+    "primary_alternative": "AutoCAD",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "Nasscad is an intriguing local-first alternative for designers and engineers who want fast, privacy-respecting 3D modeling without cloud lock-in.",
+    "key_features": [
+      {
+        "title": "Local-First Architecture",
+        "description": "Processes all 3D design files and rendering tasks locally on your machine for maximum privacy and speed."
+      },
+      {
+        "title": "Cross-Platform Access",
+        "description": "Runs seamlessly as a native Windows application or directly inside modern web browsers."
+      },
+      {
+        "title": "Zero Cloud Dependency",
+        "description": "Operates fully offline, ensuring your proprietary designs never leave your local storage."
+      }
+    ],
+    "use_cases": [
+      "Drafting local mechanical parts and engineering assemblies without cloud dependencies",
+      "Quickly reviewing 3D CAD files directly inside a web browser interface",
+      "Working on sensitive architectural designs with strict data privacy requirements"
+    ],
+    "pros": [
+      "Complete data ownership through a local-first offline architecture",
+      "Flexibility to run as either a native Windows app or in-browser tool",
+      "Removes latency and security risks associated with cloud-based CAD platforms"
+    ],
+    "cons": [
+      "Lacks the extensive ecosystem of plugins and enterprise features found in AutoCAD or SolidWorks",
+      "Early-stage indie project with a smaller community and fewer learning resources"
+    ],
+    "target_audience": "Indie mechanical engineers, hobbyists, and designers looking for a privacy-focused, lightweight 3D CAD alternative.",
+    "comparison_vs_alt": "Unlike mainstream enterprise CAD suites that lock files into proprietary cloud ecosystems, Nasscad delivers local-first execution and complete offline privacy.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "popkern",
+    "name": "Popkern",
+    "tagline": "Open-source CAD kernel featuring G2 corner blends and a browser IDE",
+    "summary": "Popkern is a modern open-source CAD kernel designed to bring advanced geometric modeling capabilities, such as G2 continuous corner blending, directly to developers and engineers. It features an integrated browser-based IDE, lowering the barrier to entry for programmatic and parametric CAD workflows.",
+    "url": "https://popkern.dev/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "CAD",
+      "Geometry Kernel",
+      "Browser IDE",
+      "Open Source",
+      "3D Modeling"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 12,
+    "primary_alternative": "OpenCASCADE",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exciting lightweight alternative for developers and hardware hackers looking to build custom web-based CAD workflows without proprietary kernel licensing costs.",
+    "key_features": [
+      {
+        "title": "G2 Corner Blends",
+        "description": "Achieve high-curvature continuity for sleek, industrial-grade surface transitions."
+      },
+      {
+        "title": "Browser-Based IDE",
+        "description": "Write, test, and visualize geometric code directly in your web browser with zero local setup."
+      },
+      {
+        "title": "Open-Source Architecture",
+        "description": "A transparent, hackable geometric modeling foundation designed for custom extensions."
+      }
+    ],
+    "use_cases": [
+      "Building custom browser-based parametric CAD applications",
+      "Generating complex industrial designs with continuous surface blending",
+      "Embedding programmatic 3D modeling tools into web workflows"
+    ],
+    "pros": [
+      "Native G2 blending capabilities missing in many basic open-source kernels",
+      "Zero-friction onboarding via the browser IDE",
+      "Fully open-source and customizable for proprietary embedding"
+    ],
+    "cons": [
+      "Early-stage project with a small community and limited ecosystem maturity",
+      "May lack the extensive algorithm library found in legacy behemoths like OpenCASCADE"
+    ],
+    "target_audience": "CAD software developers, hardware engineers, and web tool creators looking for a modern, open geometric kernel.",
+    "comparison_vs_alt": "Unlike OpenCASCADE which is notoriously complex and difficult to configure for the web, Popkern offers a streamlined, modern approach with an integrated browser environment.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "tangled-taste",
+    "name": "Tangled Taste",
+    "tagline": "A visual interactive map exploring global food dish relationships",
+    "summary": "Tangled Taste is an interactive web application that visually maps the historical and culinary connections between food dishes from around the world. It solves the fragmentation of culinary history by tracing how recipes evolve, cross borders, and share common roots through an intuitive graph interface.",
+    "url": "https://tangledtaste.com/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Food",
+      "Visualization",
+      "Interactive",
+      "Web App"
+    ],
+    "pricing_model": "Free",
+    "stars": 3,
+    "primary_alternative": "TasteAtlas",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "A delightful indie-crafted exploration tool for culinary enthusiasts and researchers looking to discover the deep historical threads connecting global cuisines.",
+    "key_features": [
+      {
+        "title": "Interactive Food Graph",
+        "description": "Visually explore interconnected food dishes through a dynamic web of culinary evolution."
+      },
+      {
+        "title": "Global Origin Tracking",
+        "description": "Trace how recipes spread, adapt, and transform across different cultures and geographies."
+      },
+      {
+        "title": "Frictionless Browsing",
+        "description": "Instantly dive into culinary histories without the hurdle of account creation or paywalls."
+      }
+    ],
+    "use_cases": [
+      "Discovering the historical roots and regional variations of famous international dishes",
+      "Finding culinary inspiration based on shared ingredient profiles or preparation styles",
+      "Educational exploration of cultural diffusion through gastronomy"
+    ],
+    "pros": [
+      "Engaging visual-first interface that makes culinary history intuitive",
+      "Completely free and accessible instantly without signup barriers",
+      "Brings obscure culinary connections to light in a single interconnected view"
+    ],
+    "cons": [
+      "Early-stage indie project with a smaller database compared to established encyclopedias",
+      "Lacks advanced filtering or recipe generation capabilities"
+    ],
+    "target_audience": "Food enthusiasts, culinary historians, and curious developers looking for creative visual data applications.",
+    "comparison_vs_alt": "Unlike TasteAtlas which focuses on a comprehensive traditional encyclopedia format, Tangled Taste emphasizes graph-based relational mapping to show how dishes influence one another.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "keybytes",
+    "name": "Keybytes",
+    "tagline": "A truly modular, open-source mechanical keyboard architecture",
+    "summary": "Keybytes is an open-source hardware and software project that redefines keyboard modularity by allowing users to build custom, swappable layouts effortlessly. It solves the rigidity of traditional split and ortholinear keyboards through flexible interconnects and custom firmware integration.",
+    "url": "https://github.com/notaroomba/keybytes",
+    "github_url": "https://github.com/notaroomba/keybytes",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "Hardware",
+      "Open Source",
+      "Embedded Systems",
+      "Keyboard"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 315,
+    "primary_alternative": "ErgoDox",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 81,
+    "verdict": "An exciting project for hardware hackers and ergonomic enthusiasts looking to build highly customized input devices without proprietary firmware lock-in.",
+    "key_features": [
+      {
+        "title": "Modular Architecture",
+        "description": "Hot-swappable physical modules that let you reconfigure your layout on the fly."
+      },
+      {
+        "title": "Open Source Hardware",
+        "description": "Full access to schematics, PCB designs, and case files for 3D printing."
+      },
+      {
+        "title": "Custom Firmware Support",
+        "description": "Built to run custom keymaps and macros via popular open-source firmware ecosystems."
+      }
+    ],
+    "use_cases": [
+      "Building a custom split ergonomic keyboard tailored to unique physical constraints",
+      "Experimenting with novel macro-pad and input device configurations",
+      "Prototyping personalized hardware input solutions for specialized workflows"
+    ],
+    "pros": [
+      "Complete hardware and software transparency with open-source blueprints",
+      "Unmatched physical customization compared to off-the-shelf ergonomic boards",
+      "No vendor lock-in regarding firmware or replacement components"
+    ],
+    "cons": [
+      "Requires DIY assembly, soldering, or sourcing custom parts",
+      "Steeper learning curve for configuring custom layouts and firmware"
+    ],
+    "target_audience": "Hardware enthusiasts, mechanical keyboard hobbyists, and developers who want absolute control over their physical input devices.",
+    "comparison_vs_alt": "Unlike traditional commercial ergonomic keyboards like the ErgoDox or Moonlander, Keybytes offers extreme modularity down to individual hardware blocks with full open-source liberties.",
+    "install_command": "git clone https://github.com/notaroomba/keybytes.git",
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "gpypl",
+    "name": "gpy.pl",
+    "tagline": "A comprehensive open map of billboards and outdoor advertising in Poland",
+    "summary": "gpy.pl is a specialized mapping tool designed to catalog and visualize billboards and banners across Poland. It helps marketers, urban planners, and researchers analyze outdoor advertising inventory in specific geographic areas.",
+    "url": "https://gpy.pl/",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "productivity",
+    "tags": [
+      "Mapping",
+      "GIS",
+      "Marketing",
+      "Poland",
+      "Open Data"
+    ],
+    "pricing_model": "Free",
+    "stars": 3,
+    "primary_alternative": "Google Maps",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An interesting niche geodata project that brings transparency to physical advertising markets, ideal for local businesses and media planners in Poland.",
+    "key_features": [
+      {
+        "title": "Interactive Outdoor Map",
+        "description": "Visualizes billboard and banner locations across Polish cities and highways."
+      },
+      {
+        "title": "Geospatial Cataloging",
+        "description": "Provides precise positioning and context for physical advertising inventory."
+      },
+      {
+        "title": "Frictionless Access",
+        "description": "Allows instant browsing of outdoor ad locations without requiring registration."
+      }
+    ],
+    "use_cases": [
+      "Planning an out-of-home (OOH) advertising campaign in a Polish city",
+      "Auditing municipal compliance and placement density of banners",
+      "Researching competitive physical advertising presence in specific regions"
+    ],
+    "pros": [
+      "Fills a specific data gap for outdoor advertising in Poland",
+      "Clean, map-first interface that requires no authentication to explore",
+      "Useful alternative to manual scouting for local marketing campaigns"
+    ],
+    "cons": [
+      "Geographically limited strictly to Poland",
+      "Relying on community or initial data inputs which may lack nationwide completeness"
+    ],
+    "target_audience": "Marketers, media planners, and researchers looking to analyze outdoor advertising inventory in Poland.",
+    "comparison_vs_alt": "Unlike general-purpose mapping tools like Google Maps, gpy.pl is purpose-built to index and display outdoor advertising assets specifically.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "studio-3e8-mesa-1",
+    "name": "Studio 3e8 Mesa 1",
+    "tagline": "An affordable open-hardware Metal 3D Printer for makers",
+    "summary": "Studio 3e8 Mesa 1 brings metal additive manufacturing down to an accessible scale for independent creators and small engineering shops. It bridges the massive cost gap between industrial powder-bed fusion systems and hobbyist plastic printers.",
+    "url": "https://www.studio3e8.com/post/studio-3e8-launch",
+    "github_url": null,
+    "source": "hackernews",
+    "category": "developer-tools",
+    "tags": [
+      "3D Printing",
+      "Hardware",
+      "Manufacturing",
+      "Open Source",
+      "Prototyping"
+    ],
+    "pricing_model": "Paid",
+    "stars": 6,
+    "primary_alternative": "Desktop Metal Studio System",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 71,
+    "verdict": "An exciting disruption in rapid hardware prototyping, ideal for indie product developers who need functional metal parts without enterprise-tier budgets.",
+    "key_features": [
+      {
+        "title": "Desktop Metal Printing",
+        "description": "Fabricates functional metal components directly in a compact footprint."
+      },
+      {
+        "title": "Indie-Accessible Pricing",
+        "description": "Significantly lowers the capital barrier compared to legacy industrial metal printers."
+      },
+      {
+        "title": "Custom Toolchain Integration",
+        "description": "Designed to work alongside standard CAD workflows and open-source slicers."
+      }
+    ],
+    "use_cases": [
+      "Prototyping custom brackets and mechanical linkages in stainless steel or aluminum",
+      "Small-batch production of specialized end-use metal components for robotics",
+      "In-house iteration of complex geometries previously requiring expensive CNC machining"
+    ],
+    "pros": [
+      "Democratizes metal additive manufacturing for indie makers and small teams",
+      "Substantially lower cost barrier than traditional industrial sintering systems",
+      "Enables rapid iterative testing of structural metal parts locally"
+    ],
+    "cons": [
+      "Early-stage hardware project with potential supply chain and support limitations",
+      "Material handling and post-processing (debinding/sintering) require specialized safety protocols"
+    ],
+    "target_audience": "Hardware startup founders, mechanical engineers, and advanced makers needing affordable in-house metal prototyping.",
+    "comparison_vs_alt": "Unlike enterprise metal systems that cost hundreds of thousands of dollars, Mesa 1 targets the indie hardware budget while trading off raw industrial throughput.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "webai",
+    "name": "WebAI",
+    "tagline": "Let websites run local AI directly on your hardware",
+    "summary": "WebAI by Opera enables web applications to execute large language models natively on a user's local machine via the browser. It solves the high cost and latency of cloud-hosted AI by providing a secure, client-side inference bridge for web apps.",
+    "url": "https://www.producthunt.com/products/opera",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "Browser",
+      "Local AI",
+      "Client-Side",
+      "Privacy",
+      "WebAPI"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "OpenAI API",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An innovative step toward zero-cost, private browser AI execution that web developers should watch for edge-compute architectures.",
+    "key_features": [
+      {
+        "title": "Local Model Execution",
+        "description": "Run AI models directly on local hardware through the browser environment."
+      },
+      {
+        "title": "Zero Cloud Latency",
+        "description": "Execute prompts instantly without round-trips to external API servers."
+      },
+      {
+        "title": "Enhanced Privacy",
+        "description": "Keep sensitive user data entirely on-device during AI processing."
+      }
+    ],
+    "use_cases": [
+      "Building offline-capable AI-powered web applications",
+      "Processing sensitive client data locally without server transmission",
+      "Reducing cloud LLM API operational costs for high-traffic web tools"
+    ],
+    "pros": [
+      "Eliminates per-token cloud API costs for web developers",
+      "Ensures complete data privacy by keeping inference on-device",
+      "Seamlessly integrates local hardware acceleration into the browser"
+    ],
+    "cons": [
+      "Restricted primarily to users running the Opera browser ecosystem",
+      "Performance depends heavily on the end-user's local hardware capabilities"
+    ],
+    "target_audience": "Web developers and product engineers looking to build privacy-first, zero-cost AI features into web apps.",
+    "comparison_vs_alt": "Unlike OpenAI API which relies on expensive cloud servers and data transmission, WebAI shifts the inference workload directly to the user's local machine for absolute privacy and zero recurring token costs.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "dotverse",
+    "name": "Dotverse",
+    "tagline": "Collaborative AI crew platform for your digital workspace",
+    "summary": "Dotverse brings multi-agent AI crews directly into your digital workspace to automate complex collaborative workflows. It bridges the gap between individual AI prompts and coordinated team-based autonomous execution.",
+    "url": "https://www.producthunt.com/products/dotverse",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Collaboration",
+      "Workflow Automation",
+      "Productivity"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "CrewAI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An intuitive platform for deploying collaborative AI crews that streamlines multi-step business and creative tasks. Highly recommended for teams looking to orchestrate specialized AI agents without heavy coding.",
+    "key_features": [
+      {
+        "title": "Multi-Agent Crews",
+        "description": "Deploy specialized AI agents that collaborate together to accomplish complex objectives."
+      },
+      {
+        "title": "Workspace Integration",
+        "description": "Seamlessly embed your AI crew directly into your daily digital workspace environment."
+      },
+      {
+        "title": "Workflow Orchestration",
+        "description": "Define custom multi-step pipelines where different agents handle specific parts of a task."
+      }
+    ],
+    "use_cases": [
+      "Automating multi-stage content creation and editorial workflows",
+      "Running collaborative market research and data analysis crews",
+      "Coordinating software development and code review pipelines using specialized agents"
+    ],
+    "pros": [
+      "Enables collaborative agent interactions rather than isolated prompt responses",
+      "Streamlines multi-step workflows that normally require manual intervention",
+      "User-friendly interface makes agent orchestration accessible to non-technical users"
+    ],
+    "cons": [
+      "Requires active internet connection and relies on cloud infrastructure",
+      "Less granular control over underlying model parameters compared to open-source code libraries"
+    ],
+    "target_audience": "Product managers, creators, and professionals seeking to automate complex workflows using collaborative AI teams.",
+    "comparison_vs_alt": "Unlike developer-heavy frameworks like CrewAI, Dotverse offers a more accessible, workspace-oriented experience for managing multi-agent crews without managing code repositories.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "bytemail",
+    "name": "Bytemail",
+    "tagline": "Native Mac email client built into your notch without trackers",
+    "summary": "Bytemail is a lightweight, native macOS email client that discreetly integrates into your screen's notch for quick access. It consolidates all your inboxes while actively blocking tracking pixels and privacy-invading scripts.",
+    "url": "https://www.producthunt.com/products/bytemail",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "macOS",
+      "Email",
+      "Privacy",
+      "Native",
+      "Productivity"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Superhuman",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An exceptional choice for Mac power users prioritizing privacy and minimal screen clutter, though limited to the macOS ecosystem.",
+    "key_features": [
+      {
+        "title": "Notch Integration",
+        "description": "Seamlessly tucks away into the MacBook notch for zero-clutter access to your messages."
+      },
+      {
+        "title": "Universal Inbox",
+        "description": "Aggregates multiple email accounts into a single, unified stream."
+      },
+      {
+        "title": "Tracker Blocker",
+        "description": "Automatically strips invisible tracking pixels and read receipts to protect your privacy."
+      }
+    ],
+    "use_cases": [
+      "Checking important incoming emails instantly from the Mac notch without opening a full window",
+      "Managing multiple personal and work accounts securely without data leakage",
+      "Reading newsletters and marketing emails without exposing your IP or read status"
+    ],
+    "pros": [
+      "Native macOS performance and extremely lightweight resource usage",
+      "Innovative notch-based UI that saves valuable screen estate",
+      "Robust built-in privacy protection against hidden email trackers"
+    ],
+    "cons": [
+      "Exclusively available for macOS users with supported MacBooks",
+      "Lacks the extensive workflow customization and AI features of heavyweights like Superhuman"
+    ],
+    "target_audience": "Macbook users who value minimalism, hardware-native performance, and strict email privacy.",
+    "comparison_vs_alt": "Unlike Superhuman which focuses heavily on cloud-driven AI and speed for a steep monthly fee, Bytemail leverages native macOS architecture and notch placement for a clean, privacy-first desktop experience.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "dedica",
+    "name": "Dedica",
+    "tagline": "Check if AI agents can successfully use and navigate your website",
+    "summary": "Dedica is an innovative diagnostic tool designed to test and evaluate how effectively autonomous AI agents interact with your web pages. It surfaces friction points, parsing failures, and UI roadblocks that prevent LLM-driven tools from successfully completing workflows on your site.",
+    "url": "https://www.producthunt.com/products/dedica",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "AI Agents",
+      "Web Testing",
+      "LLM",
+      "Developer Tools",
+      "Automation"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Browserbase",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential utility for modern web developers and product teams preparing for the shift toward AI-driven browsing and autonomous agent traffic.",
+    "key_features": [
+      {
+        "title": "Agent Compatibility Audit",
+        "description": "Simulates AI agent interactions to uncover navigation roadblocks and rendering issues."
+      },
+      {
+        "title": "Readability Scoring",
+        "description": "Evaluates how easily an LLM can parse, understand, and extract structured data from your DOM."
+      },
+      {
+        "title": "Actionability Analysis",
+        "description": "Tests whether interactive elements like buttons and forms are properly exposed to automated agents."
+      }
+    ],
+    "use_cases": [
+      "Optimizing an e-commerce checkout flow so AI shopping assistants can complete purchases on behalf of users",
+      "Auditing SaaS documentation sites to ensure customer support AI agents can accurately fetch guides",
+      "Testing API-driven web apps for structural barriers that block headless browsing tools"
+    ],
+    "pros": [
+      "Directly addresses the emerging requirement of making websites 'AI-agent friendly'",
+      "Provides clear, actionable insights into DOM semantic clarity for LLMs",
+      "Helps future-proof digital storefronts and web apps against incoming autonomous traffic"
+    ],
+    "cons": [
+      "Relatively new domain with rapidly evolving agent standards and benchmarks",
+      "Limited control over underlying AI model updates used for simulation testing"
+    ],
+    "target_audience": "Frontend engineers, product managers, and growth teams preparing their web properties for AI agent adoption.",
+    "comparison_vs_alt": "Unlike generic browser automation or testing frameworks, Dedica focuses specifically on the LLM comprehension layer, giving you direct visibility into how modern AI agents perceive your UI.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "throxy",
+    "name": "Throxy",
+    "tagline": "Cold calls in your prospect's global language",
+    "summary": "Throxy automates multilingual cold calling to scale international outbound sales pipelines effortlessly. It bridges language barriers by conversing with prospects in their native tongues while integrating smoothly into existing sales workflows.",
+    "url": "https://www.producthunt.com/products/throxy-yc-p25",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Sales",
+      "Voice AI",
+      "Outbound"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Bland AI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential scaling tool for sales teams targeting international markets without hiring localized reps. It stands out by removing linguistic friction directly at the cold-calling layer.",
+    "key_features": [
+      {
+        "title": "Multilingual Cold Calling",
+        "description": "Engage global prospects naturally in their native languages using advanced conversational voice AI."
+      },
+      {
+        "title": "Pipeline Generation",
+        "description": "Automate top-of-funnel outbound efforts to continuously deliver qualified meetings into your CRM."
+      },
+      {
+        "title": "Sales Workflow Integration",
+        "description": "Connect seamlessly with existing sales stacks to sync call data and prospect sentiment."
+      }
+    ],
+    "use_cases": [
+      "Scaling outbound sales campaigns into non-English speaking European or Asian markets",
+      "Testing new international product-market fit without establishing local call centers",
+      "Automating initial qualification calls across multiple time zones simultaneously"
+    ],
+    "pros": [
+      "Overcomes language barriers instantly for cross-border outbound sales",
+      "Saves significant overhead compared to hiring native-speaking sales reps",
+      "Operates at scale with consistent pitch delivery and zero fatigue"
+    ],
+    "cons": [
+      "AI voice nuance may still occasionally sound synthetic to hyper-observant prospects",
+      "Strict regulatory compliance required depending on regional telemarketing laws"
+    ],
+    "target_audience": "Growth teams, sales leaders, and founders scaling outbound pipelines across international markets.",
+    "comparison_vs_alt": "Unlike generic voice AI platforms like Bland AI, Throxy focuses explicitly on multilingual cold calling and international sales pipeline generation.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "notikeep",
+    "name": "NotiKeep",
+    "tagline": "Notification history for iPhone, right on your device",
+    "summary": "NotiKeep captures and stores your iPhone notification history securely on your local device. It solves the iOS limitation of missing dismissed or lost alerts by maintaining an organized searchable archive while prioritizing user privacy.",
+    "url": "https://www.producthunt.com/products/notikeep",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "iOS",
+      "Mobile",
+      "Privacy",
+      "Productivity"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Android Built-in Notification History",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 65,
+    "verdict": "An essential utility for iOS power users who frequently miss or accidentally swipe away important notifications. Its local-first approach ensures complete data privacy without sending push logs to external servers.",
+    "key_features": [
+      {
+        "title": "Local Notification Archive",
+        "description": "Automatically logs and saves all incoming iOS push notifications directly on your device."
+      },
+      {
+        "title": "Search & Filter",
+        "description": "Easily search through past alerts by app, keyword, or timestamp to find missed information."
+      },
+      {
+        "title": "Privacy-First Architecture",
+        "description": "Keeps all sensitive notification logs entirely on your device with zero cloud telemetry."
+      }
+    ],
+    "use_cases": [
+      "Recovering accidentally swiped-away 2FA codes or banking alerts",
+      "Reviewing missed social media notifications from the entire day in one place",
+      "Auditing app notification frequency and behavior over time"
+    ],
+    "pros": [
+      "Local-first storage guarantees complete user privacy and data ownership",
+      "Fills a long-standing native capability gap in the iOS ecosystem",
+      "Lightweight app footprint with minimal battery drain"
+    ],
+    "cons": [
+      "Requires proper system permissions and configuration to capture notifications reliably",
+      "Dependent on iOS background execution limits for uninterrupted logging"
+    ],
+    "target_audience": "iOS users and professionals who need a reliable audit trail of missed alerts and priority messages.",
+    "comparison_vs_alt": "Unlike Android which offers built-in notification logs, iOS lacks a native equivalent, making NotiKeep a vital bridge for Apple users seeking historical notification tracking.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "basedash",
+    "name": "Basedash",
+    "tagline": "Share internal databases and dashboards securely with view-only members",
+    "summary": "Basedash turns your SQL databases into collaborative workspaces with instant UI generation. The new view-only member tier allows organizations to scale internal visibility securely without risking accidental data modifications.",
+    "url": "https://www.producthunt.com/products/basedash",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "developer-tools",
+    "tags": [
+      "Dashboards",
+      "SQL",
+      "Collaboration",
+      "Internal Tools",
+      "Database"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Retool",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential extension for teams using Basedash who need to grant stakeholders and non-technical staff safe access to live database insights.",
+    "key_features": [
+      {
+        "title": "View-Only Access Control",
+        "description": "Safely share live dashboards and data views with team members without granting edit permissions."
+      },
+      {
+        "title": "Instant UI Generation",
+        "description": "Automatically convert SQL queries and database schemas into interactive, clean UI components."
+      },
+      {
+        "title": "Collaborative Workspaces",
+        "description": "Centralize database querying and reporting so the entire company can access single-source-of-truth data."
+      }
+    ],
+    "use_cases": [
+      "Sharing real-time product metrics and revenue dashboards with executive stakeholders",
+      "Giving customer support agents read-only access to user profiles and order histories",
+      "Enabling non-technical team members to query data without writing raw SQL"
+    ],
+    "pros": [
+      "Eliminates the risk of accidental data deletion or schema modification by non-engineers",
+      "Reduces internal engineering ticket volume for ad-hoc data requests",
+      "Streamlines team onboarding with clean, out-of-the-box UI for SQL databases"
+    ],
+    "cons": [
+      "Limited to users who already utilize Basedash as their internal database interface",
+      "Lacks heavy custom app-building capabilities compared to low-code giants like Retool"
+    ],
+    "target_audience": "Engineering and product leads who want to safely share live database dashboards with non-technical company stakeholders.",
+    "comparison_vs_alt": "Unlike building heavy internal tool suites in Retool, Basedash focuses on instantly connecting to existing databases with a lightweight, Notion-like collaborative experience.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "hob",
+    "name": "Hob",
+    "tagline": "Open-source, on-device alternative to Claude Cowork and ChatGPT",
+    "summary": "Hob is a privacy-first, open-source desktop application that runs LLMs directly on your local hardware. It eliminates cloud data dependency while providing a seamless workspace experience for local AI interactions.",
+    "url": "https://github.com/FrigadeHQ/hob",
+    "github_url": "https://github.com/FrigadeHQ/hob",
+    "source": "hackernews",
+    "category": "open-source",
+    "tags": [
+      "AI Tools",
+      "Desktop App",
+      "On-Device",
+      "Privacy",
+      "Open Source"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 278,
+    "primary_alternative": "ChatGPT Desktop",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 82,
+    "verdict": "Hob is an essential tool for privacy-conscious developers and power users wanting to leverage local LLMs without sending proprietary data to third-party cloud providers. It stands out for its frictionless local execution and transparent open-source foundation.",
+    "key_features": [
+      {
+        "title": "Local Execution",
+        "description": "Runs powerful large language models entirely on your local device for maximum privacy."
+      },
+      {
+        "title": "Zero Cloud Dependency",
+        "description": "Eliminates API keys, subscription fees, and telemetry sent to external servers."
+      },
+      {
+        "title": "Open Source Architecture",
+        "description": "Fully auditable codebase allowing custom modifications and community-driven extensions."
+      }
+    ],
+    "use_cases": [
+      "Interacting with private codebase documentation and sensitive local notes securely",
+      "Running offline coding assistant workflows while traveling or in air-gapped environments",
+      "Experimenting with local LLM outputs without incurring cloud API token costs"
+    ],
+    "pros": [
+      "Complete data privacy with zero telemetry or cloud logging",
+      "No recurring subscription fees or API usage limits",
+      "Seamless local hardware acceleration utilization"
+    ],
+    "cons": [
+      "Performance heavily depends on local GPU/CPU hardware capabilities",
+      "Requires manual setup and management of local model weights"
+    ],
+    "target_audience": "Privacy-focused developers, security engineers, and open-source enthusiasts seeking a local alternative to commercial AI chats.",
+    "comparison_vs_alt": "Unlike ChatGPT or Claude Desktop which route all prompts through proprietary cloud infrastructure, Hob keeps your data entirely on your machine with zero risk of third-party data training or leaks.",
+    "install_command": "git clone https://github.com/FrigadeHQ/hob.git",
+    "date_added": "2026-10-28",
+    "featured": false,
+    "forks": 18
+  },
+  {
+    "id": "fraud-blocker",
+    "name": "Fraud Blocker",
+    "tagline": "AI-powered click fraud protection for Google and Meta ads",
+    "summary": "Fraud Blocker is an automated click fraud protection platform designed to safeguard paid digital marketing budgets from malicious bots and competitors. It integrates seamlessly with Google Ads and Meta Ads to block fraudulent IP addresses and optimize ad spend return.",
+    "url": "https://www.producthunt.com/products/fraud-blocker",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "ai-tools",
+    "tags": [
+      "Ad Fraud",
+      "Google Ads",
+      "Meta Ads",
+      "Analytics",
+      "AI"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "ClickCease",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An essential tool for marketing teams and agencies looking to eliminate wasted ad spend on fraudulent bot traffic and boost overall campaign ROI.",
+    "key_features": [
+      {
+        "title": "Real-Time IP Blocking",
+        "description": "Automatically detects and blocks fraudulent IP addresses from seeing your Google and Meta ads."
+      },
+      {
+        "title": "AI-Driven Detection",
+        "description": "Leverages advanced machine learning models to identify sophisticated bot patterns and click farms."
+      },
+      {
+        "title": "Comprehensive Analytics",
+        "description": "Provides detailed reporting dashboards showing blocked clicks, saved budget, and campaign health."
+      }
+    ],
+    "use_cases": [
+      "Preventing competitor click-fraud on high-intent Google search keywords",
+      "Eliminating automated bot clicks on Meta lead generation and conversion campaigns",
+      "Maximizing return on ad spend (ROAS) for high-budget digital marketing agencies"
+    ],
+    "pros": [
+      "Direct integrations with major ad networks like Google Ads and Facebook/Meta",
+      "Automated protection running 24/7 without requiring manual rule updates",
+      "Clear visibility into wasted budget metrics and blocked traffic sources"
+    ],
+    "cons": [
+      "Paid subscription model can add up for smaller businesses with low ad spends",
+      "Relies on ad platform API limitations for blocking execution speed"
+    ],
+    "target_audience": "Digital marketers, PPC specialists, and business owners managing high-spend Google and Meta advertising campaigns.",
+    "comparison_vs_alt": "Unlike ClickCease, Fraud Blocker offers streamlined multi-platform coverage with an emphasis on lightweight, AI-driven detection suited for modern growth teams.",
+    "install_command": null,
+    "date_added": "2026-10-29",
+    "featured": false
+  },
+  {
+    "id": "airposture",
+    "name": "AirPosture",
+    "tagline": "Real-time posture correction via your AirPods voice coach on Mac",
+    "summary": "AirPosture uses computer vision on your Mac to monitor your slouching habits and delivers real-time voice coaching directly into your AirPods. It bridges the gap between passive ergonomics tracking and active habit correction without requiring bulky wearable hardware.",
+    "url": "https://www.producthunt.com/products/airposture-2",
+    "github_url": null,
+    "source": "producthunt",
+    "category": "productivity",
+    "tags": [
+      "Mac",
+      "Audio",
+      "Ergonomics",
+      "AI Voice",
+      "Productivity"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Upright GO",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 65,
+    "verdict": "An innovative, hardware-free approach to desk ergonomics that leverages the hardware you already own to keep you healthy. It stands out by replacing annoying visual notifications with discreet audio coaching.",
+    "key_features": [
+      {
+        "title": "AirPods Audio Coaching",
+        "description": "Receive discreet, real-time voice cues directly in your wireless earphones when you slouch."
+      },
+      {
+        "title": "Mac Webcam Vision",
+        "description": "Continuously analyzes your posture locally via your computer's built-in camera without cloud streaming."
+      },
+      {
+        "title": "Habit Formation Triggers",
+        "description": "Gentle, non-intrusive reminders help correct muscle memory throughout long coding or writing sessions."
+      }
+    ],
+    "use_cases": [
+      "Preventing neck strain and slouching during marathon software engineering sessions",
+      "Maintaining proper ergonomic alignment while working remotely from a laptop",
+      "Building long-term posture habits without wearing physical posture correction hardware"
+    ],
+    "pros": [
+      "No extra hardware or posture straps required to buy and wear",
+      "Discreet audio feedback avoids breaking screen focus with visual pop-ups",
+      "Optimized natively for macOS performance and webcam integration"
+    ],
+    "cons": [
+      "Requires constant webcam visibility which can be blocked by external displays",
+      "Relies on continuous audio feedback which may disrupt music or meetings"
+    ],
+    "target_audience": "Desk-bound software developers, writers, and remote workers looking to prevent ergonomic strain without buying dedicated wearables.",
+    "comparison_vs_alt": "Unlike physical posture trackers like Upright GO that require adhesive pads or wearable devices, AirPosture utilizes your Mac and AirPods for a completely seamless, zero-hardware desk setup.",
+    "install_command": null,
     "date_added": "2026-10-29",
     "featured": false
   }
