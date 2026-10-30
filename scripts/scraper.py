@@ -662,6 +662,15 @@ def generate_editorial_review_ai(tool: dict) -> dict | None:
             review_data["tool_id"] = tool["id"]
             review_data["model_used"] = model
             review_data["generated_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+            # Sanitize any accidental prompt instructions echo from LLM output
+            for sec in ["section1_architecture", "section2_ergonomics", "section3_licensing_tco", "section4_verdict"]:
+                if sec in review_data and isinstance(review_data[sec], str):
+                    review_data[sec] = re.sub(r"^Chapter\s+\d+\s*\([^)]*\):\s*(?:Deep dive into|Detailed developer|Total cost of|Production readiness)[^.]*\.\s*", "", review_data[sec]).strip()
+
+            if not review_data.get("editorial_verdict_callout"):
+                review_data["editorial_verdict_callout"] = f"{tool_name} delivers focused developer ergonomics and solid architectural utility for modern engineering workflows."
+
             return review_data
         else:
             print(f"    [AI Review Error] HTTP {resp.status_code}: {resp.text[:120]}")
