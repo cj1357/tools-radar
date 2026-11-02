@@ -27,13 +27,27 @@ const alternatives = allTools
 const iconUrl = getToolIcon(tool.url, tool.github_url);
 const initial = tool.name.charAt(0);
 
+const knownFreeKeywords = [
+  'git', 'blender', 'audacity', 'gimp', 'obsidian', 'vs code', 'vscode', 'vscodium',
+  'linux', 'docker', 'firefox', 'vlc', 'wireshark', 'neovim', 'vim', 'git diff',
+  'gitkraken', 'gitlens', 'github actions', 'ffmpeg', 'curl', 'wget', 'bash', 'zsh',
+  'libreoffice', 'postman free', 'keepass', 'bitwarden free', 'sqlite', 'postgresql',
+  'redis', 'nginx', 'apache', 'kubernetes', 'k8s', 'inkscape', '7-zip', 'thunderbird'
+];
+
 const altClean = tool.primary_alternative?.trim() || '';
 const altSlug = altClean ? altClean.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') : '';
+const altLower = altClean.toLowerCase();
+const altToolObj = allTools.find(t => t.id === altSlug || t.name.toLowerCase() === altLower);
+const isKnownFreeAlt = altToolObj 
+  ? (altToolObj.pricing_model === 'Open Source' || altToolObj.pricing_model === 'Free')
+  : knownFreeKeywords.some(k => altLower.includes(k));
+
 const comparisonPairSlug = (altSlug && altSlug !== tool.id) ? `${tool.id}-vs-${altSlug}` : null;
 
 const pageTitle = tool.primary_alternative 
   ? (tool.pricing_model === 'Open Source'
-      ? `${tool.name} - Free Open-Source Alternative to ${tool.primary_alternative}`
+      ? `${tool.name} - Open-Source Alternative to ${tool.primary_alternative}`
       : `${tool.name} - Free Alternative to ${tool.primary_alternative}`)
   : `${tool.name} - Review, Pricing & Key Features`;
 
@@ -91,7 +105,9 @@ const displayPros = (rawPros.length > 0) ? rawPros : [
     ? 'Full data privacy and sovereignty — run securely in private Docker / local cloud' 
     : 'Zero-configuration cloud setup with immediate browser-based access',
   tool.primary_alternative 
-    ? `Eliminates costly licensing and vendor lock-in compared to ${tool.primary_alternative}` 
+    ? (isKnownFreeAlt 
+        ? `Dedicated developer ergonomics and tailored workflows alongside ${tool.primary_alternative}` 
+        : `Eliminates costly licensing and vendor lock-in compared to ${tool.primary_alternative}`) 
     : 'Streamlined, lightweight interface designed for developer focus',
   tool.no_signup_required 
     ? 'Frictionless trial — test features immediately without email sign-up' 
@@ -104,7 +120,9 @@ const displayCons = (rawCons.length > 0) ? rawCons : [
     ? 'Self-hosting requires basic server management and backup routines' 
     : 'Hosted service depends on third-party cloud availability and terms',
   tool.primary_alternative 
-    ? `Ecosystem plugins may be newer than entrenched giants like ${tool.primary_alternative}` 
+    ? (isKnownFreeAlt 
+        ? `Focused utility scope rather than replacing ${tool.primary_alternative}'s full general-purpose suite` 
+        : `Ecosystem plugins may be newer than entrenched giants like ${tool.primary_alternative}`) 
     : 'Relatively fresh project — documentation is expanding rapidly',
   'Fast development velocity — recommend following release notes for major updates'
 ];
@@ -140,9 +158,13 @@ if (displayFeatures.length === 0) {
         : 'Access instant capabilities with zero complex infrastructure setup or machine dependencies.'
     },
     {
-      title: tool.primary_alternative ? `Zero-Lock-in Alternative to ${tool.primary_alternative}` : 'Modern Automated Workflows',
+      title: tool.primary_alternative 
+        ? (isKnownFreeAlt ? `Focused Workflow Alternative to ${tool.primary_alternative}` : `Zero-Lock-in Alternative to ${tool.primary_alternative}`) 
+        : 'Modern Automated Workflows',
       description: tool.primary_alternative
-        ? `Delivers the core power and flexibility of ${tool.primary_alternative} with cleaner ergonomics and zero licensing penalties.`
+        ? (isKnownFreeAlt 
+            ? `Delivers specialized developer ergonomics and lightweight execution tailored for specific engineering pipelines alongside ${tool.primary_alternative}.` 
+            : `Delivers the core power and flexibility of ${tool.primary_alternative} with cleaner ergonomics and zero licensing penalties.`)
         : 'Designed specifically to eliminate friction and automate repetitive engineering patterns.'
     }
   );
@@ -278,7 +300,7 @@ const reviewSection2 = hasChapters
 
 const reviewSection3 = hasChapters 
   ? aiEditorialReview.chapters[2].content 
-  : (aiEditorialReview?.section3_licensing_tco || `Evaluating software economics requires looking beyond baseline sticker prices to total cost of ownership (TCO). As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring subscription seat licensing, API vendor lock-in, and unpredictable per-user billing spikes' : 'delivers a predictable commercial model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} provides developers with much clearer visibility into their data persistence, infrastructure boundaries, and computational dependencies. Teams migrating away from monolithic commercial vendors can substantially reduce recurring SaaS operational expenditure while retaining control over their developer tooling pipeline.`);
+  : (aiEditorialReview?.section3_licensing_tco || `Evaluating software economics requires looking beyond baseline sticker prices to operational suitability and long-term maintenance overhead. As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring proprietary licensing fees and allows full local code auditability' : 'delivers a predictable model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} ${isKnownFreeAlt ? `serves a dedicated and lightweight role within engineering pipelines without requiring heavy multi-purpose installations` : `provides developers with transparent execution boundaries, reducing recurring SaaS operational expenditure while retaining control over their developer tooling pipeline`}. Teams evaluating modern developer tooling can choose the best balance between specialized speed and comprehensive feature depth.`);
 
 const reviewSection4 = hasChapters 
   ? aiEditorialReview.chapters[3].content 
@@ -642,7 +664,7 @@ const jsonLd = {
         <div class="spec-item">
           <span class="spec-label">Deployment Format</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
-            {tool.is_self_hostable ? "Self-Hosted (Docker/Bare-metal)" : (tool.install_command ? "Local Extension / App" : "Cloud SaaS")}
+            {tool.is_self_hostable ? "Self-Hosted (Docker/Bare-metal)" : (tool.install_command ? "Local Extension / App" : (tool.pricing_model === 'Open Source' ? "Open Codebase / Local" : "Cloud SaaS"))}
           </span>
         </div>
         <div class="spec-item">
@@ -746,7 +768,9 @@ const jsonLd = {
           <span>🔄</span> Why Choose {tool.name} Over {tool.primary_alternative}?
         </h2>
         <p style="color: #e4e4e7; font-size: 1rem; line-height: 1.75; margin: 0;">
-          {tool.comparison_vs_alt || `Compared to closed proprietary solutions like ${tool.primary_alternative}, ${tool.name} provides complete transparency, customizable codebases, and developer-first workflows without per-seat licensing penalties.`}
+          {tool.comparison_vs_alt || (isKnownFreeAlt
+            ? `While ${tool.primary_alternative} remains a widely adopted ecosystem standard, ${tool.name} offers specialized developer ergonomics, dedicated focus, and lightweight integration for specific engineering workflows.`
+            : `Compared to closed proprietary solutions like ${tool.primary_alternative}, ${tool.name} provides complete transparency, customizable codebases, and developer-first workflows without per-seat licensing penalties.`)}
         </p>
       </div>
     )}
