@@ -640,9 +640,9 @@ const jsonLd = {
           </div>
         )}
         <div class="spec-item">
-          <span class="spec-label">Self-Hostable</span>
+          <span class="spec-label">Deployment Format</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
-            {tool.is_self_hostable ? "Yes (Docker/Bare-metal)" : "Cloud SaaS"}
+            {tool.is_self_hostable ? "Self-Hosted (Docker/Bare-metal)" : (tool.install_command ? "Local Extension / App" : "Cloud SaaS")}
           </span>
         </div>
         <div class="spec-item">
@@ -782,13 +782,17 @@ const jsonLd = {
           <div class="arch-badge-item">
             <span class="arch-badge-label">Data Sovereignty:</span>
             <span class="arch-badge-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #38bdf8;"}>
-              {tool.is_self_hostable ? "Self-Hosted (Buyer Infrastructure)" : "Managed Cloud"}
+              {tool.is_self_hostable ? "Self-Hosted (Buyer Infrastructure)" : (tool.install_command ? "Local Execution (Client-Side)" : "Managed Cloud")}
             </span>
           </div>
           <div class="arch-badge-item">
             <span class="arch-badge-label">Extensibility:</span>
             <span class="arch-badge-value">
-              {tool.github_url ? "Forkable Codebase & REST/CLI" : "REST / Webhooks Interoperability"}
+              {(tool.install_command && (tool.tags?.includes('VS Code Extension') || tool.install_command?.startsWith('code --install-extension')))
+                ? "VS Code Commands & Editor UI"
+                : (tool.github_url 
+                    ? (tool.install_command ? "Forkable Codebase & Local CLI" : "Forkable Codebase & REST/CLI") 
+                    : "REST / Webhooks Interoperability")}
             </span>
           </div>
           <div class="arch-badge-item">
