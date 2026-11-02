@@ -51874,5 +51874,65 @@
     "install_command": "python localecheck.py --ref locales/en.json --targets locales/*.json",
     "date_added": "2026-11-02",
     "featured": false
+  },
+  {
+    "id": "audiolens",
+    "name": "AudioLens",
+    "tagline": "Audio playback, multi-channel waveforms, and spectrogram analysis directly in VS Code",
+    "summary": "AudioLens is an open-source Visual Studio Code extension engineered for speech AI researchers, audio DSP developers, and machine learning engineers. It eliminates the friction of switching to external audio editors by embedding multi-channel waveform playback, real-time FFT spectrogram visualization, and audio telemetry directly into the editor. Featuring support for Remote SSH workspaces, raw headerless PCM decoding, and Kaldi archive inspection, it provides immediate acoustic inspection alongside code and dataset manifests.",
+    "url": "https://marketplace.visualstudio.com/items?itemName=simzhou.audiolens",
+    "github_url": "https://github.com/SimZhou/vscode-audiolens",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "VS Code Extension",
+      "Audio Processing",
+      "Spectrogram",
+      "Waveform",
+      "Speech AI",
+      "DSP",
+      "Open Source",
+      "Apache 2.0"
+    ],
+    "pricing_model": "Free",
+    "stars": 67,
+    "primary_alternative": "Audacity",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 89,
+    "verdict": "An indispensable VS Code extension for machine learning speech engineers and DSP developers, bringing multi-channel waveform playback, real-time spectrogram analysis, and raw PCM inspection directly into the editor without external GUI bloat.",
+    "key_features": [
+      {
+        "title": "Integrated Waveforms & Spectrograms",
+        "description": "Inspect synchronized multi-channel waveforms and Fourier transform spectrograms on a shared interactive timeline with mute and solo controls."
+      },
+      {
+        "title": "Acoustic Telemetry & Metrics",
+        "description": "Calculate RMS power, peak decibels, clipping ratios, crest factors, and frequency distributions for any highlighted audio selection."
+      },
+      {
+        "title": "Remote SSH & Raw PCM Support",
+        "description": "Stream audio directly from remote Linux training servers via VS Code Remote SSH, decode raw headerless PCM, and inspect Kaldi archives."
+      }
+    ],
+    "use_cases": [
+      "Inspecting synthetic speech output and dataset audio quality directly within VS Code while training TTS/STT neural models",
+      "Auditing audio datasets stored on remote GPU clusters over SSH without manually downloading multi-gigabyte audio files",
+      "Validating raw PCM sample formats, sample rates, and clipping boundaries during embedded audio DSP firmware development"
+    ],
+    "pros": [
+      "Permissive Apache-2.0 open-source license with complete code transparency and zero commercial restrictions",
+      "Eliminates window-switching context overhead by keeping audio inspection adjacent to training code and manifests",
+      "Robust support for machine learning speech formats including Kaldi archives, raw PCM, and multi-channel WAVs"
+    ],
+    "cons": [
+      "Restricted to the Visual Studio Code ecosystem (or compatible forks like Cursor and VSCodium)",
+      "Focuses on visual inspection, playback, and analysis rather than destructive multitrack audio editing"
+    ],
+    "target_audience": "Speech AI researchers, machine learning engineers, audio DSP developers, and data scientists working with acoustic datasets.",
+    "comparison_vs_alt": "Unlike launching heavyweight standalone audio software like Audacity or plotting static spectrograms with matplotlib and librosa, AudioLens renders interactive, responsive audio playback directly within VS Code editor tabs.",
+    "install_command": "code --install-extension simzhou.audiolens",
+    "date_added": "2026-11-02",
+    "featured": false
   }
 ]
