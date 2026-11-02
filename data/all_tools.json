@@ -51581,5 +51581,298 @@
     "target_audience": "Freelancers, students, and creative professionals looking for a fun, low-pressure way to stay organized.",
     "comparison_vs_alt": "Unlike Todoist's strict, utilitarian list format, minimi uses an interactive virtual pet approach to make task management feel less like a chore.",
     "install_command": null
+  },
+  {
+    "id": "kilobat-cli",
+    "name": "Kilobat CLI",
+    "tagline": "Open-source Mac terminal network monitor and MCP server for coding agents",
+    "summary": "Kilobat CLI is a lightweight, open-source terminal utility engineered for macOS that monitors real-time per-app network traffic, diagnoses Wi-Fi and hotspot connectivity, and exports structured JSON telemetry. Built for the modern agentic workflow, it embeds a Model Context Protocol (MCP) server that empowers coding assistants like Claude Code, Cursor, and Windsurf to inspect local network conditions and troubleshoot network-dependent execution loops autonomously.",
+    "url": "https://github.com/seifip/kilobat-cli",
+    "github_url": "https://github.com/seifip/kilobat-cli",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "CLI",
+      "Networking",
+      "macOS",
+      "Developer Tools",
+      "MCP",
+      "Bandwidth Monitor",
+      "Open Source"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Bandwhich",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "verdict": "An indispensable terminal companion for macOS developers and AI agents, pairing granular per-application network bandwidth metrics with native Model Context Protocol support.",
+    "key_features": [
+      {
+        "title": "Per-Application Traffic Accounting",
+        "description": "Inspects Darwin network socket tables to break down live inbound and outbound throughput across active system processes."
+      },
+      {
+        "title": "Embedded MCP Server for AI Agents",
+        "description": "Exposes structured network diagnostic tools via Model Context Protocol stdio, enabling AI coding agents to self-diagnose offline timeouts."
+      },
+      {
+        "title": "Hotspot & Interface Diagnostics",
+        "description": "Rapidly detects captive portals, tethered mobile hotspots, DNS resolution latencies, and packet loss directly from terminal prompts."
+      }
+    ],
+    "use_cases": [
+      "Allowing autonomous coding assistants in Claude Code or Cursor to verify network connectivity before fetching remote packages",
+      "Identifying rogue background processes saturating bandwidth during high-throughput local compilation or container builds",
+      "Debugging mobile hotspot bandwidth throttling and Wi-Fi latency spikes during remote engineering workflows"
+    ],
+    "pros": [
+      "Native Model Context Protocol (MCP) integration bridges terminal telemetry directly into autonomous LLM agents",
+      "GPL-3.0 open-source CLI with zero tracking, account requirements, or telemetry lock-in",
+      "Clean structured JSON output designed for shell scripting and automated CI health checks"
+    ],
+    "cons": [
+      "macOS-specific architecture relying on Darwin network system calls and packet filters",
+      "Companion graphical dashboard requires separate commercial licensing"
+    ],
+    "target_audience": "macOS software engineers, systems programmers, and developers running autonomous agentic coding workflows.",
+    "comparison_vs_alt": "Unlike generic terminal monitors like bandwhich or iftop, Kilobat CLI uniquely integrates an MCP server interface, allowing AI developer assistants to query network health as a native tool.",
+    "install_command": "git clone https://github.com/seifip/kilobat-cli.git && cd kilobat-cli && make install",
+    "date_added": "2026-11-02",
+    "featured": false
+  },
+  {
+    "id": "sensorcatalog",
+    "name": "SensorCatalog",
+    "tagline": "Free in-browser calculation utilities for industrial sensor signals and instrumentation",
+    "summary": "SensorCatalog provides a free, zero-signup suite of browser-based engineering calculators for industrial instrumentation, process automation, and embedded hardware development. It simplifies daily measurement planning with dedicated modules for 4–20 mA current loop scaling, PT100 and PT1000 RTD resistance-to-temperature linearization, and loop-power supply voltage drop estimations with fully transparent physical assumptions and reference formulas.",
+    "url": "https://sensorcatalog.com/",
+    "github_url": null,
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "Calculators",
+      "Hardware Engineering",
+      "Sensors",
+      "Measurement",
+      "Web Utilities",
+      "Free Tools"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Omni Calculator",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 82,
+    "verdict": "A frictionless, zero-signup engineering toolbox for embedded systems and instrumentation engineers needing instant, formula-backed sensor signal conversions.",
+    "key_features": [
+      {
+        "title": "4–20 mA Current Loop Scaling",
+        "description": "Calculates linear transfer functions between process engineering units and industrial analog current loop signals."
+      },
+      {
+        "title": "PT100 & PT1000 RTD Linearization",
+        "description": "Bidirectional conversion between resistance values and Celsius temperatures based on standard Callendar-Van Dusen coefficients."
+      },
+      {
+        "title": "Loop-Power & Lead-Wire Loss Estimations",
+        "description": "Computes line resistance, transmitter compliance voltages, and voltage headroom across industrial wiring topologies."
+      }
+    ],
+    "use_cases": [
+      "Calibrating analog input modules on industrial PLCs and SCADA remote telemetry units (RTUs)",
+      "Verifying 2-wire vs 3-wire RTD lead compensation in high-precision thermal measurement benches",
+      "Rapid hardware sanity checks during field commissioning without launching spreadsheet macros"
+    ],
+    "pros": [
+      "100% free with zero registration, paywalls, or personal data collection",
+      "Formulas, physical constants, and calculation assumptions are displayed transparently alongside results",
+      "Lightweight client-side responsive interface accessible on mobile devices during field operations"
+    ],
+    "cons": [
+      "Proprietary web codebase with no self-hosted on-premise container release",
+      "Contains commercial referral inquiry links to industrial sensor supplier SensorSpan"
+    ],
+    "target_audience": "Hardware engineers, industrial instrumentation technicians, and embedded systems developers working with analog sensor telemetry.",
+    "comparison_vs_alt": "Unlike generic multi-purpose calculators, SensorCatalog focuses exclusively on industrial automation physics and sensor standards with built-in tolerance explanations.",
+    "install_command": "open https://sensorcatalog.com/",
+    "date_added": "2026-11-02",
+    "featured": false
+  },
+  {
+    "id": "hol-guard",
+    "name": "HOL Guard",
+    "tagline": "Open-source local policy verification and security guardrails for AI coding agents",
+    "summary": "HOL Guard is an open-source, local-first security policy engine specifically engineered to protect developer workstations from risky, autonomous AI coding agent actions. Operating prior to command execution across supported IDEs, MCP endpoints, and terminal plugins, it intercepts destructive shell commands, enforces safeguards on sensitive secrets and environment files, and audits autonomous agent tool execution without relying on cumbersome operating system sandboxing.",
+    "url": "https://hol.org/guard",
+    "github_url": "https://github.com/hashgraph-online/hol-guard",
+    "source": "submission",
+    "category": "security-devops",
+    "tags": [
+      "AI Security",
+      "AI Agents",
+      "Red Teaming",
+      "Agent Guardrails",
+      "Open Source",
+      "MCP",
+      "Security Policy"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "NeMo Guardrails",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 91,
+    "verdict": "A critical security layer for teams deploying autonomous coding agents, catching destructive shell execution and credential leaks before code execution happens.",
+    "key_features": [
+      {
+        "title": "Pre-Execution Command Interception",
+        "description": "Intercepts shell command dispatches from agent harnesses, evaluating patterns against customizable regex and AST policies."
+      },
+      {
+        "title": "Sensitive File & Credential Safeguards",
+        "description": "Blocks autonomous read/write operations targeting .env files, private SSH keys, and cloud credential directories."
+      },
+      {
+        "title": "MCP & Skill Protocol Supervision",
+        "description": "Monitors Model Context Protocol tool requests to prevent unauthorized privilege escalation or lateral tool chaining."
+      }
+    ],
+    "use_cases": [
+      "Preventing autonomous coding assistants from inadvertently executing destructive filesystem commands during automated refactoring",
+      "Enforcing enterprise policy compliance when junior developers test external agent plugins and community MCP servers",
+      "Providing an auditable local execution log of all autonomous tool requests across agentic coding sessions"
+    ],
+    "pros": [
+      "Open-source core that runs locally with zero external network dependencies or telemetry leakage",
+      "Lightweight hook architecture adds negligible sub-millisecond latency to agent execution loops",
+      "Seamless native integration with modern MCP agent runtimes and extensible policy rule sets"
+    ],
+    "cons": [
+      "Not a full hardware/kernel sandbox; relies on integration-level policy interception rather than microVM isolation",
+      "Coverage varies depending on whether target agent IDE implements standard interceptor hooks"
+    ],
+    "target_audience": "Software engineering teams, DevSecOps architects, and independent developers deploying autonomous coding agents with write permissions.",
+    "comparison_vs_alt": "Unlike heavyweight hypervisor sandboxes or cloud-based LLM guardrails like NeMo Guardrails, HOL Guard executes locally on the developer machine, protecting host filesystems with zero API latency.",
+    "install_command": "curl -fsSL https://hol.org/guard/install.sh | bash",
+    "date_added": "2026-11-02",
+    "featured": false
+  },
+  {
+    "id": "rowpocket-json-table",
+    "name": "RowPocket JSON Table",
+    "tagline": "Offline local-first JSON and NDJSON flattening utility with RFC 6901 pointer paths",
+    "summary": "RowPocket JSON Table is an offline-capable, privacy-first data conversion utility designed to flatten deeply nested JSON and newline-delimited JSON (NDJSON) files into clean, analysis-ready CSV spreadsheets. By resolving nested hierarchies into escaped RFC 6901 JSON Pointer column headers while preserving nested arrays as intact JSON values, it prevents row-multiplying explosions and processes up to 20,000 records entirely within client browser memory or via its bundled standalone Node.js CLI.",
+    "url": "https://brightwickstudio.gumroad.com/l/rowpocket",
+    "github_url": null,
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "JSON",
+      "NDJSON",
+      "CSV Converter",
+      "Data Transformation",
+      "Local-First",
+      "Developer Utilities"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "jq",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 84,
+    "verdict": "An elegant, private-by-default JSON flattening utility that preserves array integrity and eliminates the scripting overhead of jq for tabular data conversions.",
+    "key_features": [
+      {
+        "title": "RFC 6901 JSON Pointer Headers",
+        "description": "Constructs unambiguous, escaped column paths for nested object keys, ensuring lossless identification of source hierarchies."
+      },
+      {
+        "title": "Array Preservation Logic",
+        "description": "Retains inner array elements as intact serialized JSON values instead of artificially multiplying rows into cross-product cartesian explosion."
+      },
+      {
+        "title": "Zero-Cloud Local Runtime",
+        "description": "Executes entirely in client-side JavaScript or via an offline Node.js CLI with zero server telemetry or external data transmission."
+      }
+    ],
+    "use_cases": [
+      "Converting complex nested API payloads and log extracts into tabular CSV format for Excel, Pandas, or Google Sheets analysis",
+      "Transforming newline-delimited JSON (NDJSON) telemetry feeds into tabular audit trails without server-side compute overhead",
+      "Processing confidential user data or proprietary datasets on air-gapped workstations where cloud SaaS tools are prohibited"
+    ],
+    "pros": [
+      "Complete local-first privacy with no cloud backend, network requests, or data retention risks",
+      "Prevents row-explosion bugs typical of naive JSON-to-CSV converters by treating arrays as discrete scalar fields",
+      "Extremely low barrier to entry with a free web tier and a 1 USDC on Base micro-purchase for full offline source"
+    ],
+    "cons": [
+      "Enforces documented memory limits (5 MB file size and 20,000 records maximum)",
+      "Web3 micro-payment on Base blockchain may present onboarding friction for non-crypto developers"
+    ],
+    "target_audience": "Data analysts, software engineers, and privacy-conscious researchers dealing with nested JSON payloads and log exports.",
+    "comparison_vs_alt": "Unlike writing complex jq scripts or uploading proprietary datasets to free online JSON converters, RowPocket processes files locally while cleanly preserving array structures.",
+    "install_command": "npm install -g rowpocket-cli",
+    "date_added": "2026-11-02",
+    "featured": false
+  },
+  {
+    "id": "localecheck",
+    "name": "LocaleCheck",
+    "tagline": "Offline structural validation and variable integrity inspector for JSON translation bundles",
+    "summary": "LocaleCheck is an offline-first quality assurance tool tailored for software localization and internationalization workflows. It inspects translation bundles across up to 20 locale targets simultaneously, flagging missing or extraneous keys, empty translation strings, structural tree divergences up to 64 levels deep, and mismatched variable token interpolations like {name}. The toolkit includes a zero-dependency HTML visual workspace, exportable audit reports, and a lightweight Python 3.10+ standard-library CLI.",
+    "url": "https://bellocchio2.gumroad.com/l/localecheck-json",
+    "github_url": "https://github.com/bellocchio23m/PlayGround/tree/portfolio-localization-demo/portfolio/resources",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "i18n",
+      "Localization",
+      "JSON Translation",
+      "Testing",
+      "CLI",
+      "Offline Utilities",
+      "Developer Tools"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "i18next-scanner",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 85,
+    "verdict": "A laser-focused, offline validation suite for frontend and mobile engineers to prevent broken UI interpolation and missing translation keys before production releases.",
+    "key_features": [
+      {
+        "title": "Multi-Target Locale Comparison",
+        "description": "Cross-examines up to 20 target JSON locale dictionaries against a primary base language schema in a single validation pass."
+      },
+      {
+        "title": "Variable Token & Interpolation Auditing",
+        "description": "Verifies that named interpolation tokens (e.g., {username}, {count}) match identically across all translated strings."
+      },
+      {
+        "title": "Zero-Dependency Python Standard CLI",
+        "description": "Ships with a clean Python 3.10+ command-line script utilizing standard libraries for instant integration into CI/CD pipelines."
+      }
+    ],
+    "use_cases": [
+      "Pre-flight pull request verification before cutting production mobile app and frontend web localization releases",
+      "Auditing agency translation handoffs to catch untranslated placeholder strings and missing keys before merging",
+      "Eliminating runtime client crashes caused by missing interpolation brackets or malformed formatting tokens"
+    ],
+    "pros": [
+      "One-time purchase model with no recurring SaaS subscription fees or per-seat licensing penalties",
+      "Operates entirely offline in browser or local shell with zero vendor network requests or telemetry",
+      "Includes full editable source code and comprehensive test datasets for customization"
+    ],
+    "cons": [
+      "Commercial package requires €29 one-time purchase on Gumroad (though free guides are available on GitHub)",
+      "Strictly handles flat/nested string objects; does not evaluate ICU pluralization rules or linguistic translation quality"
+    ],
+    "target_audience": "Frontend developers, mobile app engineers, and localization managers releasing multi-language web and mobile applications.",
+    "comparison_vs_alt": "Unlike enterprise localization SaaS platforms like Crowdin or Phrase that mandate recurring cloud subscriptions, LocaleCheck operates as a one-time offline developer utility.",
+    "install_command": "python localecheck.py --ref locales/en.json --targets locales/*.json",
+    "date_added": "2026-11-02",
+    "featured": false
   }
 ]
