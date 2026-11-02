@@ -605,7 +605,8 @@
         "a": "In Remote SSH workspaces, AudioLens reads audio from the remote workspace and transfers the audio data over the connection to the local Webview for playback and visualization, supporting Kaldi archive RIFF/WAVE entries and explicit headerless PCM/RAW formats."
       }
     ],
-    "forks": 11
+    "forks": 11,
+    "architecture_summary": "AudioLens is a VS Code editor extension. Audio playback and visualization run in a Webview. In Remote SSH workspaces, the extension host reads audio on the remote host and transfers the data to the local Webview for playback and inspection."
   },
   {
     "id": "public-apis",

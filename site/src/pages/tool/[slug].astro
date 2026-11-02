@@ -769,8 +769,22 @@ const jsonLd = {
       </h2>
       <div class="architecture-content">
         <p style="color: #e4e4e7; font-size: 1rem; line-height: 1.75; margin-bottom: 1rem;">
-          <strong>{tool.name}</strong> is engineered to eliminate critical operational friction in {categoryInfo.name.toLowerCase()}. 
-          From an architectural standpoint, the system adopts a {tool.is_self_hostable ? "local-first, self-contained deployment posture" : "cloud-native microservice architecture"}, ensuring low execution latency and minimal external service entanglements.
+          {tool.architecture_summary ? (
+            tool.architecture_summary
+          ) : (
+            <>
+              <strong>{tool.name}</strong> is engineered to eliminate critical operational friction in {categoryInfo.name.toLowerCase()}. 
+              From an architectural standpoint, the system adopts a {
+                tool.is_self_hostable 
+                  ? "local-first, self-contained deployment posture" 
+                  : ((tool.install_command && (tool.tags?.includes('VS Code Extension') || tool.install_command?.startsWith('code --install-extension')))
+                      ? "local editor extension architecture running within the IDE Webview runtime"
+                      : (tool.install_command 
+                          ? "lightweight local client/CLI architecture" 
+                          : "cloud-native software architecture"))
+              }, ensuring low execution latency and minimal external service entanglements.
+            </>
+          )}
         </p>
         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem;">
           {tool.pricing_model === 'Open Source' 
