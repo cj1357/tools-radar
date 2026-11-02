@@ -36,6 +36,17 @@ const isOssB = toolB ? toolB.pricing_model === 'Open Source' : false;
 const isSelfHostA = Boolean(toolA.is_self_hostable);
 const isSelfHostB = toolB ? Boolean(toolB.is_self_hostable) : false;
 
+const knownFreeKeywords = [
+  'git', 'blender', 'audacity', 'gimp', 'obsidian', 'vs code', 'vscode', 'vscodium',
+  'linux', 'docker', 'firefox', 'vlc', 'wireshark', 'neovim', 'vim', 'git diff',
+  'gitkraken', 'gitlens', 'github actions', 'ffmpeg', 'curl', 'wget', 'bash', 'zsh',
+  'libreoffice', 'postman free', 'keepass', 'bitwarden free'
+];
+const bLower = toolBName.toLowerCase();
+const isKnownFreeB = toolB 
+  ? (toolB.pricing_model === 'Open Source' || toolB.pricing_model === 'Free')
+  : knownFreeKeywords.some(k => bLower.includes(k));
+
 const pageTitle = `${toolA.name} vs ${toolBName} (2026) - In-Depth Comparison & Architectural Analysis`;
 const metaDesc = `Unbiased 2026 comparison between ${toolA.name} and ${toolBName}. Compare pricing tiers, open-source sovereignty, Docker self-hosting, and real-world developer trade-offs.`;
 const canonical = `https://lordorange.top/vs/${slug}`;
@@ -213,11 +224,11 @@ const jsonLd = {
             </span>
             <span class="metric-pill">
               <span class="metric-key">Model:</span>
-              <span class="metric-val">{toolB ? toolB.pricing_model : 'Commercial Cloud'}</span>
+              <span class="metric-val">{toolB ? toolB.pricing_model : (isKnownFreeB ? 'Open / Free' : 'Commercial Cloud')}</span>
             </span>
             <span class="metric-pill">
               <span class="metric-key">Hosting:</span>
-              <span class="metric-val">{toolB && isSelfHostB ? 'Self-Hostable' : 'Vendor Cloud'}</span>
+              <span class="metric-val">{toolB && isSelfHostB ? 'Self-Hostable' : (isKnownFreeB ? 'Local Native' : 'Vendor Cloud')}</span>
             </span>
           </div>
         </div>
@@ -244,9 +255,19 @@ const jsonLd = {
           <div class="verdict-badge alt-badge">WHEN TO CHOOSE {toolBName.toUpperCase()}</div>
           <p class="verdict-text">{verdictB}</p>
           <ul class="verdict-bullets">
-            <li>🔹 Turnkey managed cloud infrastructure</li>
-            <li>🔹 Zero local server maintenance requirements</li>
-            <li>🔹 Broad commercial third-party integrations</li>
+            {isKnownFreeB ? (
+              <>
+                <li>🔹 Established community standard and familiar workflows</li>
+                <li>🔹 Broad plugin ecosystem and extensive documentation</li>
+                <li>🔹 Standalone general-purpose developer capabilities</li>
+              </>
+            ) : (
+              <>
+                <li>🔹 Turnkey managed cloud infrastructure</li>
+                <li>🔹 Zero local server maintenance requirements</li>
+                <li>🔹 Broad commercial third-party integrations</li>
+              </>
+            )}
           </ul>
         </div>
       </div>
@@ -277,10 +298,10 @@ const jsonLd = {
                 {toolA.github_url && <span class="subtext">Auditable on GitHub</span>}
               </td>
               <td>
-                <span class={isOssB ? 'table-badge oss' : 'table-badge prop'}>
-                  {toolB ? toolB.pricing_model : 'Proprietary Commercial'}
+                <span class={isOssB || isKnownFreeB ? 'table-badge oss' : 'table-badge prop'}>
+                  {toolB ? toolB.pricing_model : (isKnownFreeB ? 'Open Ecosystem' : 'Proprietary Commercial')}
                 </span>
-                <span class="subtext">{toolB?.github_url ? 'Public Repo' : 'Closed Source'}</span>
+                <span class="subtext">{toolB?.github_url ? 'Public Repo' : (isKnownFreeB ? 'Free / Open Tool' : 'Closed Source')}</span>
               </td>
             </tr>
             <tr>
@@ -291,8 +312,8 @@ const jsonLd = {
                 </span>
               </td>
               <td>
-                <span class={isSelfHostB ? 'status-tag positive' : 'status-tag neutral'}>
-                  {isSelfHostB ? '✓ Self-Hostable' : 'Vendor Cloud Only (SaaS)'}
+                <span class={isSelfHostB || isKnownFreeB ? 'status-tag positive' : 'status-tag neutral'}>
+                  {isSelfHostB ? '✓ Self-Hostable' : (isKnownFreeB ? 'Local / Native Execution' : 'Vendor Cloud Only (SaaS)')}
                 </span>
               </td>
             </tr>
@@ -302,8 +323,8 @@ const jsonLd = {
                 <span class="status-tag positive">✓ 100% On-Premise / Sovereign</span>
               </td>
               <td>
-                <span class="status-tag neutral">
-                  {toolB && isSelfHostB ? '✓ User Controlled' : '⚠ Third-Party Cloud Hosted'}
+                <span class={isKnownFreeB ? 'status-tag positive' : 'status-tag neutral'}>
+                  {toolB && isSelfHostB ? '✓ User Controlled' : (isKnownFreeB ? '✓ Local Workspace' : '⚠ Third-Party Cloud Hosted')}
                 </span>
               </td>
             </tr>
@@ -314,8 +335,8 @@ const jsonLd = {
                 <span class="subtext">Zero recurring per-seat tax</span>
               </td>
               <td>
-                <strong>{toolB ? toolB.pricing_model : '$120 - $1,200+ / Year'}</strong>
-                <span class="subtext">Recurring monthly subscription tiers</span>
+                <strong>{toolB ? toolB.pricing_model : (isKnownFreeB ? '$0 (Free / Open Utility)' : '$120 - $1,200+ / Year')}</strong>
+                <span class="subtext">{isKnownFreeB ? 'No recurring subscription tax' : (toolB ? 'Commercial usage' : 'Recurring monthly subscription tiers')}</span>
               </td>
             </tr>
             <tr>
@@ -324,7 +345,7 @@ const jsonLd = {
                 <span>{toolA.no_signup_required ? '✓ No Account Required' : 'Standard Setup'}</span>
               </td>
               <td>
-                <span>{toolB?.no_signup_required ? '✓ No Account Required' : 'Mandatory Account & Billing'}</span>
+                <span>{toolB?.no_signup_required || isKnownFreeB ? '✓ No Account Required' : 'Mandatory Account & Billing'}</span>
               </td>
             </tr>
           </tbody>
@@ -347,9 +368,15 @@ const jsonLd = {
         </p>
 
         <h3>2. Total Cost of Ownership & Long-Term Scaling</h3>
-        <p>
-          Commercial SaaS solutions like {toolBName} often offer convenient onboarding, but can quickly escalate in cost as team headcount or request volumes grow. With {toolA.name}, infrastructure expenses stay tied strictly to raw compute costs rather than arbitrary per-seat paywalls. For high-volume development environments, this difference frequently results in thousands of dollars saved annually.
-        </p>
+        {isKnownFreeB ? (
+          <p>
+            Both <strong>{toolA.name}</strong> and <strong>{toolBName}</strong> eliminate recurring subscription seat paywalls. The operational difference lies in developer ergonomics: while {toolBName} provides broad, general-purpose ecosystem conventions, {toolA.name} offers tightly targeted automation tailored to eliminate specific developer friction and context switching.
+          </p>
+        ) : (
+          <p>
+            Commercial SaaS solutions like {toolBName} often offer convenient onboarding, but can quickly escalate in cost as team headcount or request volumes grow. With {toolA.name}, infrastructure expenses stay tied strictly to raw compute costs rather than arbitrary per-seat paywalls. For high-volume development environments, this difference frequently results in thousands of dollars saved annually.
+          </p>
+        )}
 
         <h3>3. Community Vitality & Extensibility</h3>
         <p>
