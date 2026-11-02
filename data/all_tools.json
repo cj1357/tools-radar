@@ -51879,7 +51879,7 @@
     "id": "audiolens",
     "name": "AudioLens",
     "tagline": "Audio playback, multi-channel waveforms, and spectrogram analysis directly in VS Code",
-    "summary": "AudioLens is an open-source Visual Studio Code extension engineered for speech AI researchers, audio DSP developers, and machine learning engineers. It eliminates the friction of switching to external audio editors by embedding multi-channel waveform playback, real-time FFT spectrogram visualization, and audio telemetry directly into the editor. Featuring support for Remote SSH workspaces, raw headerless PCM decoding, and Kaldi archive inspection, it provides immediate acoustic inspection alongside code and dataset manifests.",
+    "summary": "AudioLens is a free Apache-2.0 VS Code extension for listening to audio while inspecting per-channel waveforms and STFT spectrograms. It supports selection playback, measurements for the active channel, selection export as WAV, explicit PCM/RAW format settings and RIFF/WAVE entries in Kaldi archives. In Remote SSH workspaces, the extension reads remote files and transfers the audio data needed for local playback and visualization. No separate AudioLens account or hosted audio-upload service is required.",
     "url": "https://marketplace.visualstudio.com/items?itemName=simzhou.audiolens",
     "github_url": "https://github.com/SimZhou/vscode-audiolens",
     "source": "submission",
@@ -51894,45 +51894,67 @@
       "Open Source",
       "Apache 2.0"
     ],
-    "pricing_model": "Free",
+    "pricing_model": "Open Source",
     "stars": 67,
-    "primary_alternative": "Audacity",
-    "is_self_hostable": true,
+    "primary_alternative": "",
+    "is_self_hostable": false,
     "no_signup_required": true,
     "signal_score": 89,
-    "verdict": "An indispensable VS Code extension for machine learning speech engineers and DSP developers, bringing multi-channel waveform playback, real-time spectrogram analysis, and raw PCM inspection directly into the editor without external GUI bloat.",
+    "verdict": "An indispensable VS Code extension for speech AI researchers and DSP developers, bringing per-channel waveform playback, STFT spectrogram analysis, and selection WAV exports directly into the editor alongside code.",
     "key_features": [
       {
         "title": "Integrated Waveforms & Spectrograms",
-        "description": "Inspect synchronized multi-channel waveforms and Fourier transform spectrograms on a shared interactive timeline with mute and solo controls."
+        "description": "Inspect synchronized per-channel waveforms and STFT spectrograms on a shared timeline with mute and solo controls, supporting FFT sizes from 8 to 32,768 bins."
       },
       {
-        "title": "Acoustic Telemetry & Metrics",
-        "description": "Calculate RMS power, peak decibels, clipping ratios, crest factors, and frequency distributions for any highlighted audio selection."
+        "title": "Acoustic Telemetry & Selection Export",
+        "description": "Measure RMS, peak dBFS, clipping ratio, crest factor, and frequency distributions for active channels, with the ability to export selected intervals as WAV."
       },
       {
-        "title": "Remote SSH & Raw PCM Support",
-        "description": "Stream audio directly from remote Linux training servers via VS Code Remote SSH, decode raw headerless PCM, and inspect Kaldi archives."
+        "title": "Remote SSH & Kaldi Archive Support",
+        "description": "Inspect audio in Remote SSH workspaces, decode explicit headerless PCM/RAW format settings, and read RIFF/WAVE entries at byte offsets in Kaldi archives."
       }
     ],
     "use_cases": [
-      "Inspecting synthetic speech output and dataset audio quality directly within VS Code while training TTS/STT neural models",
-      "Auditing audio datasets stored on remote GPU clusters over SSH without manually downloading multi-gigabyte audio files",
-      "Validating raw PCM sample formats, sample rates, and clipping boundaries during embedded audio DSP firmware development"
+      "Listening to audio and inspecting waveforms and STFT spectrograms directly within VS Code alongside machine learning manifests and training scripts",
+      "Auditing audio files in Remote SSH workspaces without manually downloading entire multi-gigabyte audio datasets locally",
+      "Validating headerless raw PCM formats and inspecting RIFF/WAVE entries in Kaldi archives during speech AI development"
     ],
     "pros": [
-      "Permissive Apache-2.0 open-source license with complete code transparency and zero commercial restrictions",
-      "Eliminates window-switching context overhead by keeping audio inspection adjacent to training code and manifests",
-      "Robust support for machine learning speech formats including Kaldi archives, raw PCM, and multi-channel WAVs"
+      "Permissive Apache-2.0 open-source license with public repository and full code transparency",
+      "Keeps audio playback and acoustic inspection adjacent to code and manifests, eliminating window-switching friction",
+      "Built-in support for selection playback, active channel metrics, selection WAV export, raw PCM, and Kaldi RIFF/WAVE entries"
     ],
     "cons": [
-      "Restricted to the Visual Studio Code ecosystem (or compatible forks like Cursor and VSCodium)",
-      "Focuses on visual inspection, playback, and analysis rather than destructive multitrack audio editing"
+      "Runs as an editor extension within VS Code (and compatible forks like Cursor and VSCodium)",
+      "Engineered for acoustic inspection, analysis, and selection export rather than full multitrack editing workflows like Audacity"
     ],
     "target_audience": "Speech AI researchers, machine learning engineers, audio DSP developers, and data scientists working with acoustic datasets.",
-    "comparison_vs_alt": "Unlike launching heavyweight standalone audio software like Audacity or plotting static spectrograms with matplotlib and librosa, AudioLens renders interactive, responsive audio playback directly within VS Code editor tabs.",
+    "comparison_vs_alt": "Unlike standalone audio editors like Audacity or plotting static spectrograms with Python scripts, AudioLens brings interactive waveform playback, real-time STFT spectrogram inspection, and selection WAV export directly into VS Code alongside your code.",
     "install_command": "code --install-extension simzhou.audiolens",
     "date_added": "2026-11-02",
-    "featured": false
+    "featured": false,
+    "faqs": [
+      {
+        "q": "Is AudioLens completely free or does it require a paid subscription?",
+        "a": "AudioLens is 100% free and open-source under the Apache License 2.0. No paid subscriptions, accounts, or licenses are required."
+      },
+      {
+        "q": "How does AudioLens compare to standalone audio software like Audacity?",
+        "a": "AudioLens is built specifically for acoustic inspection, diagnostics, and selection WAV export directly inside VS Code beside your code and dataset manifests. It is designed for inspection workflows rather than replacing Audacity's comprehensive multitrack editing and mastering suite."
+      },
+      {
+        "q": "How is AudioLens deployed and does it require server hosting?",
+        "a": "AudioLens installs directly from the Visual Studio Code Marketplace as an editor extension (code --install-extension simzhou.audiolens). It runs locally within the editor's Webview runtime and does not require server hosting, Docker containers, database storage, or background services."
+      },
+      {
+        "q": "Do I need to create an account or provide a credit card to try AudioLens?",
+        "a": "No account creation, login, or cloud service registration is required. You can install it immediately from the editor extensions panel."
+      },
+      {
+        "q": "How does AudioLens handle remote files in Remote SSH workspaces?",
+        "a": "In Remote SSH workspaces, AudioLens reads audio from the remote workspace and transfers the audio data over the connection to the local Webview for playback and visualization, supporting Kaldi archive RIFF/WAVE entries and explicit headerless PCM/RAW formats."
+      }
+    ]
   }
 ]

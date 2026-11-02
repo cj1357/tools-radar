@@ -240,7 +240,8 @@ const faqList = (tool.faqs && Array.isArray(tool.faqs) && tool.faqs.length > 0)
 // Elevates tool pages from parameter sheets to authoritative reviews
 // -------------------------------------------------------------
 const aiEditorialReview = (editorialReviews as Record<string, any>)[tool.id] || (tool as any).editorial_review;
-const isAiGenerated = Boolean(aiEditorialReview?.section1_architecture);
+const hasChapters = Boolean(aiEditorialReview?.chapters && Array.isArray(aiEditorialReview.chapters) && aiEditorialReview.chapters.length >= 4);
+const isAiGenerated = Boolean(aiEditorialReview?.section1_architecture || hasChapters);
 
 const articleTitle = aiEditorialReview?.article_title 
   || `Hands-on Review: How ${tool.name} Performs in Modern Engineering Workflows`;
@@ -252,7 +253,7 @@ const altSubject = tool.primary_alternative || 'entrenched commercial platforms'
 const isOss = tool.pricing_model === 'Open Source';
 const deploymentModel = tool.is_self_hostable 
   ? 'self-hosted containerized deployment (Docker / VPS / Bare-metal)' 
-  : 'managed cloud infrastructure and turnkey web interfaces';
+  : (tool.install_command ? 'local extension / CLI binary execution' : 'managed cloud infrastructure and turnkey web interfaces');
 
 const featureTitles = displayFeatures.map(f => f.title).filter(Boolean);
 const featureProse = featureTitles.length > 0 
@@ -262,13 +263,26 @@ const featureProse = featureTitles.length > 0
 const prosSample = displayPros.slice(0, 2).join(' Furthermore, ');
 const consSample = displayCons.slice(0, 2).join(' Additionally, ');
 
-const reviewSection1 = aiEditorialReview?.section1_architecture || `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from heavy legacy dependencies, it provides engineering teams with an agile footprint that integrates smoothly into existing CI/CD automation and developer tooling setups.`;
+const chapterTitle1 = hasChapters && aiEditorialReview.chapters[0].title ? `1. ${aiEditorialReview.chapters[0].title}` : `1. Core Architecture & System Underpinnings`;
+const chapterTitle2 = hasChapters && aiEditorialReview.chapters[1].title ? `2. ${aiEditorialReview.chapters[1].title}` : `2. Developer Ergonomics & Operational Workflow`;
+const chapterTitle3 = hasChapters && aiEditorialReview.chapters[2].title ? `3. ${aiEditorialReview.chapters[2].title}` : `3. Licensing, Total Cost of Ownership (TCO) & Lock-in Analysis`;
+const chapterTitle4 = hasChapters && aiEditorialReview.chapters[3].title ? `4. ${aiEditorialReview.chapters[3].title}` : `4. Production Readiness & ToolsRadar Strategic Verdict`;
 
-const reviewSection2 = aiEditorialReview?.section2_ergonomics || `From a developer onboarding standpoint, evaluating new utilities often introduces unwanted configuration friction. ${tool.no_signup_required ? 'Developers can experiment with core features immediately without gating access behind mandatory account registration or corporate credit cards.' : 'The onboarding process is structured to establish secure authentication and administrative access in minimal time.'} In day-to-day engineering routines, ${prosSample}. However, production teams must also account for practical operational trade-offs: ${consSample}. Engineering leads should assess whether their operational staffing aligns with these considerations before enterprise rollouts.`;
+const reviewSection1 = hasChapters 
+  ? aiEditorialReview.chapters[0].content 
+  : (aiEditorialReview?.section1_architecture || `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from heavy legacy dependencies, it provides engineering teams with an agile footprint that integrates smoothly into existing CI/CD automation and developer tooling setups.`);
 
-const reviewSection3 = aiEditorialReview?.section3_licensing_tco || `Evaluating software economics requires looking beyond baseline sticker prices to total cost of ownership (TCO). As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring subscription seat licensing, API vendor lock-in, and unpredictable per-user billing spikes' : 'delivers a predictable commercial model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} provides developers with much clearer visibility into their data persistence, infrastructure boundaries, and computational dependencies. Teams migrating away from monolithic commercial vendors can substantially reduce recurring SaaS operational expenditure while retaining control over their developer tooling pipeline.`;
+const reviewSection2 = hasChapters 
+  ? aiEditorialReview.chapters[1].content 
+  : (aiEditorialReview?.section2_ergonomics || `From a developer onboarding standpoint, evaluating new utilities often introduces unwanted configuration friction. ${tool.no_signup_required ? 'Developers can experiment with core features immediately without gating access behind mandatory account registration or corporate credit cards.' : 'The onboarding process is structured to establish secure authentication and administrative access in minimal time.'} In day-to-day engineering routines, ${prosSample}. However, production teams must also account for practical operational trade-offs: ${consSample}. Engineering leads should assess whether their operational staffing aligns with these considerations before enterprise rollouts.`);
 
-const reviewSection4 = aiEditorialReview?.section4_verdict || `With an internal ToolsRadar Editorial Signal Score of ${tool.signal_score || 85}/100, ${tool.name} demonstrates solid architectural coherence and real-world utility. ${tool.verdict || `${tool.name} is a high-conviction recommendation for developers and technical founders seeking modular developer ergonomics.`} For solo engineers and agile startups, it provides immediate leverage with low overhead. For larger engineering organizations, its clean boundaries simplify proof-of-concept validation and auditability. ToolsRadar's editorial staff recommends evaluating ${tool.name} for modern production workflows that prioritize architectural autonomy and cost efficiency.`;
+const reviewSection3 = hasChapters 
+  ? aiEditorialReview.chapters[2].content 
+  : (aiEditorialReview?.section3_licensing_tco || `Evaluating software economics requires looking beyond baseline sticker prices to total cost of ownership (TCO). As a ${tool.pricing_model} solution, ${tool.name} ${isOss ? 'completely eliminates recurring subscription seat licensing, API vendor lock-in, and unpredictable per-user billing spikes' : 'delivers a predictable commercial model designed for project-focused developers and professional teams'}. When contrasted directly against ${altSubject}, ${tool.name} provides developers with much clearer visibility into their data persistence, infrastructure boundaries, and computational dependencies. Teams migrating away from monolithic commercial vendors can substantially reduce recurring SaaS operational expenditure while retaining control over their developer tooling pipeline.`);
+
+const reviewSection4 = hasChapters 
+  ? aiEditorialReview.chapters[3].content 
+  : (aiEditorialReview?.section4_verdict || `With an internal ToolsRadar Editorial Signal Score of ${tool.signal_score || 85}/100, ${tool.name} demonstrates solid architectural coherence and real-world utility. ${tool.verdict || `${tool.name} is a high-conviction recommendation for developers and technical founders seeking modular developer ergonomics.`} For solo engineers and agile startups, it provides immediate leverage with low overhead. For larger engineering organizations, its clean boundaries simplify proof-of-concept validation and auditability. ToolsRadar's editorial staff recommends evaluating ${tool.name} for modern production workflows that prioritize architectural autonomy and cost efficiency.`);
 
 const verdictCallout = aiEditorialReview?.editorial_verdict_callout 
   || tool.verdict 
@@ -492,7 +506,7 @@ const jsonLd = {
           <div class="metric-progress-bar bar-audit" style={`width: ${auditScore * 10}%;`}></div>
         </div>
         <span class="metric-subtext">
-          {tool.pricing_model === 'Open Source' ? "100% open-source repository with public commit history." : "Closed core or proprietary hosted backend."}
+          {(tool.pricing_model === 'Open Source' || (tool.github_url && !tool.github_url.includes('/tree/'))) ? "100% open-source repository with public commit history." : "Closed core or proprietary hosted backend."}
         </span>
       </div>
 
@@ -614,10 +628,17 @@ const jsonLd = {
           <span class="spec-label">Category</span>
           <a href={`/category/${tool.category}`} class="spec-value accent-link">{categoryInfo.name}</a>
         </div>
-        <div class="spec-item">
-          <span class="spec-label">Commercial Alternative</span>
-          <span class="spec-value" style="color: var(--accent);">{tool.primary_alternative || "Standalone Utility"}</span>
-        </div>
+        {tool.primary_alternative ? (
+          <div class="spec-item">
+            <span class="spec-label">Primary Alternative</span>
+            <span class="spec-value" style="color: var(--accent);">{tool.primary_alternative}</span>
+          </div>
+        ) : (
+          <div class="spec-item">
+            <span class="spec-label">Software Type</span>
+            <span class="spec-value" style="color: var(--accent);">{tool.install_command ? "Editor Extension / Utility" : "Standalone Utility"}</span>
+          </div>
+        )}
         <div class="spec-item">
           <span class="spec-label">Self-Hostable</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
@@ -807,22 +828,22 @@ const jsonLd = {
 
       <div class="editorial-article-prose">
         <section class="prose-chapter">
-          <h3 class="chapter-title">1. Core Architecture & System Underpinnings</h3>
+          <h3 class="chapter-title">{chapterTitle1}</h3>
           <p>{reviewSection1}</p>
         </section>
 
         <section class="prose-chapter">
-          <h3 class="chapter-title">2. Developer Ergonomics & Operational Workflow</h3>
+          <h3 class="chapter-title">{chapterTitle2}</h3>
           <p>{reviewSection2}</p>
         </section>
 
         <section class="prose-chapter">
-          <h3 class="chapter-title">3. Licensing, Total Cost of Ownership (TCO) & Lock-in Analysis</h3>
+          <h3 class="chapter-title">{chapterTitle3}</h3>
           <p>{reviewSection3}</p>
         </section>
 
         <section class="prose-chapter">
-          <h3 class="chapter-title">4. Production Readiness & ToolsRadar Strategic Verdict</h3>
+          <h3 class="chapter-title">{chapterTitle4}</h3>
           <p>{reviewSection4}</p>
           <div class="article-verdict-callout">
             <span class="verdict-callout-icon">💡</span>
