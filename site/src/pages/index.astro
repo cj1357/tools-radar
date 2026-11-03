@@ -510,6 +510,7 @@ const searchIndex = allTools.map(t => ({
       `;
     }
 
+    const toolDetailUrl = '/tool/' + encodeURIComponent(t.id);
     article.innerHTML = `
       <div>
         <div class="card-header-row">
@@ -519,7 +520,7 @@ const searchIndex = allTools.map(t => ({
           <div class="tool-header-text">
             <div class="tool-name-line">
               <h3 class="tool-heading">
-                <a href="/tool/${t.id}">${t.name}</a>
+                <a href="${toolDetailUrl}">${t.name}</a>
               </h3>
               <div class="tool-telemetry-badges">
                 ${t.stars > 0 ? `<span class="stars-telemetry-badge"><span>★</span><span>${starLabel}</span></span>` : ''}
@@ -541,7 +542,7 @@ const searchIndex = allTools.map(t => ({
           <span class="${badgeClass}">${t.pricing}</span>
           <span class="badge badge-source">${sourceLabel}</span>
         </div>
-        <a href="/tool/${t.id}" class="card-action-link">
+        <a href="${toolDetailUrl}" class="card-action-link">
           <span>Dossier & Alternatives</span>
           <span>→</span>
         </a>
@@ -624,8 +625,9 @@ const searchIndex = allTools.map(t => ({
             const initial = t.name.charAt(0).toUpperCase();
             const starLabel = t.stars > 999 ? `${(t.stars / 1000).toFixed(1)}k` : t.stars;
             const altChip = t.alt ? `<span class="dropdown-item-alt">🔄 Alt to ${t.alt}</span>` : '';
+            const dropdownHref = '/tool/' + encodeURIComponent(t.id);
             return `
-              <a href="/tool/${t.id}" class="dropdown-item" data-index="${idx}" data-id="${t.id}" role="option">
+              <a href="${dropdownHref}" class="dropdown-item" data-index="${idx}" data-id="${t.id}" role="option">
                 <div class="dropdown-item-icon">${initial}</div>
                 <div class="dropdown-item-body">
                   <div class="dropdown-item-title-row">
