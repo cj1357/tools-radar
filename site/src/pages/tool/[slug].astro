@@ -43,6 +43,21 @@ const isKnownFreeAlt = altToolObj
   ? (altToolObj.pricing_model === 'Open Source' || altToolObj.pricing_model === 'Free')
   : knownFreeKeywords.some(k => altLower.includes(k));
 
+// Precise software form factor and delivery classification
+const toolTags = (tool.tags || []).map((t: string) => (t || '').toLowerCase());
+const taglineLower = (tool.tagline || '').toLowerCase();
+const summaryLower = (tool.summary || '').toLowerCase();
+const installCmd = (tool.install_command || '').toLowerCase();
+
+const isExtension = toolTags.some((t: string) => t.includes('extension')) 
+  || taglineLower.includes('extension') 
+  || summaryLower.includes('extension') 
+  || installCmd.startsWith('code --install-extension');
+
+const isCliOrLocal = isExtension || toolTags.some((t: string) => ['cli', 'terminal', 'tui', 'command-line'].includes(t))
+  || [' cli', 'terminal', ' tui', 'command-line', 'desktop', 'local utility'].some(w => taglineLower.includes(w) || summaryLower.includes(w))
+  || ['cargo install', 'npm i', 'pip install', 'brew install', 'go install', 'curl', 'git clone'].some(p => installCmd.startsWith(p));
+
 const comparisonPairSlug = (altSlug && altSlug !== tool.id) ? `${tool.id}-vs-${altSlug}` : null;
 
 const pageTitle = tool.primary_alternative 
@@ -103,7 +118,11 @@ const displayPros = (rawPros.length > 0) ? rawPros : [
     : 'Generous free access tier with zero upfront credit card requirement',
   tool.is_self_hostable 
     ? 'Full data privacy and sovereignty — run securely in private Docker / local cloud' 
-    : 'Zero-configuration cloud setup with immediate browser-based access',
+    : (isExtension 
+        ? 'Operates locally inside your editor environment with zero external server dependencies'
+        : (isCliOrLocal 
+            ? 'Executes directly on your local workstation with full data privacy and zero cloud dependencies'
+            : 'Zero-configuration cloud setup with immediate browser-based access')),
   tool.primary_alternative 
     ? (isKnownFreeAlt 
         ? `Dedicated developer ergonomics and tailored workflows alongside ${tool.primary_alternative}` 
@@ -118,7 +137,11 @@ const rawCons = flattenList(tool.cons).filter(Boolean).map(String);
 const displayCons = (rawCons.length > 0) ? rawCons : [
   tool.is_self_hostable 
     ? 'Self-hosting requires basic server management and backup routines' 
-    : 'Hosted service depends on third-party cloud availability and terms',
+    : (isExtension
+        ? 'Requires a compatible editor runtime (e.g. VS Code or VSCodium) to operate'
+        : (isCliOrLocal
+            ? 'Operates within local terminal environment; requires local runtime dependencies'
+            : 'Hosted service depends on third-party cloud availability and terms')),
   tool.primary_alternative 
     ? (isKnownFreeAlt 
         ? `Focused utility scope rather than replacing ${tool.primary_alternative}'s full general-purpose suite` 
@@ -152,10 +175,18 @@ if (displayFeatures.length === 0) {
       description: `${tool.name} is architected for clean integration and low maintenance overhead, prioritizing fast local execution.`
     },
     {
-      title: tool.is_self_hostable ? 'Self-Contained Local Execution' : 'Streamlined Cloud Interoperability',
-      description: tool.is_self_hostable
-        ? 'Operate with total data sovereignty and privacy without depending on external telemetry or third-party servers.'
-        : 'Access instant capabilities with zero complex infrastructure setup or machine dependencies.'
+      title: isExtension
+        ? 'Native In-Editor Workflow'
+        : (isCliOrLocal
+            ? 'Local-First Execution'
+            : (tool.is_self_hostable ? 'Self-Contained Local Execution' : 'Streamlined Cloud Interoperability')),
+      description: isExtension
+        ? 'Operates directly within your developer editor runtime, eliminating application-switching friction and external hosting overhead.'
+        : (isCliOrLocal
+            ? 'Processes data locally on your workstation with zero mandatory external network transmission.'
+            : (tool.is_self_hostable
+                ? 'Operate with total data sovereignty and privacy without depending on external telemetry or third-party servers.'
+                : 'Access instant capabilities with zero complex infrastructure setup or machine dependencies.'))
     },
     {
       title: tool.primary_alternative 
@@ -234,7 +265,11 @@ const defaultFaqList = [
     q: `Can I self-host ${tool.name} on private servers or Docker?`,
     a: tool.is_self_hostable
       ? `Yes. ${tool.name} is designed for self-hosting via Docker or direct server deployment. Running on your own infrastructure allows you to maintain direct control over your local compute, database storage, and operational environment.`
-      : `${tool.name} is delivered primarily as a cloud-hosted web application or managed API endpoint, providing turnkey infrastructure without requiring dedicated server management.`
+      : (isExtension
+          ? `No separate server hosting is needed. ${tool.name} is a local editor extension that runs directly inside your IDE environment (including Remote SSH workspaces), executing locally without requiring server hosting, background daemon processes, or database management.`
+          : (isCliOrLocal
+              ? `No dedicated server hosting is needed. ${tool.name} runs as a local command-line or desktop utility on your workstation, executing directly on your machine without mandatory cloud server dependencies.`
+              : `${tool.name} is delivered primarily as a cloud-hosted web application or managed API endpoint, providing turnkey infrastructure without requiring dedicated server management.`))
   },
   {
     q: `Do I need to create an account or provide a credit card to try ${tool.name}?`,
@@ -275,7 +310,9 @@ const altSubject = tool.primary_alternative || 'entrenched commercial platforms'
 const isOss = tool.pricing_model === 'Open Source';
 const deploymentModel = tool.is_self_hostable 
   ? 'self-hosted containerized deployment (Docker / VPS / Bare-metal)' 
-  : (tool.install_command ? 'local extension / CLI binary execution' : 'managed cloud infrastructure and turnkey web interfaces');
+  : (isExtension
+      ? 'local editor extension running within the IDE Webview runtime'
+      : (isCliOrLocal ? 'local CLI / workstation utility binary execution' : 'managed cloud infrastructure and turnkey web interfaces'));
 
 const featureTitles = displayFeatures.map(f => f.title).filter(Boolean);
 const featureProse = featureTitles.length > 0 
@@ -664,7 +701,13 @@ const jsonLd = {
         <div class="spec-item">
           <span class="spec-label">Deployment Format</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
-            {tool.is_self_hostable ? "Self-Hosted (Docker/Bare-metal)" : (tool.install_command ? "Local Extension / App" : (tool.pricing_model === 'Open Source' ? "Open Codebase / Local" : "Cloud SaaS"))}
+            {tool.is_self_hostable 
+              ? "Self-Hosted (Docker/Bare-metal)" 
+              : (isExtension 
+                  ? "Editor Extension (Local IDE)" 
+                  : (isCliOrLocal 
+                      ? "Local CLI / Desktop Utility" 
+                      : (tool.pricing_model === 'Open Source' ? "Open Codebase / Local" : "Cloud SaaS")))}
           </span>
         </div>
         <div class="spec-item">
@@ -801,9 +844,9 @@ const jsonLd = {
               From an architectural standpoint, the system adopts a {
                 tool.is_self_hostable 
                   ? "local-first, self-contained deployment posture" 
-                  : ((tool.install_command && (tool.tags?.includes('VS Code Extension') || tool.install_command?.startsWith('code --install-extension')))
+                  : (isExtension
                       ? "local editor extension architecture running within the IDE Webview runtime"
-                      : (tool.install_command 
+                      : (isCliOrLocal 
                           ? "lightweight local client/CLI architecture" 
                           : "cloud-native software architecture"))
               }, ensuring low execution latency and minimal external service entanglements.
@@ -820,17 +863,23 @@ const jsonLd = {
           <div class="arch-badge-item">
             <span class="arch-badge-label">Data Sovereignty:</span>
             <span class="arch-badge-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #38bdf8;"}>
-              {tool.is_self_hostable ? "Self-Hosted (Buyer Infrastructure)" : (tool.install_command ? "Local Execution (Client-Side)" : "Managed Cloud")}
+              {tool.is_self_hostable 
+                ? "Self-Hosted (Buyer Infrastructure)" 
+                : (isExtension 
+                    ? "Local IDE Runtime (Client-Side)" 
+                    : (isCliOrLocal ? "Local Execution (Workstation)" : "Managed Cloud"))}
             </span>
           </div>
           <div class="arch-badge-item">
             <span class="arch-badge-label">Extensibility:</span>
             <span class="arch-badge-value">
-              {(tool.install_command && (tool.tags?.includes('VS Code Extension') || tool.install_command?.startsWith('code --install-extension')))
+              {isExtension
                 ? "VS Code Commands & Editor UI"
-                : (tool.github_url 
-                    ? (tool.install_command ? "Forkable Codebase & Local CLI" : "Forkable Codebase & REST/CLI") 
-                    : "REST / Webhooks Interoperability")}
+                : (isCliOrLocal
+                    ? (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags")
+                    : (tool.github_url 
+                        ? "Forkable Codebase & REST/CLI" 
+                        : "REST / Webhooks Interoperability"))}
             </span>
           </div>
           <div class="arch-badge-item">

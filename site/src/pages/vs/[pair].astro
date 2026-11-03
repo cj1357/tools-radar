@@ -36,6 +36,10 @@ const isOssB = toolB ? toolB.pricing_model === 'Open Source' : false;
 const isSelfHostA = Boolean(toolA.is_self_hostable);
 const isSelfHostB = toolB ? Boolean(toolB.is_self_hostable) : false;
 
+const tagsA = (toolA.tags || []).map((t: string) => (t || '').toLowerCase());
+const isExtA = tagsA.some((t: string) => t.includes('extension')) || (toolA.install_command || '').toLowerCase().startsWith('code --install-extension');
+const isCliOrLocalA = isExtA || tagsA.some((t: string) => ['cli', 'terminal', 'tui', 'command-line'].includes(t)) || Boolean(toolA.install_command);
+
 const knownFreeKeywords = [
   'git', 'blender', 'audacity', 'gimp', 'obsidian', 'vs code', 'vscode', 'vscodium',
   'linux', 'docker', 'firefox', 'vlc', 'wireshark', 'neovim', 'vim', 'git diff',
@@ -307,8 +311,8 @@ const jsonLd = {
             <tr>
               <td><strong>Deployment Freedom</strong></td>
               <td>
-                <span class={isSelfHostA ? 'status-tag positive' : 'status-tag'}>
-                  {isSelfHostA ? '✓ Self-Hostable (Docker / Bare Metal)' : 'Cloud Managed'}
+                <span class={isSelfHostA || isCliOrLocalA ? 'status-tag positive' : 'status-tag'}>
+                  {isSelfHostA ? '✓ Self-Hostable (Docker / Bare Metal)' : (isExtA ? '✓ Editor Extension (Local IDE)' : (isCliOrLocalA ? '✓ Local / Native CLI' : 'Cloud Managed'))}
                 </span>
               </td>
               <td>
