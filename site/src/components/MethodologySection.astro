@@ -38,7 +38,7 @@
         </p>
         <div class="card-footer-pill">
           <span class="dot-active"></span>
-          <span>24H Automated Cadence • 975+ Tracked</span>
+          <span>24H Cadence • 975+ Tracked</span>
         </div>
       </article>
 
@@ -140,16 +140,21 @@
     margin: 4.5rem 0 3.5rem;
     padding-top: 3.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .methodology-inner {
     width: 100%;
+    box-sizing: border-box;
   }
 
   .methodology-section-header {
     text-align: center;
     max-width: 760px;
     margin: 0 auto 3rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
   }
 
   .methodology-pill {
@@ -176,6 +181,16 @@
     color: var(--text-primary);
   }
 
+  @media (max-width: 640px) {
+    .methodology-heading {
+      font-size: 1.55rem;
+      line-height: 1.3;
+    }
+    .methodology-subheading {
+      font-size: 0.92rem;
+    }
+  }
+
   .gradient-text {
     background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
     -webkit-background-clip: text;
@@ -191,14 +206,16 @@
   /* 4 Pillars Grid */
   .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     margin-bottom: 2.5rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   @media (max-width: 860px) {
     .methodology-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1.25rem;
     }
   }
@@ -211,7 +228,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
     transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  @media (max-width: 640px) {
+    .methodology-card {
+      padding: 1.15rem;
+    }
   }
 
   .methodology-card:hover {
@@ -225,6 +252,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
   }
 
   .step-num {
@@ -265,6 +294,13 @@
     color: var(--text-primary);
     letter-spacing: -0.01em;
     margin-bottom: 0.65rem;
+    word-break: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .card-title {
+      font-size: 1.1rem;
+    }
   }
 
   .card-desc {
@@ -273,6 +309,13 @@
     line-height: 1.6;
     margin-bottom: 1.25rem;
     flex: 1;
+    word-break: break-word;
+  }
+
+  @media (max-width: 640px) {
+    .card-desc {
+      font-size: 0.88rem;
+    }
   }
 
   .formula-snippet {
@@ -281,14 +324,18 @@
     border-radius: 8px;
     padding: 0.55rem 0.75rem;
     margin-bottom: 1.25rem;
+    max-width: 100%;
     overflow-x: auto;
+    box-sizing: border-box;
   }
 
   .formula-snippet code {
     font-family: var(--font-mono);
     font-size: 0.78rem;
     color: #a855f7;
-    white-space: nowrap;
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: block;
   }
 
   .card-footer-pill {
@@ -303,6 +350,9 @@
     font-size: 0.75rem;
     color: var(--text-muted);
     width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
   }
 
   .dot-active {
@@ -325,6 +375,8 @@
     padding: 1.25rem 1.75rem;
     gap: 1.5rem;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
   }
 
   .banner-content {
@@ -332,11 +384,13 @@
     align-items: center;
     gap: 1rem;
     flex: 1;
-    min-width: 260px;
+    min-width: 240px;
+    box-sizing: border-box;
   }
 
   .banner-icon {
     font-size: 1.6rem;
+    flex-shrink: 0;
   }
 
   .banner-text {
@@ -373,6 +427,7 @@
     font-size: 0.84rem;
     border-radius: 8px;
     transition: all 0.15s ease;
+    white-space: nowrap;
   }
 
   .btn-methodology-link:hover {
@@ -392,10 +447,35 @@
     font-size: 0.84rem;
     border-radius: 8px;
     transition: all 0.15s ease;
+    white-space: nowrap;
   }
 
   .btn-submit-link:hover {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
+  }
+
+  @media (max-width: 640px) {
+    .methodology-bottom-banner {
+      padding: 1.1rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+    .banner-content {
+      min-width: 0;
+      width: 100%;
+    }
+    .banner-actions {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+    .btn-methodology-link, .btn-submit-link {
+      justify-content: center;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
   }
 </style>

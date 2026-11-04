@@ -93,7 +93,7 @@ const clientToolsIndex = allTools.map(t => ({
         type="text" 
         id="copilot-input" 
         class="copilot-input" 
-        placeholder="e.g. 'I need a self-hostable monitoring tool with Docker' or 'Alternative to Buffer for social scheduling'..." 
+        placeholder="Ask AI: e.g. 'Notion alternative with Docker'..." 
         autocomplete="off"
       />
       <button type="button" id="copilot-submit-btn" class="copilot-btn">
@@ -369,6 +369,30 @@ const clientToolsIndex = allTools.map(t => ({
       padding: 1.5rem 1rem;
       border-radius: 14px;
     }
+
+    .copilot-input-wrapper {
+      padding: 0.35rem 0.35rem 0.35rem 2.25rem;
+      gap: 0.35rem;
+    }
+
+    .input-lens-icon {
+      left: 0.75rem;
+    }
+
+    .copilot-input {
+      font-size: 0.85rem;
+      padding-right: 0.4rem;
+    }
+
+    .copilot-input::placeholder {
+      font-size: 0.78rem;
+    }
+
+    .copilot-btn {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.8rem;
+      gap: 0.3rem;
+    }
   }
 
   .copilot-card::before {
@@ -533,6 +557,8 @@ const clientToolsIndex = allTools.map(t => ({
     font-size: 0.95rem;
     font-family: inherit;
     min-width: 0;
+    padding-right: 0.75rem;
+    text-overflow: ellipsis;
   }
 
   .copilot-input::placeholder {

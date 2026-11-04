@@ -107,6 +107,34 @@ import { homepageFaqs } from '../data/faqs';
     line-height: 1.6;
   }
 
+  @media (max-width: 640px) {
+    .faq-heading {
+      font-size: 1.55rem;
+      line-height: 1.3;
+    }
+    .faq-subheading {
+      font-size: 0.92rem;
+    }
+    .faq-summary {
+      padding: 1rem 1.15rem;
+      font-size: 0.95rem;
+    }
+    .faq-answer-content {
+      padding: 0 1.15rem 1.15rem 1.15rem;
+      font-size: 0.88rem;
+    }
+    .faq-support-callout {
+      padding: 1rem 1.15rem;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn-faq-contact {
+      justify-content: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
   /* Accordion */
   .faq-accordion-list {
     display: flex;
