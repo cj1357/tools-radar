@@ -48,7 +48,7 @@ const PAGE_SIZE = 24;
 const initialTools = allTools.slice(0, PAGE_SIZE);
 
 // Lightweight in-memory search index for 0ms instant Raycast dropdown & search synchronization
-const searchIndex = allTools.map(t => ({
+const searchIndex = allTools.map((t, index) => ({
   id: t.id,
   name: t.name,
   tagline: t.tagline,
@@ -64,6 +64,8 @@ const searchIndex = allTools.map(t => ({
   url: t.url || '',
   github_url: t.github_url || '',
   iconUrl: getToolIcon(t.url, t.github_url),
+  dateAdded: t.date_added || '',
+  orderIndex: index,
   corpus: `${t.name} ${t.tagline} ${t.category} ${(t.tags || []).join(' ')} ${t.primary_alternative || ''}`.toLowerCase()
 }));
 ---
@@ -279,9 +281,9 @@ const searchIndex = allTools.map(t => ({
         <span class="sort-caption">SORT BY:</span>
         <div class="sort-select-container">
           <select id="sort-select" class="sort-dropdown-select" aria-label="Sort tools">
-            <option value="signal" selected>⚡ Highest Traction Score</option>
+            <option value="newest" selected>🆕 Recently Added</option>
+            <option value="signal">⚡ Highest Traction Score</option>
             <option value="stars">★ Most GitHub Stars</option>
-            <option value="newest">🆕 Recently Added</option>
           </select>
           <svg class="sort-chevron-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
@@ -448,7 +450,7 @@ const searchIndex = allTools.map(t => ({
 
   let activeCategory = 'all';
   let activeFeatureFilter = 'all';
-  let activeSort = 'signal';
+  let activeSort = 'newest';
   let searchQuery = '';
   let dropdownActiveIndex = -1;
   let currentMatches = [];
@@ -684,9 +686,18 @@ const searchIndex = allTools.map(t => ({
 
     // Sorting
     if (activeSort === 'stars') {
-      filteredTools.sort((a, b) => b.stars - a.stars);
+      filteredTools.sort((a, b) => (b.stars || 0) - (a.stars || 0));
     } else if (activeSort === 'signal') {
-      filteredTools.sort((a, b) => b.signal - a.signal);
+      filteredTools.sort((a, b) => (b.signal || 0) - (a.signal || 0));
+    } else if (activeSort === 'newest') {
+      filteredTools.sort((a, b) => {
+        const dateA = a.dateAdded || '';
+        const dateB = b.dateAdded || '';
+        if (dateB !== dateA) {
+          return dateB.localeCompare(dateA);
+        }
+        return (a.orderIndex || 0) - (b.orderIndex || 0);
+      });
     }
 
     renderGrid();
@@ -855,12 +866,12 @@ const searchIndex = allTools.map(t => ({
       if (searchDropdown) searchDropdown.style.display = 'none';
       activeCategory = 'all';
       activeFeatureFilter = 'all';
-      activeSort = 'signal';
+      activeSort = 'newest';
       document.querySelectorAll('.category-pill-btn').forEach(b => b.classList.remove('active'));
       document.querySelector('.category-pill-btn[data-category="all"]')?.classList.add('active');
       document.querySelectorAll('.filter-toggle-chip').forEach(c => c.classList.remove('active'));
       document.querySelector('.filter-toggle-chip[data-filter="all"]')?.classList.add('active');
-      if (sortSelect) sortSelect.value = 'signal';
+      if (sortSelect) sortSelect.value = 'newest';
       displayedCount = BATCH_SIZE;
       applyFilters();
     });
