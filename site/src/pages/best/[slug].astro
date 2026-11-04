@@ -45,6 +45,29 @@ const jsonLd = {
           "text": f.a
         }
       }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lordorange.top"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Best Tools",
+          "item": "https://lordorange.top/best"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": topic.title,
+          "item": canonical
+        }
+      ]
     }
   ]
 };

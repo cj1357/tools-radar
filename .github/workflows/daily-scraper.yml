@@ -68,3 +68,7 @@ jobs:
             git pull --rebase origin main
             git push origin main
           fi
+
+      - name: Ping Search Engines via IndexNow
+        run: |
+          python scripts/submit_indexnow.py

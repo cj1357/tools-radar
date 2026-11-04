@@ -4,12 +4,16 @@ interface Props {
   description: string;
   canonicalUrl?: string;
   jsonLd?: Record<string, any>;
+  image?: string;
 }
 
-const { title, description, canonicalUrl, jsonLd } = Astro.props;
+const { title, description, canonicalUrl, jsonLd, image } = Astro.props;
 const siteName = "ToolsRadar";
 const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
+const resolvedImage = image 
+  ? (image.startsWith('http') ? image : `https://lordorange.top${image.startsWith('/') ? '' : '/'}${image}`)
+  : "https://lordorange.top/og-default.png";
 ---
 
 <!doctype html>
@@ -37,11 +41,17 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={siteName} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={fullTitle} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedImage} />
+    <meta name="twitter:image:alt" content={fullTitle} />
 
     <!-- Schema.org JSON-LD -->
     {jsonLd && (
@@ -927,6 +937,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
           <li><a href="/guides">Guides</a></li>
           <li><a href="/vs">Comparisons</a></li>
           <li><a href="/best">Best Lists</a></li>
+          <li><a href="/tag">Tags</a></li>
           <li><a href="/category/ai-agents">AI Agents</a></li>
           <li><a href="/category/developer-tools">DevTools</a></li>
           <li><a href="/category/open-source">Open Source</a></li>
@@ -977,6 +988,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
         <a href="/vs" class="mobile-nav-item" style="color: #38bdf8; font-weight: 600;">⚡ Head-to-Head Comparisons</a>
         <a href="/best" class="mobile-nav-item" style="color: #facc15; font-weight: 600;">🏆 Best Software Rankings</a>
         <a href="/guides" class="mobile-nav-item" style="color: #c084fc; font-weight: 600;">📚 Technical Guides</a>
+        <a href="/tag" class="mobile-nav-item" style="color: #38bdf8; font-weight: 600;">🏷️ Tags & Taxonomy Directory</a>
         <a href="/category/ai-agents" class="mobile-nav-item">🤖 AI Agents & Workflows</a>
         <a href="/category/ai-tools" class="mobile-nav-item">🧠 AI & Machine Learning</a>
         <a href="/category/developer-tools" class="mobile-nav-item">💻 DevTools & CLI</a>
@@ -1033,6 +1045,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
             <span class="footer-col-title">Radar Discovery</span>
             <ul class="footer-col-links">
               <li><a href="/">All Tools Feed</a></li>
+              <li><a href="/tag">Tags & Taxonomy Directory</a></li>
               <li><a href="/category/ai-agents">AI Agents & Workflows</a></li>
               <li><a href="/category/developer-tools">DevTools & CLI</a></li>
               <li><a href="/category/open-source">Open Source Alternatives</a></li>

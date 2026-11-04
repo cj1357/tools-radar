@@ -119,6 +119,29 @@ const jsonLd = {
           "text": f.a
         }
       }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lordorange.top"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comparisons",
+          "item": "https://lordorange.top/vs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": `${toolA.name} vs ${toolBName}`,
+          "item": canonical
+        }
+      ]
     }
   ]
 };

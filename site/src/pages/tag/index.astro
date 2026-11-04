@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import allTools from '../../../../data/all_tools.json';
+
+const tagMap = new Map();
+
+allTools.forEach(tool => {
+  (tool.tags || []).forEach((rawTag: string) => {
+    const trimmed = (rawTag || '').trim();
+    if (!trimmed) return;
+    const slug = trimmed.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    if (!slug || slug.length < 2) return;
+
+    if (!tagMap.has(slug)) {
+      tagMap.set(slug, {
+        slug,
+        displayName: trimmed,
+        count: 0
+      });
+    }
+    tagMap.get(slug).count += 1;
+  });
+});
+
+// All tags with at least 3 tools
+const allTagItems = Array.from(tagMap.values())
+  .filter(t => t.count >= 3)
+  .sort((a, b) => b.count - a.count);
+
+const topFeaturedTags = allTagItems.slice(0, 30);
+const alphabeticalTags = [...allTagItems].sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+const pageTitle = "All Developer Tool Tags & Technologies Directory (2026) | ToolsRadar";
+const metaDesc = `Browse ${allTagItems.length}+ curated technology and developer tool tags. Discover top software, AI agents, and open-source alternatives categorized by tag on ToolsRadar.`;
+const canonical = "https://lordorange.top/tag";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonical}#collection`,
+      "name": pageTitle,
+      "description": metaDesc,
+      "url": canonical
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lordorange.top"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tags",
+          "item": canonical
+        }
+      ]
+    }
+  ]
+};
+---
+
+<Layout 
+  title={pageTitle}
+  description={metaDesc}
+  canonicalUrl={canonical}
+  jsonLd={jsonLd}
+>
+  <nav class="breadcrumb-nav" style="display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem;">
+    <a href="/" style="color: var(--text-muted); text-decoration: none;">Radar</a>
+    <span>/</span>
+    <span style="color: var(--text-secondary);">Tags</span>
+  </nav>
+
+  <header style="padding: 1.5rem 0 2rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 2.5rem;">
+    <div style="display: inline-block; margin-bottom: 0.75rem;">
+      <span class="badge badge-source" style="font-size: 0.8rem; padding: 0.25rem 0.65rem;">
+        Taxonomy Index
+      </span>
+    </div>
+
+    <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.6rem;" class="gradient-title">
+      Developer Tool Tags & Stacks
+    </h1>
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 720px; line-height: 1.6;">
+      Explore our comprehensive programmatic directory of {allTagItems.length} developer tags across {allTools.length} audited releases. Find niche tools, specialized libraries, and trending tech.
+    </p>
+  </header>
+
+  <!-- High-Density Popular Tags -->
+  <section style="margin-bottom: 3.5rem;">
+    <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+      <span>🔥 Most Popular Tags</span>
+    </h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+      {topFeaturedTags.map(tag => (
+        <a 
+          href={`/tag/${tag.slug}`}
+          style="background: rgba(18, 18, 23, 0.85); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; padding: 0.6rem 1rem; text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: all 0.2s ease;"
+        >
+          <span style="color: #f4f4f5; font-weight: 600; font-size: 0.95rem;">#{tag.displayName}</span>
+          <span style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 9999px;">
+            {tag.count}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Complete Alphabetical List -->
+  <section>
+    <h2 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1.25rem;">
+      Alphabetical Directory ({allTagItems.length} Tags)
+    </h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem;">
+      {alphabeticalTags.map(tag => (
+        <a 
+          href={`/tag/${tag.slug}`}
+          style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.5rem 0.85rem; text-decoration: none; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s ease;"
+        >
+          <span style="color: var(--text-secondary); font-size: 0.9rem;">#{tag.displayName}</span>
+          <span style="color: var(--text-muted); font-size: 0.78rem; font-family: var(--font-mono);">{tag.count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

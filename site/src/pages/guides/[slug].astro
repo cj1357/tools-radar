@@ -22,26 +22,53 @@ const relatedGuides = guidesData
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": guide.title,
-  "description": guide.description,
-  "datePublished": guide.publishedAt,
-  "dateModified": guide.updatedAt,
-  "author": {
-    "@type": "Person",
-    "name": guide.author.name,
-    "jobTitle": guide.author.role
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "ToolsRadar",
-    "url": "https://lordorange.top",
-    "logo": "https://lordorange.top/favicon.svg"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": `https://lordorange.top/guides/${guide.slug}`
-  }
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": guide.title,
+      "description": guide.description,
+      "datePublished": guide.publishedAt,
+      "dateModified": guide.updatedAt,
+      "author": {
+        "@type": "Person",
+        "name": guide.author.name,
+        "jobTitle": guide.author.role
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ToolsRadar",
+        "url": "https://lordorange.top",
+        "logo": "https://lordorange.top/favicon.svg"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://lordorange.top/guides/${guide.slug}`
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lordorange.top"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://lordorange.top/guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": guide.title,
+          "item": `https://lordorange.top/guides/${guide.slug}`
+        }
+      ]
+    }
+  ]
 };
 ---
 
