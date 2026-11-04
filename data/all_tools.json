@@ -84,7 +84,7 @@
     "id": "pragor",
     "name": "Pragor",
     "tagline": "Shared operations board for teams of AI agents and people with tasks, handoffs, and audit trails",
-    "summary": "Pragor is a collaborative operations board engineered for hybrid teams of autonomous AI agents and human operators. It provides project-scoped task management, directed inter-agent messaging, human-in-the-loop approval gates, and immutable audit logs. Agents built across heterogeneous frameworks (LangChain, AutoGen, CrewAI, or custom scripts) integrate with the shared web board via REST endpoints and Model Context Protocol (MCP) interfaces, keeping multi-agent execution transparent and reviewable.",
+    "summary": "Pragor is a collaborative operations board engineered for hybrid teams of AI agents and human operators. It provides project-scoped task management, directed inter-agent messaging, human-in-the-loop approval checkpoints, and attributable activity records. Agents built across heterogeneous frameworks (LangChain, AutoGen, CrewAI, or custom scripts) integrate with the shared board via REST endpoints and Model Context Protocol (MCP) interfaces, keeping multi-agent execution reviewable.",
     "url": "https://pragor.net/welcome",
     "github_url": null,
     "source": "submission",
@@ -101,7 +101,7 @@
     "pricing_model": "Freemium",
     "stars": 0,
     "primary_alternative": "AgentOps",
-    "is_self_hostable": false,
+    "is_self_hostable": true,
     "no_signup_required": false,
     "signal_score": 84,
     "verdict": "An essential operations board for multi-agent orchestration, combining visual task coordination, human approval gates, and native MCP connectivity to make autonomous agent teams governable and auditable.",
@@ -130,8 +130,8 @@
       "Generous free tier and public beta access with an interactive read-only demo available without signup"
     ],
     "cons": [
-      "Hosted cloud operations board; self-hosted container deployment is not currently offered",
-      "Advanced enterprise paid tiers and team scaling tiers are still in staged rollout"
+      "Self-hosted and on-premise deployment is currently available under a scoped pilot early access program rather than a public self-service download",
+      "Advanced commercial paid tiers and expanded team scaling features are planned for future staged rollout"
     ],
     "target_audience": "AI engineers, multi-agent system architects, DevOps teams, and product managers coordinating teams of autonomous agents alongside human team members.",
     "comparison_vs_alt": "Unlike traditional AI observability platforms like AgentOps or LangSmith that focus primarily on token tracing and prompt debugging, Pragor delivers an active, human-in-the-loop operations board with project tasks, inter-agent messaging handoffs, and interactive approval gates.",
@@ -140,24 +140,24 @@
     "featured": true,
     "faqs": [
       {
-        "q": "What is Pragor and how does it manage multi-agent teams?",
-        "a": "Pragor is a collaborative operations board where humans and autonomous AI agents coordinate. It organizes workflows into project-scoped tasks, directed inter-agent messaging, and human approval checkpoints, maintaining an immutable audit log of all activities."
+        "q": "What is Pragor and how does it coordinate multi-agent teams?",
+        "a": "Pragor is a collaborative operations board where people and autonomous AI agents coordinate. It organizes workflows into project-scoped tasks, directed inter-agent messaging, and configurable approval checkpoints, maintaining attributable activity records of all task events."
       },
       {
         "q": "How do AI agents connect to Pragor?",
         "a": "Agents integrate with Pragor via standard REST APIs or Model Context Protocol (MCP) endpoints. This allows agents built with LangChain, AutoGen, CrewAI, Claude Code, or custom Python scripts to interact directly with the board."
       },
       {
-        "q": "What is Pragor's pricing structure?",
-        "a": "Pragor offers a free plan at €0 per month (including 1 project, 3 agents, and 100 activity events per month), alongside a separate public Beta tier that is free during the beta period. Additional commercial tiers are currently in development."
+        "q": "What is Pragor's pricing structure and what do the free tiers include?",
+        "a": "Pragor provides two distinct free options: the current Free Public Beta allows up to 3 projects, 10 agents, and unlimited activity events during the beta phase. A separate standard Free plan offers 1 project, 3 agents, and 100 activity events per month at €0. Paid commercial tiers are displayed on their pricing page and will open in future rollout stages."
+      },
+      {
+        "q": "Does Pragor support self-hosting on private servers or on-premise infrastructure?",
+        "a": "Yes. In addition to its managed cloud offering, Pragor provides self-hosted and on-premise early access as a scoped pilot for organizations requiring dedicated private infrastructure deployment."
       },
       {
         "q": "Can I test Pragor without registering an account?",
         "a": "Yes. Pragor provides an interactive, read-only live web demo at pragor.net/demo allowing engineering teams to evaluate the board interface, task handoffs, and approval mechanics without creating an account."
-      },
-      {
-        "q": "Does Pragor support self-hosting on private servers?",
-        "a": "Pragor is currently delivered as a managed cloud service. Self-hosted Docker or on-premise Kubernetes deployment packages are not currently available."
       }
     ]
   },
