@@ -1,5 +1,167 @@
 [
   {
+    "id": "pixelarthive",
+    "name": "PixelArtHive",
+    "tagline": "Free browser-based image-to-pixel-art conversion and pixel art upscaling",
+    "summary": "PixelArtHive is a lightweight, free browser-based image preparation utility designed for indie game developers, UI designers, and digital artists working with retro visual aesthetics. It offers instant client-side image-to-pixel-art quantization, color reduction, and nearest-neighbor upscaling directly in the browser. All pixel transformations execute locally on client hardware via HTML5 Canvas, ensuring complete image privacy without server-side uploads or account requirements.",
+    "url": "https://pixelarthive.com/",
+    "github_url": null,
+    "source": "submission",
+    "category": "design-ui",
+    "tags": [
+      "Pixel Art",
+      "Design Tools",
+      "Client-Side",
+      "Image Processing",
+      "Frontend",
+      "Free",
+      "Indie Games"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Aseprite",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 76,
+    "verdict": "A remarkably fast, privacy-respecting browser utility that handles image-to-pixel conversion and nearest-neighbor upscaling with zero installation or account friction.",
+    "key_features": [
+      {
+        "title": "Client-Side Pixel Art Quantization",
+        "description": "Convert standard raster images into pixel art grids and export optimized PNG files instantly with zero latency."
+      },
+      {
+        "title": "Nearest-Neighbor Upscaling",
+        "description": "Enlarge existing low-resolution pixel art sprites cleanly without anti-aliasing blur, preserving crisp retro edges."
+      },
+      {
+        "title": "100% In-Browser Privacy",
+        "description": "Processes all image data locally within client browser memory using HTML5 Canvas, ensuring no artwork or files are transmitted to external servers."
+      }
+    ],
+    "use_cases": [
+      "Rapidly prototyping 2D sprite textures and retro pixel art assets from real-world photography or concept sketches for indie game development",
+      "Upscaling retro pixel art assets, game icons, or pixel typography for high-DPI displays without introducing bilinear filtering artifacts",
+      "Preparing pixelated UI elements and avatars without installing desktop photo editing software or paying recurring software subscriptions"
+    ],
+    "pros": [
+      "100% free with zero sign-up, login, credit card, or paywall barriers",
+      "Complete data privacy: all processing executes client-side in the browser without uploading images to cloud servers",
+      "Dedicated nearest-neighbor scaling preserves crisp pixel boundaries without raster blur"
+    ],
+    "cons": [
+      "Focused utility tool designed for pixel conversion and upscaling rather than full-featured sprite animation or layering like Aseprite",
+      "Proprietary web application; source code repository is not publicly published"
+    ],
+    "target_audience": "Indie game developers, 2D artists, UI/UX designers, and hobbyists needing fast pixel-style image conversions and crisp upscaling.",
+    "comparison_vs_alt": "While Aseprite is the professional gold standard for complex multi-frame sprite animations, tilesets, and palette creation, PixelArtHive offers a lightweight, zero-install in-browser utility for quick image-to-pixel conversion and crisp nearest-neighbor upscaling.",
+    "install_command": "open https://pixelarthive.com/",
+    "date_added": "2026-11-04",
+    "featured": false,
+    "faqs": [
+      {
+        "q": "Is PixelArtHive free to use for commercial projects?",
+        "a": "Yes. PixelArtHive is completely free to use. Converted pixel art images and upscaled PNG graphics can be downloaded and used freely in indie game projects, digital illustrations, and web design."
+      },
+      {
+        "q": "Are my images uploaded to external cloud servers?",
+        "a": "No. PixelArtHive processes all graphics directly inside your local browser using client-side HTML5 Canvas APIs. Images never leave your workstation, ensuring complete privacy."
+      },
+      {
+        "q": "Does PixelArtHive support sprite animation or layers?",
+        "a": "No. PixelArtHive is specialized for static image-to-pixel conversion and nearest-neighbor upscaling. For multi-frame sprite sheet animation, timeline editing, or advanced layering, dedicated software like Aseprite is recommended."
+      },
+      {
+        "q": "What is nearest-neighbor upscaling and why is it used?",
+        "a": "Nearest-neighbor interpolation enlarges pixel artwork by duplicating adjacent pixel color values rather than blending neighboring pixels. This keeps sharp, blocky pixel edges intact without blurry smoothing artifacts."
+      },
+      {
+        "q": "Is PixelArtHive an open-source project?",
+        "a": "No public source code repository is provided. PixelArtHive is delivered as a free, hosted web utility accessible directly through modern web browsers without installation."
+      }
+    ]
+  },
+  {
+    "id": "pragor",
+    "name": "Pragor",
+    "tagline": "Shared operations board for teams of AI agents and people with tasks, handoffs, and audit trails",
+    "summary": "Pragor is a collaborative operations board engineered for hybrid teams of autonomous AI agents and human operators. It provides project-scoped task management, directed inter-agent messaging, human-in-the-loop approval gates, and immutable audit logs. Agents built across heterogeneous frameworks (LangChain, AutoGen, CrewAI, or custom scripts) integrate with the shared web board via REST endpoints and Model Context Protocol (MCP) interfaces, keeping multi-agent execution transparent and reviewable.",
+    "url": "https://pragor.net/welcome",
+    "github_url": null,
+    "source": "submission",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Multi-Agent",
+      "AgentOps",
+      "MCP",
+      "Human-in-the-Loop",
+      "Audit Trail",
+      "Workflow"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "AgentOps",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 84,
+    "verdict": "An essential operations board for multi-agent orchestration, combining visual task coordination, human approval gates, and native MCP connectivity to make autonomous agent teams governable and auditable.",
+    "key_features": [
+      {
+        "title": "Heterogeneous Multi-Agent Coordination",
+        "description": "Project-scoped tasks and directed messaging enable agents constructed on diverse frameworks to coordinate work and hand off execution states smoothly."
+      },
+      {
+        "title": "Human-in-the-Loop Approval Gates",
+        "description": "Enforces mandatory human approval checkpoints and attributable operational records for consequential, irreversible, or high-risk execution steps."
+      },
+      {
+        "title": "Universal REST & MCP Connectivity",
+        "description": "Exposes standardized REST endpoints and Model Context Protocol (MCP) interfaces, bridging external coding assistants and background agents directly into the shared web board."
+      }
+    ],
+    "use_cases": [
+      "Coordinating multi-agent workflows where specialized subagents (researcher, coder, reviewer) must hand off tasks with human sign-off before production deployment",
+      "Maintaining an immutable compliance audit trail for autonomous agent activities, tool invocations, and database mutations across enterprise operations",
+      "Connecting heterogeneous autonomous agents built with different frameworks (LangChain, CrewAI, custom Python) to a single visual Kanban and task board"
+    ],
+    "pros": [
+      "Bridges autonomous multi-agent execution with human oversight, preventing silent compounding agent errors",
+      "Native Model Context Protocol (MCP) and REST API support for framework-agnostic agent integration",
+      "Generous free tier and public beta access with an interactive read-only demo available without signup"
+    ],
+    "cons": [
+      "Hosted cloud operations board; self-hosted container deployment is not currently offered",
+      "Advanced enterprise paid tiers and team scaling tiers are still in staged rollout"
+    ],
+    "target_audience": "AI engineers, multi-agent system architects, DevOps teams, and product managers coordinating teams of autonomous agents alongside human team members.",
+    "comparison_vs_alt": "Unlike traditional AI observability platforms like AgentOps or LangSmith that focus primarily on token tracing and prompt debugging, Pragor delivers an active, human-in-the-loop operations board with project tasks, inter-agent messaging handoffs, and interactive approval gates.",
+    "install_command": "open https://pragor.net/demo",
+    "date_added": "2026-11-04",
+    "featured": true,
+    "faqs": [
+      {
+        "q": "What is Pragor and how does it manage multi-agent teams?",
+        "a": "Pragor is a collaborative operations board where humans and autonomous AI agents coordinate. It organizes workflows into project-scoped tasks, directed inter-agent messaging, and human approval checkpoints, maintaining an immutable audit log of all activities."
+      },
+      {
+        "q": "How do AI agents connect to Pragor?",
+        "a": "Agents integrate with Pragor via standard REST APIs or Model Context Protocol (MCP) endpoints. This allows agents built with LangChain, AutoGen, CrewAI, Claude Code, or custom Python scripts to interact directly with the board."
+      },
+      {
+        "q": "What is Pragor's pricing structure?",
+        "a": "Pragor offers a free plan at €0 per month (including 1 project, 3 agents, and 100 activity events per month), alongside a separate public Beta tier that is free during the beta period. Additional commercial tiers are currently in development."
+      },
+      {
+        "q": "Can I test Pragor without registering an account?",
+        "a": "Yes. Pragor provides an interactive, read-only live web demo at pragor.net/demo allowing engineering teams to evaluate the board interface, task handoffs, and approval mechanics without creating an account."
+      },
+      {
+        "q": "Does Pragor support self-hosting on private servers?",
+        "a": "Pragor is currently delivered as a managed cloud service. Self-hosted Docker or on-premise Kubernetes deployment packages are not currently available."
+      }
+    ]
+  },
+  {
     "id": "hackerbooks",
     "name": "HackerBooks",
     "tagline": "Discover top books discussed by the Hacker News community",
