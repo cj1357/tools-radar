@@ -8,6 +8,10 @@ import RadarAICopilot from '../components/RadarAICopilot.astro';
 import allTools from '../../../data/all_tools.json';
 import categories from '../../../data/categories.json';
 import { getToolIcon } from '../utils/favicon';
+import MethodologySection from '../components/MethodologySection.astro';
+import HomepageFAQ from '../components/HomepageFAQ.astro';
+import TaxonomyClusterSection from '../components/TaxonomyClusterSection.astro';
+import { homepageFaqs } from '../data/faqs';
 
 // Compute category counts
 const categoryCounts = categories.map(cat => ({
@@ -68,12 +72,51 @@ const searchIndex = allTools.map((t, index) => ({
   orderIndex: index,
   corpus: `${t.name} ${t.tagline} ${t.category} ${(t.tags || []).join(' ')} ${t.primary_alternative || ''}`.toLowerCase()
 }));
+
+// Schema.org Graph for Google Rich Snippets & AdSense E-E-A-T evaluation
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://lordorange.top/#website",
+      "name": "ToolsRadar",
+      "url": "https://lordorange.top/",
+      "description": "Independent real-time tracking of high-signal software, autonomous AI agents, and privacy-first open-source alternatives.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lordorange.top/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://lordorange.top/#organization",
+      "name": "ToolsRadar",
+      "url": "https://lordorange.top/",
+      "logo": "https://lordorange.top/favicon.svg"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lordorange.top/#faq",
+      "mainEntity": homepageFaqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
 ---
 
 <Layout 
   title="ToolsRadar - Curated Daily Directory of New Developer Tools & AI Apps" 
   description="The high-signal intelligence radar discovering tomorrow's breakout developer utilities, autonomous AI agents, and open-source alternatives."
   canonicalUrl="https://lordorange.top/"
+  jsonLd={jsonLd}
 >
   <!-- ==================== TIER 1: HERO & INTERACTIVE RADAR ==================== -->
   <section class="hero-master-section">
@@ -428,6 +471,15 @@ const searchIndex = allTools.map((t, index) => ({
       </button>
     </div>
   </section>
+
+  <!-- ==================== TIER 6: EDITORIAL METHODOLOGY & SCORING STANDARDS ==================== -->
+  <MethodologySection />
+
+  <!-- ==================== TIER 7: ARCHITECTURAL FAQ & KNOWLEDGE BASE ==================== -->
+  <HomepageFAQ />
+
+  <!-- ==================== TIER 8: TOPICAL CLUSTERS & TAXONOMY ==================== -->
+  <TaxonomyClusterSection totalTagsCount={293} />
 </Layout>
 
 <script define:vars={{ searchIndex }}>

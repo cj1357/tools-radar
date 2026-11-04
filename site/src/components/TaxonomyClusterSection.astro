@@ -1,0 +1,419 @@
+---
+// Curated Topic Clusters & Architectural Ecosystem Component
+interface Props {
+  totalTagsCount?: number;
+}
+
+const { totalTagsCount = 293 } = Astro.props;
+
+const featuredGuides = [
+  {
+    title: "Top Open-Source Notion Alternatives (2026)",
+    slug: "top-open-source-notion-alternatives-2026",
+    time: "7 min read",
+    tag: "Productivity & Docs"
+  },
+  {
+    title: "Architecting Autonomous AI Coding Agents",
+    slug: "developer-guide-autonomous-ai-coding-agents",
+    time: "9 min read",
+    tag: "AI Engineering"
+  },
+  {
+    title: "Production Docker Guide to Self-Hosting DevTools",
+    slug: "self-hosting-developer-tools-docker-guide",
+    time: "8 min read",
+    tag: "DevOps & Cloud"
+  },
+  {
+    title: "Open Source Software Licensing Guide for Devs",
+    slug: "open-source-software-licensing-guide",
+    time: "6 min read",
+    tag: "Legal & Compliance"
+  }
+];
+
+const featuredVS = [
+  { pair: "cursor-vs-github-copilot", label: "Cursor vs GitHub Copilot", desc: "AI Coding Assistant & IDE" },
+  { pair: "supabase-vs-firebase", label: "Supabase vs Firebase", desc: "Open-Source vs Cloud BaaS" },
+  { pair: "raycast-vs-alfred", label: "Raycast vs Alfred", desc: "macOS Developer Command Bar" },
+  { pair: "ollama-vs-vllm", label: "Ollama vs vLLM", desc: "Local LLM Serving & Inference" }
+];
+
+const popularTags = [
+  { name: "ai-agents", count: "168+" },
+  { name: "self-host", count: "388+" },
+  { name: "no-signup", count: "534+" },
+  { name: "developer-tools", count: "117+" },
+  { name: "open-source", count: "350+" },
+  { name: "database", count: "42+" },
+  { name: "privacy", count: "65+" },
+  { name: "cli", count: "89+" },
+  { name: "rust", count: "78+" },
+  { name: "python", count: "120+" },
+  { name: "typescript", count: "145+" },
+  { name: "docker", count: "95+" },
+  { name: "terminal", count: "64+" },
+  { name: "machine-learning", count: "110+" },
+  { name: "vector-search", count: "36+" },
+  { name: "automation", count: "75+" }
+];
+---
+
+<section class="taxonomy-cluster-section" id="radar-taxonomy" aria-labelledby="taxonomy-heading">
+  <div class="taxonomy-inner">
+    <!-- Section Header -->
+    <div class="taxonomy-header">
+      <div class="taxonomy-pill">
+        <span>🗺️ ARCHITECTURAL ECOSYSTEM</span>
+      </div>
+      <h2 id="taxonomy-heading" class="taxonomy-heading">
+        Explore Technical Clusters & <span class="gradient-text">Directory Taxonomy</span>
+      </h2>
+      <p class="taxonomy-subheading">
+        Navigate our curated topic hubs, head-to-head architectural showdowns, and {totalTagsCount}+ programmatic engineering tags.
+      </p>
+    </div>
+
+    <!-- 3-Column Grid -->
+    <div class="taxonomy-tri-grid">
+      <!-- Col 1: Whitepapers & Guides -->
+      <div class="taxonomy-block">
+        <div class="block-header">
+          <span class="block-icon">📚</span>
+          <div>
+            <h3 class="block-title">Technical Whitepapers</h3>
+            <span class="block-subtitle">In-depth benchmark analyses</span>
+          </div>
+        </div>
+
+        <ul class="block-list">
+          {featuredGuides.map(guide => (
+            <li class="block-list-item">
+              <a href={`/guides/${guide.slug}`} class="guide-item-link">
+                <span class="guide-item-title">{guide.title}</span>
+                <div class="guide-item-meta">
+                  <span class="item-tag">{guide.tag}</span>
+                  <span class="item-time">⏱️ {guide.time}</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a href="/guides" class="block-action-link">
+          <span>View all 10 architectural guides</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- Col 2: Battlegrounds (VS) -->
+      <div class="taxonomy-block">
+        <div class="block-header">
+          <span class="block-icon">⚔️</span>
+          <div>
+            <h3 class="block-title">Battleground Showdowns</h3>
+            <span class="block-subtitle">Head-to-head engineering trade-offs</span>
+          </div>
+        </div>
+
+        <ul class="block-list">
+          {featuredVS.map(vs => (
+            <li class="block-list-item">
+              <a href={`/vs/${vs.pair}`} class="vs-item-link">
+                <div class="vs-item-main">
+                  <span class="vs-badge">VS</span>
+                  <span class="vs-title">{vs.label}</span>
+                </div>
+                <span class="vs-desc">{vs.desc}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a href="/vs" class="block-action-link">
+          <span>View all 138+ battleground showdowns</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <!-- Col 3: Programmatic Tags Hub -->
+      <div class="taxonomy-block">
+        <div class="block-header">
+          <span class="block-icon">🏷️</span>
+          <div>
+            <h3 class="block-title">High-Signal Taxonomy</h3>
+            <span class="block-subtitle">{totalTagsCount}+ programmatic topic hubs</span>
+          </div>
+        </div>
+
+        <div class="tags-cluster-wrap">
+          {popularTags.map(tag => (
+            <a href={`/tag/${tag.name}`} class="tag-chip-link" title={`Explore tools tagged #${tag.name}`}>
+              <span class="tag-hash">#</span>
+              <span class="tag-name">{tag.name}</span>
+            </a>
+          ))}
+        </div>
+
+        <a href="/tag" class="block-action-link" style="margin-top: auto;">
+          <span>Explore all {totalTagsCount}+ tag hubs</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .taxonomy-cluster-section {
+    margin: 4.5rem 0 3.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .taxonomy-inner {
+    width: 100%;
+  }
+
+  .taxonomy-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem;
+  }
+
+  .taxonomy-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10b981;
+    font-size: 0.76rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .taxonomy-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
+    color: var(--text-primary);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .taxonomy-subheading {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* 3-Col Grid */
+  .taxonomy-tri-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 960px) {
+    .taxonomy-tri-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .taxonomy-block {
+    background: rgba(18, 18, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .taxonomy-block:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .block-icon {
+    font-size: 1.6rem;
+  }
+
+  .block-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .block-subtitle {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .block-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .block-list-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.15s ease;
+  }
+
+  .block-list-item:hover {
+    background: rgba(56, 189, 248, 0.05);
+    border-color: rgba(56, 189, 248, 0.25);
+  }
+
+  .guide-item-link, .vs-item-link {
+    display: block;
+    padding: 0.75rem 0.9rem;
+    text-decoration: none;
+  }
+
+  .guide-item-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+  }
+
+  .guide-item-link:hover .guide-item-title {
+    color: #38bdf8;
+  }
+
+  .guide-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.74rem;
+  }
+
+  .item-tag {
+    color: #38bdf8;
+    font-family: var(--font-mono);
+  }
+
+  .item-time {
+    color: var(--text-muted);
+  }
+
+  .vs-item-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .vs-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .vs-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .vs-item-link:hover .vs-title {
+    color: #38bdf8;
+  }
+
+  .vs-desc {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  /* Tags Cluster */
+  .tags-cluster-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag-chip-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.65rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .tag-chip-link:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    transform: translateY(-1px);
+  }
+
+  .tag-hash {
+    color: var(--text-muted);
+    margin-right: 0.15rem;
+  }
+
+  .block-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .block-action-link:hover {
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: #7dd3fc;
+  }
+</style>
