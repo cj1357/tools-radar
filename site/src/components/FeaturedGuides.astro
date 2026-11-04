@@ -8,7 +8,7 @@ const featuredGuides = guidesData.slice(0, 3);
 <section class="guides-showcase-wrapper">
   <!-- Section Title -->
   <div class="guides-showcase-header">
-    <div>
+    <div class="guides-title-wrap">
       <div class="guides-showcase-pill">
         <span>📚 TOOLS RADAR INTELLIGENCE REPORTS</span>
       </div>
@@ -276,12 +276,32 @@ const featuredGuides = guidesData.slice(0, 3);
     }
     .guides-showcase-header {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .guides-title-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+    .guides-showcase-pill {
+      margin: 0 auto 0.85rem;
+    }
+    .guides-showcase-title {
+      text-align: center;
+    }
+    .guides-showcase-subtitle {
+      text-align: center;
+      margin: 0 auto 1.25rem;
     }
     .view-all-guides-btn {
-      width: 100%;
+      width: auto;
+      max-width: 280px;
+      margin: 0 auto;
       justify-content: center;
     }
     .showcase-guide-card {

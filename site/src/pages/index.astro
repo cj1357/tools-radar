@@ -1124,15 +1124,28 @@ const jsonLd = {
     .hero-master-section {
       padding: 1.75rem 0 1.5rem;
     }
+    .hero-content-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero-pulse-badge {
+      margin: 0 auto 1.25rem;
+      display: inline-flex;
+    }
     .hero-main-title {
+      text-align: center;
       margin-bottom: 0.85rem;
     }
     .hero-lead-text {
+      text-align: center;
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.5rem;
     }
     .search-command-wrapper {
-      margin-bottom: 1.5rem;
+      margin: 0 auto 1.5rem;
+      width: 100%;
     }
     .search-command-input {
       padding: 0.85rem 1.25rem 0.85rem 2.75rem;
@@ -1492,13 +1505,15 @@ const jsonLd = {
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
+      margin: 0 auto;
     }
     .ticker-separator {
       display: none;
     }
     .ticker-box {
       min-width: 0;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -1529,9 +1544,30 @@ const jsonLd = {
   @media (max-width: 640px) {
     .feed-section-header {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 0.6rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .feed-title-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+    .feed-section-pill {
+      margin: 0 auto 0.5rem;
+    }
+    .feed-section-title {
+      font-size: 1.75rem;
+      text-align: center;
+    }
+    .feed-counter-status {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 0.25rem;
     }
   }
 
