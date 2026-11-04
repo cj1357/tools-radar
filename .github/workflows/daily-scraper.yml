@@ -44,17 +44,15 @@ jobs:
         run: |
           python scripts/sync_metrics.py
 
-      - name: Set up Node.js & Cache
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: site/package-lock.json
+          node-version: 22
 
       - name: Verify Astro Build Integrity
         run: |
           cd site
-          npm ci
+          npm install
           npm run build
 
       - name: Commit and push changes
