@@ -126,13 +126,14 @@ const jsonLd = {
         <!-- Live Status Pill -->
         <div class="hero-pulse-badge">
           <span class="live-dot-pulse"></span>
-          <span class="pulse-text">LIVE RADAR TELEMETRY • {allTools.length} VERIFIED RELEASES</span>
+          <span class="pulse-text desktop-badge-text">LIVE RADAR TELEMETRY • {allTools.length} VERIFIED RELEASES</span>
+          <span class="pulse-text mobile-badge-text">LIVE RADAR • {allTools.length} VERIFIED TOOLS</span>
         </div>
 
         <!-- Headline -->
         <h1 class="hero-main-title">
-          <span class="hero-title-line1">The Intelligence Radar for</span>
-          <span class="hero-title-line2 gradient-headline">Breakthrough DevTools</span>
+          <span class="hero-title-line1">The Intelligence Radar</span>
+          <span class="hero-title-line2">for <span class="gradient-headline">Breakthrough DevTools</span></span>
         </h1>
 
         <!-- Subtitle -->
@@ -1024,8 +1025,16 @@ const jsonLd = {
     font-size: 0.76rem;
     font-weight: 700;
     font-family: var(--font-mono);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     margin-bottom: 1.25rem;
+    white-space: nowrap;
+  }
+
+  .desktop-badge-text {
+    display: inline;
+  }
+  .mobile-badge-text {
+    display: none;
   }
 
   .live-dot-pulse {
@@ -1043,7 +1052,7 @@ const jsonLd = {
   }
 
   .hero-main-title {
-    font-size: clamp(2rem, 3.2vw, 3.1rem);
+    font-size: clamp(2rem, 3.1vw, 2.95rem);
     font-weight: 800;
     line-height: 1.18;
     letter-spacing: -0.035em;
@@ -1058,6 +1067,7 @@ const jsonLd = {
 
   .hero-title-line2 {
     display: block;
+    color: var(--text-primary);
   }
 
   @media (min-width: 960px) {
@@ -1149,19 +1159,31 @@ const jsonLd = {
       text-align: center;
     }
     .hero-pulse-badge {
-      margin: 0 auto 1.25rem;
+      font-size: 0.7rem;
+      padding: 0.28rem 0.7rem;
+      letter-spacing: 0.02em;
+      margin: 0 auto 1.15rem;
       display: inline-flex;
     }
+    .desktop-badge-text {
+      display: none;
+    }
+    .mobile-badge-text {
+      display: inline;
+    }
     .hero-main-title {
-      font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+      font-size: clamp(1.65rem, 6.4vw, 2.15rem);
       line-height: 1.22;
       text-align: center;
       margin-bottom: 0.85rem;
     }
-    .hero-title-line1,
+    .hero-title-line1 {
+      display: block;
+      text-align: center;
+    }
     .hero-title-line2 {
-      display: inline;
-      white-space: normal;
+      display: block;
+      text-align: center;
     }
     .hero-lead-text {
       text-align: center;

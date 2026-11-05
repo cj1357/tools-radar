@@ -47,7 +47,8 @@ if (!quickstartSnippet && tool.github_url) {
     <div class="spotlight-top-strip">
       <div class="spotlight-badge">
         <span class="spotlight-star">★</span>
-        <span>TODAY'S RADAR SPOTLIGHT // BREAKTHROUGH TARGET</span>
+        <span class="spotlight-badge-desktop">TODAY'S RADAR SPOTLIGHT // BREAKTHROUGH TARGET</span>
+        <span class="spotlight-badge-mobile">TODAY'S RADAR SPOTLIGHT</span>
       </div>
       <div class="spotlight-overall-score">
         <span class="score-label">RATING</span>
@@ -231,6 +232,20 @@ if (!quickstartSnippet && tool.github_url) {
     .spotlight-card-inner {
       padding: 1.25rem 1rem;
     }
+    .spotlight-badge-desktop {
+      display: none;
+    }
+    .spotlight-badge-mobile {
+      display: inline;
+    }
+    .spotlight-badge {
+      font-size: 0.7rem;
+      padding: 0.22rem 0.55rem;
+      letter-spacing: 0.03em;
+    }
+    .score-number {
+      font-size: 1.3rem;
+    }
   }
 
   /* Top Strip */
@@ -258,6 +273,14 @@ if (!quickstartSnippet && tool.github_url) {
     border: 1px solid rgba(251, 191, 36, 0.25);
     padding: 0.25rem 0.65rem;
     border-radius: 9999px;
+    white-space: nowrap;
+  }
+
+  .spotlight-badge-desktop {
+    display: inline;
+  }
+  .spotlight-badge-mobile {
+    display: none;
   }
 
   .spotlight-star {
