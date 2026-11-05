@@ -14,6 +14,11 @@ const gaId = import.meta.env.PUBLIC_GA_ID || "G-FZ1SQCCJTE";
 const resolvedImage = image 
   ? (image.startsWith('http') ? image : `https://lordorange.top${image.startsWith('/') ? '' : '/'}${image}`)
   : "https://lordorange.top/og-default.png";
+
+const rawCanonical = canonicalUrl ? canonicalUrl.replace('https://tools.lordorange.top', 'https://lordorange.top').trim() : '';
+const normalizedCanonical = rawCanonical && !rawCanonical.endsWith('/') && !rawCanonical.split('/').pop()?.includes('.')
+  ? `${rawCanonical}/`
+  : rawCanonical;
 ---
 
 <!doctype html>
@@ -34,7 +39,7 @@ const resolvedImage = image
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     
     <!-- Canonical URL normalized to root domain for AdSense -->
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl.replace('https://tools.lordorange.top', 'https://lordorange.top')} />}
+    {normalizedCanonical && <link rel="canonical" href={normalizedCanonical} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
