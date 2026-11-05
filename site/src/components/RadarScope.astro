@@ -90,15 +90,12 @@ const radarBlips = pts.map(p => {
   <div class="radar-hud-header">
     <div class="hud-status-line">
       <span class="hud-pulse-dot"></span>
-      <span class="hud-label">
-        <span class="hud-label-desktop">RADAR TELEMETRY // ACTIVE SCAN</span>
-        <span class="hud-label-mobile">ACTIVE RADAR SCAN</span>
-      </span>
+      <span class="hud-label">ACTIVE RADAR SCAN</span>
     </div>
     <div class="hud-coords-readout">
       <span id="radar-sweep-deg">000.0°</span>
       <span class="hud-divider">|</span>
-      <span>TARGETS: {radarBlips.length}</span>
+      <span>{radarBlips.length} TARGETS</span>
     </div>
   </div>
 
@@ -184,18 +181,27 @@ const radarBlips = pts.map(p => {
 
     function resize() {
       const rect = stage.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = rect.width;
-      height = rect.height;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
+      width = Math.floor(rect.width);
+      height = Math.floor(rect.height);
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       centerX = width / 2;
       centerY = height / 2;
-      maxRadius = Math.min(centerX, centerY) * 0.92;
+      maxRadius = Math.min(centerX, centerY) * 0.88;
     }
 
     resize();
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(() => {
+        resize();
+      });
+      ro.observe(stage);
+    }
     window.addEventListener('resize', resize);
 
     // Filter blips
@@ -294,6 +300,12 @@ const radarBlips = pts.map(p => {
 
     // Main Draw Loop
     function draw() {
+      // Auto-realign if DOM layout settles or shifts after initial paint
+      const curRect = stage.getBoundingClientRect();
+      if (Math.abs(curRect.width - width) > 1 || Math.abs(curRect.height - height) > 1) {
+        resize();
+      }
+
       ctx.clearRect(0, 0, width, height);
 
       // 1. Draw Polar Grid Rings
@@ -581,10 +593,11 @@ const radarBlips = pts.map(p => {
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-bottom: 0.65rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     white-space: nowrap;
+    gap: 1rem;
   }
 
   .hud-status-line {
@@ -595,13 +608,7 @@ const radarBlips = pts.map(p => {
     letter-spacing: 0.05em;
     font-weight: 700;
     white-space: nowrap;
-  }
-
-  .hud-label-desktop {
-    display: inline;
-  }
-  .hud-label-mobile {
-    display: none;
+    flex-shrink: 0;
   }
 
   .hud-pulse-dot {
@@ -633,7 +640,7 @@ const radarBlips = pts.map(p => {
   .radar-stage {
     position: relative;
     width: 100%;
-    height: 290px;
+    height: 330px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -846,12 +853,6 @@ const radarBlips = pts.map(p => {
       padding: 0.9rem 0.85rem;
       border-radius: 18px;
     }
-    .hud-label-desktop {
-      display: none;
-    }
-    .hud-label-mobile {
-      display: inline;
-    }
     .radar-hud-header {
       font-size: 0.68rem;
       padding-bottom: 0.5rem;
@@ -862,7 +863,7 @@ const radarBlips = pts.map(p => {
       font-size: 0.68rem;
     }
     .radar-stage {
-      height: 260px;
+      height: 280px;
     }
     .radar-controls {
       gap: 0.3rem;

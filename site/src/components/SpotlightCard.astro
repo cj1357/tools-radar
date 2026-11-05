@@ -224,30 +224,6 @@ if (!quickstartSnippet && tool.github_url) {
     padding: 2.25rem 2.5rem;
   }
 
-  @media (max-width: 640px) {
-    .spotlight-card-wrapper {
-      margin: 2.25rem 0 2rem;
-      border-radius: 18px;
-    }
-    .spotlight-card-inner {
-      padding: 1.25rem 1rem;
-    }
-    .spotlight-badge-desktop {
-      display: none;
-    }
-    .spotlight-badge-mobile {
-      display: inline;
-    }
-    .spotlight-badge {
-      font-size: 0.7rem;
-      padding: 0.22rem 0.55rem;
-      letter-spacing: 0.03em;
-    }
-    .score-number {
-      font-size: 1.3rem;
-    }
-  }
-
   /* Top Strip */
   .spotlight-top-strip {
     display: flex;
@@ -563,5 +539,30 @@ if (!quickstartSnippet && tool.github_url) {
     overflow-x: auto;
     white-space: pre;
     line-height: 1.45;
+  }
+
+  @media (max-width: 640px) {
+    .spotlight-card-wrapper {
+      margin: 2.25rem 0 2rem;
+      border-radius: 18px;
+    }
+    .spotlight-card-inner {
+      padding: 1.25rem 1rem;
+    }
+    .spotlight-badge-desktop {
+      display: none !important;
+    }
+    .spotlight-badge-mobile {
+      display: inline !important;
+    }
+    .spotlight-badge {
+      font-size: 0.68rem;
+      padding: 0.22rem 0.55rem;
+      letter-spacing: 0.02em;
+      max-width: 100%;
+    }
+    .score-number {
+      font-size: 1.3rem;
+    }
   }
 </style>
