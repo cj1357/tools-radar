@@ -1323,15 +1323,18 @@ const jsonLd = {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.2rem;
+    min-width: 0;
   }
 
   .dropdown-item-name {
     font-weight: 700;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: #ffffff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-shrink: 0;
+    max-width: 280px;
   }
 
   .dropdown-item-category {
@@ -1343,6 +1346,7 @@ const jsonLd = {
     padding: 0.1rem 0.35rem;
     border-radius: 4px;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .dropdown-item-alt {
@@ -1354,6 +1358,10 @@ const jsonLd = {
     padding: 0.1rem 0.4rem;
     border-radius: 4px;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    flex-shrink: 1;
   }
 
   .dropdown-item-tagline {
@@ -2032,6 +2040,13 @@ const jsonLd = {
     animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
+  @media (min-width: 768px) {
+    .search-dropdown-menu {
+      width: 660px !important;
+      max-width: calc(100vw - 32px) !important;
+    }
+  }
+
   .dropdown-header-bar {
     display: flex !important;
     justify-content: space-between !important;
@@ -2123,6 +2138,7 @@ const jsonLd = {
     align-items: center !important;
     gap: 0.5rem !important;
     flex-wrap: nowrap !important;
+    min-width: 0 !important;
   }
 
   .dropdown-item-name {
@@ -2132,6 +2148,8 @@ const jsonLd = {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+    flex-shrink: 0 !important;
+    max-width: 280px !important;
   }
 
   .dropdown-item-category {
@@ -2155,7 +2173,26 @@ const jsonLd = {
     padding: 0.12rem 0.45rem !important;
     border-radius: 4px !important;
     white-space: nowrap !important;
-    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 150px !important;
+    flex-shrink: 1 !important;
+  }
+
+  @media (max-width: 640px) {
+    .dropdown-item-name {
+      max-width: 170px !important;
+      flex-shrink: 1 !important;
+    }
+    .dropdown-item-alt {
+      display: none !important;
+    }
+    .dropdown-enter-hint {
+      display: none !important;
+    }
+    .dropdown-star-pill {
+      display: none !important;
+    }
   }
 
   .dropdown-item-tagline {
