@@ -131,8 +131,8 @@ const jsonLd = {
 
         <!-- Headline -->
         <h1 class="hero-main-title">
-          The Intelligence Radar for <br class="hidden-mobile" />
-          <span class="gradient-headline">Breakthrough DevTools</span>
+          <span class="hero-title-line1">The Intelligence Radar for</span>
+          <span class="hero-title-line2 gradient-headline">Breakthrough DevTools</span>
         </h1>
 
         <!-- Subtitle -->
@@ -1007,8 +1007,8 @@ const jsonLd = {
 
   @media (min-width: 960px) {
     .hero-split-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 2.75rem;
     }
   }
 
@@ -1043,12 +1043,30 @@ const jsonLd = {
   }
 
   .hero-main-title {
-    font-size: clamp(1.85rem, 5.5vw, 3.6rem);
+    font-size: clamp(2rem, 3.2vw, 3.1rem);
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.18;
     letter-spacing: -0.035em;
     color: var(--text-primary);
     margin-bottom: 1.15rem;
+  }
+
+  .hero-title-line1 {
+    display: block;
+    color: var(--text-primary);
+  }
+
+  .hero-title-line2 {
+    display: block;
+  }
+
+  @media (min-width: 960px) {
+    .hero-title-line1 {
+      white-space: nowrap;
+    }
+    .hero-title-line2 {
+      white-space: nowrap;
+    }
   }
 
   .gradient-headline {
@@ -1135,8 +1153,15 @@ const jsonLd = {
       display: inline-flex;
     }
     .hero-main-title {
+      font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+      line-height: 1.22;
       text-align: center;
       margin-bottom: 0.85rem;
+    }
+    .hero-title-line1,
+    .hero-title-line2 {
+      display: inline;
+      white-space: normal;
     }
     .hero-lead-text {
       text-align: center;
