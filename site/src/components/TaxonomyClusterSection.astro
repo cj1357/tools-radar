@@ -1,5 +1,6 @@
 ---
 // Curated Topic Clusters & Architectural Ecosystem Component
+import { guidesData } from '../data/guides';
 interface Props {
   totalTagsCount?: number;
 }
@@ -108,7 +109,7 @@ const popularTags = [
         </ul>
 
         <a href="/guides" class="block-action-link">
-          <span>View all 10 architectural guides</span>
+          <span>View all {guidesData.length} architectural guides</span>
           <span>→</span>
         </a>
       </div>
