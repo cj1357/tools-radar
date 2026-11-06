@@ -34172,5 +34172,36 @@
     "tool_id": "nemotron-35-transcribe",
     "model_used": "google/gemini-3.5-flash-lite",
     "generated_at": "2026-11-06T05:50:46.292079+00:00"
+  },
+  "selvedge": {
+    "article_title": "Selvedge Architecture & Engineering Dossier: Persistent Decision Memory & Rejected Paths for Coding Agents",
+    "reading_time": "6 min read",
+    "editorial_verdict_callout": "Selvedge provides the missing memory substrate for AI coding assistants: a local-first, entity-keyed decision ledger that records not just what code was written, but why alternative approaches were rejected.",
+    "chapters": [
+      {
+        "id": "architecture-mechanics",
+        "number": "01",
+        "title": "Architectural Foundation & The 'Cross-Session Amnesia' Problem",
+        "content": "Modern AI coding agents—ranging from terminal agents like Claude Code to IDE extensions like Cursor and Windsurf—excel at localized code generation and refactoring. However, they suffer from a systemic operational flaw: cross-session amnesia. When an agent starts a new conversation session, the entire chain-of-thought, intermediate trial-and-error, and architectural trade-offs discussed in previous sessions vanish. Developers frequently observe agents reverting intentional trade-offs or repeatedly proposing implementations that were already tested and explicitly rejected days earlier. Traditional solutions fall short: git blame only reveals line mutations without capturing rejected paths; Architecture Decision Records (ADRs) are too heavyweight for micro-decisions; and monolithic instruction files (such as .cursorrules) quickly exhaust precious context window tokens. Selvedge solves this fundamental friction by introducing a structured, entity-keyed decision ledger designed to run locally alongside the codebase."
+      },
+      {
+        "id": "local-sqlite-engine",
+        "number": "02",
+        "title": "Local-First Entity Graph & SQLite Storage Engine",
+        "content": "At the core of Selvedge is a zero-latency, local SQLite storage engine embedded directly within the target repository. Instead of indexing generic text blobs or embedding vectors, Selvedge structures memory around named programmatic entities—functions, classes, database columns, API routes, or config parameters. Every recorded entry captures three vital dimensions: the decision taken, the technical rationale behind it, and the alternatives that were rejected along with reasons for their rejection. Because storage is local SQLite, reads execute in sub-millisecond time with zero cloud latency, zero external API costs, and complete privacy for proprietary codebases. Decisions can be grouped using shared changeset tags across multiple files and routes, allowing agents to inspect full architectural blast radiuses before modifying dependent modules."
+      },
+      {
+        "id": "mcp-agent-integration",
+        "number": "03",
+        "title": "Model Context Protocol (MCP) & Cross-Session Recall",
+        "content": "Selvedge achieves seamless integration with modern coding workflows through two interoperable interfaces: a lightweight Python CLI and a native Model Context Protocol (MCP) server. When configured as an MCP client within an agent environment (such as Claude Desktop, Cursor, or Cline), Selvedge exposes specialized retrieval and mutation tools directly to the agent's function-calling runtime. Before refactoring a database schema or modifying an authentication route, the agent autonomously executes a lookup tool against the relevant entity name. The MCP server returns the structured decision history and rejected approaches directly into the agent's scratchpad, steering the model toward compliant implementations without human intervention. Developers can also inspect, export, or audit records using standard CLI commands like 'selvedge log' or generate markdown digests for documentation."
+      },
+      {
+        "id": "production-tradeoffs",
+        "number": "04",
+        "title": "Production Trade-offs, Operational Best Practices & Verdict",
+        "content": "Selvedge provides an exceptionally pragmatic balance between informal code comments and formal enterprise architecture documentation. Its primary strength lies in its explicit capture of negative knowledge: recording why an approach failed is often ten times more valuable for an AI agent than merely seeing the current code. The operational requirement is discipline: either the developer or the agent must invoke the recording tool when a key technical fork is decided. For software engineering teams leveraging autonomous AI coding assistants, Selvedge represents a high-signal, zero-cost productivity multiplier. By pairing local SQLite data ownership with standardized MCP connectivity, it establishes a reliable architectural memory substrate that preserves hard-won engineering context across agent sessions."
+      }
+    ]
   }
 }

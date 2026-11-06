@@ -1,5 +1,87 @@
 [
   {
+    "id": "selvedge",
+    "name": "Selvedge",
+    "tagline": "Local decision history and persistent memory that coding agents can retrieve across sessions",
+    "summary": "Selvedge is a lightweight, local-first decision history engine engineered specifically for autonomous AI coding agents (such as Cursor, Claude Code, and Cline). Instead of relying on lossy conversation context or monolithic system instruction files, Selvedge tracks the architectural 'why' behind codebases—recording design decisions, stated rationales, constraints, and explicitly rejected approaches in a project-local SQLite database. Future agent sessions can query historical decisions by function, column, or route via a Python CLI or native Model Context Protocol (MCP) server, preventing agents from breaking unwritten rules or repeating failed code implementations.",
+    "url": "https://selvedge.sh/",
+    "github_url": "https://github.com/masondelan/selvedge",
+    "source": "submission",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Agent Memory",
+      "MCP",
+      "Developer Tools",
+      "SQLite",
+      "Local-First",
+      "Python",
+      "CLI"
+    ],
+    "pricing_model": "Free",
+    "stars": 26,
+    "primary_alternative": "ADRs / Mem0",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 86,
+    "verdict": "An indispensable local memory layer for autonomous coding agents, capturing architectural rationale, constraints, and explicitly rejected approaches in local SQLite without external cloud dependencies.",
+    "key_features": [
+      {
+        "title": "Local SQLite Decision Storage",
+        "description": "Stores architectural decisions, stated rationales, and rejected paths in a zero-latency SQLite database versioned alongside the project codebase."
+      },
+      {
+        "title": "Entity-Keyed History Queries",
+        "description": "Look up relevant design constraints and past attempts by querying specific named functions, database columns, API routes, or custom entities."
+      },
+      {
+        "title": "Dual CLI & Native MCP Integration",
+        "description": "Seamlessly accessible via standard Python CLI commands or natively integrated into AI coding agents via the Model Context Protocol (MCP)."
+      }
+    ],
+    "use_cases": [
+      "Preventing autonomous coding agents from repeating previously tested and rejected implementation approaches across fresh conversation sessions",
+      "Preserving architectural decisions and unwritten constraints without bloating agent context windows with monolithic instruction documents",
+      "Providing human developers with a structured, queryable rationale log of why specific functions or schemas were engineered a certain way"
+    ],
+    "pros": [
+      "100% free and open-source under MIT license with complete local-first data privacy in SQLite",
+      "Native Model Context Protocol (MCP) server enables zero-configuration agent tooling for Cursor, Claude Code, and Cline",
+      "Explicitly records rejected approaches—a critical dimension omitted by traditional git blame or markdown ADRs"
+    ],
+    "cons": [
+      "Requires agents or developers to explicitly record decisions during or after implementation",
+      "Best suited for project-scoped context rather than cross-repository enterprise knowledge graphs"
+    ],
+    "target_audience": "AI software engineers, agent framework developers, and teams building with autonomous coding assistants who need reliable cross-session architectural continuity.",
+    "comparison_vs_alt": "While Architecture Decision Records (ADRs) capture formal high-level project milestones and rule files (e.g. .cursorrules) define standing constraints, Selvedge provides granular, entity-keyed micro-decisions and rejected paths stored locally in SQLite and queryable on demand via MCP.",
+    "install_command": "pip install selvedge",
+    "date_added": "2026-11-06",
+    "featured": true,
+    "faqs": [
+      {
+        "q": "What is Selvedge and how does it help coding agents?",
+        "a": "Selvedge is a local decision history engine that stores architectural decisions, rationales, and rejected approaches in project-local SQLite. It gives AI coding agents persistent cross-session memory so they don't repeat failed approaches or break unwritten constraints."
+      },
+      {
+        "q": "How do AI coding agents query Selvedge?",
+        "a": "Coding agents connect to Selvedge natively via the Model Context Protocol (MCP) or by invoking the local Python CLI. When editing a specific function, class, or route, the agent queries Selvedge for entity-specific decision history."
+      },
+      {
+        "q": "Does Selvedge replace Architecture Decision Records (ADRs) or agent instruction files?",
+        "a": "No. Agent instruction files (like AGENTS.md or .cursorrules) suit standing rules, and ADRs suit reviewed high-level architecture milestones. Selvedge complements them by adding queryable entity-level micro-decision history and rejected alternatives."
+      },
+      {
+        "q": "Is Selvedge free and open source?",
+        "a": "Yes. Selvedge is 100% free and open source under the permissive MIT license. All data is stored locally on your machine in SQLite with zero cloud telemetry."
+      },
+      {
+        "q": "How do I install and configure Selvedge?",
+        "a": "You can install Selvedge via pip (pip install selvedge) or uv. Run 'selvedge init' in your repository root to initialize the local SQLite database and configure the local MCP server."
+      }
+    ]
+  },
+  {
     "id": "pc-deal-check",
     "name": "PC Deal Check",
     "tagline": "Price pre-built gaming PCs component by component",
