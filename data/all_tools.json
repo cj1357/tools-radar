@@ -1,5 +1,159 @@
 [
   {
+    "id": "cloudbrowser",
+    "name": "Cloudbrowser",
+    "tagline": "Persistent cloud Chrome sessions that AI agents control over Chrome DevTools Protocol (CDP)",
+    "summary": "Cloudbrowser is a cloud-native browser infrastructure engineered for autonomous AI agents and automated workflows. It provides isolated, persistent Chrome browser environments accessible via the Chrome DevTools Protocol (CDP), allowing frameworks like Playwright, Puppeteer, and Stagehand to interact seamlessly without local resource overhead. With built-in session state persistence (cookies, logins, local storage), session forking, pause/resume lifecycles, and a low-latency Live View for real-time human observation and debugging, Cloudbrowser eliminates the fragility and IP ban friction of running local headless browsers.",
+    "url": "https://cloudbrowser.tv",
+    "github_url": "",
+    "source": "submission",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Cloud Browser",
+      "CDP",
+      "Browser Automation",
+      "Playwright",
+      "Puppeteer",
+      "Headless Chrome"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Browserbase / Steel",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
+    "verdict": "An essential cloud browser substrate for AI agents, providing persistent Chrome sessions over CDP with instant live viewing and lifecycle control.",
+    "key_features": [
+      {
+        "title": "Isolated Cloud Browser Sessions",
+        "description": "Run sandboxed Chrome instances in the cloud with persistent user profiles, preserving logins and state across tasks."
+      },
+      {
+        "title": "Direct CDP & Automation Connectivity",
+        "description": "Connect instantly using Chrome DevTools Protocol (CDP) from Playwright, Puppeteer, Selenium, or custom agent drivers."
+      },
+      {
+        "title": "Live View & Lifecycle Controls",
+        "description": "Observe agent actions in real time via low-latency interactive Live View, with capabilities to pause, inspect, and resume execution."
+      }
+    ],
+    "use_cases": [
+      "Autonomous web-browsing AI agents performing multi-step research, booking, or data extraction without managing local headless Chrome processes.",
+      "Long-running scraping and automation pipelines requiring persistent session logins without re-authenticating every execution.",
+      "Human-in-the-loop debugging of complex browser workflows using real-time Live View and session forking."
+    ],
+    "pros": [
+      "Native CDP compatibility works out-of-the-box with Playwright, Puppeteer, and agent frameworks",
+      "Persistent profiles retain session cookies and authentication states across agent runs",
+      "Live View provides low-latency visual observability for debugging agent reasoning"
+    ],
+    "cons": [
+      "Cloud-hosted service requires external network calls compared to fully local headless Chrome",
+      "High-concurrency usage requires scaling into paid plans"
+    ],
+    "target_audience": "AI agent engineers, browser automation developers, data scraping teams, and autonomous assistant creators.",
+    "comparison_vs_alt": "Compared to generic headless browser cloud providers or managing self-hosted Puppeteer clusters, Cloudbrowser specifically targets AI agent workflows with persistent session memory, session forking, and interactive live debugging.",
+    "install_command": "npm install playwright # connect via cdpEndpoint: wss://connect.cloudbrowser.tv",
+    "date_added": "2026-11-09",
+    "featured": true,
+    "faqs": [
+      {
+        "q": "What is Cloudbrowser and how does it assist AI agents?",
+        "a": "Cloudbrowser provides managed, persistent Chrome browser sessions in the cloud that AI agents control over Chrome DevTools Protocol (CDP). It allows agents to navigate, click, fill forms, and maintain logins across sessions without local browser setup."
+      },
+      {
+        "q": "Which browser automation frameworks are supported?",
+        "a": "Any tool supporting CDP can connect directly to Cloudbrowser, including Playwright, Puppeteer, Selenium, Stagehand, and custom LLM agent drivers."
+      },
+      {
+        "q": "Does Cloudbrowser offer a free tier?",
+        "a": "Yes, Cloudbrowser offers a free plan with starter compute, alongside scalable paid plans for higher concurrency and extended session persistence."
+      },
+      {
+        "q": "What is the Live View feature?",
+        "a": "Live View allows human operators or developers to watch the agent's browser screen in real time, inspect DOM states, and pause or take manual control if an agent encounters a CAPTCHA or blocking dialog."
+      }
+    ]
+  },
+  {
+    "id": "reelai",
+    "name": "ReelAI",
+    "tagline": "Turn photos into viral short AI videos with trending TikTok and Instagram motion presets",
+    "summary": "ReelAI is a specialized AI video creation platform built for short-form video creators, marketers, and social media influencers. By combining state-of-the-art image-to-video generative models (such as MiniMax H3 and Seedance motion architectures) with a curated catalog of viral TikTok and Instagram Reel presets, ReelAI enables creators to transform static portraits or product photography into engaging cinematic clips in seconds. Output videos include full commercial licensing rights and zero watermarks, catering specifically to creators looking to capitalize on trending social video formats without learning complex 3D or VFX software.",
+    "url": "https://tryreelai.com/",
+    "github_url": "",
+    "source": "submission",
+    "category": "ai-tools",
+    "tags": [
+      "AI Video",
+      "Generative AI",
+      "Social Media",
+      "TikTok",
+      "Instagram Reels",
+      "Photo to Video",
+      "Creator Tools"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Runway Gen-3 / Pika",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 82,
+    "verdict": "A focused AI photo-to-video generator that lowers the barrier for creators to produce viral TikTok and Instagram Reel trends with pre-engineered motion presets.",
+    "key_features": [
+      {
+        "title": "Photo-to-Video Synthesis",
+        "description": "Transforms static images into dynamic high-frame-rate video clips powered by advanced generative video models."
+      },
+      {
+        "title": "Viral Preset Catalog",
+        "description": "Offers one-click motion templates mirroring trending TikTok and Instagram Reels effects (e.g., Rumpelstiltskin, Window Peeper, Moonwalk)."
+      },
+      {
+        "title": "Commercial Licensing & Watermark-Free Export",
+        "description": "Delivers ready-to-publish video exports suitable for commercial social media ads and content distribution."
+      }
+    ],
+    "use_cases": [
+      "Social media content creators and affiliate marketers quickly producing trending short videos to boost engagement.",
+      "E-commerce brands animating product stills into dynamic video advertisements for TikTok, Instagram, and Shorts.",
+      "Creative agencies scaling high-volume short-form content variants across client accounts without dedicated VFX teams."
+    ],
+    "pros": [
+      "Pre-engineered viral effect templates eliminate prompt engineering friction for social creators",
+      "Commercial usage rights and watermark-free exports across paid plans",
+      "Fast generation speed with optimized motion transitions"
+    ],
+    "cons": [
+      "Primarily designed for template-driven short clips rather than open-ended cinematic storyboard generation",
+      "Paid subscription model without a permanent unlimited free tier"
+    ],
+    "target_audience": "Content creators, social media managers, affiliate marketers, and e-commerce brands producing short-form video content.",
+    "comparison_vs_alt": "While generic video synthesis platforms like Runway or Kling require detailed camera motion prompts and trial-and-error fine-tuning, ReelAI focuses specifically on one-click viral preset templates optimized for vertical short-form platforms.",
+    "install_command": "Web-based SaaS at https://tryreelai.com/",
+    "date_added": "2026-11-09",
+    "featured": true,
+    "faqs": [
+      {
+        "q": "What is ReelAI?",
+        "a": "ReelAI is an AI-powered photo-to-video creation tool that applies viral short-form motion presets to photos, producing high-impact videos for TikTok and Instagram."
+      },
+      {
+        "q": "How does ReelAI differ from general video generation tools like Runway or Pika?",
+        "a": "Instead of requiring complex camera control prompts or physics parameters, ReelAI provides turnkey effect presets specifically modeled after viral social media trends."
+      },
+      {
+        "q": "Can I use ReelAI videos for commercial purposes?",
+        "a": "Yes, videos generated on ReelAI include full commercial licensing rights with no watermarks."
+      },
+      {
+        "q": "What kind of effects are available in the preset catalog?",
+        "a": "The catalog includes popular motion effects such as Rumpelstiltskin, Window Peeper, Moonwalk, Dolphin Ride, and dynamic camera zoom transitions."
+      }
+    ]
+  },
+  {
     "id": "waymark",
     "name": "Waymark",
     "tagline": "A workflow engine that compiles jobs instead of replaying",
