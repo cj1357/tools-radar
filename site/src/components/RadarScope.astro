@@ -305,6 +305,10 @@ const radarBlips = pts.map(p => {
       if (Math.abs(curRect.width - width) > 1 || Math.abs(curRect.height - height) > 1) {
         resize();
       }
+      if (width === 0 || height === 0) {
+        animationFrameId = requestAnimationFrame(draw);
+        return;
+      }
 
       ctx.clearRect(0, 0, width, height);
 
@@ -344,11 +348,10 @@ const radarBlips = pts.map(p => {
       ctx.fillText('270° W', centerX - maxRadius - 16, centerY);
 
       // 3. Sweeping Radar Beam (Conic Gradient Simulation)
-      if (!isPaused) {
-        sweepAngle = (sweepAngle + 0.016) % (Math.PI * 2);
-      } else {
-        sweepAngle = (sweepAngle + 0.003) % (Math.PI * 2);
-      }
+      const isReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const normalStep = isReduced ? 0.008 : 0.016;
+      const pausedStep = isReduced ? 0.002 : 0.003;
+      sweepAngle = (sweepAngle + (isPaused ? pausedStep : normalStep)) % (Math.PI * 2);
       if (degReadout) {
         const deg = ((sweepAngle * 180) / Math.PI).toFixed(1).padStart(5, '0');
         degReadout.textContent = `${deg}°`;
@@ -491,15 +494,39 @@ const radarBlips = pts.map(p => {
       animationFrameId = requestAnimationFrame(draw);
     }
 
-    // Start loop if not reduced motion
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      draw();
-    } else {
-      // Static single draw
-      sweepAngle = Math.PI / 4;
-      draw();
-      cancelAnimationFrame(animationFrameId);
+    // Start animation loop reliably across all browsers & system settings
+    function startAnimation() {
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(draw);
+      }
     }
+
+    function stopAnimation() {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    }
+
+    // Auto-resume loop when tab becomes active / visible (handles background tab freeze & energy saver)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        resize();
+        startAnimation();
+      }
+    });
+
+    window.addEventListener('focus', () => {
+      if (!animationFrameId) {
+        resize();
+        startAnimation();
+      }
+    });
+
+    // Start animation loop
+    startAnimation();
 
     // Mouse Interaction on Radar
     function checkHit(e) {
