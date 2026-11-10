@@ -201,7 +201,7 @@
     ],
     "pros": [
       "Monitors 7 major social channels in one unified interface, eliminating siloed platform monitoring",
-      "2,000 free starter credits upon verification with no credit card required and non-expiring purchased credits",
+      "2,000 free welcome credits once per verified customer (no card required, never expires or refills), plus non-expiring purchased credits",
       "Emphasizes human-in-the-loop review, preserving brand reputation and community authenticity"
     ],
     "cons": [
@@ -228,7 +228,7 @@
       },
       {
         "q": "What is the pricing model?",
-        "a": "Each verified customer receives 2,000 free credits with no credit card required. Monthly plans start at $49, with non-expiring credit top-ups starting at $15."
+        "a": "Each verified customer receives 2,000 free welcome credits once with no credit card required. These free credits never expire or refill. Monthly plans start at $49, with non-expiring credit top-ups starting at $15."
       }
     ]
   },
@@ -269,7 +269,7 @@
       },
       {
         "title": "GEO & AI Search Visibility Estimation",
-        "description": "Evaluate domain positioning for generative AI search engines (ChatGPT Search, Perplexity, Google AI Overviews) using public signals and optional Ahrefs telemetry."
+        "description": "Evaluate domain positioning for AI search visibility (GEO/AEO) on demand using public web signals and optional Ahrefs Brand Radar data, with no direct queries to AI engines."
       }
     ],
     "use_cases": [
@@ -280,7 +280,7 @@
     "pros": [
       "100% free and open-source under MIT license, designed natively for the Claude Code plugin ecosystem",
       "Comprehensive suite containing 12 skills, 5 autonomous agents, and 3 slash commands in one package",
-      "Zero hosted service dependency—runs locally within the Claude Code terminal session without telemetry"
+      "Zero hosted service backend—runs on demand within Claude Code with anonymized, opt-out install telemetry and no direct queries to AI engines"
     ],
     "cons": [
       "Requires an active Claude Code environment on macOS or Linux",
