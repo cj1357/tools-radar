@@ -37517,5 +37517,36 @@
         "content": "Akii: SEO & AI Search Optimizer represents an exemplary developer utility for modern AI agent environments. By delivering 100% free, MIT-licensed source code (with anonymized, opt-out install telemetry only) and no mandatory cloud subscriptions, it respects developer autonomy. For software engineers building Astro, Next.js, or static web architectures who want continuous on-demand SEO and GEO verification without leaving their command line, Akii is an indispensable addition to the Claude Code toolkit."
       }
     ]
+  },
+  "skillpi": {
+    "article_title": "SkillPi Architecture & Ecosystem Dossier: Modular Skills Taxonomy, Multi-Agent Runtimes, and Developer Curation",
+    "reading_time": "6 min read",
+    "editorial_verdict_callout": "SkillPi delivers the missing package directory for autonomous coding agents: a task-driven skills marketplace that replaces bloated system prompts with verified, on-demand agent competencies.",
+    "chapters": [
+      {
+        "id": "modular-skills-shift",
+        "number": "01",
+        "title": "The Rise of Modular Agent Skills: Beyond Monolithic System Prompts",
+        "content": "Early AI coding workflows relied on monolithic prompt files (such as 2,000-line .cursorrules or massive system instruction headers). However, stuffing an agent's context window with every conceivable guideline causes instruction degradation, token bloat, and conflicting behaviors. The industry has rapidly shifted toward modular, task-triggered 'skills'—discrete, on-demand operational routines pioneered by frameworks like Anthropic's skills architecture, Claude Code plugins, and agentic customization standards. SkillPi emerged to address the discovery bottleneck in this new paradigm: creating a unified, authoritative catalog where developers can find pre-tested agent skills and install them with zero guesswork."
+      },
+      {
+        "id": "taxonomy-scenes",
+        "number": "02",
+        "title": "SkillPi Architecture: Task Taxonomy, Scene Categorization, and Multi-Agent Setup Guides",
+        "content": "Rather than organizing skills by arbitrary buzzwords, SkillPi structures its directory around real-world developer workflows (termed 'Scenes'). Engineers can filter skills across Development & Operations (code review, testing, security), Systems & Automation (browser manipulation, workflow runners), Data & Analytics (database querying, statistical visualization), and Content Engineering. Crucially, each skill listing abstracts multi-runtime integration: a single skill page provides explicit, copy-paste setup recipes for Claude Code, OpenAI Codex, Cursor, Cline, and Antigravity, eliminating platform lock-in."
+      },
+      {
+        "id": "interoperability-standardization",
+        "number": "03",
+        "title": "Ecosystem Interoperability: Bridging Claude Code, Cursor, and Autonomous Coding Workflows",
+        "content": "The fragmentation of agent ecosystems poses a serious hurdle for skill authors: maintaining separate documentation for terminal CLI agents (Claude Code, Kiro) versus IDE extensions (Cursor, Roo Code, Continue) is tedious. SkillPi serves as an interoperability bridge. By validating source repositories against standard manifest schemas and providing reproducible verification evidence, SkillPi ensures that a frontend design skill or SQL optimization skill functions reliably regardless of whether the host environment is a terminal session or a GUI editor."
+      },
+      {
+        "id": "community-governance",
+        "number": "04",
+        "title": "Community Curation, License Transparency & Editorial Verdict",
+        "content": "SkillPi strikes an exemplary balance between community openness and technical curation. Every skill entry provides transparent attribution, licensing terms, and direct links to upstream repositories. For software engineering teams looking to elevate their AI assistants from generic chat responders to specialized domain experts, SkillPi provides an indispensable springboard. By establishing an organized, trustworthy hub for agent skills, SkillPi accelerates the broader developer ecosystem toward modular, composable artificial intelligence."
+      }
+    ]
   }
 }

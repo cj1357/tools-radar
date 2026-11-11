@@ -865,7 +865,13 @@ const normalizedCanonical = rawCanonical && !rawCanonical.endsWith('/') && !rawC
 
       @media (min-width: 600px) {
         .footer-nav-grid {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 860px) {
+        .footer-nav-grid {
+          grid-template-columns: repeat(4, 1fr);
         }
       }
 
@@ -1080,6 +1086,14 @@ const normalizedCanonical = rawCanonical && !rawCanonical.endsWith('/') && !rawC
               <li><a href="/privacy">Privacy Policy</a></li>
               <li><a href="/terms">Terms of Service</a></li>
               <li><a href="https://github.com/cj1357/tools-radar" target="_blank" rel="noopener noreferrer">Source Code ↗</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <span class="footer-col-title">Ecosystem & Partners</span>
+            <ul class="footer-col-links">
+              <li><a href="https://skillpi.com" target="_blank" rel="noopener" title="SkillPi - AI Agent Skills Marketplace for Claude Code, Codex & Cursor">SkillPi (Agent Skills) ↗</a></li>
+              <li><a href="mailto:hello@lordorange.top?subject=Link%20Exchange%20Inquiry">Exchange Links ↗</a></li>
             </ul>
           </div>
         </div>

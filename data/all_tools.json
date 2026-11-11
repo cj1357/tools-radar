@@ -1,5 +1,83 @@
 [
   {
+    "id": "skillpi",
+    "name": "SkillPi",
+    "tagline": "One Marketplace. Infinite Skills. — a marketplace and directory for AI agent skills",
+    "summary": "SkillPi is an AI agent skills marketplace and directory built to help developers discover, review, and install task-specific skills for modern AI coding assistants including Claude Code, Codex, Cursor, Cline, and Antigravity. Built around the core philosophy of 'find the right skill, and use it successfully the first time', SkillPi categorizes modular agent capabilities across development, testing, browser automation, data analysis, and technical copywriting—providing verified setups, source code transparency, licensing details, and reproducible quickstart prompt snippets.",
+    "url": "https://skillpi.com",
+    "github_url": "",
+    "source": "submission",
+    "category": "ai-agents",
+    "tags": [
+      "AI Agents",
+      "Skills Marketplace",
+      "Claude Code",
+      "Cursor",
+      "Codex",
+      "Developer Tools",
+      "Prompt Engineering",
+      "Agent Workflows"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Vercel Labs Skills",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 89,
+    "verdict": "An indispensable ecosystem marketplace for AI agent skills, organizing verified setups and modular prompt libraries for Claude Code, Cursor, and autonomous coding agents.",
+    "key_features": [
+      {
+        "title": "Task & Scene-Based Skills Taxonomy",
+        "description": "Browse hundreds of curated agent skills structured by real-world developer tasks: code review, browser automation, security testing, and data analysis."
+      },
+      {
+        "title": "Cross-Agent Multi-Runtime Compatibility",
+        "description": "Pre-configured setup instructions and launch prompts tailored for Claude Code, Codex, Cursor, Cline, Continue, and Antigravity."
+      },
+      {
+        "title": "Verified Setup & Execution Evidence",
+        "description": "Every listed skill links directly to upstream GitHub repositories, licensing terms, and tested prompt recipes for predictable agent execution."
+      }
+    ],
+    "use_cases": [
+      "Software engineers equipping Claude Code and Cursor with specialized domain skills (e.g., exploratory data analysis, canvas design, statistical visualization).",
+      "Development teams standardizing reusable agent toolsets across junior and senior engineers without rewriting system prompt files.",
+      "Agent builders and skill authors publishing community agent packages to gain adoption across multiple autonomous coding runtimes."
+    ],
+    "pros": [
+      "Organized by concrete developer tasks and professions rather than arbitrary keyword tags",
+      "Free to browse and use with zero mandatory signup required for exploring skills",
+      "Direct setup recipes for major coding agents (Claude Code, Codex, Cursor, Cline, Antigravity)"
+    ],
+    "cons": [
+      "Execution performance ultimately depends on the capabilities of the underlying LLM model",
+      "Third-party upstream skill repositories may have varying maintenance cadences"
+    ],
+    "target_audience": "AI engineers, prompt engineers, developer advocates, and software teams building with autonomous coding agents (Claude Code, Cursor, Codex).",
+    "comparison_vs_alt": "While unorganized GitHub awesome-lists require manual curation and trial-and-error, SkillPi provides a structured directory with verified setup instructions, category scenes, and direct launch prompts for all major agent environments.",
+    "install_command": "Explore and install skills at https://skillpi.com/skills",
+    "date_added": "2026-11-11",
+    "featured": true,
+    "faqs": [
+      {
+        "q": "What is SkillPi?",
+        "a": "SkillPi is a curated marketplace and directory for AI agent skills, designed to help developers find and install the right skills for Claude Code, Cursor, Codex, and other coding assistants."
+      },
+      {
+        "q": "Which AI agents and coding tools are supported?",
+        "a": "SkillPi supports Claude Code, OpenAI Codex, Cursor, Cline, Continue, Antigravity, Roo Code, Goose, OpenHands, and more."
+      },
+      {
+        "q": "Is SkillPi free to use?",
+        "a": "Yes, SkillPi is free to browse and explore. Developers can discover skills, inspect setup documentation, and copy integration snippets without fees."
+      },
+      {
+        "q": "How do I install a skill from SkillPi?",
+        "a": "Each skill on SkillPi includes clear installation instructions, setup commands, and starter prompts tailored for your chosen AI agent runtime."
+      }
+    ]
+  },
+  {
     "id": "youtranscripts",
     "name": "YouTranscripts",
     "tagline": "Fast YouTube video caption extractor, AI summarizer, and multi-language subtitle translator",
