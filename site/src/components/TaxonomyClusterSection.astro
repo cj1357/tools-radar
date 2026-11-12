@@ -35,17 +35,17 @@ const featuredGuides = [
 ];
 
 const featuredVS = [
-  { pair: "cursor-vs-github-copilot", label: "Cursor vs GitHub Copilot", desc: "AI Coding Assistant & IDE" },
   { pair: "supabase-vs-firebase", label: "Supabase vs Firebase", desc: "Open-Source vs Cloud BaaS" },
-  { pair: "raycast-vs-alfred", label: "Raycast vs Alfred", desc: "macOS Developer Command Bar" },
-  { pair: "ollama-vs-vllm", label: "Ollama vs vLLM", desc: "Local LLM Serving & Inference" },
-  { pair: "posthog-vs-mixpanel", label: "PostHog vs Mixpanel", desc: "Product Analytics & Session Replay" }
+  { pair: "sentry-vs-datadog", label: "Sentry vs Datadog", desc: "Error Tracking & Observability" },
+  { pair: "vantage-vs-github-copilot", label: "Vantage vs GitHub Copilot", desc: "AI Coding Assistant & Workspace" },
+  { pair: "opaline-vs-posthog", label: "Opaline vs PostHog", desc: "Product Analytics & Session Replay" },
+  { pair: "superhuman-go-vs-raycast", label: "Superhuman Go vs Raycast", desc: "Command Bar & AI Productivity" }
 ];
 
 const popularTags = [
-  { name: "ai-agents", count: "168+" },
-  { name: "self-host", count: "388+" },
-  { name: "no-signup", count: "534+" },
+  { name: "ai-agents", count: "316+" },
+  { name: "self-hosted", count: "388+" },
+  { name: "ai-coding", count: "140+" },
   { name: "developer-tools", count: "117+" },
   { name: "open-source", count: "350+" },
   { name: "database", count: "42+" },
@@ -57,7 +57,7 @@ const popularTags = [
   { name: "docker", count: "95+" },
   { name: "terminal", count: "64+" },
   { name: "machine-learning", count: "110+" },
-  { name: "vector-search", count: "36+" },
+  { name: "vector-database", count: "36+" },
   { name: "automation", count: "75+" },
   { name: "monitoring", count: "48+" },
   { name: "security", count: "52+" },
@@ -97,7 +97,7 @@ const popularTags = [
         <ul class="block-list">
           {featuredGuides.map(guide => (
             <li class="block-list-item">
-              <a href={`/guides/${guide.slug}`} class="guide-item-link">
+              <a href={`/guides/${guide.slug}/`} class="guide-item-link">
                 <span class="guide-item-title">{guide.title}</span>
                 <div class="guide-item-meta">
                   <span class="item-tag">{guide.tag}</span>
@@ -108,7 +108,7 @@ const popularTags = [
           ))}
         </ul>
 
-        <a href="/guides" class="block-action-link">
+        <a href="/guides/" class="block-action-link">
           <span>View all {guidesData.length} architectural guides</span>
           <span>→</span>
         </a>
@@ -127,7 +127,7 @@ const popularTags = [
         <ul class="block-list">
           {featuredVS.map(vs => (
             <li class="block-list-item">
-              <a href={`/vs/${vs.pair}`} class="vs-item-link">
+              <a href={`/vs/${vs.pair}/`} class="vs-item-link">
                 <div class="vs-item-main">
                   <span class="vs-badge">VS</span>
                   <span class="vs-title">{vs.label}</span>
@@ -138,7 +138,7 @@ const popularTags = [
           ))}
         </ul>
 
-        <a href="/vs" class="block-action-link">
+        <a href="/vs/" class="block-action-link">
           <span>View all 138+ battleground showdowns</span>
           <span>→</span>
         </a>
@@ -156,14 +156,14 @@ const popularTags = [
 
         <div class="tags-cluster-wrap">
           {popularTags.map(tag => (
-            <a href={`/tag/${tag.name}`} class="tag-chip-link" title={`Explore tools tagged #${tag.name}`}>
+            <a href={`/tag/${tag.name}/`} class="tag-chip-link" title={`Explore tools tagged #${tag.name}`}>
               <span class="tag-hash">#</span>
               <span class="tag-name">{tag.name}</span>
             </a>
           ))}
         </div>
 
-        <a href="/tag" class="block-action-link">
+        <a href="/tag/" class="block-action-link">
           <span>Explore all {totalTagsCount}+ tag hubs</span>
           <span>→</span>
         </a>
