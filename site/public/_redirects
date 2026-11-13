@@ -1,0 +1,11 @@
+# Cloudflare Pages 301 Permanent Redirects for Historical & Legacy URLs
+/picks                      /                               301
+/dev/null                   /                               301
+/lab                        /                               301
+/tag/no-signup              /tag/ai-coding/                 301
+/tag/self-host              /tag/self-hosted/               301
+/tag/vector-search          /tag/vector-database/           301
+/vs/cursor-vs-github-copilot /vs/                           301
+/vs/raycast-vs-alfred       /vs/                            301
+/vs/ollama-vs-vllm          /vs/                            301
+/vs/posthog-vs-mixpanel     /vs/                            301
