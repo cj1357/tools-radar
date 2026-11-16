@@ -319,7 +319,9 @@ const deploymentModel = tool.is_self_hostable
   ? 'self-hosted containerized deployment (Docker / VPS / Bare-metal)' 
   : (isExtension
       ? 'local editor extension running within the IDE Webview runtime'
-      : (isCliOrLocal ? 'local CLI / workstation utility binary execution' : 'managed cloud infrastructure and turnkey web interfaces'));
+      : (isDesktop
+          ? 'native desktop client application executing directly on the user workstation'
+          : (isCliOrLocal ? 'local CLI / workstation utility binary execution' : 'managed cloud infrastructure and turnkey web interfaces')));
 
 const featureTitles = displayFeatures.map(f => f.title).filter(Boolean);
 const featureProse = featureTitles.length > 0 
@@ -734,12 +736,18 @@ const jsonLd = {
 
     <div class="browser-mockup-body">
       <div class="browser-preview-overlay">
-        <div class="preview-badge">Live Web Application</div>
+        <div class="preview-badge">
+          {isExtension 
+            ? "IDE Extension / Plugin" 
+            : (isDesktop 
+                ? "Native Desktop Application" 
+                : (isCliOrLocal ? "Terminal CLI Utility" : "Live Web Application"))}
+        </div>
         <h3 class="preview-hero-title">{tool.name}</h3>
         <p class="preview-hero-tagline">{tool.tagline}</p>
         <div class="preview-cta-row">
           <a href={tool.url} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-primary" style="padding: 0.65rem 1.4rem;">
-            Launch App 🚀
+            {isDesktop ? "Download App 🚀" : "Launch App 🚀"}
           </a>
           {tool.github_url && (
             <a href={tool.github_url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -947,7 +955,7 @@ const jsonLd = {
                   : (isExtension
                       ? "local editor extension architecture running within the IDE Webview runtime"
                       : (isCliOrLocal 
-                          ? "lightweight local client/CLI architecture" 
+                          ? (isDesktop ? "native desktop client architecture running locally on the workstation" : "lightweight local client/CLI architecture") 
                           : "cloud-native software architecture"))
               }, ensuring low execution latency and minimal external service entanglements.
             </>
@@ -976,7 +984,7 @@ const jsonLd = {
               {isExtension
                 ? "VS Code Commands & Editor UI"
                 : (isCliOrLocal
-                    ? (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags")
+                    ? (isDesktop ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
                     : (tool.github_url 
                         ? "Forkable Codebase & REST/CLI" 
                         : "REST / Webhooks Interoperability"))}
