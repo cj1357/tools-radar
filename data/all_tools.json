@@ -168,7 +168,7 @@
       "Canvas",
       "Secrets Vault"
     ],
-    "pricing_model": "Paid",
+    "pricing_model": "Freemium",
     "stars": 0,
     "primary_alternative": "CrewAI",
     "is_self_hostable": false,
@@ -246,7 +246,30 @@
       "tool_id": "octuo",
       "model_used": "editorial-team",
       "generated_at": "2026-11-16T02:30:00.000000+00:00"
-    }
+    },
+    "deployment_format": "Native macOS desktop app",
+    "faqs": [
+      {
+        "q": "What is Octuo and what problem does it solve?",
+        "a": "Octuo is a native macOS application developed by Tutuo, Inc. that serves as a unified coordinator and orchestration workspace for multi-agent workflows. It connects coding agents like Claude Code, OpenAI Codex, and local MCP tools, decomposing complex objectives into phased execution graphs with a persistent visual canvas and local memory graph."
+      },
+      {
+        "q": "Can I self-host Octuo on private servers or Docker?",
+        "a": "No dedicated server hosting or Docker container is required or applicable. Octuo is a native macOS desktop application (macOS 15+, signed and notarized) that runs entirely on your local Mac. All agent tool calls, shell commands, and local files remain on your workstation. The companion iOS app (iOS 18+) connects directly to your Mac for reviewing decisions and checklist progress on the go."
+      },
+      {
+        "q": "Do I need to create an account or provide a credit card to try Octuo?",
+        "a": "Octuo provides an accessible free trial with 1,000 OC trial credits with no credit card required. Commercial subscriptions then start at $20/month for sustained usage."
+      },
+      {
+        "q": "How does Octuo isolate sensitive developer credentials?",
+        "a": "Octuo features an encrypted local Secrets Vault that stores API keys and credentials locally. When agents invoke tools, Octuo injects credentials directly into the execution subprocess without ever exposing raw tokens to LLM prompt contexts."
+      },
+      {
+        "q": "What is the recommended quickstart workflow for Octuo?",
+        "a": "Download the signed and notarized native macOS app directly from https://www.tutuo.ai/en/octuo/ and follow the local onboarding walkthrough."
+      }
+    ]
   },
   {
     "id": "datacircle",

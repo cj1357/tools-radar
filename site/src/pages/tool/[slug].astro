@@ -56,8 +56,13 @@ const isExtension = toolTags.some((t: string) => t.includes('extension'))
   || summaryLower.includes('extension') 
   || installCmd.startsWith('code --install-extension');
 
-const isCliOrLocal = isExtension || toolTags.some((t: string) => ['cli', 'terminal', 'tui', 'command-line'].includes(t))
-  || [' cli', 'terminal', ' tui', 'command-line', 'desktop', 'local utility'].some(w => taglineLower.includes(w) || summaryLower.includes(w))
+const isDesktop = Boolean((tool as any).deployment_format?.toLowerCase().includes('desktop')
+  || (tool as any).deployment_format?.toLowerCase().includes('macos')
+  || toolTags.some((t: string) => ['macos', 'desktop', 'electron', 'tauri', 'native app'].includes(t))
+  || ['macos', 'desktop app', 'native mac'].some(w => taglineLower.includes(w) || summaryLower.includes(w)));
+
+const isCliOrLocal = isExtension || isDesktop || toolTags.some((t: string) => ['cli', 'terminal', 'tui', 'command-line'].includes(t))
+  || [' cli', 'terminal', ' tui', 'command-line', 'desktop', 'local utility', 'macos'].some(w => taglineLower.includes(w) || summaryLower.includes(w))
   || ['cargo install', 'npm i', 'pip install', 'brew install', 'go install', 'curl', 'git clone'].some(p => installCmd.startsWith(p));
 
 const comparisonPairSlug = (altSlug && altSlug !== tool.id) ? `${tool.id}-vs-${altSlug}` : null;
@@ -796,11 +801,13 @@ const jsonLd = {
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
             {tool.is_self_hostable 
               ? "Self-Hosted (Docker/Bare-metal)" 
-              : (isExtension 
-                  ? "Editor Extension (Local IDE)" 
-                  : (isCliOrLocal 
-                      ? "Local CLI / Desktop Utility" 
-                      : (tool.pricing_model === 'Open Source' ? "Open Codebase / Local" : "Cloud SaaS")))}
+              : ((tool as any).deployment_format 
+                  ? (tool as any).deployment_format
+                  : (isExtension 
+                      ? "Editor Extension (Local IDE)" 
+                      : (isCliOrLocal 
+                          ? (isDesktop ? "Native Desktop App" : "Local CLI / Desktop Utility")
+                          : (tool.pricing_model === 'Open Source' ? "Open Codebase / Local" : "Cloud SaaS"))))}
           </span>
         </div>
         <div class="spec-item">
