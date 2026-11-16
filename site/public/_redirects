@@ -1,4 +1,5 @@
 # Cloudflare Pages 301 Permanent Redirects for Historical & Legacy URLs
+/cdn-cgi/l/email-protection* /contact                       301
 /picks                      /                               301
 /dev/null                   /                               301
 /lab                        /                               301
