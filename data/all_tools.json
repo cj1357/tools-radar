@@ -57,6 +57,95 @@
     "featured": false
   },
   {
+    "id": "reqode",
+    "name": "Reqode",
+    "tagline": "Product and architecture context engine for autonomous AI coding agents via MCP",
+    "summary": "Reqode (developed by Almware Ltd.) is a centralized specification and architecture workspace engineered to provide autonomous AI coding agents with branch-aware project context. By linking high-level product requirements, Architecture Decision Records (ADRs), feature change scopes, and test specifications into a versioned workspace, Reqode exposes structured context directly to coding agents (such as Claude Code, Cursor, and VS Code) through the Model Context Protocol (MCP). It bridges the operational divide between product intent and code execution, allowing coding agents to write software aligned with architectural constraints and enabling authorized QA agents to retrieve prepared tests and record execution passes.",
+    "url": "https://reqode.com",
+    "github_url": "",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "MCP",
+      "AI Coding Agents",
+      "Context Engine",
+      "Architecture Decisions",
+      "Software Requirements",
+      "QA Agents",
+      "Developer Tools",
+      "Product Management"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "Linear",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 89,
+    "verdict": "An indispensable context and specification layer for modern software teams that grounds autonomous AI coding agents in authentic product requirements and architecture decision records via MCP.",
+    "deployment_format": "Cloud SaaS & MCP Server",
+    "install_command": "Configure MCP server via https://reqode.com/product/mcp",
+    "iconUrl": "https://reqode.com/files/logo-square.png",
+    "date_added": "2026-11-17",
+    "featured": true,
+    "key_features": [
+      {
+        "title": "Unified Requirements, ADRs & Test Specs Workspace",
+        "description": "Centrally links software requirements, architectural decisions (ADRs), change scopes, and acceptance criteria in one structured interface."
+      },
+      {
+        "title": "Branch-Aware MCP Context Delivery",
+        "description": "Exposes deterministic, branch-specific feature specifications and architectural constraints to Claude Code, Cursor, and VS Code via Model Context Protocol."
+      },
+      {
+        "title": "Autonomous QA & Test Execution Synchronization",
+        "description": "Allows authorized testing and QA agents to retrieve prepared test suites, validate implementations, and automatically record execution results."
+      },
+      {
+        "title": "Multi-Agent Team Alignment",
+        "description": "Ensures distributed engineering teams, product managers, and concurrent autonomous agents reference the exact same single source of architectural truth."
+      }
+    ],
+    "use_cases": [
+      "Software engineering teams using Claude Code or Cursor who want to eliminate agent hallucinations by injecting versioned requirements and ADRs via MCP.",
+      "System architects and tech leads ensuring that autonomous coding loops strictly adhere to approved design patterns and architectural boundaries.",
+      "Continuous delivery pipelines deploying autonomous QA agents to retrieve acceptance criteria and automatically log verification results against branches."
+    ],
+    "pros": [
+      "Native Model Context Protocol (MCP) server enables turnkey integration with leading AI agents like Claude Code and Cursor",
+      "Branch-aware context retrieval prevents cross-branch specification confusion in multi-agent workflows",
+      "Directly unifies requirements, architectural decisions, and QA validation into a machine-readable context graph",
+      "Generous 14-day free trial allows engineering teams to validate agent context workflows prior to subscription"
+    ],
+    "cons": [
+      "Cloud-hosted SaaS platform without an on-premises self-hosted Docker distribution",
+      "Requires product and engineering teams to establish disciplined specification writing practices to maximize MCP utility"
+    ],
+    "target_audience": "Software architects, engineering managers, product owners, and developers coordinating autonomous AI coding agents on production codebases.",
+    "comparison_vs_alt": "Unlike issue trackers like Linear or Jira that primarily manage kanban boards and human status updates, Reqode formats product specifications, ADRs, and test criteria into machine-actionable context delivered directly into agent loops via MCP.",
+    "faqs": [
+      {
+        "q": "What is Reqode and what problem does it solve for AI coding agents?",
+        "a": "Reqode is a centralized specification and architecture workspace that links software requirements, Architecture Decision Records (ADRs), and test specifications, delivering branch-aware project context directly to coding agents like Claude Code, Cursor, and VS Code through the Model Context Protocol (MCP)."
+      },
+      {
+        "q": "How does Reqode deliver context to Claude Code, Cursor, and other agents?",
+        "a": "Reqode provides a dedicated Model Context Protocol (MCP) server. When configured in your agent client (e.g., Cursor or Claude Code), the agent dynamically queries feature specifications, architectural boundaries, and acceptance criteria relevant to your current git branch."
+      },
+      {
+        "q": "What is the pricing model and is there a free trial for Reqode?",
+        "a": "Reqode Cloud is priced at $19 per user per month. A comprehensive 14-day free trial is provided with no credit card required upfront to evaluate MCP integration and specification workflows."
+      },
+      {
+        "q": "Can QA agents use Reqode to run and log test suites?",
+        "a": "Yes. Reqode allows authorized QA agents to retrieve prepared test specifications and automatically record test execution results and validation passes back into the workspace."
+      },
+      {
+        "q": "What is the recommended quickstart setup for Reqode MCP?",
+        "a": "Create a workspace at https://reqode.com, draft or import your feature specifications, and connect your AI coding agent using the configuration guide at https://reqode.com/product/mcp."
+      }
+    ]
+  },
+  {
     "id": "sweetcraft-pdf",
     "name": "Sweetcraft PDF Tools",
     "tagline": "126 browser-native micro-utilities with 50 client-side PDF tools (zero upload, no limits)",
