@@ -84837,5 +84837,96 @@
     "target_audience": "Freelancers, students, and creative professionals looking for a fun, low-pressure way to stay organized.",
     "comparison_vs_alt": "Unlike Todoist's strict, utilitarian list format, minimi uses an interactive virtual pet approach to make task management feel less like a chore.",
     "install_command": null
+  },
+  {
+    "id": "codex-quota-overlay",
+    "name": "Codex Quota Overlay",
+    "tagline": "Privacy-conscious Windows companion for Codex Desktop with click-through quota overlay and local analytics",
+    "summary": "Codex Quota Overlay is an independent, MIT-licensed open-source companion for Codex Desktop on Windows 10/11. It projects a non-intrusive, click-through overlay directly beside the active conversation title, displaying remaining quota percentages, reset countdowns, and reset credits in real time without stealing window focus or intercepting pointer inputs. Communicating strictly with the documented local Codex App Server methods (account/rateLimits/read and account/usage/read), it eliminates screen recording, cookie extraction, and conversation logging. An optional local Quota Center provides burn-rate estimation, safe pacing projections, multi-bucket rate limit inspection, and session-only trend metrics with optional local retention.",
+    "url": "https://github.com/cpys/codex-quota-overlay",
+    "github_url": "https://github.com/cpys/codex-quota-overlay",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "Codex",
+      "Codex Desktop",
+      "Desktop App",
+      "Windows",
+      "Open Source",
+      "Developer Tools",
+      "Productivity",
+      "Quota Monitor",
+      "HUD",
+      "Privacy"
+    ],
+    "pricing_model": "Open Source",
+    "stars": 4,
+    "primary_alternative": "Codex Desktop",
+    "is_self_hostable": true,
+    "no_signup_required": true,
+    "signal_score": 88,
+    "verdict": "An exemplary open-source developer companion that solves AI rate-limit anxiety through clean local RPC telemetry, complete privacy isolation, and unobtrusive click-through HUD ergonomics.",
+    "deployment_format": "Native Desktop Application (Windows 10/11)",
+    "install_command": "Download Setup EXE or Portable ZIP from GitHub Releases v0.4.0",
+    "date_added": "2026-11-18",
+    "featured": true,
+    "key_features": [
+      {
+        "title": "Click-Through Overlay Beside Active Conversation",
+        "description": "Floats seamlessly beside the Codex conversation header; automatically hides when switching applications, minimizing, or quitting, with zero pointer interception or focus stealing."
+      },
+      {
+        "title": "Privacy-Centric Local Architecture",
+        "description": "Interrogates documented local App Server RPC endpoints (account/rateLimits/read and account/usage/read) without screen capture, window title scraping, or cookie extraction."
+      },
+      {
+        "title": "Local Quota Center & Multi-Bucket Telemetry",
+        "description": "Unpacks every reported rate-limit bucket and secondary window instead of collapsing them, showing burn rates, safe pacing, and exhaustion projections."
+      },
+      {
+        "title": "Flexible Windows Packaging & Verification",
+        "description": "Distributes v0.4.0 as both a standard Setup EXE and standalone Portable ZIP for Windows 10/11 x64, backed by cryptographic SHA-256 verification and SBOM manifests."
+      }
+    ],
+    "use_cases": [
+      "Developers, prompt engineers, and technical teams relying heavily on Codex Desktop throughout demanding coding sessions who need real-time quota visibility to pace heavy tasks.",
+      "Privacy-minded engineers working in regulated or enterprise environments that forbid telemetry tools that scrape screens, read conversation titles, or siphon authentication cookies.",
+      "Workstation users requiring non-blocking UI aids that maintain transparency, support high-DPI and multi-monitor setups, and never steal window focus from IDEs or terminals."
+    ],
+    "pros": [
+      "Strictly local privacy architecture: reads only local App Server RPC methods with zero screen scraping, zero title logging, and zero network telemetry by default",
+      "Ergonomic click-through HUD never steals focus, passes pointer events directly to Codex, and vanishes when Codex is inactive",
+      "Comprehensive Quota Center dashboard calculates burn rate, exhaustion estimates, and primary/secondary bucket limits",
+      "100% Free and MIT-licensed open source with clean reproducible build, SHA-256 checksums, and SBOM manifests"
+    ],
+    "cons": [
+      "Version 0.4.0 distributes binaries exclusively for Windows 10/11 x64 (macOS requires source compilation; no Linux desktop package due to official Codex Desktop platform limitations)",
+      "Binaries are not commercially code-signed with an EV certificate, requiring users to bypass Windows SmartScreen via verified SHA-256 checksums",
+      "Requires a ChatGPT-managed Codex sign-in; pure API-key configurations may not expose subscription rate limits via the local App Server"
+    ],
+    "target_audience": "Software engineers, AI developers, and technical creators using Codex Desktop on Windows who want to track their rate limits and reset countdowns without breaking workflow focus.",
+    "comparison_vs_alt": "Unlike invasive overlay tools or browser extensions that require browser cookie access, scrape conversational DOM trees, or hijack window focus, Codex Quota Overlay relies strictly on documented local App Server RPC endpoints and provides true transparent pointer click-through.",
+    "faqs": [
+      {
+        "q": "What is Codex Quota Overlay and what problem does it solve?",
+        "a": "Codex Quota Overlay is an open-source Windows companion utility for Codex Desktop. It projects remaining quota, reset countdowns, and reset credits in a compact, non-intrusive HUD positioned beside the active conversation title, preventing unexpected rate-limit exhaustion during intense coding sessions."
+      },
+      {
+        "q": "How does Codex Quota Overlay protect user privacy and sensitive code?",
+        "a": "Codex Quota Overlay operates with strict local privacy. It reads rate-limit metadata exclusively from the local Codex App Server RPC methods (account/rateLimits/read and account/usage/read). It does not request screen recording, never inspects conversational text or window titles, does not access browser cookies, and performs zero unconsented telemetry."
+      },
+      {
+        "q": "What platforms and operating systems are officially supported?",
+        "a": "Version 0.4.0 officially distributes precompiled binaries for Windows 10/11 x64 (both Setup EXE and Portable ZIP). The repository maintains macOS source code and CI validation (buildable via npm run build:mac), but does not attach precompiled macOS installers in v0.4.0. Because OpenAI does not publish an official Codex Desktop app for Linux, Linux is not supported."
+      },
+      {
+        "q": "Why does Windows SmartScreen warn about the installer during setup?",
+        "a": "As an independent, community-driven open-source project, Codex Quota Overlay does not purchase commercial EV code-signing certificates. Users can safely bypass SmartScreen by downloading exclusively from the official GitHub Releases page and verifying the installer against the provided SHA256SUMS-Windows-0.4.0.txt checksum file."
+      },
+      {
+        "q": "What metrics and analytics are displayed in the local Quota Center?",
+        "a": "Opening the Quota Center reveals primary and secondary rate-limit buckets, estimated recent burn rate, safe prompt pacing to reach the next reset, projected exhaustion timestamps, and read-only daily activity totals. Usage history remains session-only in memory by default, with optional user-enabled local retention for 7, 14, 30, or 90 days."
+      }
+    ]
   }
 ]

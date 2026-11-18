@@ -984,7 +984,7 @@ const jsonLd = {
               {isExtension
                 ? "VS Code Commands & Editor UI"
                 : (isCliOrLocal
-                    ? (isDesktop ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
+                    ? (isDesktop ? (toolTags.includes('macos') ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Native Desktop GUI & Open-Source Core" : "Native Desktop GUI & System Tray")) : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
                     : (tool.github_url 
                         ? "Forkable Codebase & REST/CLI" 
                         : "REST / Webhooks Interoperability"))}
