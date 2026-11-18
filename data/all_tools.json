@@ -89,6 +89,182 @@
     ]
   },
   {
+    "id": "ordogrid",
+    "name": "OrdoGrid",
+    "tagline": "Belgian invoicing and Peppol e-invoicing platform with nine free browser utilities",
+    "summary": "OrdoGrid (developed by Innovaplus in Incourt, Belgium) is a compliant invoicing and Peppol e-invoicing management platform engineered for Belgian and European businesses, freelancers, and accounting workflows. It provides native Peppol access point integration for sending and receiving structured e-invoices, complemented by nine public browser utilities (for invoice and quote drafts, Belgian VAT verification, UBL XML parsing, payment QR/OGM generation, and Peppol participant lookup) that require zero account registration. Paid tiers unlock recurring invoicing, time tracking, reviewed bank-file reconciliation, API access, and human-in-the-loop AI metadata extraction from readable supplier PDFs.",
+    "url": "https://ordogrid.com/en",
+    "github_url": "",
+    "source": "submission",
+    "category": "productivity",
+    "tags": [
+      "Invoicing",
+      "Peppol",
+      "Belgium",
+      "E-Invoicing",
+      "Browser Utilities",
+      "VAT",
+      "UBL",
+      "Accounting"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "Bonsai",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 86,
+    "verdict": "A transparent, compliance-focused European invoicing and Peppol hub pairing robust automated business workflows with nine completely free client-side utilities.",
+    "deployment_format": "Cloud SaaS & Web Utilities",
+    "install_command": "Access web portal at https://ordogrid.com/en",
+    "date_added": "2026-11-18",
+    "featured": true,
+    "key_features": [
+      {
+        "title": "Nine Public Browser Invoicing & VAT Utilities",
+        "description": "Free, no-account web tools for invoice/quote drafting, Belgian VAT computation, UBL parsing, payment QR/OGM generation, due dates, and Peppol directory lookups."
+      },
+      {
+        "title": "Native Peppol E-Invoicing Network Integration",
+        "description": "Direct Peppol access point connectivity enabling automated reception of structured B2B/B2G electronic invoices and compliant outbound delivery."
+      },
+      {
+        "title": "Recurring Invoicing, Projects & Time Tracking",
+        "description": "Streamlined operational suite with automated scheduled billing, project hour logging, and bank statement reconciliation."
+      },
+      {
+        "title": "Human-in-the-Loop AI Supplier-PDF Ingestion",
+        "description": "Extracts proposed dates, parties, amounts, and references from readable supplier PDFs for manual verification against original documents."
+      }
+    ],
+    "use_cases": [
+      "Belgian small businesses, freelancers, and agencies transitioning to mandatory Peppol B2B electronic invoicing.",
+      "European accounting professionals needing quick, client-side UBL document validation and Peppol participant lookups without software installation.",
+      "Growing businesses automating recurring client billings, project time tracking, and bank reconciliation."
+    ],
+    "pros": [
+      "Nine genuinely free public browser utilities accessible without registration or credit card",
+      "Permanent Free tier includes unlimited inbound Peppol invoices and 1 outgoing invoice/month with 1 GB storage",
+      "Strict European data residency and transparent compliance alignment for Belgian tax regulations",
+      "Human-in-the-loop AI invoice ingestion avoids unchecked autonomous accounting errors"
+    ],
+    "cons": [
+      "Proprietary cloud platform without on-premises self-hosted Docker packages",
+      "AI invoice import requires text-readable PDFs (no textless image scan OCR or automated line-item bookkeeping approval)"
+    ],
+    "target_audience": "Belgian and European business owners, independent consultants, freelancers, and accounting teams managing e-invoicing and Peppol compliance.",
+    "comparison_vs_alt": "Unlike generic US-centric invoicing tools like Bonsai or Wave that lack European Peppol network integration and localized Belgian VAT/OGM tooling, OrdoGrid is built from the ground up for EU electronic invoicing standards.",
+    "faqs": [
+      {
+        "q": "What is OrdoGrid and what does it do?",
+        "a": "OrdoGrid is a Belgian invoicing and Peppol e-invoicing platform designed for European freelancers, companies, and accountants. It facilitates structured e-invoice delivery through the international Peppol network, automates recurring billing and bank reconciliation, and offers nine free browser-based financial utilities."
+      },
+      {
+        "q": "What free utilities does OrdoGrid provide without an account?",
+        "a": "OrdoGrid hosts nine public, registration-free browser tools at https://ordogrid.com/en/tools, including invoice and quote drafters, Belgian VAT validators, UBL XML readers, payment QR/OGM generators, due date calculators, and Peppol directory participant lookups."
+      },
+      {
+        "q": "How does OrdoGrid support the Peppol e-invoicing standard?",
+        "a": "OrdoGrid integrates directly with the Peppol electronic delivery network. Even on the permanent Free plan, users can receive an unlimited volume of inbound Peppol invoices and transmit one outgoing invoice per month."
+      },
+      {
+        "q": "What are the pricing tiers and limits?",
+        "a": "The permanent Free tier includes unlimited Peppol inbound invoices, 1 outbound invoice/month, 1 user, and 1 GB storage. Paid tiers include Starter (EUR 9/month excluding VAT for recurring invoicing) and Business (EUR 59/month excluding VAT for time tracking, bank reconciliation, and API access)."
+      },
+      {
+        "q": "How does the AI supplier-PDF invoice ingestion work?",
+        "a": "On the Business plan, OrdoGrid's AI scans readable text from supplier PDFs to propose vendor names, dates, amounts, and payment references. To ensure complete auditability, the system requires human verification against the original document and does not automatically approve bookkeeping records."
+      }
+    ]
+  },
+  {
+    "id": "bitpont",
+    "name": "Bitpont",
+    "tagline": "Wallet-connected onchain finance interface and public market-data API",
+    "summary": "Bitpont is a non-custodial onchain finance interface and market-data platform that unifies decentralized swaps, cross-chain bridges, borrowing, yield management, and treasury workflows into a single dashboard. Users authorize all operations directly through their own self-custody Web3 wallets, maintaining complete asset sovereignty. Complementing the retail interface, Bitpont provides developer documentation, an OpenAPI specification, and a free public market-data REST API with documented access limits, enabling developers and automated financial applications to programmatically query asset pricing, liquidity pools, and yield telemetry.",
+    "url": "https://www.bitpont.com/",
+    "github_url": "",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "Onchain Finance",
+      "Public API",
+      "DeFi",
+      "Web3",
+      "Market Data",
+      "OpenAPI",
+      "Developer Tools",
+      "Treasury"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "DeFiLlama",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 87,
+    "verdict": "A transparent, non-custodial financial gateway and market-data API bringing unified asset execution and telemetry to Web3 developers and treasury operators.",
+    "deployment_format": "Web Application & Public REST API",
+    "install_command": "Explore API specs at https://www.bitpont.com/developers/",
+    "date_added": "2026-11-18",
+    "featured": true,
+    "key_features": [
+      {
+        "title": "Unified Onchain Financial Operations",
+        "description": "Integrates swaps, cross-chain bridging, collateralized borrowing, yield strategies, and portfolio tracking into one dashboard."
+      },
+      {
+        "title": "Non-Custodial Wallet Authorization",
+        "description": "All transactions and contract interactions are signed and authorized exclusively by the user's self-custody wallet."
+      },
+      {
+        "title": "Public Market-Data API & OpenAPI Spec",
+        "description": "Documented REST endpoints providing public market reads, asset telemetry, and developer integration specs."
+      },
+      {
+        "title": "Multi-Protocol Yield & Treasury Workflows",
+        "description": "Tracks treasury balances, protocol health, and decentralized liquidity across supported blockchain networks."
+      }
+    ],
+    "use_cases": [
+      "DeFi developers and algorithmic builders integrating live market data, swap rates, and yield telemetry via Bitpont's OpenAPI specification.",
+      "Web3 treasury managers and crypto-native organizations monitoring collateralized positions, yield generation, and multi-asset rebalancing.",
+      "Onchain finance users seeking an all-in-one wallet-connected terminal for swaps and bridging without juggling disparate dApp frontends."
+    ],
+    "pros": [
+      "Free public market-data API access available under documented rate limits with standard OpenAPI specifications",
+      "Strictly non-custodial architecture ensures private keys and funds remain in user control",
+      "Consolidates multiple disparate DeFi primitives (swap, bridge, lend, yield) into a coherent interface",
+      "Transparent fee schedule detailing interface, provider, and onchain network costs upfront"
+    ],
+    "cons": [
+      "Onchain protocol operations remain subject to underlying decentralized smart contract risks and network gas fees",
+      "High-throughput commercial API consumers must establish custom partner configurations beyond public tiers"
+    ],
+    "target_audience": "Web3 developers, decentralized financial engineers, crypto treasury managers, and onchain asset operators.",
+    "comparison_vs_alt": "While platforms like DeFiLlama focus primarily on macro analytics without native transaction execution, and aggregators like 1inch focus narrowly on DEX swaps, Bitpont combines interactive wallet-executed DeFi workflows with developer-accessible market-data APIs.",
+    "faqs": [
+      {
+        "q": "What is Bitpont and how does it work?",
+        "a": "Bitpont is a wallet-connected onchain finance interface and public developer API. It unifies decentralized token swaps, cross-chain bridges, borrowing, yield vaults, and portfolio management into a consolidated interface, while exposing public market-data endpoints for developers."
+      },
+      {
+        "q": "How does the non-custodial wallet model protect user funds?",
+        "a": "Bitpont never takes custody of user assets or private keys. Every transaction (such as a swap, bridge transfer, or collateral deposit) is cryptographically signed and executed directly through the user's connected Web3 wallet against underlying onchain protocols."
+      },
+      {
+        "q": "What is included in Bitpont's public developer API?",
+        "a": "Bitpont provides developer documentation, an OpenAPI specification, and free public market-data read endpoints at https://www.bitpont.com/developers/. Developers can inspect supported networks, token prices, liquidity metrics, and route parameters."
+      },
+      {
+        "q": "How are fees structured for operations and API access?",
+        "a": "Limited public market-data reads are free under documented access limits. Execution operations may incur standard provider routing, interface, and onchain blockchain network gas fees, detailed transparently at https://www.bitpont.com/fees/. Extended enterprise API quotas are configured on a partner basis."
+      },
+      {
+        "q": "What onchain workflows are supported?",
+        "a": "Bitpont supports decentralized token swaps, cross-chain asset bridging, collateralized lending/borrowing, staking/yield strategies, and multi-wallet treasury balance tracking across major EVM and supported blockchain networks."
+      }
+    ]
+  },
+  {
     "id": "arcane",
     "name": "Arcane",
     "tagline": "Modern, sleek Docker management designed for everyone",
@@ -14858,8 +15034,8 @@
   {
     "id": "revenue-scout",
     "name": "Revenue Scout",
-    "tagline": "AI social listening and inbound lead discovery across Reddit, LinkedIn, X, and 4 major platforms",
-    "summary": "Revenue Scout is an AI-powered social listening and revenue intelligence platform that monitors public posts across 7 major networks: Reddit, LinkedIn, X, Facebook, Instagram, TikTok, and YouTube. Moving beyond blunt keyword scraping, Revenue Scout utilizes semantic understanding to evaluate buyer intent against a business's specific value proposition, explaining why a conversation represents a high-probability commercial opportunity. The platform drafts tailored, human-in-the-loop replies, ensuring sales and marketing teams maintain complete editorial authority while accelerating pipeline generation.",
+    "tagline": "Your Agentic Coworker for sales prospecting",
+    "summary": "Revenue Scout is your AI-powered agentic coworker for sales prospecting that monitors public posts across 7 major networks: Reddit, LinkedIn, X, Facebook, Instagram, TikTok, and YouTube. Moving beyond blunt keyword scraping, Scout utilizes semantic understanding to evaluate buyer intent against your specific product catalog. When a customer asks for a reply draft, Scout uses that lead and related search results to explore better search phrases, keeping enabled saved phrases active. Customers review, edit, and post social replies manually, while Gmail sends require separate approval. Every plan, including Free, includes all features, team collaboration, and all seven platforms, differing solely by credit capacity.",
     "url": "https://revenuescout.ai/",
     "github_url": "",
     "source": "submission",
@@ -14906,7 +15082,7 @@
       "Emphasizes human-in-the-loop review, preserving brand reputation and community authenticity"
     ],
     "cons": [
-      "Paid subscriptions start at $49/month for higher volume monitoring and team features",
+      "Paid plans start at $49/month for higher credit capacity; all tiers (including Free) include team collaboration and all 7 platforms",
       "Requires careful onboarding prompt definition to avoid surfacing adjacent low-intent mentions"
     ],
     "target_audience": "Founders, B2B sales teams, growth marketers, and digital agencies seeking organic inbound lead discovery across social channels.",
@@ -14917,19 +15093,19 @@
     "faqs": [
       {
         "q": "What is Revenue Scout?",
-        "a": "Revenue Scout is an AI social listening tool that finds public posts matching what you sell across 7 platforms and drafts replies for your review."
+        "a": "Revenue Scout is an AI-powered agentic coworker for sales prospecting that monitors discussions across Reddit, LinkedIn, X, Facebook, Instagram, TikTok, and YouTube to find high-intent buyers and draft personalized replies."
+      },
+      {
+        "q": "How does the search phrase exploration and reply workflow work?",
+        "a": "When you ask for a reply draft, Scout uses that lead and related search results to explore better search phrases, keeping enabled saved phrases continuously active. Customers review, edit, and post social replies manually, and Gmail outreach sends require separate approval."
       },
       {
         "q": "Which social platforms are covered?",
-        "a": "Revenue Scout indexes public discussions across Reddit, LinkedIn, X, Facebook, Instagram, TikTok, and YouTube."
+        "a": "Revenue Scout indexes public discussions across all 7 major platforms: Reddit, LinkedIn, X, Facebook, Instagram, TikTok, and YouTube."
       },
       {
-        "q": "Does Revenue Scout post automatically without review?",
-        "a": "No, it drafts proposed replies for human review, giving you full control to inspect, edit, and post manually or approve follow-ups."
-      },
-      {
-        "q": "What is the pricing model?",
-        "a": "Each verified customer receives 2,000 free welcome credits once with no credit card required. These free credits never expire or refill. Monthly plans start at $49, with non-expiring credit top-ups starting at $15."
+        "q": "What is the pricing model and plan differences?",
+        "a": "Every plan, including Free, includes all features, team collaboration, and access to all seven platforms. Each verified customer receives 2,000 free welcome credits once with no credit card required. Paid plans start at $49/month for higher credit capacity, with non-expiring credit top-ups starting at $15."
       }
     ]
   },

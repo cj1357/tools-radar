@@ -1,144 +1,157 @@
-import urllib.request
+# -*- coding: utf-8 -*-
+"""
+Send acceptance emails via Resend API to:
+1. Contact Ordogrid (Innovaplus) <contact@ordogrid.com>
+2. Elizabeth Oricha | Bitpont <partnerships@bitpont.com>
+"""
+
 import json
 import os
-import time
+import urllib.request
+import urllib.error
 
-API_KEY = os.environ.get("RESEND_API_KEY", "")
-FROM_EMAIL = "ToolsRadar Team <hello@lordorange.top>"
+def load_resend_api_key():
+    key = os.environ.get("RESEND_API_KEY")
+    if key:
+        return key
+    env_file = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".env"))
+    if os.path.exists(env_file):
+        with open(env_file, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("RESEND_API_KEY="):
+                    return line.split("=", 1)[1].strip()
+    return None
+
+API_KEY = load_resend_api_key()
+API_URL = "https://api.resend.com/emails"
+FROM_EMAIL = "ToolsRadar Editorial Team <hello@lordorange.top>"
 
 EMAILS = [
     {
-        "to": "yanbo900720@gmail.com",
-        "subject": "Re: [Tool Submission] API Crest — AI API platform for developers",
-        "name": "API Crest",
-        "text": """Hi Yanbo (and the API Crest team),
+        "to": "contact@ordogrid.com",
+        "subject": "Re: Software submission: OrdoGrid invoicing, Peppol and nine free browser utilities is now featured!",
+        "html": """
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 620px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px;">
+    <div style="border-bottom: 2px solid #0284c7; padding-bottom: 12px; margin-bottom: 20px;">
+        <h2 style="margin: 0; color: #0f172a; font-size: 20px;">ToolsRadar Developer Radar</h2>
+        <p style="margin: 4px 0 0; color: #64748b; font-size: 13px;">Editorial Review &amp; Tool Cataloging Confirmation</p>
+    </div>
 
-Thanks for submitting API Crest to ToolsRadar!
+    <p>Hello OrdoGrid Team,</p>
 
-We really appreciate your transparent, documentation-first approach—especially providing verified, offline-checked Python and Node.js examples for complex asynchronous generative tasks and multipart payloads.
+    <p>Thank you for submitting <strong>OrdoGrid</strong> to ToolsRadar! Our editorial team has reviewed your platform, and we are delighted to inform you that <strong>OrdoGrid</strong> is now officially cataloged and featured under <strong>Productivity &amp; Workflow</strong>.</p>
 
-API Crest has been reviewed and is now live on ToolsRadar:
-👉 https://lordorange.top/tool/api-crest/
+    <h3 style="color: #0f172a; font-size: 16px; margin-top: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">1. Live Tool Profile &amp; 4-Chapter Technical Dossier</h3>
+    <p>Your dedicated profile and in-depth architectural evaluation are live across our global directory:</p>
+    <p style="margin: 16px 0;">
+        <a href="https://lordorange.top/tool/ordogrid/" style="display: inline-block; background-color: #0284c7; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 14px;">View Live OrdoGrid Profile &rarr;</a>
+    </p>
 
-We've categorized it under our APIs & Developer Tools section, highlighting your Anthropic-compatible routing, defensive integration guidelines, and public GitHub SDK patterns.
+    <p>Our review highlights:</p>
+    <ul style="padding-left: 20px; color: #334155;">
+        <li><strong>Nine Client-Side Utilities:</strong> Free public browser tools for UBL parsing, Belgian VAT calculation, payment QR/OGM codes, and Peppol lookups with zero registration barrier.</li>
+        <li><strong>Native Peppol E-Invoicing Access:</strong> Seamless handling of mandatory European structured e-invoices with a permanent free tier for inbound documents.</li>
+        <li><strong>Audit-Safe Human-in-the-Loop AI:</strong> Pragmatic supplier-PDF text extraction requiring human verification without reckless automated bookkeeping.</li>
+        <li><strong>Initial Signal Score:</strong> Rated <strong>86/100</strong> for European compliance rigor, data residency, and transparent pricing.</li>
+    </ul>
 
-If you find the listing helpful, feel free to mention ToolsRadar on X or link to your listing page—it helps more engineers discover practical developer utilities!
+    <h3 style="color: #0f172a; font-size: 16px; margin-top: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">2. Official &ldquo;Featured on ToolsRadar&rdquo; Badge</h3>
+    <p>You can embed our official dynamic SVG badge on your website, documentation portal, or GitHub repository:</p>
+    
+    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px; margin: 16px 0;">
+        <p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase;">Markdown Snippet (for GitHub README / Docs):</p>
+        <pre style="margin: 0; background: #0f172a; color: #e2e8f0; padding: 10px; border-radius: 4px; font-size: 12px; overflow-x: auto; font-family: monospace;"><code>[![Featured on ToolsRadar](https://lordorange.top/badge/ordogrid.svg)](https://lordorange.top/tool/ordogrid/)</code></pre>
 
-Keep up the great work with API Crest!
+        <p style="margin: 14px 0 8px; font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase;">HTML Snippet (for Website / Marketing Pages):</p>
+        <pre style="margin: 0; background: #0f172a; color: #e2e8f0; padding: 10px; border-radius: 4px; font-size: 12px; overflow-x: auto; font-family: monospace;"><code>&lt;a href="https://lordorange.top/tool/ordogrid/" target="_blank" rel="noopener"&gt;&lt;img src="https://lordorange.top/badge/ordogrid.svg" alt="Featured on ToolsRadar" /&gt;&lt;/a&gt;</code></pre>
+    </div>
 
-Best regards,
-The ToolsRadar Editorial Team
-https://lordorange.top""",
-        "html": """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 600px; margin: 0 auto; padding: 20px;">
-  <p>Hi Yanbo (and the API Crest team),</p>
-  <p>Thanks for submitting <strong>API Crest</strong> to ToolsRadar!</p>
-  <p>We really appreciate your transparent, documentation-first approach—especially providing verified, offline-checked Python and Node.js examples for complex asynchronous generative tasks and multipart payloads.</p>
-  <p>API Crest has been reviewed and is now live on ToolsRadar:<br>
-  👉 <a href="https://lordorange.top/tool/api-crest/" style="color: #f97316; font-weight: 600; text-decoration: none;">https://lordorange.top/tool/api-crest/</a></p>
-  <p>We've categorized it under our <strong>APIs & Developer Tools</strong> section, highlighting your Anthropic-compatible routing, defensive integration guidelines, and public GitHub SDK patterns.</p>
-  <p>If you find the listing helpful, feel free to mention ToolsRadar on X or link to your listing page—it helps more engineers discover practical developer utilities!</p>
-  <p>Keep up the great work with API Crest!</p>
-  <br>
-  <p style="margin-bottom: 4px;">Best regards,</p>
-  <p style="font-weight: 600; margin: 0; color: #111827;">The ToolsRadar Editorial Team</p>
-  <p style="margin: 0;"><a href="https://lordorange.top" style="color: #6b7280; text-decoration: none;">lordorange.top</a></p>
-</div>"""
+    <p style="margin-top: 28px; font-size: 14px; color: #475569;">
+        Best regards,<br>
+        <strong>ToolsRadar Editorial Team</strong><br>
+        <a href="https://lordorange.top" style="color: #0284c7; text-decoration: none;">ToolsRadar</a> &bull; <a href="mailto:hello@lordorange.top" style="color: #0284c7; text-decoration: none;">hello@lordorange.top</a>
+    </p>
+</div>
+"""
     },
     {
-        "to": "sascha@blueapps.pro",
-        "subject": "Re: [Tool Submission] Fastrelease — commercial Node.js SaaS starter",
-        "name": "Fastrelease",
-        "text": """Hi Sascha,
+        "to": "partnerships@bitpont.com",
+        "subject": "Re: Tool submission: Bitpont onchain-finance interface and public API is now featured!",
+        "html": """
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 620px; margin: 0 auto; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px;">
+    <div style="border-bottom: 2px solid #0284c7; padding-bottom: 12px; margin-bottom: 20px;">
+        <h2 style="margin: 0; color: #0f172a; font-size: 20px;">ToolsRadar Developer Radar</h2>
+        <p style="margin: 4px 0 0; color: #64748b; font-size: 13px;">Editorial Review &amp; Tool Cataloging Confirmation</p>
+    </div>
 
-Thanks for submitting Fastrelease to ToolsRadar!
+    <p>Hi Elizabeth,</p>
 
-We've reviewed Fastrelease and appreciate your clean, backend-focused architecture. Having pre-configured Docker containers, PostgreSQL schemas, multi-tenant workspace isolation, and native Stripe billing in a dedicated Node.js stack solves a massive pain point for developers building self-hosted SaaS.
+    <p>Thank you for submitting <strong>Bitpont</strong> to ToolsRadar! Our editorial team has evaluated your platform and API suite, and we are pleased to inform you that <strong>Bitpont</strong> is now officially cataloged and featured under <strong>DevTools &amp; CLI / Public APIs</strong>.</p>
 
-Fastrelease is now officially live on ToolsRadar:
-👉 https://lordorange.top/tool/fastrelease/
+    <h3 style="color: #0f172a; font-size: 16px; margin-top: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">1. Live Tool Profile &amp; 4-Chapter Technical Dossier</h3>
+    <p>Your dedicated profile and in-depth architectural evaluation are live across our global directory:</p>
+    <p style="margin: 16px 0;">
+        <a href="https://lordorange.top/tool/bitpont/" style="display: inline-block; background-color: #0284c7; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 14px;">View Live Bitpont Profile &rarr;</a>
+    </p>
 
-We've categorized it under our Developer Tools directory and clearly reflected your commercial licensing model ($199 single / $249+ unlimited).
+    <p>Our review highlights:</p>
+    <ul style="padding-left: 20px; color: #334155;">
+        <li><strong>Consolidated Non-Custodial Interface:</strong> Swaps, cross-chain bridges, borrowing, yield vaults, and treasury workflows authorized directly through self-custody wallets.</li>
+        <li><strong>OpenAPI &amp; Developer Market Data:</strong> Free public REST endpoints with documented access limits for programmatic telemetry and smart contract data ingestion.</li>
+        <li><strong>Fee &amp; Execution Transparency:</strong> Transparent upfront disclosure of interface, provider, and onchain network costs.</li>
+        <li><strong>Initial Signal Score:</strong> Rated <strong>87/100</strong> for non-custodial architecture, multi-protocol integration, and developer API ergonomics.</li>
+    </ul>
 
-If you find the listing helpful, feel free to mention ToolsRadar on X or link back to your listing page from BlueApps!
+    <h3 style="color: #0f172a; font-size: 16px; margin-top: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 6px;">2. Official &ldquo;Featured on ToolsRadar&rdquo; Badge</h3>
+    <p>You can embed our official dynamic SVG badge on your website, developer docs, or GitHub repository:</p>
+    
+    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px; margin: 16px 0;">
+        <p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase;">Markdown Snippet (for GitHub README / Docs):</p>
+        <pre style="margin: 0; background: #0f172a; color: #e2e8f0; padding: 10px; border-radius: 4px; font-size: 12px; overflow-x: auto; font-family: monospace;"><code>[![Featured on ToolsRadar](https://lordorange.top/badge/bitpont.svg)](https://lordorange.top/tool/bitpont/)</code></pre>
 
-Best regards,
-The ToolsRadar Editorial Team
-https://lordorange.top""",
-        "html": """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 600px; margin: 0 auto; padding: 20px;">
-  <p>Hi Sascha,</p>
-  <p>Thanks for submitting <strong>Fastrelease</strong> to ToolsRadar!</p>
-  <p>We've reviewed Fastrelease and appreciate your clean, backend-focused architecture. Having pre-configured Docker containers, PostgreSQL schemas, multi-tenant workspace isolation, and native Stripe billing in a dedicated Node.js stack solves a massive pain point for developers building self-hosted SaaS.</p>
-  <p>Fastrelease is now officially live on ToolsRadar:<br>
-  👉 <a href="https://lordorange.top/tool/fastrelease/" style="color: #f97316; font-weight: 600; text-decoration: none;">https://lordorange.top/tool/fastrelease/</a></p>
-  <p>We've categorized it under our <strong>Developer Tools</strong> directory and clearly reflected your commercial licensing model ($199 single / $249+ unlimited).</p>
-  <p>If you find the listing helpful, feel free to mention ToolsRadar on X or link back to your listing page from BlueApps!</p>
-  <br>
-  <p style="margin-bottom: 4px;">Best regards,</p>
-  <p style="font-weight: 600; margin: 0; color: #111827;">The ToolsRadar Editorial Team</p>
-  <p style="margin: 0;"><a href="https://lordorange.top" style="color: #6b7280; text-decoration: none;">lordorange.top</a></p>
-</div>"""
-    },
-    {
-        "to": "support@mkclip.com",
-        "subject": "Re: [Tool Submission] MKClip – screenshot-based product showcase videos",
-        "name": "MKClip",
-        "text": """Hi MKClip Team,
+        <p style="margin: 14px 0 8px; font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase;">HTML Snippet (for Website / Marketing Pages):</p>
+        <pre style="margin: 0; background: #0f172a; color: #e2e8f0; padding: 10px; border-radius: 4px; font-size: 12px; overflow-x: auto; font-family: monospace;"><code>&lt;a href="https://lordorange.top/tool/bitpont/" target="_blank" rel="noopener"&gt;&lt;img src="https://lordorange.top/badge/bitpont.svg" alt="Featured on ToolsRadar" /&gt;&lt;/a&gt;</code></pre>
+    </div>
 
-Thanks for reaching out and submitting MKClip to ToolsRadar!
-
-We've reviewed your tool and love the focused browser-first workflow. Turning existing UI screenshots into smooth animated showcase clips with client-side MP4/WebM rendering is a fantastic superpower for makers announcing releases on Product Hunt and X.
-
-MKClip is now published on ToolsRadar:
-👉 https://lordorange.top/tool/mkclip/
-
-We've categorized it under our Design & Frontend section, highlighting your zero-friction browser editor and deterministic motion templates.
-
-Thank you for sharing your project with our community! Feel free to share your listing or link to ToolsRadar when launching new showcase templates.
-
-Best regards,
-The ToolsRadar Editorial Team
-https://lordorange.top""",
-        "html": """<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #1f2937; max-width: 600px; margin: 0 auto; padding: 20px;">
-  <p>Hi MKClip Team,</p>
-  <p>Thanks for reaching out and submitting <strong>MKClip</strong> to ToolsRadar!</p>
-  <p>We've reviewed your tool and love the focused browser-first workflow. Turning existing UI screenshots into smooth animated showcase clips with client-side MP4/WebM rendering is a fantastic superpower for makers announcing releases on Product Hunt and X.</p>
-  <p>MKClip is now published on ToolsRadar:<br>
-  👉 <a href="https://lordorange.top/tool/mkclip/" style="color: #f97316; font-weight: 600; text-decoration: none;">https://lordorange.top/tool/mkclip/</a></p>
-  <p>We've categorized it under our <strong>Design & Frontend</strong> section, highlighting your zero-friction browser editor and deterministic motion templates.</p>
-  <p>Thank you for sharing your project with our community! Feel free to share your listing or link to ToolsRadar when launching new showcase templates.</p>
-  <br>
-  <p style="margin-bottom: 4px;">Best regards,</p>
-  <p style="font-weight: 600; margin: 0; color: #111827;">The ToolsRadar Editorial Team</p>
-  <p style="margin: 0;"><a href="https://lordorange.top" style="color: #6b7280; text-decoration: none;">lordorange.top</a></p>
-</div>"""
+    <p style="margin-top: 28px; font-size: 14px; color: #475569;">
+        Best regards,<br>
+        <strong>ToolsRadar Editorial Team</strong><br>
+        <a href="https://lordorange.top" style="color: #0284c7; text-decoration: none;">ToolsRadar</a> &bull; <a href="mailto:hello@lordorange.top" style="color: #0284c7; text-decoration: none;">hello@lordorange.top</a>
+    </p>
+</div>
+"""
     }
 ]
 
 def send_all():
-    url = "https://api.resend.com/emails"
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json",
-        "User-Agent": "ToolsRadar-Notifier/1.0"
-    }
+    if not API_KEY:
+        print("ERROR: RESEND_API_KEY not found!")
+        return
+
     for item in EMAILS:
         payload = {
             "from": FROM_EMAIL,
             "to": [item["to"]],
             "subject": item["subject"],
-            "text": item["text"],
             "html": item["html"]
         }
         data = json.dumps(payload).encode("utf-8")
-        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+        req = urllib.request.Request(API_URL, data=data, headers={
+            "Authorization": f"Bearer {API_KEY}",
+            "Content-Type": "application/json",
+            "User-Agent": "ToolsRadar-Notifier/1.0"
+        })
+
         try:
             with urllib.request.urlopen(req) as resp:
-                body = resp.read().decode("utf-8")
-                res_json = json.loads(body)
-                print(f"SUCCESS: Sent to {item['to']} ({item['name']}) -> Email ID: {res_json.get('id')}")
+                result = json.loads(resp.read().decode("utf-8"))
+                print(f"SUCCESS to {item['to']}: ID = {result.get('id')}")
+        except urllib.error.HTTPError as e:
+            err_body = e.read().decode("utf-8")
+            print(f"FAILED to {item['to']}: {e.code} - {err_body}")
         except Exception as e:
-            print(f"ERROR: {item['name']}: {str(e)}")
-        time.sleep(0.5)
+            print(f"ERROR to {item['to']}: {str(e)}")
 
 if __name__ == "__main__":
     send_all()
