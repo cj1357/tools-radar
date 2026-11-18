@@ -67,11 +67,16 @@ const isCliOrLocal = isExtension || isDesktop || toolTags.some((t: string) => ['
 
 const comparisonPairSlug = (altSlug && altSlug !== tool.id) ? `${tool.id}-vs-${altSlug}` : null;
 
-const pageTitle = tool.primary_alternative 
-  ? (tool.pricing_model === 'Open Source'
-      ? `${tool.name} - Open-Source Alternative to ${tool.primary_alternative}`
-      : `${tool.name} - Free Alternative to ${tool.primary_alternative}`)
-  : `${tool.name} - Review, Pricing & Key Features`;
+const isCompanion = Boolean((tool as any).companion_to || taglineLower.includes('companion'));
+const pageTitle = (tool as any).custom_title 
+  ? (tool as any).custom_title 
+  : (isCompanion && (tool as any).companion_to
+      ? `${tool.name} - Windows Quota Overlay Companion for ${(tool as any).companion_to}`
+      : (tool.primary_alternative 
+          ? (tool.pricing_model === 'Open Source'
+              ? `${tool.name} - Open-Source Alternative to ${tool.primary_alternative}`
+              : `${tool.name} - Free Alternative to ${tool.primary_alternative}`)
+          : `${tool.name} - Review, Pricing & Key Features`));
 
 // Quickstart command: prioritize authentic install command, fallback only for valid root git repos
 let quickstartCommand = tool.install_command || '';
@@ -244,9 +249,11 @@ const valueScore = tool.pricing_model === 'Open Source'
 
 const overallScore = Number(((setupScore + auditScore + vitalityScore + valueScore) / 4).toFixed(1));
 
-const altPhrase = tool.primary_alternative 
-  ? `Discover this ${tool.pricing_model === 'Open Source' ? 'open-source ' : ''}alternative to ${tool.primary_alternative}.` 
-  : '';
+const altPhrase = (tool as any).companion_to
+  ? `Dedicated companion utility for ${(tool as any).companion_to}.`
+  : (tool.primary_alternative 
+      ? `Discover this ${tool.pricing_model === 'Open Source' ? 'open-source ' : ''}alternative to ${tool.primary_alternative}.` 
+      : '');
 
 const priceValue = (tool.pricing_model === 'Paid' || tool.pricing_model === 'Usage-based')
   ? (tool.starting_price || (tool.id === 'fastrelease' ? '199' : '1'))
@@ -510,11 +517,15 @@ const jsonLd = {
               {tool.pricing_model}
             </span>
 
-            {tool.primary_alternative && (
+            {tool.primary_alternative ? (
               <span class="alt-hero-badge">
                 🔄 Alt to {tool.primary_alternative}
               </span>
-            )}
+            ) : ((tool as any).companion_to ? (
+              <span class="alt-hero-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.3);">
+                🧩 Companion for {(tool as any).companion_to}
+              </span>
+            ) : null)}
           </div>
 
           <p class="hero-tool-tagline">
@@ -793,7 +804,12 @@ const jsonLd = {
           <span class="spec-label">Category</span>
           <a href={`/category/${tool.category}`} class="spec-value accent-link">{categoryInfo.name}</a>
         </div>
-        {tool.primary_alternative ? (
+        {(tool as any).companion_to ? (
+          <div class="spec-item">
+            <span class="spec-label">Companion For</span>
+            <span class="spec-value" style="color: var(--accent);">{(tool as any).companion_to}</span>
+          </div>
+        ) : (tool.primary_alternative ? (
           <div class="spec-item">
             <span class="spec-label">Primary Alternative</span>
             <span class="spec-value" style="color: var(--accent);">{tool.primary_alternative}</span>
@@ -803,7 +819,7 @@ const jsonLd = {
             <span class="spec-label">Software Type</span>
             <span class="spec-value" style="color: var(--accent);">{tool.install_command ? "Editor Extension / Utility" : "Standalone Utility"}</span>
           </div>
-        )}
+        ))}
         <div class="spec-item">
           <span class="spec-label">Deployment Format</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
@@ -912,8 +928,8 @@ const jsonLd = {
       </div>
     )}
 
-    <!-- Deep Alternative Comparison Callout -->
-    {tool.primary_alternative && (
+    <!-- Deep Alternative Comparison Callout / Companion Integration -->
+    {tool.primary_alternative ? (
       <div class="section-card alt-comparison-card">
         <h2 class="card-section-title" style="color: #38bdf8;">
           <span>🔄</span> Why Choose {tool.name} Over {tool.primary_alternative}?
@@ -924,7 +940,16 @@ const jsonLd = {
             : `Compared to closed proprietary solutions like ${tool.primary_alternative}, ${tool.name} provides complete transparency, customizable codebases, and developer-first workflows without per-seat licensing penalties.`)}
         </p>
       </div>
-    )}
+    ) : ((tool as any).companion_to && tool.comparison_vs_alt ? (
+      <div class="section-card" style="border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.04);">
+        <h2 class="card-section-title" style="color: #34d399;">
+          <span>🧩</span> Companion Integration with {(tool as any).companion_to}
+        </h2>
+        <p style="color: #e4e4e7; font-size: 1rem; line-height: 1.75; margin: 0;">
+          {tool.comparison_vs_alt}
+        </p>
+      </div>
+    ) : null)}
 
     <!-- Target Audience & Ideal Use Cases -->
     {tool.target_audience && (
@@ -993,7 +1018,7 @@ const jsonLd = {
           <div class="arch-badge-item">
             <span class="arch-badge-label">Ecosystem Role:</span>
             <span class="arch-badge-value" style="color: var(--accent);">
-              {tool.primary_alternative ? `Alternative to ${tool.primary_alternative}` : "Core Workflow Utility"}
+              {(tool as any).companion_to ? `Companion for ${(tool as any).companion_to}` : (tool.primary_alternative ? `Alternative to ${tool.primary_alternative}` : "Core Workflow Utility")}
             </span>
           </div>
         </div>

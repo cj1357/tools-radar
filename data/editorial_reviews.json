@@ -43094,7 +43094,7 @@
   "codex-quota-overlay": {
     "article_title": "Codex Quota Overlay Architecture Dossier: Local RPC Telemetry, Zero-Focus HUD Ergonomics, and Privacy-Isolated AI Quota Pacing",
     "reading_time": "6 min read",
-    "editorial_verdict_callout": "Codex Quota Overlay is a textbook demonstration of ethical developer tooling: bridging local App Server IPC telemetry with transparent, click-through HUD ergonomics without compromising workstation security or user privacy.",
+    "editorial_verdict_callout": "Codex Quota Overlay is a textbook demonstration of ethical developer tooling: bridging local App Server IPC telemetry with transparent, click-through HUD ergonomics to serve as an indispensable desktop companion for Codex Desktop.",
     "chapters": [
       {
         "id": "rate-limit-anxiety-in-agentic-coding",
@@ -43118,7 +43118,7 @@
         "id": "open-source-governance-and-production-verdict",
         "number": "04",
         "title": "Open-Source Governance, Packaging Integrity & Editorial Recommendation",
-        "content": "Distributed under the permissive MIT license, Codex Quota Overlay represents community open source at its best. Version 0.4.0 addresses Windows 10/11 x64 workstations through both a guided Setup EXE and an unprivileged Portable ZIP. Acknowledging that community open-source tools cannot justify multi-hundred-dollar annual EV code-signing certificate taxes, the maintainer provides cryptographic SHA-256 checksum manifests and CycloneDX Software Bill of Materials (SBOM) artifacts for complete supply-chain verifiability. While macOS maintainer validation exists in CI, the deliberate focus on Windows fills a critical gap in a developer ecosystem often skewed toward Unix workstations. In conclusion, ToolsRadar awards Codex Quota Overlay a Signal Score of 88/100, recommending it as an essential, privacy-respecting companion for engineers who demand uninterrupted visibility over their Codex Desktop operational budget."
+        "content": "Distributed under the permissive MIT license, Codex Quota Overlay represents community open source at its best. Version 0.4.0 addresses Windows 10/11 x64 workstations through both a guided Setup EXE and an unprivileged Portable ZIP. While macOS source code and maintainer CI validation exist in the repository, version 0.4.0 distributes release assets exclusively for Windows, with no distributed macOS installer package attached to the release. Acknowledging that community open-source tools cannot justify multi-hundred-dollar annual EV code-signing certificate taxes, the maintainer provides cryptographic SHA-256 checksum manifests and CycloneDX Software Bill of Materials (SBOM) artifacts for complete supply-chain verifiability. In conclusion, ToolsRadar awards Codex Quota Overlay a Signal Score of 88/100, recommending it as an essential, privacy-respecting companion for engineers who demand uninterrupted visibility over their Codex Desktop operational budget."
       }
     ],
     "tool_id": "codex-quota-overlay",
