@@ -86551,5 +86551,94 @@
     "target_audience": "Freelancers, students, and creative professionals looking for a fun, low-pressure way to stay organized.",
     "comparison_vs_alt": "Unlike Todoist's strict, utilitarian list format, minimi uses an interactive virtual pet approach to make task management feel less like a chore.",
     "install_command": null
+  },
+  {
+    "id": "api-market-mcp-gateway",
+    "name": "API.market MCP Gateway",
+    "tagline": "Hosted Model Context Protocol gateway connecting AI agents to 550+ APIs and 3,410+ tools",
+    "summary": "API.market MCP Gateway (by MagicAPI Inc) is a unified, hosted Model Context Protocol (MCP) server that connects AI agent environments—including Claude, ChatGPT, Cursor, VS Code, and Codex—to an extensive catalog of 550+ APIs and 3,410+ tools across 44 categories. Operating over Streamable HTTP at https://api.market/api/mcp/gateway with automatic OAuth or API key authorization, the gateway allows agents to discover APIs, inspect operation schemas, manage subscriptions, and execute tool calls in a single session without juggling separate MCP servers or individual vendor integrations.",
+    "url": "https://api.market/mcp",
+    "github_url": "",
+    "source": "submission",
+    "category": "ai-agents",
+    "tags": [
+      "MCP",
+      "Model Context Protocol",
+      "AI Agents",
+      "API Gateway",
+      "Developer Tools",
+      "Streamable HTTP",
+      "OAuth",
+      "API Marketplace"
+    ],
+    "pricing_model": "Freemium",
+    "stars": 0,
+    "primary_alternative": "RapidAPI",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 88,
+    "verdict": "A powerful consolidation layer for the Model Context Protocol ecosystem, turning hundreds of standalone commercial APIs into a single streamable MCP gateway for AI coding agents.",
+    "deployment_format": "Hosted MCP Gateway (Streamable HTTP)",
+    "install_command": "Configure MCP endpoint: https://api.market/api/mcp/gateway",
+    "date_added": "2026-11-19",
+    "featured": true,
+    "key_features": [
+      {
+        "title": "Single Streamable HTTP Endpoint for 550+ APIs",
+        "description": "Consolidates 3,410+ API tools across 44 categories into one streamable MCP URL (https://api.market/api/mcp/gateway), eliminating the need to maintain dozens of local Docker or Node MCP instances."
+      },
+      {
+        "title": "Turnkey OAuth & API Key Authentication",
+        "description": "Supports automatic OAuth sign-in across Claude Desktop, ChatGPT, Cursor, and VS Code, alongside traditional API key headers for CLI agents."
+      },
+      {
+        "title": "Dynamic Discovery & Schema Inspection",
+        "description": "Enables AI agents to query the catalog in natural language, retrieve JSON schema signatures, and inspect operational requirements on demand."
+      },
+      {
+        "title": "Granular Per-API Metering & Free Tiers",
+        "description": "Provides unified balance tracking and usage quotas across heterogeneous API providers under flexible pay-as-you-go and free tier models."
+      }
+    ],
+    "use_cases": [
+      "AI agent developers and prompt engineers building multi-tool agentic workflows in Cursor, Claude, or Codex who need instant access to diverse data sources without provisioning separate servers.",
+      "Autonomous agent workflows requiring dynamic tool discovery and runtime schema resolution across thousands of commercial endpoints.",
+      "Software engineering teams seeking centralized API billing, key management, and quota governance across dozens of third-party API services."
+    ],
+    "pros": [
+      "One single MCP gateway URL replaces dozens of fragmented standalone MCP servers",
+      "Native Streamable HTTP transport with automated OAuth support for Claude, ChatGPT, Cursor, and VS Code",
+      "Extensive catalog spanning 550+ APIs and 3,410+ tools across 44 domain categories",
+      "Transparent usage dashboards and free tiers available for supported APIs"
+    ],
+    "cons": [
+      "Proprietary hosted gateway without an open-source self-hosted runtime package",
+      "Requires an API.market account and provider subscriptions for paid or rate-limited API tiers",
+      "For single-provider workflows (e.g. only using GitHub or Slack), dedicated native MCP servers may offer more specialized deep primitives"
+    ],
+    "target_audience": "AI agent developers, Cursor and Claude power users, full-stack software engineers, and autonomous agent architects.",
+    "comparison_vs_alt": "While RapidAPI pioneered the developer API marketplace model with traditional REST keys and web dashboards, it lacks a unified Model Context Protocol streaming gateway. API.market MCP Gateway bridges standard API catalogs directly into agentic IDEs and LLM runtimes via MCP Streamable HTTP.",
+    "faqs": [
+      {
+        "q": "What is API.market MCP Gateway and how does it work?",
+        "a": "API.market MCP Gateway is a hosted Model Context Protocol service hosted by API.market. It exposes over 550 APIs and 3,410+ operational tools through a single Streamable HTTP endpoint (https://api.market/api/mcp/gateway). AI agents in Claude, Cursor, ChatGPT, or VS Code can connect to this endpoint to discover APIs, inspect schemas, and execute calls directly."
+      },
+      {
+        "q": "How do I connect the MCP Gateway to Claude, Cursor, or VS Code?",
+        "a": "In your AI client (e.g., Claude Desktop, Cursor, or VS Code), add a new MCP server with the URL https://api.market/api/mcp/gateway using Streamable HTTP transport. You can authenticate either via automatic OAuth browser sign-in or by supplying your API.market API key."
+      },
+      {
+        "q": "How does pricing work across different APIs?",
+        "a": "Pricing is freemium on a per-API basis. Many APIs include generous free tiers for prototyping and low-volume queries, while high-throughput or compute-heavy endpoints (like image or video generation) follow transparent pay-as-you-go pricing billed through your unified API.market account."
+      },
+      {
+        "q": "Is API.market MCP Gateway open-source or self-hostable?",
+        "a": "The gateway is a proprietary hosted cloud service operated by MagicAPI Inc. While the MCP client connection protocol is standard and open, the routing gateway, multi-provider credential aggregation, and billing infrastructure are managed in the cloud."
+      },
+      {
+        "q": "How does this compare to running individual open-source MCP servers?",
+        "a": "Running separate open-source MCP servers requires installing, containerizing, and authenticating each tool individually on your local workstation. API.market MCP Gateway consolidates hundreds of diverse APIs into one cloud-hosted connection, reducing local configuration overhead while providing dynamic catalog discovery."
+      }
+    ]
   }
 ]
