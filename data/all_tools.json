@@ -1,5 +1,89 @@
 [
   {
+    "id": "ddscore",
+    "name": "DDScore",
+    "tagline": "AI-powered first-pass due diligence and multi-document cross-checker for investors and founders",
+    "summary": "DDScore is an AI-powered first-pass due diligence platform engineered for venture capital funds, angel investors, family offices, and startup founders. The platform cross-checks submitted pitch decks, operational spreadsheets, financial models, and supporting documents against both internal consistency standards and external market intelligence. Evaluating private companies across 12 analytical dimensions—from team pedigree and unit economics to competitive moat and exit viability—DDScore produces an empirical 0–100 investment readiness score alongside targeted diligence questions derived from conflicting or absent evidentiary claims.",
+    "url": "https://www.ddscore.ai/",
+    "github_url": "",
+    "source": "submission",
+    "category": "ai-tools",
+    "tags": [
+      "Due Diligence",
+      "Venture Capital",
+      "Financial Analysis",
+      "AI Agents",
+      "Document Intelligence",
+      "Fundraising",
+      "Startup Tools"
+    ],
+    "pricing_model": "Paid",
+    "stars": 0,
+    "primary_alternative": "PitchBook",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 86,
+    "verdict": "A rigorous, multi-document due diligence intelligence engine that transforms manual investor document review into a structured, evidence-audited risk evaluation.",
+    "deployment_format": "Web Application & Cloud Service",
+    "extensibility": "Web Dashboard & Exportable Diligence Dossiers",
+    "install_command": "Explore live sample reports and plans at https://www.ddscore.ai/",
+    "date_added": "2026-11-20",
+    "featured": false,
+    "key_features": [
+      {
+        "title": "Multi-Document Evidentiary Cross-Checking",
+        "description": "Reconciles pitch deck projections, financial models, cap tables, and legal disclosures against each other and public registry benchmarks to detect anomalies."
+      },
+      {
+        "title": "12-Dimension Quantitative Risk Scoring",
+        "description": "Calculates an empirical 0–100 score evaluating unit economics, TAM credibility, competitive moats, governance, and exit liquidity scenarios."
+      },
+      {
+        "title": "Gap-Driven Diligence Question Generation",
+        "description": "Automatically formulates targeted interrogation questions for founder interviews based on missing disclosures or conflicting metrics."
+      },
+      {
+        "title": "Accelerated First-Pass Screening",
+        "description": "Compresses 20+ hours of initial document triage into structured executive dossiers, allowing investment committees to focus human time on high-conviction deals."
+      }
+    ],
+    "use_cases": [
+      "Venture capital analysts and angel syndicates conducting fast, objective first-pass triage across inbound pitch decks and financial disclosures.",
+      "Startup founders stress-testing their fundraising decks and financial assumptions before presenting to institutional investors.",
+      "Accelerators and M&A advisory teams verifying private company claims and operational metrics against external market research."
+    ],
+    "pros": [
+      "Deep multi-document cross-referencing identifies hidden discrepancies between decks, models, and public records",
+      "12-pillar quantitative methodology standardizes first-pass deal screening across investment committees",
+      "Concrete audit trail flags specific missing evidence and generates surgical diligence questions",
+      "Significantly accelerates document analysis without relying on brittle, single-prompt LLM wrappers"
+    ],
+    "cons": [
+      "Paid enterprise utility geared toward professional investors, accelerators, and active fundraising founders",
+      "Proprietary cloud platform without self-hosted local model deployment"
+    ],
+    "target_audience": "Venture capital firms, angel investors, family offices, M&A teams, accelerators, and startup founders seeking structured due diligence.",
+    "comparison_vs_alt": "While legacy platforms like PitchBook provide retrospective market data and general LLMs offer superficial text summaries, DDScore combines multi-model reasoning to cross-examine specific company documents, reconcile conflicting claims, and benchmark against live market evidence.",
+    "faqs": [
+      {
+        "q": "What is DDScore and how does it assist private equity due diligence?",
+        "a": "DDScore is an automated first-pass due diligence engine designed for investors and founders. It analyzes pitch decks, financial models, cap tables, and external data across 12 dimensions to produce a 0–100 readiness score, risk heatmaps, and evidence-gap inquiries."
+      },
+      {
+        "q": "How does DDScore cross-check documents?",
+        "a": "DDScore utilizes specialized analytical models alongside frontier LLMs to cross-verify claims made in pitch decks against spreadsheets, financial statements, and external public sources, isolating irreconcilable metrics or unbacked assertions."
+      },
+      {
+        "q": "Is DDScore intended to replace human due diligence?",
+        "a": "No. DDScore is built to augment human investment teams by handling initial document triage and flagging evidence gaps, allowing investors and founders to focus their diligence meetings on critical, high-risk points."
+      },
+      {
+        "q": "What pricing options are available?",
+        "a": "DDScore operates on a paid plan tier structured around analysis volume and report depth, with details published at https://app.ddscore.ai/pricing."
+      }
+    ]
+  },
+  {
     "id": "cursor-plugins",
     "name": "Cursor Plugins",
     "tagline": "Official plugin ecosystem and specification for the Cursor editor",
