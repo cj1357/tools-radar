@@ -2242,7 +2242,7 @@
     "id": "bitpont",
     "name": "Bitpont",
     "tagline": "Wallet-connected onchain finance interface and public market-data API",
-    "summary": "Bitpont is a non-custodial onchain finance interface and market-data platform that unifies decentralized swaps, cross-chain bridges, borrowing, yield management, and treasury workflows into a single dashboard. Users authorize all operations directly through their own self-custody Web3 wallets, maintaining complete asset sovereignty. Complementing the retail interface, Bitpont provides developer documentation, an OpenAPI specification, and a free public market-data REST API with documented access limits, enabling developers and automated financial applications to programmatically query asset pricing, liquidity pools, and yield telemetry.",
+    "summary": "Bitpont is a non-custodial onchain finance interface and market-data platform that unifies decentralized swaps, cross-chain bridges, borrowing, yield management, and treasury workflows into a single dashboard. Users authorize supported financial actions through wallet signatures or approved permissions. Assets and positions may be held by the underlying protocol contracts, and protocol, bridge, liquidation and execution risks remain. Complementing the retail interface, Bitpont provides developer documentation, an OpenAPI specification, and a free public market-data REST API with documented access limits, enabling developers and automated financial applications to programmatically query asset pricing, liquidity pools, and yield telemetry.",
     "url": "https://www.bitpont.com/",
     "github_url": "",
     "source": "submission",
@@ -2274,8 +2274,8 @@
         "description": "Integrates swaps, cross-chain bridging, collateralized borrowing, yield strategies, and portfolio tracking into one dashboard."
       },
       {
-        "title": "Non-Custodial Wallet Authorization",
-        "description": "All transactions and contract interactions are signed and authorized exclusively by the user's self-custody wallet."
+        "title": "Non-Custodial Authorization & Permissions",
+        "description": "Supported financial operations are authorized directly through wallet signatures or approved permissions against underlying protocol contracts."
       },
       {
         "title": "Public Market-Data API & OpenAPI Spec",
@@ -2293,7 +2293,7 @@
     ],
     "pros": [
       "Free public market-data API access available under documented rate limits with standard OpenAPI specifications",
-      "Strictly non-custodial architecture ensures private keys and funds remain in user control",
+      "Non-custodial architecture where users authorize actions via wallet signatures or approved permissions without centralized exchange custody",
       "Consolidates multiple disparate DeFi primitives (swap, bridge, lend, yield) into a coherent interface",
       "Transparent fee schedule detailing interface, provider, and onchain network costs upfront"
     ],
@@ -2310,7 +2310,7 @@
       },
       {
         "q": "How does the non-custodial wallet model protect user funds?",
-        "a": "Bitpont never takes custody of user assets or private keys. Every transaction (such as a swap, bridge transfer, or collateral deposit) is cryptographically signed and executed directly through the user's connected Web3 wallet against underlying onchain protocols."
+        "a": "Bitpont never takes centralized custody of user assets or private keys. Users authorize supported financial actions through wallet signatures or approved permissions directly against underlying protocol contracts. Assets and positions may be held by the relevant protocol smart contracts, and protocol, bridge, liquidation, and execution risks remain."
       },
       {
         "q": "What is included in Bitpont's public developer API?",
