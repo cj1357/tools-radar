@@ -1006,13 +1006,15 @@ const jsonLd = {
           <div class="arch-badge-item">
             <span class="arch-badge-label">Extensibility:</span>
             <span class="arch-badge-value">
-              {isExtension
-                ? "VS Code Commands & Editor UI"
-                : (isCliOrLocal
-                    ? (isDesktop ? (toolTags.includes('macos') ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Native Desktop GUI & Open-Source Core" : "Native Desktop GUI & System Tray")) : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
-                    : (tool.github_url 
-                        ? "Forkable Codebase & REST/CLI" 
-                        : "REST / Webhooks Interoperability"))}
+              {(tool as any).extensibility
+                ? (tool as any).extensibility
+                : (isExtension
+                    ? "VS Code Commands & Editor UI"
+                    : (isCliOrLocal
+                        ? (isDesktop ? (toolTags.includes('macos') ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Native Desktop GUI & Open-Source Core" : "Native Desktop GUI & System Tray")) : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
+                        : (tool.github_url 
+                            ? "Forkable Codebase & REST/CLI" 
+                            : "REST / Webhooks Interoperability")))}
             </span>
           </div>
           <div class="arch-badge-item">

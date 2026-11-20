@@ -2298,8 +2298,8 @@
       "Transparent fee schedule detailing interface, provider, and onchain network costs upfront"
     ],
     "cons": [
-      "Onchain protocol operations remain subject to underlying decentralized smart contract risks and network gas fees",
-      "High-throughput commercial API consumers must establish custom partner configurations beyond public tiers"
+      "Onchain protocol operations remain subject to underlying smart contract, bridge, slippage, and execution risks",
+      "Higher API limits and scoped partner access can be requested at support@bitpont.com"
     ],
     "target_audience": "Web3 developers, decentralized financial engineers, crypto treasury managers, and onchain asset operators.",
     "comparison_vs_alt": "While platforms like DeFiLlama focus primarily on macro analytics without native transaction execution, and aggregators like 1inch focus narrowly on DEX swaps, Bitpont combines interactive wallet-executed DeFi workflows with developer-accessible market-data APIs.",
@@ -2318,13 +2318,14 @@
       },
       {
         "q": "How are fees structured for operations and API access?",
-        "a": "Limited public market-data reads are free under documented access limits. Execution operations may incur standard provider routing, interface, and onchain blockchain network gas fees, detailed transparently at https://www.bitpont.com/fees/. Extended enterprise API quotas are configured on a partner basis."
+        "a": "Limited public market-data reads are free under documented access limits. Execution operations may incur provider routing spreads, interface, and network gas costs as detailed at https://www.bitpont.com/fees/, with network costs, price impact, slippage, and execution risk still applying. Higher API limits and scoped partner access can be requested at support@bitpont.com."
       },
       {
         "q": "What onchain workflows are supported?",
         "a": "Bitpont supports decentralized token swaps, cross-chain asset bridging, collateralized lending/borrowing, staking/yield strategies, and multi-wallet treasury balance tracking across major EVM and supported blockchain networks."
       }
-    ]
+    ],
+    "extensibility": "REST APIs, SDK Tooling & Supported Agent Workflows"
   },
   {
     "id": "zigzag",
