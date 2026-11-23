@@ -663,7 +663,11 @@ const jsonLd = {
           <div class="metric-progress-bar bar-setup" style={`width: ${setupScore * 10}%;`}></div>
         </div>
         <span class="metric-subtext">
-          {tool.no_signup_required ? "Frictionless instant test with zero registration requirement." : (tool.install_command ? "Direct installation command available out of the box." : "Standard setup flow.")}
+          {tool.no_signup_required 
+            ? "Frictionless instant test with zero registration requirement." 
+            : (tool.install_command && isCliOrLocal
+                ? "Direct installation command available out of the box." 
+                : "Cloud-hosted web onboarding via official documentation.")}
         </span>
       </div>
 
