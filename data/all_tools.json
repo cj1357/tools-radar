@@ -1,5 +1,89 @@
 [
   {
+    "id": "mint-delta-lab",
+    "name": "Mint Delta Lab",
+    "tagline": "Browser-native Solana token snapshot comparator and state diff analyzer",
+    "summary": "Mint Delta Lab is a privacy-first, client-side developer utility engineered for Solana researchers, Web3 developers, and onchain asset analysts. Operating entirely within the visitor's browser without requiring wallet connections, user registration, or remote server uploads, the platform performs deterministic state comparisons between two timestamped token-mint JSON snapshots. Mint Delta Lab calculates granular deltas across circulating token supply, mint and freeze authority rotations, and top-10 account concentration metrics, outputting clean, machine-readable JSON diffs for offline auditing and programmatic integration.",
+    "url": "https://headless-rmmjyzloxyt-shunyamer-1409.wix-site-host.com/",
+    "github_url": "",
+    "source": "submission",
+    "category": "developer-tools",
+    "tags": [
+      "Solana",
+      "Web3",
+      "Developer Tools",
+      "Token Economics",
+      "JSON Diff",
+      "Client-Side",
+      "Privacy"
+    ],
+    "pricing_model": "Free",
+    "stars": 0,
+    "primary_alternative": "Solscan",
+    "is_self_hostable": false,
+    "no_signup_required": true,
+    "signal_score": 84,
+    "verdict": "A lightweight, privacy-respecting client-side utility that simplifies verifying critical state transitions across Solana token mint observations without exposing telemetry to centralized servers.",
+    "deployment_format": "Client-Side Web Application",
+    "extensibility": "Structured JSON Diff Exports & Standardized Input Schema",
+    "install_command": "",
+    "date_added": "2026-11-23",
+    "featured": false,
+    "key_features": [
+      {
+        "title": "Deterministic State Delta Verification",
+        "description": "Analyzes two timestamped observations of the same SPL token mint to detect net changes in raw token supply, decimals, and issuance dynamics."
+      },
+      {
+        "title": "Authority Rotation Tracking",
+        "description": "Instantly highlights whether critical mintAuthority or freezeAuthority keys have been modified, renounced, or transferred between observation windows."
+      },
+      {
+        "title": "Top-Account Concentration Monitoring",
+        "description": "Calculates percentage point shifts in top-10 token-account holdings, flagging potential liquidity centralization or insider accumulation."
+      },
+      {
+        "title": "Zero-Telemetry Client-Side Execution",
+        "description": "Runs 100% inside browser memory with zero wallet signature requests, no backend database logging, and zero external network calls."
+      }
+    ],
+    "use_cases": [
+      "Solana protocol developers and DAO treasuries verifying token parameter stability and authority revocations across protocol upgrades.",
+      "Onchain quantitative analysts running periodic offline snapshot differential tests on newly listed SPL tokens.",
+      "Security-conscious crypto researchers needing structured JSON diffs without connecting hot Web3 wallets to untrusted third-party dApps."
+    ],
+    "pros": [
+      "Complete data privacy: inputs never leave the client's browser DOM sandbox",
+      "Frictionless instant utility with zero wallet connection or account creation requirements",
+      "Clean, standardized JSON diff output format ready for automated pipeline ingestion",
+      "Transparent, honest scope: avoids exaggerated claims of automated fraud detection or artificial intelligence"
+    ],
+    "cons": [
+      "Requires users to bring their own JSON snapshot observations (no automated live RPC indexing)",
+      "Does not perform automated smart contract bytecode decompilation or deep security audits"
+    ],
+    "target_audience": "Solana developers, Web3 researchers, tokenomics auditors, and DeFi analysts.",
+    "comparison_vs_alt": "While blockchain explorers like Solscan require active web traffic and continuous cloud queries, Mint Delta Lab enables private, offline, side-by-side snapshot reconciliation with zero external dependency.",
+    "faqs": [
+      {
+        "q": "What is Mint Delta Lab and how does it work?",
+        "a": "Mint Delta Lab is an in-browser utility that compares two user-supplied JSON snapshots of a Solana token mint. It parses both observations to calculate exact deltas in token supply, key authorities, and account concentration."
+      },
+      {
+        "q": "Does Mint Delta Lab connect to my Web3 wallet or query live RPCs?",
+        "a": "No. The tool is strictly client-side. It does not require a wallet connection, does not poll live Solana RPC endpoints, and does not upload your pasted JSON data to any remote server."
+      },
+      {
+        "q": "What snapshot format is expected?",
+        "a": "The comparator expects two JSON objects sharing the same 'mint' public key with an increasing 'observedAt' timestamp, containing optional fields such as 'rawSupply', 'mintAuthority', 'freezeAuthority', and 'top10TokenAccountsPct', detailed at https://headless-rmmjyzloxyt-shunyamer-1409.wix-site-host.com/docs.html."
+      },
+      {
+        "q": "Is Mint Delta Lab free to use?",
+        "a": "Yes, Mint Delta Lab is a completely free developer utility with no paywalls, accounts, or usage limitations."
+      }
+    ]
+  },
+  {
     "id": "tinycommand",
     "name": "TinyCommand",
     "tagline": "All-in-one forms, tables, visual workflows, and custom AI agents for agile teams",
