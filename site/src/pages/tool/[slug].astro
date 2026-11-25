@@ -46,23 +46,25 @@ const isKnownFreeAlt = altToolObj
   : knownFreeKeywords.some(k => altLower.includes(k));
 
 // Precise software form factor and delivery classification
+const toolNameLower = (tool.name || '').toLowerCase();
 const toolTags = (tool.tags || []).map((t: string) => (t || '').toLowerCase());
 const taglineLower = (tool.tagline || '').toLowerCase();
-const summaryLower = (tool.summary || '').toLowerCase();
+const deployFmtLower = String((tool as any).deployment_format || '').toLowerCase();
 const installCmd = (tool.install_command || '').toLowerCase();
+const isConciseProfile = Boolean((tool as any).concise_profile);
 
 const isExtension = toolTags.some((t: string) => t.includes('extension')) 
   || taglineLower.includes('extension') 
-  || summaryLower.includes('extension') 
   || installCmd.startsWith('code --install-extension');
 
-const isDesktop = Boolean((tool as any).deployment_format?.toLowerCase().includes('desktop')
-  || (tool as any).deployment_format?.toLowerCase().includes('macos')
+const isDesktop = Boolean(deployFmtLower.includes('desktop')
+  || deployFmtLower.includes('macos')
+  || deployFmtLower.includes('windows')
   || toolTags.some((t: string) => ['macos', 'desktop', 'electron', 'tauri', 'native app'].includes(t))
-  || ['macos', 'desktop app', 'native mac'].some(w => taglineLower.includes(w) || summaryLower.includes(w)));
+  || ['macos', 'desktop app', 'native mac', 'windows app'].some(w => taglineLower.includes(w) || toolNameLower.includes(w)));
 
 const isCliOrLocal = isExtension || isDesktop || toolTags.some((t: string) => ['cli', 'terminal', 'tui', 'command-line'].includes(t))
-  || [' cli', 'terminal', ' tui', 'command-line', 'desktop', 'local utility', 'macos'].some(w => taglineLower.includes(w) || summaryLower.includes(w))
+  || [' cli', 'terminal', ' tui', 'command-line', 'local utility', 'macos'].some(w => taglineLower.includes(w) || deployFmtLower.includes(w))
   || ['cargo install', 'npm i', 'pip install', 'brew install', 'go install', 'curl', 'git clone'].some(p => installCmd.startsWith(p));
 
 const comparisonPairSlug = (altSlug && altSlug !== tool.id) ? `${tool.id}-vs-${altSlug}` : null;
@@ -81,6 +83,9 @@ const pageTitle = (tool as any).custom_title
 // Quickstart command: prioritize authentic install command, fallback only for valid root git repos
 let quickstartCommand = tool.install_command || '';
 let quickstartLabel = (tool.id === 'fastrelease') ? 'Post-Purchase Repository Setup' : (tool.install_command ? 'Quick Installation / Run' : 'Quick Start Command');
+const showQuickstartBox = !isConciseProfile && Boolean(
+  tool.install_command || isCliOrLocal || tool.is_self_hostable || (tool.github_url && tool.pricing_model === 'Open Source')
+);
 
 if (!quickstartCommand) {
   const isSubfolder = tool.github_url && tool.github_url.includes('/tree/');
@@ -345,7 +350,7 @@ const chapterTitle4 = hasChapters && aiEditorialReview.chapters[3].title ? `4. $
 
 const reviewSection1 = hasChapters 
   ? aiEditorialReview.chapters[0].content 
-  : (aiEditorialReview?.section1_architecture || `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from heavy legacy dependencies, it provides engineering teams with an agile footprint that integrates smoothly into existing CI/CD automation and developer tooling setups.`);
+  : (aiEditorialReview?.section1_architecture || `${tool.name} occupies an important niche in the ${categoryInfo.name} ecosystem. Rather than following bloated enterprise architectural patterns, the project prioritizes developer focus, modular maintainability, and clean operational ergonomics. At its architectural core, ${tool.name} is engineered around ${deploymentModel}, ensuring that teams can balance operational convenience against infrastructural control. Key architectural pillars include ${featureProse}. By decoupling core runtime responsibilities from unnecessary configuration overhead, it provides teams with a focused workflow tailored to everyday operational needs.`);
 
 const reviewSection2 = hasChapters 
   ? aiEditorialReview.chapters[1].content 
@@ -383,17 +388,57 @@ const matchedGuides = guides.filter(g => {
   const gSlug = g.slug;
   if (gSlug.includes('docker') && tool.is_self_hostable) return true;
   if (gSlug.includes('mcp') && toolTags.some((t: string) => t.includes('mcp'))) return true;
-  if (gSlug.includes('terminal') && isCliOrLocal) return true;
+  if (gSlug.includes('terminal') && !isConciseProfile && isCliOrLocal) return true;
   if (gSlug.includes('coding-agents') && (tool.category === 'ai-agents' || toolTags.some((t: string) => t.includes('agent')))) return true;
   if (gSlug.includes('notion') && (tool.primary_alternative?.toLowerCase().includes('notion') || tool.name.toLowerCase().includes('notion'))) return true;
   if (gSlug.includes('buffer') && (tool.primary_alternative?.toLowerCase().includes('buffer') || toolTags.some((t: string) => t.includes('social')))) return true;
-  if (gSlug.includes('vector') && toolTags.some((t: string) => t.includes('vector') || t.includes('rag'))) return true;
+  if (gSlug.includes('vector') && !isConciseProfile && toolTags.some((t: string) => ['vector-db', 'vector-database', 'vector-search', 'embeddings', 'rag'].includes(t) || t.includes('vector db'))) return true;
   if (gSlug.includes('licensing') && tool.pricing_model === 'Open Source') return true;
   if (gSlug.includes('zero-subscription') && tool.no_signup_required) return true;
   return false;
 }).slice(0, 2);
 
-const jsonLd = {
+const jsonLd = isConciseProfile ? {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": tool.name,
+      "description": tool.summary,
+      "applicationCategory": categoryInfo.name,
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": priceValue,
+        "priceCurrency": "USD"
+      },
+      "url": tool.url
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lordorange.top"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": categoryInfo.name,
+          "item": `https://lordorange.top/category/${tool.category}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": tool.name,
+          "item": `https://lordorange.top/tool/${tool.id}`
+        }
+      ]
+    }
+  ]
+} : {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -540,7 +585,7 @@ const jsonLd = {
             {tool.no_signup_required && (
               <span class="badge-feature no-signup">🔓 No Sign-up</span>
             )}
-            {tool.signal_score && (
+            {!isConciseProfile && tool.signal_score && (
               <span class="badge-feature traction">⚡ Editorial Signal: {tool.signal_score}/100</span>
             )}
             {tool.stars > 0 && (
@@ -622,7 +667,7 @@ const jsonLd = {
   </article>
 
   <!-- Analyst Verdict & Strategic Take Banner -->
-  {tool.verdict && (
+  {!isConciseProfile && tool.verdict && (
     <section class="verdict-banner-card">
       <div class="verdict-header">
         <div class="verdict-pill">
@@ -638,6 +683,7 @@ const jsonLd = {
   )}
 
   <!-- Hands-on Scorecard & Benchmark Assessment -->
+  {!isConciseProfile && (
   <section class="section-card scorecard-card">
     <div class="scorecard-header-row">
       <div class="scorecard-title-group">
@@ -726,6 +772,7 @@ const jsonLd = {
       </div>
     </div>
   </section>
+  )}
 
   <!-- Live Website Browser Mockup -->
   <section class="section-card browser-preview-card">
@@ -775,6 +822,7 @@ const jsonLd = {
   </section>
 
   <!-- Quick Start & Deployment Box -->
+  {showQuickstartBox && (
   <section class="section-card quickstart-card">
     <div class="quickstart-header">
       <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -790,6 +838,7 @@ const jsonLd = {
 
     <pre class="quickstart-pre"><code id="quickstart-code">{quickstartCommand}</code></pre>
   </section>
+  )}
 
   <!-- Detailed Specs & Problem Overview -->
   <section class="details-grid-wrapper">
@@ -821,7 +870,7 @@ const jsonLd = {
         ) : (
           <div class="spec-item">
             <span class="spec-label">Software Type</span>
-            <span class="spec-value" style="color: var(--accent);">{tool.install_command ? "Editor Extension / Utility" : "Standalone Utility"}</span>
+            <span class="spec-value" style="color: var(--accent);">{isExtension ? "Editor Extension" : (isCliOrLocal ? (isDesktop ? "Desktop Utility" : "CLI / Local Utility") : "Web Application")}</span>
           </div>
         ))}
         <div class="spec-item">
@@ -856,6 +905,7 @@ const jsonLd = {
     </div>
 
     <!-- Pros & Cons Matrix -->
+    {!isConciseProfile && (
     <div class="section-card">
       <h2 class="card-section-title">
         <span>⚖️</span> Pros & Cons Analysis
@@ -893,8 +943,10 @@ const jsonLd = {
       </div>
     </div>
 
+    )}
+
     <!-- Key Capabilities / Feature Highlights -->
-    {displayFeatures && displayFeatures.length > 0 && (
+    {!isConciseProfile && displayFeatures && displayFeatures.length > 0 && (
       <div class="section-card">
         <h2 class="card-section-title">
           <span style="color: #f59e0b;">⚡</span> Core Architecture & Key Capabilities
@@ -916,7 +968,7 @@ const jsonLd = {
     )}
 
     <!-- Practical Applications & High-Value Use Cases -->
-    {displayUseCases && displayUseCases.length > 0 && (
+    {!isConciseProfile && displayUseCases && displayUseCases.length > 0 && (
       <div class="section-card">
         <h2 class="card-section-title">
           <span style="color: #6366f1;">🎯</span> Practical Applications & High-Value Use Cases
@@ -933,7 +985,7 @@ const jsonLd = {
     )}
 
     <!-- Deep Alternative Comparison Callout / Companion Integration -->
-    {tool.primary_alternative ? (
+    {!isConciseProfile && tool.primary_alternative ? (
       <div class="section-card alt-comparison-card">
         <h2 class="card-section-title" style="color: #38bdf8;">
           <span>🔄</span> Why Choose {tool.name} Over {tool.primary_alternative}?
@@ -956,7 +1008,7 @@ const jsonLd = {
     ) : null)}
 
     <!-- Target Audience & Ideal Use Cases -->
-    {tool.target_audience && (
+    {!isConciseProfile && tool.target_audience && (
       <div class="section-card">
         <h2 class="card-section-title">
           <span style="color: #10b981;">🎯</span> Target Audience & Who is this for?
@@ -967,6 +1019,7 @@ const jsonLd = {
       </div>
     )}
       <!-- Technical Architecture & Data Sovereignty Breakdown -->
+    {!isConciseProfile && (
     <div class="section-card tech-architecture-card">
       <h2 class="card-section-title">
         <span style="color: #38bdf8;">⚙️</span> Architecture & Engineering Analysis
@@ -985,15 +1038,19 @@ const jsonLd = {
                       ? "local editor extension architecture running within the IDE Webview runtime"
                       : (isCliOrLocal 
                           ? (isDesktop ? "native desktop client architecture running locally on the workstation" : "lightweight local client/CLI architecture") 
-                          : "cloud-native software architecture"))
-              }, ensuring low execution latency and minimal external service entanglements.
+                          : "hosted cloud software architecture"))
+              }, ensuring streamlined onboarding and minimal setup overhead.
             </>
           )}
         </p>
         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem;">
-          {tool.pricing_model === 'Open Source' 
-            ? "Because the underlying code is fully open-source, engineering teams can audit security implementations, inspect telemetry vectors, and extend functionality via custom fork without risk of sudden vendor deprecation."
-            : "The system is structured for rapid developer adoption, providing clear API contracts, straightforward authentication, and predictable integration pathways into existing CI/CD or production stacks."}
+          {(tool as any).architecture_note
+            ? (tool as any).architecture_note
+            : (tool.pricing_model === 'Open Source' 
+                ? "Because the underlying code is fully open-source, engineering teams can audit security implementations, inspect telemetry vectors, and extend functionality via custom fork without risk of sudden vendor deprecation."
+                : (isCliOrLocal
+                    ? "Delivered for local workstation execution, allowing developers to run workflows directly within their local environment according to official documentation."
+                    : "Delivered as a hosted web application accessible directly in a standard browser, eliminating local software installation and infrastructure maintenance."))}
         </p>
         
         <div class="arch-meta-badges">
@@ -1017,8 +1074,8 @@ const jsonLd = {
                     : (isCliOrLocal
                         ? (isDesktop ? (toolTags.includes('macos') ? "Native macOS GUI & Multi-Agent Canvas" : (tool.github_url ? "Native Desktop GUI & Open-Source Core" : "Native Desktop GUI & System Tray")) : (tool.github_url ? "Forkable Codebase & Local CLI" : "Local CLI & Terminal Flags"))
                         : (tool.github_url 
-                            ? "Forkable Codebase & REST/CLI" 
-                            : "REST / Webhooks Interoperability")))}
+                            ? "Open Codebase" 
+                            : "Standard Web Workflow")))}
             </span>
           </div>
           <div class="arch-badge-item">
@@ -1030,9 +1087,11 @@ const jsonLd = {
         </div>
       </div>
     </div>
+    )}
 
 
     <!-- Long-Form In-Depth Editorial Dossier (Wirecutter / TechRadar Magazine Style) -->
+    {!isConciseProfile && (
     <article class="editorial-longform-card">
       <div class="editorial-article-header">
         <div class="article-meta-badge-row">
@@ -1084,8 +1143,10 @@ const jsonLd = {
         </section>
       </div>
     </article>
+    )}
 
     <!-- Frequently Asked Questions (FAQ) Section -->
+    {!isConciseProfile && (
     <div class="section-card faq-section-card">
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem;">
         <h2 class="card-section-title" style="margin: 0;">
@@ -1111,7 +1172,10 @@ const jsonLd = {
       </div>
     </div>
 
+    )}
+
     <!-- Editorial Methodology & Trust Assurance -->
+    {!isConciseProfile && (
     <div class="section-card editorial-trust-card">
       <div class="editorial-trust-inner">
         <div class="trust-icon-box">🛡️</div>
@@ -1135,11 +1199,12 @@ const jsonLd = {
         </div>
       </div>
     </div>
+    )}
   </section>
 
   
   <!-- Head-to-Head Comparison Callout Banner -->
-  {comparisonPairSlug && (
+  {!isConciseProfile && comparisonPairSlug && (
     <section class="head-to-head-banner">
       <div style="max-width: 650px;">
         <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; color: #38bdf8; margin-bottom: 0.35rem;">
@@ -1159,6 +1224,7 @@ const jsonLd = {
   )}
 
   <!-- Official ToolsRadar Verification Badge Card -->
+  {!isConciseProfile && (
   <section class="official-badge-card">
     <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
       <span style="font-size: 1.25rem;">🏅</span>
@@ -1219,6 +1285,7 @@ const jsonLd = {
       </div>
     </div>
   </section>
+  )}
 
   <!-- Similar Alternatives in Category -->
   {alternatives.length > 0 && (

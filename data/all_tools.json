@@ -1,5 +1,91 @@
 [
   {
+    "id": "waiver-com",
+    "name": "Waiver.com",
+    "tagline": "Digital waiver drafting, guest link and QR signing, and front-desk check-in lookup software",
+    "summary": "Waiver.com is a hosted digital waiver platform designed for activity venues, gyms, fitness studios, camps, and rental operations to manage guest releases from initial drafting through lobby check-in. Every subscription tier includes unlimited waivers, templates, staff access, storage, and AI-assisted drafting for editable activity and form sections—while keeping approved legal release text strictly separated for human review. Guests can sign ahead of arrival via links and SMS invitations or on-site via QR codes and kiosks, and staff can search signed adult or guardian records instantaneously at check-in.",
+    "url": "https://www.waiver.com",
+    "github_url": "",
+    "source": "submission",
+    "category": "productivity",
+    "tags": [
+      "Digital Waivers",
+      "Forms",
+      "QR Check-in",
+      "AI Drafting",
+      "Productivity",
+      "Workflow",
+      "Venue Management"
+    ],
+    "pricing_model": "Paid",
+    "starting_price": "9",
+    "stars": 0,
+    "primary_alternative": "",
+    "is_self_hostable": false,
+    "no_signup_required": false,
+    "signal_score": 86,
+    "verdict": "A focused, operations-first digital waiver platform that pairs unlimited waiver volume at $9/month with disciplined AI-drafting guardrails—isolating generated activity sections from reviewed legal agreements.",
+    "deployment_format": "Cloud Web Application",
+    "extensibility": "CSV & PDF Exports, Multi-Location Workspaces, API & Webhooks",
+    "install_command": "",
+    "architecture_note": "Delivered as a hosted web application with browser-based form building, mobile link/QR/kiosk signing, SMS invitations, CSV/PDF record exports, and documented API and webhook endpoints for connecting existing venue systems.",
+    "date_added": "2026-11-25",
+    "featured": false,
+    "key_features": [
+      {
+        "title": "Editable AI-Assisted Waiver Sections",
+        "description": "Generates structured, editable activity descriptions and intake sections for adult or family audiences while keeping organization-approved agreement wording in a dedicated field."
+      },
+      {
+        "title": "Link, SMS & On-Site QR/Kiosk Signing",
+        "description": "Supports pre-arrival signing via web links or monthly SMS allowances as well as on-site QR code and lobby kiosk flows across multiple signing languages."
+      },
+      {
+        "title": "Participant & Guardian Check-In Lookup",
+        "description": "Front-desk search resolves signed records by participant, child, guardian name, or booking, supporting fresh per-booking signatures for repeat visits."
+      },
+      {
+        "title": "Photos, ID Capture, Exports & APIs",
+        "description": "Attaches photo or ID captures directly to signed documents, manages multiple venue locations consistently, exports CSV/PDF archives, and integrates via APIs and webhooks."
+      }
+    ],
+    "use_cases": [
+      "Climbing gyms, trampoline parks, outfitters, and equipment rental venues speeding up busy lobby check-ins via pre-arrival links and QR kiosks.",
+      "Fitness studios, martial arts programs, and youth camps collecting structured guardian/minor waivers and verifying child records at arrival.",
+      "Multi-location recreational operators managing version-controlled waiver templates, PDF/Word imports, and per-booking repeat-visit signatures."
+    ],
+    "pros": [
+      "Unlimited waivers, templates, staff accounts, devices, and record storage on every plan (Starter from $9/month, Growth $14/month)",
+      "Pragmatic AI-drafting workflow explicitly refuses to invent legal releases or silently overwrite signed template versions",
+      "Built-in minor/guardian grouping, photo/ID capture, multi-location consistency, and CSV/PDF exports",
+      "Free manual import service offered for teams migrating historical waivers from PDF or Word files"
+    ],
+    "cons": [
+      "No permanent free tier (every plan begins with a 7-day trial requiring a credit card upfront)",
+      "AI drafting produces activity and form structure drafts only; organizations must still supply and review approved legal terms"
+    ],
+    "target_audience": "Climbing gyms, trampoline parks, ranches and outfitters, tours, fitness and martial arts studios, camps, spas, and equipment rental businesses.",
+    "comparison_vs_alt": "",
+    "faqs": [
+      {
+        "q": "How does Waiver.com pricing work?",
+        "a": "Waiver.com offers a 7-day free trial (credit card required). Starter is $9/month for 1 location and 200 monthly SMS messages; Growth is $14/month for unlimited locations and 500 monthly SMS messages (extra SMS are $0.02 each; annual plans include 2 months free). Both include unlimited waivers, templates, staff, and AI drafting."
+      },
+      {
+        "q": "Does Waiver.com AI automatically generate legally binding agreements?",
+        "a": "No. Per Waiver.com's documentation, the AI assistant drafts activity explanations and intake form sections for review in the builder, and is designed not to write releases, indemnities, arbitration clauses, or legal conclusions. Venues place their approved legal wording separately and review drafts before publishing."
+      },
+      {
+        "q": "Can staff find guardian-signed minor waivers and handle repeat visits?",
+        "a": "Yes. Family forms keep guardians and children grouped together, and front-desk search retrieves records by participant name, guardian, or booking. Venues can also collect per-booking signatures when guests return for additional activities."
+      },
+      {
+        "q": "Can we bring existing PDF or Word waivers into Waiver.com?",
+        "a": "Yes. Teams can import PDF or Word waivers (with optional free manual setup assistance from Waiver.com), and imported historical waivers count for validity without adding to billing."
+      }
+    ]
+  },
+  {
     "id": "qorx",
     "name": "Qorx Void",
     "tagline": "Local-first codebase indexer and token-squeezing context gateway for Claude Code and Codex",
@@ -259,86 +345,40 @@
   {
     "id": "imagesvg",
     "name": "ImageSVG",
-    "tagline": "Precision raster-to-vector tracing engine converting logos, icons, and illustrations into editable SVG paths",
-    "summary": "ImageSVG is an algorithmic vectorization and design utility tailored for frontend engineers, UI/UX designers, and digital artists. The platform transforms raster artwork—spanning PNG, JPG, WebP, GIF, and BMP formats up to 20 MB—into clean, scalable, and fully editable SVG vector paths. Utilizing specialized curve tracing algorithms optimized for different graphic modalities (including logos, app icons, digital stickers, and black-and-white line art), ImageSVG enables users to balance node density, inspect side-by-side zoom comparisons, and export production-ready vector assets directly to desktop illustration suites or web source trees. The platform provides a freemium model with daily free conversion allowances.",
+    "tagline": "Online raster-to-SVG converter for logos, icons, and illustrations",
+    "summary": "ImageSVG is an online raster-to-SVG converter for logos, icons, and illustrations. It focuses on high-quality vector results and offers a daily free allowance. Please visit https://imagesvg.com/en/ for current supported formats, features, and pricing.",
     "url": "https://imagesvg.com/en/",
     "github_url": "",
     "source": "submission",
-    "category": "design",
+    "category": "design-ui",
     "tags": [
       "SVG",
-      "Vectorization",
       "Raster to Vector",
       "Design Tools",
-      "Frontend",
-      "Graphics",
-      "Icons"
+      "Logos",
+      "Icons",
+      "Illustrations"
     ],
     "pricing_model": "Freemium",
     "stars": 0,
-    "primary_alternative": "Vector Magic",
+    "primary_alternative": "",
     "is_self_hostable": false,
     "no_signup_required": false,
-    "signal_score": 85,
-    "verdict": "A specialized, high-fidelity vector tracing utility that simplifies converting low-resolution raster imagery into clean, mathematically scalable SVG paths for modern web development.",
-    "deployment_format": "Web Application & Developer Utility",
-    "extensibility": "Web Vector Inspector, SVG Path Exports & MCP Connectivity",
-    "install_command": "Try interactive conversions online at https://imagesvg.com/en/",
+    "signal_score": 82,
+    "verdict": "",
+    "deployment_format": "Online Web Application",
+    "extensibility": "",
+    "install_command": "",
     "date_added": "2026-11-23",
     "featured": false,
-    "key_features": [
-      {
-        "title": "Multi-Modal Vector Tracing Engines",
-        "description": "Applies customized contour and Bézier fitting algorithms tailored specifically for icons, flat illustrations, photos, and high-contrast line art."
-      },
-      {
-        "title": "Tunable Node Density & Curve Controls",
-        "description": "Choose between balanced path fitting, simplified low-node silhouettes, or high-fidelity detailed paths to optimize file weight and render performance."
-      },
-      {
-        "title": "Interactive Real-Time Vector Inspection",
-        "description": "Directly compare original raster pixels against synthesized SVG vector paths with high-magnification split-view zooming before downloading."
-      },
-      {
-        "title": "Wide Raster Format Ingestion",
-        "description": "Accepts PNG, JPG, WebP, GIF, and BMP graphics up to 20 MB with immediate browser-side preview and downloadable vector assets."
-      }
-    ],
-    "use_cases": [
-      "Frontend developers converting legacy raster app icons and brand logos into responsive, infinite-resolution SVGs for web bundles.",
-      "UI/UX designers restoring vector assets from low-resolution mockups, pitch deck screenshots, or legacy client exports.",
-      "Digital crafters and graphic illustrators generating clean vector cutting paths (DXF/SVG) for laser cutters, plotters, and digital print."
-    ],
-    "pros": [
-      "Specialized curve-fitting modes produce cleaner SVG code with fewer redundant control points than generic auto-trace tools",
-      "High-magnification comparison viewer allows precision inspection of path alignment before export",
-      "Free daily conversion allowance enables regular casual and staging-level design usage",
-      "Supports large raster files up to 20 MB across modern formats including WebP"
-    ],
-    "cons": [
-      "Continuous high-volume batch vectorization requires paid plan subscriptions",
-      "Photographic conversions naturally produce complex, multi-layered vector meshes with larger SVG payloads"
-    ],
-    "target_audience": "Frontend engineers, graphic designers, UI/UX specialists, digital illustrators, and makers working with vector assets.",
-    "comparison_vs_alt": "While legacy desktop tools like Vector Magic and Adobe Illustrator require heavyweight local software or steep licensing fees, ImageSVG provides instantaneous browser-based vector tracing with dedicated icon/logo optimization presets.",
-    "faqs": [
-      {
-        "q": "What is ImageSVG and how does it convert raster images?",
-        "a": "ImageSVG is an algorithmic vector conversion tool that traces raster graphics (PNG, JPG, WebP, BMP, GIF) into scalable SVG vector paths by calculating optimal Bézier curves and color boundaries."
-      },
-      {
-        "q": "What image formats and file sizes are supported?",
-        "a": "ImageSVG supports input files up to 20 MB across PNG, JPG, WebP, GIF, and BMP formats, outputting standard W3C-compliant SVG markup."
-      },
-      {
-        "q": "How can I control the complexity and file size of the resulting SVG?",
-        "a": "ImageSVG provides curve style presets: 'Balanced' for standard logos, 'Fewer nodes' for simplified shapes with minimal file size, and 'More detail' for intricate artwork requiring high point fidelity."
-      },
-      {
-        "q": "Is ImageSVG free to use?",
-        "a": "Yes, ImageSVG operates on a freemium model offering a daily free conversion allowance with a user account, alongside paid plans for high-volume conversion needs."
-      }
-    ]
+    "key_features": [],
+    "use_cases": [],
+    "pros": [],
+    "cons": [],
+    "target_audience": "Designers, developers, and users seeking an online raster-to-SVG converter for logos, icons, and illustrations.",
+    "comparison_vs_alt": "",
+    "faqs": [],
+    "concise_profile": true
   },
   {
     "id": "cursor-plugins",

@@ -46457,40 +46457,6 @@
     "model_used": "editorial-team",
     "generated_at": "2026-11-23T10:18:00.000000+00:00"
   },
-  "imagesvg": {
-    "article_title": "ImageSVG Architecture & Vectorization Dossier: Bézier Curve Fitting, Modality Optimization, and Modern Frontend Vector Assets",
-    "reading_time": "5 min read",
-    "editorial_verdict_callout": "ImageSVG bridges the gap between raster legacy graphics and scalable SVG production—giving frontend teams an intuitive, browser-based tracer with surgical control over node density.",
-    "chapters": [
-      {
-        "id": "the-raster-vector-impedance-mismatch",
-        "number": "01",
-        "title": "The Raster-Vector Dilemma: Resolution Independence and Legacy Asset Debt",
-        "content": "In modern responsive web development and high-density retina displays, raster image formats (such as JPEG, PNG, and WebP) suffer from inherent resolution constraints. When scaled across diverse viewports, raster graphics exhibit pixelation, artifact blurring, and inflated asset weight that degrades Core Web Vitals (specifically Largest Contentful Paint). Conversely, Scalable Vector Graphics (SVG) define visual paths through mathematical formulas, rendering with infinite clarity at minimal bandwidth footprint. However, engineering and design teams routinely inherit legacy raster brand marks, app icons, and client sketches without original vector master files. Re-drawing these assets manually inside vector design software is a tedious, labor-intensive chore. ImageSVG was developed to automate this conversion pipeline with deterministic algorithmic fidelity."
-      },
-      {
-        "id": "contour-tracing-and-bezier-curve-optimization",
-        "number": "02",
-        "title": "Algorithmic Vectorization: Contour Tracing, Edge Detection, and Bézier Curve Fitting",
-        "content": "The fundamental engineering challenge in automated vectorization lies in edge detection and path simplification. Naive auto-trace algorithms frequently generate chaotic zigzag polygon meshes with thousands of redundant anchor points, resulting in bloated SVG files that trigger high DOM rendering overhead. ImageSVG implements an advanced multi-pass contour tracing pipeline that detects color boundaries, filters optical raster noise, and fits continuous cubic and quadratic Bézier curves against pixel gradients. By calculating optimal curve tangents rather than plotting dense point clouds, the engine synthesizes sleek, mathematically elegant outlines that mirror the original artwork with surgical precision."
-      },
-      {
-        "id": "modality-tuning-and-node-density-economics",
-        "number": "03",
-        "title": "Modality-Specific Optimization: Node Density Tuning and SVG Performance Economics",
-        "content": "Visual graphics exhibit fundamentally divergent characteristics based on their domain: a minimalist company logo demands razor-sharp geometry with minimal anchor nodes, while a hand-drawn illustration requires expressive curve variations. ImageSVG addresses this diversity by offering modality-specific presets—including Icon/Logo, Illustration, Photo, and Black-and-White Line Art. Crucially, the platform gives developers granular control over curve style and node density: 'Fewer nodes' optimizes assets for ultra-lightweight frontend web embeds, while 'More detail' preserves intricate structural contours. The built-in interactive comparison viewer allows split-view high-magnification verification, ensuring path integrity prior to asset export."
-      },
-      {
-        "id": "production-verdict-and-frontend-workflow-guidance",
-        "number": "04",
-        "title": "Production Workflow Verdict: Streamlining Web Asset Preparation and Desktop Integration",
-        "content": "From an operational workflow perspective, ImageSVG delivers exceptional velocity for frontend developers, UI/UX engineers, and digital crafters. Accepting large files up to 20 MB across PNG, JPG, WebP, GIF, and BMP formats, it eliminates the necessity of launching bulky desktop suites like Adobe Illustrator or Vector Magic for everyday vector conversion tasks. The resulting clean, standard W3C-compliant SVG markup is immediately inspectable, easily styleable via CSS, and ready for deployment in modern component frameworks (such as React, Vue, or Astro). With daily free conversions available to registered users, ImageSVG serves as an indispensable utility for teams maintaining high visual standards across digital interfaces."
-      }
-    ],
-    "tool_id": "imagesvg",
-    "model_used": "editorial-team",
-    "generated_at": "2026-11-23T10:18:00.000000+00:00"
-  },
   "mint-delta-lab": {
     "article_title": "Mint Delta Lab Architecture & Solana State Dossier: Client-Side Token Delta Verification, Authority Mechanics, and Offline Auditing",
     "reading_time": "5 min read",
@@ -46558,5 +46524,39 @@
     "tool_id": "qorx",
     "model_used": "editorial-team",
     "generated_at": "2026-11-24T18:00:00.000000+00:00"
+  },
+  "waiver-com": {
+    "article_title": "Waiver.com Operational Dossier: Human-Reviewed AI Waiver Drafting, QR Check-In, and Unlimited-Volume Venue Economics",
+    "reading_time": "5 min read",
+    "editorial_verdict_callout": "Waiver.com avoids common AI hype by scoping its drafting tool strictly to activity briefs and form structure—delivering unlimited waivers from $9/month alongside fast guardian search at check-in.",
+    "chapters": [
+      {
+        "id": "front-desk-arrival-and-waiver-bottlenecks",
+        "number": "01",
+        "title": "The Front-Desk Arrival Bottleneck: Minor Grouping, Repeat Bookings, and Paper Overhead",
+        "content": "For high-throughput recreational businesses—such as climbing gyms, trampoline parks, martial arts academies, tours, and equipment rental counters—guest check-in friction routinely backs up the lobby. Managing paper waivers or fragmented PDF attachments breaks down quickly when parents arrive with multiple children, when booking rules require a fresh per-booking signature on repeat visits, or when reception staff must verify guardian authorization in seconds. Waiver.com streamlines this operational pipeline into a unified hosted workflow: guests receive links or SMS invitations ahead of arrival (or scan QR codes and kiosks on-site), complete structured adult or family forms, optionally provide photo or ID capture attachments, and become immediately searchable by participant or guardian name at check-in."
+      },
+      {
+        "id": "human-in-the-loop-ai-drafting-and-versioning",
+        "number": "02",
+        "title": "Disciplined Workflow Architecture: AI Section Drafting vs. Approved Release Control",
+        "content": "Unlike generic form builders that treat AI text generation as a black-box legal replacement, Waiver.com documents strict engineering boundaries around its drafting assistant. As outlined in its pre-publication review guide, the AI generator is built to organize activity explanations and intake questions for adult or family audiences without generating legal releases, indemnities, arbitration clauses, or enforceability claims. Approved organizational agreement copy resides in a distinct field in the waiver builder so reviewers can audit edits cleanly without rewriting legal obligations. Crucially, publishing updates creates a controlled template version rather than silently mutating historical agreements attached to already-signed guest records."
+      },
+      {
+        "id": "unit-economics-unlimited-waivers-and-sms",
+        "number": "03",
+        "title": "Unit Economics: Predictable Flat Pricing vs. Per-Waiver Tax Models",
+        "content": "Many digital signature and venue SaaS platforms penalize seasonal peaks with per-envelope charges or restrictive document caps. Waiver.com structures pricing around locations and messaging allowances rather than document volume: both the Starter tier ($9/month for one location, 200 SMS) and the Growth tier ($14/month for unlimited locations, 500 SMS) include unlimited waivers, templates, devices, staff seats, and storage—with overage texts billed transparently at $0.02 per message and annual billing waiving two months. Moreover, AI drafting is included across every tier with no paid AI add-on, and businesses switching from legacy paper or PDF files can request free manual setup assistance without imported records counting toward quotas."
+      },
+      {
+        "id": "operational-verdict-and-venue-suitability",
+        "number": "04",
+        "title": "Operational Suitability Verdict: Pragmatic Venue Operations Without Bloated Upcharge",
+        "content": "From a practical standpoint, Waiver.com fits businesses that prioritize fast lobby check-in, clean minor-guardian linking, multi-location template consistency, and straightforward CSV/PDF exports or API/webhook connectivity. Prospective teams should note two clear boundaries: plans begin with a 7-day trial requiring a credit card upfront (with no permanent free plan), and AI drafting serves solely as a structured brief-to-form helper rather than a substitute for counsel-approved release wording. Within those honest parameters, Waiver.com delivers high operational value at an accessible price point."
+      }
+    ],
+    "tool_id": "waiver-com",
+    "model_used": "editorial-team",
+    "generated_at": "2026-11-25T11:50:00.000000+00:00"
   }
 }
