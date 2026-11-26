@@ -47204,5 +47204,107 @@
     "tool_id": "umami-manager",
     "model_used": "google/gemini-3.5-flash-lite",
     "generated_at": "2026-11-25T07:46:40.662921+00:00"
+  },
+  "webdecoy-node": {
+    "article_title": "WebDecoy Node SDK Architecture: Keyless Honeypot Tripwires, Monitor Mode, and Middleware Bot Governance",
+    "reading_time": "5 min read",
+    "editorial_verdict_callout": "WebDecoy Node SDK stands out for its pragmatic local-first security design: MIT-licensed TypeScript rules that run in monitor mode without an API key, backed by an immediately testable Express playground.",
+    "chapters": [
+      {
+        "id": "server-middleware-blind-spots",
+        "number": "01",
+        "title": "The Application-Layer Blind Spot: Non-JS Crawlers Beyond Browser Analytics",
+        "content": "Automated scrapers, vulnerability scanners, and AI crawlers frequently hit backend routes without executing client-side JavaScript tags—leaving standard frontend analytics completely blind to their activity. While edge WAFs handle network-level filtering, application teams often lack inspectable, framework-native visibility inside their own route handlers. WebDecoy Node SDK targets this exact layer by running inside Express, Fastify, Next.js, Hono, and generic fetch middleware, giving developers direct programmatic inspection of requests that reach their Node.js or edge runtime."
+      },
+      {
+        "id": "honeypot-tripwires-and-monitor-architecture",
+        "number": "02",
+        "title": "Architectural Mechanics: Honeypot Tripwires, Signed-Agent Checks, and Keyless Rules",
+        "content": "Built cleanly in TypeScript as an open MIT monorepo, @webdecoy/node constructs its local defense around honeypot tripwires, rate-limiting primitives, and Web Bot Auth verification. Developers can inject hidden rel=\"nofollow\" honeytoken paths into HTML responses—links ordinary human users never follow—alongside detection rules for scanner-bait endpoints like /.env, /.git/config, and /wp-config.php. Crucially, middleware starts in monitor mode by default: it generates verifiable verdicts without blocking traffic, allowing teams to compare real vs. decoy requests locally or via the browser-based StackBlitz Express playground without creating an account or provisioning an API key."
+      },
+      {
+        "id": "runtime-portability-and-cdn-boundaries",
+        "number": "03",
+        "title": "Runtime Portability and Honest Upstream Visibility Boundaries",
+        "content": "Rather than locking engineering teams into a single web framework, the repository ships lightweight packages and check:edge-verified adapters spanning Express, Fastify, Next.js, Hono (including Cloudflare Workers, Bun, and Deno), Astro/SvelteKit/Remix via createFetchGuard(), and native node:http servers. Equally commendable is the project's technical transparency: its documentation explicitly clarifies that server middleware only observes requests reaching the application runtime, meaning traffic served directly by upstream CDN caches sits outside middleware visibility unless paired with an edge sensor, and claimed user-agent strings require verification."
+      },
+      {
+        "id": "developer-ergonomics-and-verdict",
+        "number": "04",
+        "title": "Operational Verdict: Low-Risk Integration for TypeScript Stacks",
+        "content": "For TypeScript and Node.js teams evaluating application-level bot awareness and AI crawler policies, WebDecoy Node SDK provides an accessible, low-risk starting point. The MIT license ensures complete source auditability, the keyless monitor mode removes deployment anxiety, and optional dashboard reporting keeps commercial adoption purely additive. Whether testing rules in the 30-second Express playground or hardening production APIs, WebDecoy Node SDK delivers transparent security tooling grounded in verifiable behavior."
+      }
+    ],
+    "tool_id": "webdecoy-node",
+    "model_used": "editorial-team",
+    "generated_at": "2026-11-26T14:50:00.000000+00:00"
+  },
+  "webdecoy-wordpress": {
+    "article_title": "WebDecoy for WordPress Analysis: Local AI Crawler Analytics, Opt-In llms.txt Governance, and WooCommerce Checkout Defense",
+    "reading_time": "5 min read",
+    "editorial_verdict_callout": "By putting AI crawler analytics, non-destructive llms.txt generation, and monitor-first bot checks inside a GPL WordPress plugin with zero API-key lock-in, WebDecoy fills a practical gap for publishers and WooCommerce stores.",
+    "chapters": [
+      {
+        "id": "wordpress-ai-crawler-visibility",
+        "number": "01",
+        "title": "Seeing Behind the Cache: Tracking AI Crawlers vs. AI Assistant Referrals in WordPress",
+        "content": "Standard web analytics scripts capture human browser sessions, yet leave WordPress site owners in the dark about automated AI scrapers harvesting posts or referrals arriving from AI assistants. WebDecoy for WordPress brings visibility directly into wp-admin via dedicated AI Traffic & Analytics reporting, separating AI crawler requests that reach WordPress from AI assistant visitor sessions—all computed locally on the host without shipping raw site logs to third-party SaaS platforms."
+      },
+      {
+        "id": "non-destructive-robots-and-llms-control",
+        "number": "02",
+        "title": "Policy Architecture: Category-Based robots.txt, Opt-In llms.txt, and Multi-Layer Checks",
+        "content": "Beyond passive observation, the GPL-licensed plugin offers pragmatic governance tools tailored to WordPress operations. Administrators can manage optional robots.txt directives grouped by crawler category and enable an opt-in llms.txt generator explicitly built to respect and preserve existing llms.txt providers. On the security front, WebDecoy layers reverse-DNS verification for legitimate bots (such as Googlebot and Bingbot), MITRE ATT&CK path probe analysis, configurable rate limiting, IP/CIDR blocks, and invisible browser proof-of-work checks—eschewing annoying visual CAPTCHAs."
+      },
+      {
+        "id": "woocommerce-protection-and-cache-reality",
+        "number": "03",
+        "title": "Monitor-First Ergonomics, WooCommerce Checkout, and Page-Caching Realities",
+        "content": "Rather than forcing aggressive blocking out of the box, WebDecoy encourages teams to install on a staging or live site in monitor mode, inspect captured detection evidence, and verify behavior prior to enabling enforcement—including specialized protections tested against rapid failed-order patterns on both classic and Blocks WooCommerce checkouts. Equally important is the project's candor regarding WordPress caching: documentation clearly highlights that upstream full-page caches serve responses before PHP detection fires, detailing how the AJAX scanner and cache exclusions preserve signal accuracy."
+      },
+      {
+        "id": "operational-verdict-wp-ecosystem",
+        "number": "04",
+        "title": "Operational Suitability Verdict: Self-Contained Governance for WP 6.1+",
+        "content": "Available directly through the official WordPress.org plugin directory and backed by clean Composer-checked (phpcs and phpstan) PHP code on GitHub, WebDecoy for WordPress is an authentic, self-contained utility for site administrators. Its commitment to keeping local analytics and form/checkout protections completely free and keyless makes it easy to adopt and audit, with hosted dashboard reporting reserved purely for teams wanting multi-site cloud aggregation."
+      }
+    ],
+    "tool_id": "webdecoy-wordpress",
+    "model_used": "editorial-team",
+    "generated_at": "2026-11-26T14:50:00.000000+00:00"
+  },
+  "website-speed-test": {
+    "article_title": "Website Speed Test Overview: Server Response Timing, Basic On-Page SEO Checks, and Scope vs. Field Telemetry",
+    "reading_time": "4 min read",
+    "editorial_verdict_callout": "Maintained by Hand On Web Ltd as a free, no-signup utility, Website Speed Test works best as an instant first-pass check for TTFB and HTML meta hygiene before deeper Lighthouse or PageSpeed profiling.",
+    "chapters": [
+      {
+        "id": "instant-ttfb-and-html-triage",
+        "number": "01",
+        "title": "Lightweight Pre-Audit Triage: Instant Server Response & Metadata Checks",
+        "content": "Before spinning up heavy multi-minute browser profiling traces or configuring enterprise monitoring pipelines, developers and site maintainers frequently just want an immediate check: how fast did the server answer with the first byte of HTML, and are basic on-page SEO tags intact? Website Speed Test answers that narrow need by letting any visitor paste a public URL and inspect server response timing alongside returned HTML elements—all inside a zero-signup browser form."
+      },
+      {
+        "id": "on-page-seo-and-fundamentals",
+        "number": "02",
+        "title": "What the Checker Inspects: TTFB, Compression Signals, and Essential HTML Elements",
+        "content": "Rather than burying users in complex waterfall graphs, the utility focuses on foundational web health vectors: initial server response (TTFB), Gzip/Brotli compression clues, caching readiness, and core HTML metadata including title tags, meta descriptions, heading structure, canonical URLs, and HTTPS compliance. Each report pairs detected findings with plain-language recommendations—making it straightforward for non-specialist editors or small-business site owners to spot missing descriptions or slow origin responses."
+      },
+      {
+        "id": "explicit-scope-vs-core-web-vitals",
+        "number": "03",
+        "title": "Honest Diagnostic Boundaries: Server Checks vs. 28-Day Real-User Field Data",
+        "content": "One refreshing aspect of Website Speed Test is its transparent scope boundary. The tool makes no claim to replace real-user telemetry datasets (such as Google's Chrome User Experience Report) or provide an installable CLI/API auditing suite. Instead, its page and submission explicitly direct users to Google PageSpeed Insights whenever 28-day field Core Web Vitals (LCP, INP, CLS) are required, and confirm that no user account is needed and no tested URL records are stored."
+      },
+      {
+        "id": "operational-verdict-agency-utility",
+        "number": "04",
+        "title": "Operational Verdict: A Simple, No-Friction Bookmark for Quick Sanity Checks",
+        "content": "As a free hosted web utility offered by UK web design and SEO agency Hand On Web Ltd, Website Speed Test occupies a modest, practical niche. While engineering teams automating performance regressions in CI will want dedicated CLI/Lighthouse tooling, anyone seeking a fast, privacy-respecting, no-login browser check on TTFB and basic HTML SEO tags will find it clean and dependable."
+      }
+    ],
+    "tool_id": "website-speed-test",
+    "model_used": "editorial-team",
+    "generated_at": "2026-11-26T14:50:00.000000+00:00"
   }
 }

@@ -57,6 +57,9 @@ const isExtension = toolTags.some((t: string) => t.includes('extension'))
   || taglineLower.includes('extension') 
   || installCmd.startsWith('code --install-extension');
 
+const isSdkOrPackage = Boolean(deployFmtLower.includes('sdk') || deployFmtLower.includes('npm package') || deployFmtLower.includes('library'));
+const isPlugin = Boolean(deployFmtLower.includes('plugin'));
+
 const isDesktop = Boolean(deployFmtLower.includes('desktop')
   || deployFmtLower.includes('macos')
   || deployFmtLower.includes('windows')
@@ -801,9 +804,13 @@ const jsonLd = isConciseProfile ? {
         <div class="preview-badge">
           {isExtension 
             ? "IDE Extension / Plugin" 
-            : (isDesktop 
-                ? "Native Desktop Application" 
-                : (isCliOrLocal ? "Terminal CLI Utility" : "Live Web Application"))}
+            : (isPlugin
+                ? "CMS / Platform Plugin"
+                : (isSdkOrPackage
+                    ? "SDK / Library Package"
+                    : (isDesktop 
+                        ? "Native Desktop Application" 
+                        : (isCliOrLocal ? "Terminal CLI Utility" : "Live Web Application"))))}
         </div>
         <h3 class="preview-hero-title">{tool.name}</h3>
         <p class="preview-hero-tagline">{tool.tagline}</p>
@@ -870,16 +877,16 @@ const jsonLd = isConciseProfile ? {
         ) : (
           <div class="spec-item">
             <span class="spec-label">Software Type</span>
-            <span class="spec-value" style="color: var(--accent);">{isExtension ? "Editor Extension" : (isCliOrLocal ? (isDesktop ? "Desktop Utility" : "CLI / Local Utility") : "Web Application")}</span>
+            <span class="spec-value" style="color: var(--accent);">{isExtension ? "Editor Extension" : (isPlugin ? "Platform Plugin" : (isSdkOrPackage ? "Developer SDK / Package" : (isCliOrLocal ? (isDesktop ? "Desktop Utility" : "CLI / Local Utility") : "Web Application")))}</span>
           </div>
         ))}
         <div class="spec-item">
           <span class="spec-label">Deployment Format</span>
           <span class="spec-value" style={tool.is_self_hostable ? "color: var(--emerald);" : "color: #a1a1aa;"}>
-            {tool.is_self_hostable 
-              ? "Self-Hosted (Docker/Bare-metal)" 
-              : ((tool as any).deployment_format 
-                  ? (tool as any).deployment_format
+            {(tool as any).deployment_format 
+              ? (tool as any).deployment_format
+              : (tool.is_self_hostable 
+                  ? "Self-Hosted (Docker/Bare-metal)" 
                   : (isExtension 
                       ? "Editor Extension (Local IDE)" 
                       : (isCliOrLocal 
