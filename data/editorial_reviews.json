@@ -47884,5 +47884,39 @@
     "tool_id": "vibecodesurf",
     "model_used": "google/gemini-3.5-flash-lite",
     "generated_at": "2026-11-26T07:36:02.162951+00:00"
+  },
+  "base-usdc-receipt-audit": {
+    "article_title": "Base USDC Receipt Audit Analysis: Dual-RPC Finality Verification, Hash Deduplication, and Batch Payout Reconciliation",
+    "reading_time": "4 min read",
+    "editorial_verdict_callout": "Base USDC Receipt Audit turns tedious block-explorer clicking into a clean, repeatable Python CLI workflow—giving Base operators dual-RPC finality proof and hash deduplication for a flat 2 USDC.",
+    "chapters": [
+      {
+        "id": "batch-payout-reconciliation-friction",
+        "number": "01",
+        "title": "The Payout CSV Problem: Why Explorer Spot-Checks Break Down at Scale",
+        "content": "Contractors, bounty earners, and task-platform operators paid in USDC on Base frequently receive spreadsheets listing dozens of line items marked 'paid' alongside transaction hashes. Checking those rows one by one in a web block explorer is slow and error-prone: two rows may reference the same transaction hash, a hash might transfer USDC to an unrelated address, or an unfinalized receipt might still be subject to reorg risk. Base USDC Receipt Audit automates this reconciliation loop in a single local Python 3.9+ CLI pass."
+      },
+      {
+        "id": "dual-rpc-verification-and-deduplication",
+        "number": "02",
+        "title": "Verification Mechanics: Dual Public RPCs, Contract Filtering, and Shared-Hash Deduplication",
+        "content": "Rather than connecting a hot wallet or subscribing to commercial indexer APIs, the CLI reads an input CSV (`item_id`, `tx`, and optional `amount`) and queries two read-only Base mainnet RPC endpoints (such as `mainnet.base.org` and `base-rpc.publicnode.com`). For every unique hash, it checks the native Base USDC contract (`0x833589fcd6edb6e08f4c7c32d4f71b54bda02913`), confirms the target recipient address, verifies receipt status against both nodes' finalized heights, and flags amount mismatches. When multiple CSV rows share one transaction hash, the auditor counts that transfer once—separating finalized credits from `no_transfer` or `unfinalized` items inside a structured JSON report."
+      },
+      {
+        "id": "packaging-offline-tests-and-boundaries",
+        "number": "03",
+        "title": "Packaging, Offline Test Coverage, and Honest Scope Boundaries",
+        "content": "The tool ships as a lightweight one-time 2 USDC ZIP download on Base containing the Python 3.9+ source code, an example CSV, a setup guide, and eight offline tests, while the product page exposes `sample-input.csv` and `sample-report.json` openly so engineers can inspect the exact schema before purchasing. Its documented limits are equally clear: up to 100 unique hashes per run, strictly native Base mainnet USDC, and zero computation of gas fees, total wallet balances, or net profit."
+      },
+      {
+        "id": "operational-verdict-base-operators",
+        "number": "04",
+        "title": "Operational Verdict: Practical Local Auditing Without Key or Wallet Exposure",
+        "content": "For anyone regularly reconciling Base USDC payout spreadsheets, Base USDC Receipt Audit delivers focused, verifiable utility at a negligible one-time cost. By pairing read-only dual-RPC cross-checks with deterministic JSON output and zero wallet or API-key requirements, it provides clean audit evidence ready for bookkeeping or dispute checks."
+      }
+    ],
+    "tool_id": "base-usdc-receipt-audit",
+    "model_used": "editorial-team",
+    "generated_at": "2026-11-27T10:15:00.000000+00:00"
   }
 }
